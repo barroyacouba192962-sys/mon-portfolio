@@ -16,7 +16,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Barrow Yacouba | Ingénieur Statisticien Économiste & Développeur",
-  description: "Portfolio de Barrow Yacouba - Ingénieur Statisticien Économiste, Développeur Web, Infographiste & Vidéaste basé à Ouagadougou.",
+  description:
+    "Portfolio de Barrow Yacouba - Ingénieur Statisticien Économiste, Développeur Web, Infographiste & Vidéaste basé à Ouagadougou.",
+  verification: {
+    google: "M56qV9j2VneXOwMiI1MLoJ2upGPe35gs5eAsm7lXLMQ",
+  },
 };
 
 export default function RootLayout({
