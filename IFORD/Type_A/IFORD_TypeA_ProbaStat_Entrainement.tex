@@ -1,0 +1,127 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[top=2cm,bottom=2.5cm,left=2.5cm,right=2cm]{geometry}
+\usepackage{enumitem}
+\usepackage{booktabs}
+
+\begin{document}
+
+\begin{center}
+{\large\bfseries Préparation au concours d'entrée à l'IFORD -- Yaoundé}\\[2mm]
+{\Large\bfseries Concours TYPE A -- Épreuve de PROBABILITÉS ET STATISTIQUE}\\[2mm]
+Sujet d'entraînement n\textsuperscript{o}\,1 \quad --\quad Durée : 4 heures\\[1mm]
+\emph{Sujet rédigé pour l'entraînement, conforme au programme officiel. Ce n'est pas un sujet officiel.}
+\end{center}
+\hrule\medskip
+
+\noindent\textbf{Consignes.} Les exercices sont indépendants. Calculatrice non programmable autorisée.
+Donner les résultats décimaux à $10^{-2}$ près.
+
+\section*{Exercice 1 -- Statistique descriptive (6 points)}
+Une enquête auprès de $100$ femmes a relevé l'âge à la première naissance :
+\begin{center}
+\begin{tabular}{lccccc}
+\toprule
+Âge (ans) & $[15;20[$ & $[20;25[$ & $[25;30[$ & $[30;35[$ & $[35;40[$\\
+\midrule
+Effectif & 12 & 28 & 35 & 18 & 7\\
+\bottomrule
+\end{tabular}
+\end{center}
+\begin{enumerate}
+  \item Préciser la population, l'unité statistique, le caractère étudié et sa nature.
+  \item Représenter cette distribution par un histogramme et tracer la courbe des effectifs cumulés croissants.
+  \item Calculer l'âge moyen $\bar{x}$, la variance $V$ et l'écart-type $\sigma$.
+  \item Déterminer la classe modale et le mode, puis la médiane par interpolation linéaire.
+  \item Comparer moyenne, médiane et mode ; que peut-on dire de la symétrie de la distribution ?
+\end{enumerate}
+
+\section*{Exercice 2 -- Tirages et variable aléatoire (5 points)}
+Une urne contient $4$ boules blanches et $6$ boules noires. On tire $3$ boules.
+Soit $X$ le nombre de boules blanches obtenues.
+\begin{enumerate}
+  \item Les tirages sont \emph{simultanés} (sans remise).
+  \begin{enumerate}[label=\alph*)]
+    \item Déterminer la loi de probabilité de $X$.
+    \item Calculer $E(X)$ et $V(X)$. Tracer la fonction de répartition de $X$.
+  \end{enumerate}
+  \item Les tirages sont \emph{successifs avec remise}. Reconnaître la loi de $X$, donner
+  $E(X)$, $V(X)$ et $P(X \geqslant 1)$.
+\end{enumerate}
+
+\section*{Exercice 3 -- Probabilités conditionnelles (4 points)}
+Dans un pays, $55\,\%$ des femmes en union vivent en milieu urbain. Parmi les urbaines,
+$40\,\%$ utilisent une méthode contraceptive moderne ; parmi les rurales, $20\,\%$.
+On choisit une femme au hasard. On note $U$ : « elle est urbaine » et $C$ : « elle utilise une méthode moderne ».
+\begin{enumerate}
+  \item Construire l'arbre pondéré de la situation.
+  \item Calculer $P(C)$.
+  \item La femme utilise une méthode moderne. Quelle est la probabilité qu'elle soit urbaine ?
+  \item Les événements $U$ et $C$ sont-ils indépendants ? Justifier.
+\end{enumerate}
+
+\section*{Exercice 4 -- Couple de variables aléatoires (5 points)}
+Soit $(X,Y)$ un couple de variables aléatoires dont la loi conjointe est :
+\begin{center}
+\begin{tabular}{c|ccc}
+$X \backslash Y$ & 0 & 1 & 2\\ \hline
+0 & 0{,}10 & 0{,}20 & 0{,}10\\
+1 & 0{,}15 & 0{,}25 & 0{,}20
+\end{tabular}
+\end{center}
+\begin{enumerate}
+  \item Déterminer les lois marginales de $X$ et de $Y$.
+  \item Calculer $E(X)$, $E(Y)$, $V(X)$, $V(Y)$.
+  \item Calculer $E(XY)$ puis $\operatorname{Cov}(X,Y)$. $X$ et $Y$ sont-elles indépendantes ?
+  \item Déterminer la loi de $S = X + Y$ et vérifier que $E(S) = E(X) + E(Y)$.
+\end{enumerate}
+
+\newpage
+\begin{center}{\Large\bfseries Corrigé}\end{center}
+
+\subsection*{Exercice 1}
+\begin{enumerate}
+  \item Population : les 100 femmes enquêtées ; unité : une femme ; caractère : âge à la première naissance, quantitatif continu (regroupé en classes).
+  \item Classes de même amplitude (5 ans) : hauteurs proportionnelles aux effectifs. Effectifs cumulés : 12 ; 40 ; 75 ; 93 ; 100.
+  \item Centres : 17,5 ; 22,5 ; 27,5 ; 32,5 ; 37,5.
+  $\bar{x} = \dfrac{2650}{100} = 26{,}5$ ans ; $\overline{x^2} = 731{,}75$ ;
+  $V = 731{,}75 - 26{,}5^2 = 29{,}5$ ; $\sigma \approx 5{,}43$ ans.
+  \item Classe modale $[25;30[$ ; $M_o = 25 + 5\times\dfrac{7}{7+17} \approx 26{,}46$ ans.
+  Médiane dans $[25;30[$ : $M_e = 25 + 5\times\dfrac{50-40}{35} \approx 26{,}43$ ans.
+  \item $\bar{x} \approx M_e \approx M_o$ : distribution sensiblement symétrique.
+\end{enumerate}
+
+\subsection*{Exercice 2}
+\begin{enumerate}
+  \item a) $\binom{10}{3} = 120$ tirages.
+  $P(X=0) = \frac{20}{120} = \frac16$, $P(X=1) = \frac{4\times15}{120} = \frac12$,
+  $P(X=2) = \frac{6\times6}{120} = \frac{3}{10}$, $P(X=3) = \frac{4}{120} = \frac1{30}$.\\
+  b) $E(X) = 1{,}2$ ; $E(X^2) = 2$ ; $V(X) = 2 - 1{,}44 = 0{,}56$.
+  $F$ est en escalier : $0$ pour $x<0$ ; $\frac16$ sur $[0;1[$ ; $\frac23$ sur $[1;2[$ ; $\frac{29}{30}$ sur $[2;3[$ ; $1$ pour $x\geqslant3$.
+  \item $X \sim \mathcal{B}(3\,;0{,}4)$ : $E(X) = 1{,}2$, $V(X) = 0{,}72$,
+  $P(X\geqslant1) = 1 - 0{,}6^3 = 0{,}784$.
+\end{enumerate}
+
+\subsection*{Exercice 3}
+\begin{enumerate}
+  \setcounter{enumi}{1}
+  \item $P(C) = 0{,}55\times0{,}40 + 0{,}45\times0{,}20 = 0{,}22 + 0{,}09 = 0{,}31$.
+  \item $P_C(U) = \dfrac{0{,}22}{0{,}31} \approx 0{,}71$.
+  \item $P(U\cap C) = 0{,}22 \neq P(U)P(C) = 0{,}1705$ : non indépendants.
+\end{enumerate}
+
+\subsection*{Exercice 4}
+\begin{enumerate}
+  \item $X$ : $P(X=0) = 0{,}4$, $P(X=1) = 0{,}6$. \quad
+  $Y$ : $P(Y=0) = 0{,}25$, $P(Y=1) = 0{,}45$, $P(Y=2) = 0{,}30$.
+  \item $E(X) = 0{,}6$ ; $V(X) = 0{,}24$ ; $E(Y) = 1{,}05$ ; $E(Y^2) = 1{,}65$ ; $V(Y) = 0{,}5475$.
+  \item $E(XY) = 1\times0{,}25 + 2\times0{,}20 = 0{,}65$ ; $\operatorname{Cov}(X,Y) = 0{,}65 - 0{,}63 = 0{,}02$.
+  Non indépendantes : $P(X=0,Y=1) = 0{,}20 \neq 0{,}4\times0{,}45 = 0{,}18$.
+  \item $P(S=0) = 0{,}10$, $P(S=1) = 0{,}35$, $P(S=2) = 0{,}35$, $P(S=3) = 0{,}20$ ;
+  $E(S) = 1{,}65 = 0{,}6 + 1{,}05$.
+\end{enumerate}
+
+\end{document}

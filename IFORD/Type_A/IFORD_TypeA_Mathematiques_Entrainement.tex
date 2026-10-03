@@ -1,0 +1,108 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[top=2cm,bottom=2.5cm,left=2.5cm,right=2cm]{geometry}
+\usepackage{enumitem}
+
+\begin{document}
+
+\begin{center}
+{\large\bfseries Préparation au concours d'entrée à l'IFORD -- Yaoundé}\\[2mm]
+{\Large\bfseries Concours TYPE A -- Épreuve de MATHÉMATIQUES}\\[2mm]
+Sujet d'entraînement n\textsuperscript{o}\,1 \quad --\quad Durée : 4 heures\\[1mm]
+\emph{Sujet rédigé pour l'entraînement, conforme au programme officiel. Ce n'est pas un sujet officiel.}
+\end{center}
+\hrule\medskip
+
+\noindent\textbf{Consignes.} Les quatre exercices sont indépendants. La calculatrice non
+programmable est autorisée. La qualité de la rédaction sera prise en compte.
+
+\section*{Exercice 1 -- Algèbre (5 points)}
+\begin{enumerate}
+  \item Résoudre dans $\mathbb{R}$ le système
+  $\begin{cases} 2x + 3y = 7\\ x - y = 1\end{cases}$.
+  \item Résoudre dans $\mathbb{R}$ l'inéquation $\dfrac{x-1}{x+2} \geqslant 2$.
+  \item Soit $m$ un réel non nul et l'équation $(E_m) : \; m x^2 - 2(m+1)x + m + 4 = 0$.
+  \begin{enumerate}[label=\alph*)]
+    \item Pour quelles valeurs de $m$ l'équation $(E_m)$ admet-elle deux racines réelles distinctes ?
+    \item Exprimer, sans les calculer, la somme $S$ et le produit $P$ des racines en fonction de $m$.
+    \item Déterminer les valeurs de $m$ pour lesquelles $(E_m)$ admet deux racines distinctes strictement positives.
+  \end{enumerate}
+\end{enumerate}
+
+\section*{Exercice 2 -- Étude de fonction (6 points)}
+Soit $f$ la fonction définie sur $]0;+\infty[$ par $f(x) = \dfrac{\ln x}{x}$.
+\begin{enumerate}
+  \item Calculer les limites de $f$ en $0$ et en $+\infty$. Interpréter graphiquement.
+  \item Calculer $f'(x)$ et dresser le tableau de variations de $f$.
+  \item Discuter, suivant les valeurs du réel $k$, le nombre de solutions de l'équation $f(x) = k$.
+  \item Calculer l'intégrale $I = \displaystyle\int_1^{e} f(x)\,dx$.
+  \item \emph{Application démographique.} Une population de $20$ millions d'habitants croît au
+  taux annuel continu de $2{,}5\,\%$ : $P(t) = 20\,e^{0{,}025\,t}$ ($t$ en années).
+  \begin{enumerate}[label=\alph*)]
+    \item Calculer la population au bout de $10$ ans.
+    \item Déterminer le temps de doublement de cette population.
+  \end{enumerate}
+\end{enumerate}
+
+\section*{Exercice 3 -- Suites (5 points)}
+On considère la suite $(u_n)$ définie par $u_0 = 5$ et $u_{n+1} = 0{,}8\,u_n + 2$.
+\begin{enumerate}
+  \item Calculer $u_1$, $u_2$, $u_3$.
+  \item On pose $v_n = u_n - 10$. Montrer que $(v_n)$ est géométrique ; préciser sa raison et son premier terme.
+  \item En déduire $u_n$ en fonction de $n$, puis la limite de $(u_n)$.
+  \item Calculer $S_n = u_0 + u_1 + \dots + u_n$ en fonction de $n$.
+\end{enumerate}
+
+\section*{Exercice 4 -- Calcul matriciel (4 points)}
+Soit $A = \begin{pmatrix} 2 & 1\\ 1 & 2\end{pmatrix}$ et $I$ la matrice identité d'ordre 2.
+\begin{enumerate}
+  \item Calculer $A^2$ et vérifier que $A^2 - 4A + 3I = 0$.
+  \item En déduire que $A$ est inversible et donner $A^{-1}$.
+  \item Résoudre le système $\begin{cases} 2x + y = 4\\ x + 2y = 5\end{cases}$ à l'aide de $A^{-1}$.
+\end{enumerate}
+
+\newpage
+\begin{center}{\Large\bfseries Corrigé}\end{center}
+
+\subsection*{Exercice 1}
+\begin{enumerate}
+  \item $x = 1 + y$ donc $2 + 2y + 3y = 7$, d'où $y = 1$ et $x = 2$. $\;\mathcal{S} = \{(2;1)\}$.
+  \item Pour $x \neq -2$ : $\dfrac{x-1}{x+2} - 2 = \dfrac{-x-5}{x+2} \geqslant 0 \iff \dfrac{x+5}{x+2} \leqslant 0$.
+  Tableau de signes : $\mathcal{S} = [-5\,;-2[$.
+  \item a) $\Delta' = (m+1)^2 - m(m+4) = 1 - 2m$. Deux racines distinctes $\iff m \neq 0$ et $m < \tfrac12$.\\
+  b) $S = \dfrac{2(m+1)}{m}$, \quad $P = \dfrac{m+4}{m}$.\\
+  c) Il faut $\Delta' > 0$, $P > 0$ et $S > 0$.
+  $P > 0 \iff m < -4$ ou $m > 0$ ; $S > 0 \iff m < -1$ ou $m > 0$.
+  D'où $m \in \,]-\infty\,;-4[\,\cup\,]0\,;\tfrac12[$.
+\end{enumerate}
+
+\subsection*{Exercice 2}
+\begin{enumerate}
+  \item $\lim_{0^+} f = -\infty$ (asymptote verticale $x=0$) ; $\lim_{+\infty} f = 0$ par croissances comparées (asymptote horizontale $y=0$).
+  \item $f'(x) = \dfrac{1 - \ln x}{x^2}$ : $f$ croissante sur $]0;e]$, décroissante sur $[e;+\infty[$, maximum $f(e) = \dfrac1e \approx 0{,}368$.
+  \item $k > \frac1e$ : aucune solution ; $k = \frac1e$ : une solution ($x=e$) ;
+  $0 < k < \frac1e$ : deux solutions ; $k \leqslant 0$ : une solution (dans $]0;1]$).
+  \item $I = \left[\tfrac12(\ln x)^2\right]_1^e = \tfrac12$.
+  \item a) $P(10) = 20\,e^{0{,}25} \approx 25{,}68$ millions.\quad
+  b) $e^{0{,}025t} = 2 \iff t = \dfrac{\ln 2}{0{,}025} \approx 27{,}7$ ans.
+\end{enumerate}
+
+\subsection*{Exercice 3}
+\begin{enumerate}
+  \item $u_1 = 6$, $u_2 = 6{,}8$, $u_3 = 7{,}44$.
+  \item $v_{n+1} = 0{,}8u_n + 2 - 10 = 0{,}8(u_n - 10) = 0{,}8\,v_n$ : raison $0{,}8$, $v_0 = -5$.
+  \item $u_n = 10 - 5\,(0{,}8)^n$ ; comme $0 < 0{,}8 < 1$, $\lim u_n = 10$.
+  \item $S_n = 10(n+1) - 5\,\dfrac{1 - 0{,}8^{n+1}}{0{,}2} = 10(n+1) - 25\,(1 - 0{,}8^{n+1})$.
+\end{enumerate}
+
+\subsection*{Exercice 4}
+\begin{enumerate}
+  \item $A^2 = \begin{pmatrix}5&4\\4&5\end{pmatrix}$ et $A^2 - 4A + 3I = 0$.
+  \item $A(4I - A) = 3I$ donc $A^{-1} = \dfrac13(4I - A) = \dfrac13\begin{pmatrix}2&-1\\-1&2\end{pmatrix}$.
+  \item $\begin{pmatrix}x\\y\end{pmatrix} = A^{-1}\begin{pmatrix}4\\5\end{pmatrix} = \dfrac13\begin{pmatrix}3\\6\end{pmatrix} = \begin{pmatrix}1\\2\end{pmatrix}$.
+\end{enumerate}
+
+\end{document}

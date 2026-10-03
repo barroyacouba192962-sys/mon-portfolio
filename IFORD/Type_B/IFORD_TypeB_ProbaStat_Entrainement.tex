@@ -1,0 +1,125 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[top=2cm,bottom=2.5cm,left=2.5cm,right=2cm]{geometry}
+\usepackage{enumitem}
+\usepackage{booktabs}
+
+\begin{document}
+
+\begin{center}
+{\large\bfseries Préparation au concours d'entrée à l'IFORD -- Yaoundé}\\[2mm]
+{\Large\bfseries Concours TYPE B -- Épreuve de PROBABILITÉS ET STATISTIQUE}\\[2mm]
+Sujet d'entraînement n\textsuperscript{o}\,1 \quad --\quad Durée : 4 heures\\[1mm]
+\emph{Sujet rédigé pour l'entraînement, conforme au programme officiel. Ce n'est pas un sujet officiel.}
+\end{center}
+\hrule\medskip
+
+\noindent\textbf{Consignes.} Les exercices sont indépendants. Calculatrice non programmable autorisée.
+On donne : $u_{0{,}95} = 1{,}645$ ; $u_{0{,}975} = 1{,}96$ ; $e^{-2} \approx 0{,}1353$ ; $2^{0{,}4} \approx 1{,}3195$.
+
+\section*{Exercice 1 -- Distribution à deux variables (5 points)}
+Population urbaine (en millions) d'un pays lors de cinq recensements successifs, numérotés $x$ :
+\begin{center}
+\begin{tabular}{lccccc}
+\toprule
+$x_i$ & 1 & 2 & 3 & 4 & 5\\ \midrule
+$y_i$ & 2{,}1 & 2{,}9 & 4{,}2 & 4{,}8 & 6{,}0\\ \bottomrule
+\end{tabular}
+\end{center}
+\begin{enumerate}
+  \item Calculer $\bar{x}$, $\bar{y}$, $\operatorname{Var}(x)$, $\operatorname{Var}(y)$ et $\operatorname{Cov}(x,y)$.
+  \item Déterminer la droite de régression de $y$ en $x$ par la méthode des moindres carrés.
+  \item Calculer le coefficient de corrélation linéaire $r$ et l'interpréter.
+  \item Prévoir la population urbaine au $7^{\text{e}}$ recensement. Quelle réserve faut-il émettre ?
+\end{enumerate}
+
+\section*{Exercice 2 -- Estimation et test (5 points)}
+Dans une enquête démographique et de santé, sur un échantillon aléatoire de $400$ femmes,
+$92$ déclarent utiliser une méthode contraceptive moderne.
+\begin{enumerate}
+  \item Donner une estimation ponctuelle de la prévalence contraceptive $p$.
+  \item Construire un intervalle de confiance de $p$ au niveau $95\,\%$.
+  \item Les autorités affirment que la prévalence dépasse désormais $20\,\%$. Tester au seuil de $5\,\%$
+  $H_0 : p = 0{,}20$ contre $H_1 : p > 0{,}20$. Conclure.
+  \item Quelle taille d'échantillon faudrait-il pour que l'intervalle de confiance à $95\,\%$ ait une demi-largeur au plus égale à $0{,}02$ (on se placera dans le cas le plus défavorable) ?
+\end{enumerate}
+
+\section*{Exercice 3 -- Lois théoriques et ajustement (5 points)}
+\begin{enumerate}
+  \item Le nombre $N$ de décès quotidiens dans un hôpital suit une loi de Poisson de paramètre $2$.
+  Calculer $P(N = 0)$, $P(N \leqslant 2)$ et $P(N \geqslant 3)$.
+  \item Les revenus annuels $X$ (en FCFA) des ménages d'une ville suivent une loi de Pareto de
+  paramètres $x_0 = 50\,000$ et $\alpha = 2{,}5$ : $F(x) = 1 - \left(\dfrac{x_0}{x}\right)^{\alpha}$ pour $x \geqslant x_0$.
+  \begin{enumerate}[label=\alph*)]
+    \item Déterminer la densité de $X$.
+    \item Calculer le revenu moyen (on justifiera son existence) et le revenu médian.
+    \item On dispose d'un échantillon $(x_1,\dots,x_n)$, $x_0$ étant connu. Déterminer l'estimateur du
+    maximum de vraisemblance de $\alpha$.
+  \end{enumerate}
+\end{enumerate}
+
+\section*{Exercice 4 -- Série chronologique (5 points)}
+Nombre trimestriel de naissances (en milliers) enregistrées dans une maternité :
+\begin{center}
+\begin{tabular}{lcccc}
+\toprule
+ & T1 & T2 & T3 & T4\\ \midrule
+Année 1 & 10 & 14 & 18 & 12\\
+Année 2 & 12 & 16 & 20 & 14\\
+Année 3 & 14 & 18 & 22 & 16\\ \bottomrule
+\end{tabular}
+\end{center}
+\begin{enumerate}
+  \item Représenter la série et décrire ses composantes.
+  \item Calculer les moyennes mobiles centrées d'ordre 4.
+  \item En adoptant un modèle additif, calculer les coefficients saisonniers.
+  \item Désaisonnaliser la série, puis prévoir le nombre de naissances du premier trimestre de l'année 4.
+\end{enumerate}
+
+\newpage
+\begin{center}{\Large\bfseries Corrigé}\end{center}
+
+\subsection*{Exercice 1}
+\begin{enumerate}
+  \item $\bar{x} = 3$, $\bar{y} = 4$ ; $\operatorname{Var}(x) = \frac{10}{5} = 2$ ; $\operatorname{Var}(y) = \frac{9{,}5}{5} = 1{,}9$ ;
+  $\operatorname{Cov}(x,y) = \frac{9{,}7}{5} = 1{,}94$.
+  \item $a = \frac{1{,}94}{2} = 0{,}97$, $b = 4 - 0{,}97\times3 = 1{,}09$ : $y = 0{,}97x + 1{,}09$.
+  \item $r = \frac{9{,}7}{\sqrt{10\times9{,}5}} \approx 0{,}995$ : liaison linéaire positive très forte.
+  \item $y(7) \approx 7{,}88$ millions ; extrapolation : suppose la tendance inchangée.
+\end{enumerate}
+
+\subsection*{Exercice 2}
+\begin{enumerate}
+  \item $\hat{p} = \frac{92}{400} = 0{,}23$.
+  \item $0{,}23 \pm 1{,}96\sqrt{\frac{0{,}23\times0{,}77}{400}} = 0{,}23 \pm 0{,}041$, soit $[0{,}189\,;0{,}271]$.
+  \item $z = \frac{0{,}23 - 0{,}20}{\sqrt{0{,}2\times0{,}8/400}} = \frac{0{,}03}{0{,}02} = 1{,}5 < 1{,}645$ :
+  on ne rejette pas $H_0$ ; l'affirmation n'est pas établie au seuil de 5\,\%.
+  \item $1{,}96\times\frac{0{,}5}{\sqrt n} \leqslant 0{,}02 \iff n \geqslant 2401$.
+\end{enumerate}
+
+\subsection*{Exercice 3}
+\begin{enumerate}
+  \item $P(N=0) = e^{-2} \approx 0{,}135$ ; $P(N\leqslant2) = e^{-2}(1 + 2 + 2) \approx 0{,}677$ ; $P(N\geqslant3) \approx 0{,}323$.
+  \item a) $f(x) = \dfrac{\alpha\,x_0^{\alpha}}{x^{\alpha+1}}$ pour $x \geqslant x_0$, $0$ sinon.\\
+  b) $E(X)$ existe car $\alpha > 1$ : $E(X) = \frac{\alpha x_0}{\alpha - 1} \approx 83\,333$ FCFA.
+  Médiane : $\left(\frac{x_0}{M}\right)^{\alpha} = \frac12 \Rightarrow M = x_0\,2^{1/\alpha} \approx 65\,975$ FCFA.\\
+  c) $\ln L(\alpha) = n\ln\alpha + n\alpha\ln x_0 - (\alpha+1)\sum\ln x_i$ ;
+  $\frac{d\ln L}{d\alpha} = \frac n\alpha - \sum\ln\frac{x_i}{x_0} = 0$ ;
+  $\hat\alpha = \dfrac{n}{\sum_{i=1}^n \ln(x_i/x_0)}$ (maximum car $\frac{d^2\ln L}{d\alpha^2} = -\frac{n}{\alpha^2} < 0$).
+\end{enumerate}
+
+\subsection*{Exercice 4}
+\begin{enumerate}
+  \item Tendance croissante (+2 par an et par trimestre) et saisonnalité de période 4 (pic au T3).
+  \item Du T3 de l'année 1 au T2 de l'année 3 :
+  $13{,}75$ ; $14{,}25$ ; $14{,}75$ ; $15{,}25$ ; $15{,}75$ ; $16{,}25$ ; $16{,}75$ ; $17{,}25$.
+  \item Écarts $y - MM$ : T3 : $4{,}25$ ; T4 : $-2{,}25$ ; T1 : $-2{,}75$ ; T2 : $0{,}75$ (identiques chaque année),
+  de somme nulle : $S_1 = -2{,}75$, $S_2 = 0{,}75$, $S_3 = 4{,}25$, $S_4 = -2{,}25$.
+  \item Série CVS $= y - S_j$ : $12{,}75$ ; $13{,}25$ ; $13{,}75$ ; $14{,}25$ ; \dots (droite $13{,}75 + 0{,}5(t-3)$, $t=1$ pour le T1 de l'année 1).
+  Pour $t = 13$ : tendance $18{,}75$, prévision $18{,}75 - 2{,}75 = 16$ milliers.
+\end{enumerate}
+
+\end{document}

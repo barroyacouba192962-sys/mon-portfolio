@@ -1,0 +1,106 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[top=2cm,bottom=2.5cm,left=2.5cm,right=2cm]{geometry}
+\usepackage{enumitem}
+
+\begin{document}
+
+\begin{center}
+{\large\bfseries Préparation au concours d'entrée à l'IFORD -- Yaoundé}\\[2mm]
+{\Large\bfseries Concours TYPE B -- Épreuve de MATHÉMATIQUES}\\[2mm]
+Sujet d'entraînement n\textsuperscript{o}\,1 \quad --\quad Durée : 4 heures\\[1mm]
+\emph{Sujet rédigé pour l'entraînement, conforme au programme officiel. Ce n'est pas un sujet officiel.}
+\end{center}
+\hrule\medskip
+
+\noindent\textbf{Consignes.} Les exercices sont indépendants. Calculatrice non programmable autorisée.
+
+\section*{Exercice 1 -- Algèbre linéaire (6 points)}
+On note $I$ la matrice identité d'ordre 3, $J$ la matrice carrée d'ordre 3 dont tous les
+coefficients valent $1$, et $A = \begin{pmatrix}2&1&1\\1&2&1\\1&1&2\end{pmatrix}$.
+\begin{enumerate}
+  \item Vérifier que $A = I + J$ et calculer $J^2$ en fonction de $J$.
+  \item Montrer par récurrence que pour tout $n \in \mathbb{N}$, $A^n = I + a_n J$ avec $a_n = \dfrac{4^n - 1}{3}$.
+  \item Calculer $\det A$. Montrer que $A$ est inversible et déterminer $A^{-1}$ sous la forme $I + \alpha J$.
+  \item Déterminer les valeurs propres de $A$ et une base de chaque sous-espace propre. $A$ est-elle diagonalisable ?
+\end{enumerate}
+
+\section*{Exercice 2 -- Analyse (6 points)}
+\begin{enumerate}
+  \item \emph{Optimisation.} Soit $f(x,y) = x^2 + xy + y^2 - 3x - 3y$ sur $\mathbb{R}^2$.
+  Déterminer les points critiques de $f$ et leur nature.
+  \item \emph{Équation différentielle.} Résoudre $y' + 2y = e^{-x}$, puis trouver la solution vérifiant $y(0) = 0$.
+  \item \emph{Intégrales généralisées.} Pour $n \in \mathbb{N}$, on pose $I_n = \displaystyle\int_0^{+\infty} x^n e^{-x}\,dx$.
+  \begin{enumerate}[label=\alph*)]
+    \item Montrer que $I_0$ converge et la calculer.
+    \item Établir, à l'aide d'une intégration par parties, que $I_{n+1} = (n+1)\,I_n$. En déduire $I_n$.
+  \end{enumerate}
+  \item \emph{Série.} Montrer que la série $\sum_{n\geqslant1} \dfrac{1}{n(n+1)}$ converge et calculer sa somme.
+\end{enumerate}
+
+\section*{Exercice 3 -- Convergences stochastiques (8 points)}
+\begin{enumerate}
+  \item \emph{Enquête et Bienaymé-Tchebychev.} On souhaite estimer la proportion inconnue $p$
+  de ménages ayant accès à l'eau potable. On interroge $n$ ménages tirés au hasard avec remise et
+  on note $X_i = 1$ si le $i$-ème ménage a accès à l'eau potable, $0$ sinon. Soit $F_n = \dfrac1n\sum_{i=1}^n X_i$.
+  \begin{enumerate}[label=\alph*)]
+    \item Calculer $E(F_n)$ et $V(F_n)$. Montrer que $p(1-p) \leqslant \frac14$.
+    \item Énoncer l'inégalité de Bienaymé-Tchebychev et montrer que
+    $P\big(|F_n - p| \geqslant \varepsilon\big) \leqslant \dfrac{1}{4n\varepsilon^2}$.
+    \item En déduire que $F_n$ converge en probabilité vers $p$ (loi faible des grands nombres).
+    \item Quelle taille $n$ garantit, par cette inégalité, une erreur inférieure à $0{,}02$ avec un risque d'au plus $5\,\%$ ?
+    \item Reprendre la question précédente à l'aide du théorème central limite
+    (on prendra $u_{0{,}975} = 1{,}96$). Commenter.
+  \end{enumerate}
+  \item \emph{Binomiale et Poisson.} Soit $\lambda > 0$ et $X_n \sim \mathcal{B}(n, \lambda/n)$ pour $n > \lambda$.
+  Montrer que pour tout $k \in \mathbb{N}$, $P(X_n = k) \xrightarrow[n\to+\infty]{} e^{-\lambda}\dfrac{\lambda^k}{k!}$.
+  Quel type de convergence a-t-on établi ?
+  \item \emph{Contre-exemple.} Soit $Y_n$ telle que $P(Y_n = n) = \frac1n$ et $P(Y_n = 0) = 1 - \frac1n$.
+  Montrer que $Y_n$ converge en probabilité vers $0$, mais que $E(Y_n)$ ne tend pas vers $0$.
+\end{enumerate}
+
+\newpage
+\begin{center}{\Large\bfseries Corrigé}\end{center}
+
+\subsection*{Exercice 1}
+\begin{enumerate}
+  \item $J^2 = 3J$.
+  \item $n=0$ : $A^0 = I$, $a_0 = 0$. Si $A^n = I + a_nJ$, alors
+  $A^{n+1} = (I + a_nJ)(I + J) = I + (1 + 4a_n)J$ et $1 + 4\,\frac{4^n-1}{3} = \frac{4^{n+1}-1}{3}$.
+  \item $\det A = 2(4-1) - 1(2-1) + 1(1-2) = 4 \neq 0$.
+  $(I+J)(I+\alpha J) = I + (1 + 4\alpha)J = I \iff \alpha = -\frac14$ : $A^{-1} = I - \frac14 J$.
+  \item $J$ est de rang 1, de trace 3 : valeurs propres de $J$ : $0,0,3$, donc celles de $A$ : $1,1,4$.
+  $E_4 = \operatorname{Vect}\{(1,1,1)\}$ ; $E_1 = \{x+y+z = 0\} = \operatorname{Vect}\{(1,-1,0),(1,0,-1)\}$.
+  $\dim E_1 + \dim E_4 = 3$ : $A$ est diagonalisable (elle est d'ailleurs symétrique réelle).
+\end{enumerate}
+
+\subsection*{Exercice 2}
+\begin{enumerate}
+  \item $\partial_x f = 2x + y - 3 = 0$, $\partial_y f = x + 2y - 3 = 0$ : unique point critique $(1,1)$.
+  Hessienne $\begin{pmatrix}2&1\\1&2\end{pmatrix}$, $rt - s^2 = 3 > 0$, $r > 0$ : minimum, $f(1,1) = -3$
+  (global car $f$ est convexe).
+  \item $y = e^{-x} + Ce^{-2x}$ ; $y(0)=0 \Rightarrow C = -1$ : $y = e^{-x} - e^{-2x}$.
+  \item a) $\int_0^A e^{-x}dx = 1 - e^{-A} \to 1$ : $I_0 = 1$.
+  b) $I_{n+1} = \left[-x^{n+1}e^{-x}\right]_0^{+\infty} + (n+1)\int_0^{+\infty}x^ne^{-x}dx = (n+1)I_n$,
+  donc $I_n = n!$.
+  \item $\frac{1}{n(n+1)} = \frac1n - \frac1{n+1}$ : somme télescopique $S_N = 1 - \frac1{N+1} \to 1$.
+\end{enumerate}
+
+\subsection*{Exercice 3}
+\begin{enumerate}
+  \item a) $E(F_n) = p$, $V(F_n) = \frac{p(1-p)}{n}$ ; $p(1-p) = \frac14 - (p - \frac12)^2 \leqslant \frac14$.\\
+  b) $P(|Z - E(Z)| \geqslant \varepsilon) \leqslant \frac{V(Z)}{\varepsilon^2}$ appliquée à $F_n$.\\
+  c) Le majorant tend vers $0$ quand $n \to +\infty$.\\
+  d) $\frac{1}{4n(0{,}02)^2} \leqslant 0{,}05 \iff n \geqslant 12\,500$.\\
+  e) TCL : $1{,}96\sqrt{\frac{p(1-p)}{n}} \leqslant 1{,}96\,\frac{1}{2\sqrt n} \leqslant 0{,}02 \iff n \geqslant 49^2 = 2401$.
+  Bienaymé-Tchebychev, valable sans hypothèse de loi, est beaucoup plus pessimiste.
+  \item $P(X_n = k) = \frac{n(n-1)\cdots(n-k+1)}{n^k}\cdot\frac{\lambda^k}{k!}\cdot\left(1 - \frac{\lambda}{n}\right)^{n-k}$ ;
+  le premier facteur tend vers $1$ et $\left(1 - \frac\lambda n\right)^{n-k} \to e^{-\lambda}$.
+  Convergence en loi de $X_n$ vers $\mathcal{P}(\lambda)$.
+  \item Pour $\varepsilon > 0$ et $n > \varepsilon$ : $P(|Y_n| \geqslant \varepsilon) = \frac1n \to 0$. Mais $E(Y_n) = 1$ pour tout $n$.
+\end{enumerate}
+
+\end{document}
