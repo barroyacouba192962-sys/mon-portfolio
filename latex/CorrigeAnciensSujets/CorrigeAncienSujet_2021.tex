@@ -42,107 +42,39 @@ On a :
 
 
 \medskip
-\textbf{Exercice 2 }
+\textbf{Exercice 2} \quad $(x-1)u'(x)+u(x)=0$, \ $u(0)=-1$.
 
+\textbf{1. Développement en série entière.}
 
-
-1 : Développement en série entière de la fonction \( u \)
-
-On considère l'équation différentielle suivante :
+On cherche $u$ sous la forme $u(x)=\displaystyle\sum_{n=0}^{+\infty}a_nx^n$, de rayon $R>0$. Sur $]-R,R[$, on peut dériver terme à terme : $u'(x)=\displaystyle\sum_{n=1}^{+\infty}na_nx^{n-1}=\sum_{n=0}^{+\infty}(n+1)a_{n+1}x^n$. Alors
 \[
-(x - 1) u'(x) + u(x) = 0,
+(x-1)u'(x)+u(x)=\sum_{n=0}^{+\infty}na_nx^n-\sum_{n=0}^{+\infty}(n+1)a_{n+1}x^n+\sum_{n=0}^{+\infty}a_nx^n=\sum_{n=0}^{+\infty}\big[(n+1)a_n-(n+1)a_{n+1}\big]x^n .
 \]
-avec la condition initiale \( u(0) = -1 \). Nous cherchons le développement en série entière de la solution \( u(x) \).
-
-\quad
- Résolution de l'équation différentielle
-
-Nous réécrivons l'équation sous la forme :
+Par unicité du développement en série entière, l'équation équivaut à : pour tout $n\ge0$, $(n+1)(a_n-a_{n+1})=0$, soit
 \[
-u'(x) = \frac{-u(x)}{x - 1}.
+a_{n+1}=a_n\quad\text{pour tout }n\ge0 .
 \]
-
-Nous cherchons une solution sous la forme d'une série entière autour de \( x = 0 \), soit :
+Avec $a_0=u(0)=-1$, on obtient $a_n=-1$ pour tout $n$ :
 \[
-u(x) = \sum_{n=0}^{\infty} a_n x^n.
+\boxed{u(x)=-\sum_{n=0}^{+\infty}x^n=-\frac{1}{1-x}=\frac{1}{x-1}}.
 \]
+\emph{Vérification directe :} $u(x)=\frac1{x-1}$, $u'(x)=-\frac{1}{(x-1)^2}$, donc $(x-1)u'(x)+u(x)=-\frac1{x-1}+\frac1{x-1}=0$, et $u(0)=-1$.
 
-En dérivant cette série terme à terme, on obtient :
+(On peut aussi résoudre directement : sur $]-\infty,1[$, $\frac{u'}{u}=\frac{-1}{x-1}$ donne $u=\frac{C}{x-1}$, et $u(0)=-1$ impose $C=1$.)
+
+\textbf{2. Rayon de convergence.} $|a_n|=1$ pour tout $n$ : $\frac{|a_{n+1}|}{|a_n|}=1$, donc (règle de d'Alembert) $\boxed{R=1}$.
+
+\textbf{3. Domaine de convergence.} La série converge (absolument) pour $|x|<1$ et diverge pour $|x|>1$. Pour $x=1$ et $x=-1$, le terme général $-x^n$ ne tend pas vers $0$ : la série diverge grossièrement. Le domaine de convergence est donc
 \[
-u'(x) = \sum_{n=1}^{\infty} a_n n x^{n-1}.
+\boxed{]-1,1[}.
 \]
-
-Nous remplaçons cette expression dans l'équation différentielle :
-\[
-(x - 1) \sum_{n=1}^{\infty} a_n n x^{n-1} + \sum_{n=0}^{\infty} a_n x^n = 0.
-\]
-
-\quad
- Développement des termes
-
-Développons \( (x - 1) \) et multiplions la série par \( (x - 1) \). Nous obtenons :
-\[
-(x - 1) \sum_{n=1}^{\infty} a_n n x^{n-1} = \sum_{n=1}^{\infty} a_n n (x^{n} - x^{n-1}).
-\]
-
-Cela donne :
-\[
-\sum_{n=1}^{\infty} a_n n x^n - \sum_{n=1}^{\infty} a_n n x^{n-1}.
-\]
-
-En ajoutant la deuxième série \( \sum_{n=0}^{\infty} a_n x^n \), on obtient :
-\[
-\left( \sum_{n=1}^{\infty} a_n n x^n - \sum_{n=1}^{\infty} a_n n x^{n-1} \right) + \sum_{n=0}^{\infty} a_n x^n = 0.
-\]
-
-Nous réorganisons les indices et combinons les termes en \( x^n \), ce qui nous permet d'obtenir une relation de récurrence entre les coefficients \( a_n \).
-
-\quad
- Résolution de la relation de récurrence
-
-Nous trouvons la relation de récurrence suivante pour les coefficients \( a_n \) :
-\[
-a_n = \frac{1}{n} a_{n-1}, \quad \text{pour } n \geq 1.
-\]
-
-Nous utilisons la condition initiale \( u(0) = -1 \), ce qui donne \( a_0 = -1 \). En utilisant la relation de récurrence, nous pouvons calculer les autres coefficients :
-\[
-a_1 = \frac{1}{1} a_0 = -1, \quad a_2 = \frac{1}{2} a_1 = \frac{1}{2}, \quad a_3 = \frac{1}{3} a_2 = \frac{1}{6}, \quad \dots
-\]
-
-Ainsi, la série entière de la solution \( u(x) \) est :
-\[
-u(x) = \sum_{n=0}^{\infty} \frac{(-1)^n}{n!} x^n.
-\]
-
-Il s'agit du développement en série entière de la fonction \( u(x) \).
-
- 2. Rayon de convergence de la série
-
-Le rayon de convergence \( R \) de la série entière \( u(x) = \sum_{n=0}^{\infty} a_n x^n \) est donné par la formule de Cauchy-Hadamard :
-\[
-\frac{1}{R} = \limsup_{n \to \infty} \sqrt[n]{|a_n|}.
-\]
-
-Ici, nous avons \( a_n = \frac{(-1)^n}{n!} \), donc :
-\[
-\limsup_{n \to \infty} \sqrt[n]{|a_n|} = \limsup_{n \to \infty} \sqrt[n]{\frac{1}{n!}} = 0.
-\]
-
-Ainsi, le rayon de convergence est \( R = \infty \).
-
- 3. Domaine de convergence
-
-Étant donné que le rayon de convergence de la série est \( R = \infty \), cela signifie que la série converge pour tous les \( x \in \mathbb{R} \). Ainsi, le domaine de convergence de la série est \( \mathbb{R} \).
-
-
 
 \medskip
 \textbf{Exercice 3}
 
 Calculons $\int\int_{D}f(x,y)dxdy$ dans les cas suivants :
 
-1. $D= \lbrace {y\geq 0, x+y, y-x\leq 1\rbrace}$ et $f(x,y)=x^{2}y$.
+1. $D= \lbrace {y\geq 0,\ x+y\leq 1,\ y-x\leq 1\rbrace}$ (triangle de sommets $(-1,0)$, $(1,0)$, $(0,1)$) et $f(x,y)=x^{2}y$.
 
 
 On a:
@@ -182,7 +114,7 @@ Donc
 &=\frac{2}{3}\int_0^1y(1-y)^3dy\\
 &=\frac{2}{3}\int_0^1y(1-3y+3y^2-y^3)dy\\
 &=\frac{2}{3}\int_0^1(y-3y^2+3y^3-y^4)dy\\
-&=\frac{2}{3}[\frac{1}{2}y-y^3+\frac{3}{4}y^4-\frac{1}{5}y^5]_0^1\\
+&=\frac{2}{3}[\frac{1}{2}y^2-y^3+\frac{3}{4}y^4-\frac{1}{5}y^5]_0^1\\
 &=\frac{2}{3}(\frac{1}{2}-1+\frac{3}{4}-\frac{1}{5})\\
 \int\int_{D}f(x,y)dxdy &=\frac{1}{30}
 \end{align*}
