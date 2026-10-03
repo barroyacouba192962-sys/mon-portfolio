@@ -51,11 +51,23 @@ jeunesse, genre, santé, migrations, environnement, éducation, emploi, numériq
 IFORD/
 ├── README.md                      ← ce fichier
 ├── SOURCES.md                     ← où trouver les anciens sujets officiels (liens)
-├── telecharger_sujets.sh          ← script pour télécharger les sujets officiels
-├── Sujets_Officiels/              ← destination des PDF officiels (vide tant que le script n'a pas tourné)
+├── telecharger_sujets.sh          ← script qui (re)télécharge les sujets officiels
+├── Sujets_Officiels/              ← ANCIENS SUJETS OFFICIELS (PDF du site iford-cm.org)
 │   ├── Type_A/
+│   │   ├── IFORD_2015_Mathematiques_TypeA.pdf
+│   │   ├── IFORD_2015_ProbaStat_TypeA.pdf
+│   │   ├── IFORD_2023_Mathematiques_TypeA.pdf
+│   │   └── IFORD_2023_ProbaStat_TypeA.pdf
 │   ├── Type_B/
-│   └── Culture_Generale/
+│   │   ├── IFORD_2015_Mathematiques_TypeB.pdf
+│   │   ├── IFORD_2015_ProbaStat_TypeB.pdf
+│   │   ├── IFORD_2023_Mathematiques_TypeB.pdf
+│   │   └── IFORD_2023_ProbaStat_TypeB.pdf
+│   ├── Culture_Generale/
+│   │   ├── IFORD_2015_CultureGenerale_AB.pdf
+│   │   └── IFORD_2023_CultureGenerale_AB.pdf
+│   └── Annexes/
+│       └── IFORD_2023_Annexe_ProbaStat_A_B.pdf   ← tables statistiques (Poisson, etc.)
 ├── Type_A/
 │   ├── IFORD_TypeA_Mathematiques_Entrainement.tex
 │   └── IFORD_TypeA_ProbaStat_Entrainement.tex
@@ -70,8 +82,9 @@ IFORD/
 > Les fichiers `.tex` des dossiers `Type_A/`, `Type_B/` et `Culture_Generale/` sont des
 > **sujets d'entraînement rédigés pour l'application**, au format et au niveau du concours
 > (4 h, programme officiel). **Ce ne sont pas des reproductions des sujets officiels.**
-> Les anciens sujets officiels sont publiés par l'IFORD (voir `SOURCES.md`) et se placent
-> dans `Sujets_Officiels/` grâce au script `telecharger_sujets.sh`.
+> Les **anciens sujets officiels** (sessions de mars 2015 et février 2023, les seules publiées
+> sur le site de l'IFORD) sont dans `Sujets_Officiels/`. Les PDF de 2015 sont des scans
+> (pas de texte sélectionnable) ; ceux de 2023 sont des PDF texte.
 
 ## 3. Compiler les sujets d'entraînement
 
