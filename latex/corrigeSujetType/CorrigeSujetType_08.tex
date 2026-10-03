@@ -7,639 +7,324 @@
 
 \textbf{Exercice 1}
 
-1.a) Soit $\overrightarrow{U}=(x,y,z)^T\in \mathbb{R}^3$. On a :
+$T(e_1)=T(e_3)=e_3$ et $T(e_2)=-e_1+e_2+e_3$.
 
-$T(\overrightarrow{U})=T(xe_1+ye_2+ze_3)=xe_3+y(-e_1+e_2+e_3)+ze_3=-ye_1+ye_2+(x+y+z)e_3$.
+\textbf{1.a) Noyau de $T$.}
 
-Ainsi, 
-
-$\overrightarrow{U}=\begin{pmatrix}
-x\\
-y\\
-z\\
-\end{pmatrix}\in Ker(T)\Longleftrightarrow \begin{cases}
-y=0\\
-x+y+z=0
-\end{cases}\Longleftrightarrow \begin{cases}
-x=k_1, k_1\in \mathbb{R}\\
-y=0\\
-z=-k_1
-\end{cases}\Longleftrightarrow \overrightarrow{U}=k_1\begin{pmatrix}
-1\\
-0\\
--1
-\end{pmatrix}, k_1\in \mathbb{R}$ et $Ker(T)=Vect\langle \begin{pmatrix}
-1\\
-0\\
--1
-\end{pmatrix}\rangle$.
-
-
-b)  Pour écrire la matrice de l'application linéaire $T$ dans la base $B$ on calcul $T(e_1),
- T(e_2)$ et $T(e_3)$ que l'on exprime dans la base $B$ puis on concatène ces vecteurs pour former $A$.Les vecteurs $T(e_i),(i=1,2,3)$ étant donnés dans l'énoncé on a directement :
- 
- $A=\begin{pmatrix}
- 0 & -1 & 0 \\ 
- 0 & 1 & 0 \\ 
- 1 & 1 & 1.
- \end{pmatrix}$
- 
- 2.a) On a 
- $
- \begin{cases}
- f_1=e_1-e_3\\
- f_2=e_1-e_2\\
- f_3=-e_1+e_2+e_3
- \end{cases}\Leftrightarrow \begin{cases}
- e_3=e_1-f_1=f_2+f_3\\
- e_1=f_2+e_2=f_1+f_2+f_3\\
- e_2=f_1+f_3 (L_3\longleftarrow L3+L1)
- \end{cases}
- $
- 
- Ainsi $\mathbb{R}^3=Vect\langle e_1,e_2,e_3\rangle\subset Vect\langle f_1,f_2,f_3\rangle$. La famille $(f_1,f_2,f_3)$ est donc génératrice minimale et c'est une base.
- 
- b) On a :
- 
- $
- T(f_1)=\begin{pmatrix}
- 0 & -1 & 0 \\ 
- 0 & 1 & 0 \\ 
- 1 & 1 & 1.
- \end{pmatrix}\begin{pmatrix}
-1\\
-0\\
--1
-\end{pmatrix}=0_{\mathbb{R}^3}
-$ en remarquant que $f_1\in Ker(T)$
-
-$
-T(f_2)=\begin{pmatrix}
- 0 & -1 & 0 \\ 
- 0 & 1 & 0 \\ 
- 1 & 1 & 1.
- \end{pmatrix}\begin{pmatrix}
-1\\
--1\\
-0
-\end{pmatrix}=\begin{pmatrix}
-1\\
--1\\
-0
-\end{pmatrix}=f_2,
-$
-
-$
-T(f_3)=\begin{pmatrix}
- 0 & -1 & 0 \\ 
- 0 & 1 & 0 \\ 
- 1 & 1 & 1.
- \end{pmatrix}\begin{pmatrix}
--1\\
-1\\
-1
-\end{pmatrix}=\begin{pmatrix}
--1\\
-1\\
-1
-\end{pmatrix}=f_3
-$
-
-Ainsi la matrice $B$ de $T$ dans la base $(f_1,f_2,f_3)$ est donnée par :
-
-$
-B=\begin{pmatrix}
- 0 & 0 & 0 \\ 
- 0 & 1 & 0 \\ 
- 0 & 0 & 1.
- \end{pmatrix}
- $
- 
- 3. On va vérifier que $P$ est inversible et calculer $P^{-1}$ en même temps. $P$ est inversible si et seulement si,pour tout $Y\in \mathbb{R}^3$, il existe un unique $X\in \mathbb{R}^3$ tel que $PX=Y$. On fixe donc $Y=(y_1,y_2,y_3)^T\in \mathbb{R}^3$ et on résout le système : 
- 
- $
- \begin{cases}
- x_1+x_2-x_3=y_1\\
- -x_2+x_3=y_2\\
- -x_1+x_3=y_3
- \end{cases}\Leftrightarrow \begin{cases}
- x_2=y_1+y_3 (L_1\longleftarrow L_1+L3)\\
- x_3=y_1+y_2+y_3\\
- x_1=y_1+y_2
- \end{cases}
- $
- 
-  Le système précédent admet donc une unique solution,$P$ est inversible et $P^{-1}$ est donnée par :
-  
-  $
-  \begin{pmatrix}
- 1 & 1 & 0 \\ 
- 1 & 0 & 1 \\ 
- 1 & 1 & 1.
- \end{pmatrix} \hspace*{1cm}\begin{cases}
- x_1=\textbf{1} y_1+\textbf{1}y_2+\textbf{0}y_3\\
- x_2=\textbf{1} y_1+\textbf{0}y_2+\textbf{1}y_3\\
- x_3=\textbf{1} y_1+\textbf{1}y_2+\textbf{1}y_3
- \end{cases}
- $
- 
-  \textbf{Deuxième méthode} : $P$ est la matrice de passage de la base $B$ à la base $V$, elle est
- donc inversible. La matrice $P^{-1}$ est la matrice de passage de la base $V$ à la base $B$. Pour
- écrire cette matrice on utilise la relation (obtenue précédemment dans l'exercice) :
- 
- $
- \begin{cases}
- e_1=f_1+f_2+y_3\\
- e_2=f_1+f_3\\
- e_3=f_2+f_3
-\end{cases}
- $
- 
- Cela nous donne directement $P^{-1}$ en concaténant les $e_i$ exprimés en fonction des $f_i$.
-Finalement la formule du changement de base sur les matrices donne:
-
-$
-A=PBP^{-1}
-$
-
-\underline{\textbf{Rappel :}}
-
- Soit $f :E\rightarrow E$ une application linéaire. Soit $B$ et $B'$ deux bases de $E$. On note $A$
- (respectivement $B$) la matrice de $f$ dans la base $B$ (respectivement $B'$). Soit $u$ un vecteur
- de $E$. Soit $X$ le vecteur colonne associé à $u$ dans la base $B$  et $Y$ le vecteur colonne associé
- à $u$ dans la base $B'$. On a la relation $X=PY$ avec $P$ la matrice de passage de $B$ à $B'$.
- 
- Si on calcul $f(u)$ et que l'on exprime le résultat dans la base $B$ on a:
- 
-$ [f(u)]_B=AX$
-
- Calculons maintenant $f(u)$ en passant par la base $B'$. On a
-$ [f(u)]_{B^{'}}=BY$
- 
-  On passe d'une expression à l'autre en utilisant la matrice de passage $P$ donc:
-
-$ [f(u)]_B=P[f(u)]_{B^{'}}$
-
-Soit $AX=PBY$, mais $Y=P^{-1}X$ donc finalement : 
-
-$AX=PBP^{-1}X$.
-
-Cette relation implique donc l'égalité matricielle $A=PBP^{-1}$.
-
-
-
-
-
-
-\medskip\textbf{Exercice 2} 
-
-Le plan $(P)$ est rapporté à un repère orthonormé direct $(\overrightarrow{0} ; \overrightarrow{u}; \overrightarrow{v})$. On désigne par \(T\) l'application de \((P)\) dans \((P)\) qui, à tout point \(M\) d'affixe \(z\), associe le point \(M'\) d'affixe : 
+Soit $U=xe_1+ye_2+ze_3\in\mathbb{R}^3$. Par linéarité :
 \[
-z' = (1+i)z - i.
+T(U)=xT(e_1)+yT(e_2)+zT(e_3)=xe_3+y(-e_1+e_2+e_3)+ze_3=-y\,e_1+y\,e_2+(x+y+z)\,e_3 .
 \]
-
-\medskip
-\textbf{1. Décomposition de \(T\) en une rotation et une homothétie}
-
-\begin{itemize}
-    \item On écrit \(z' = (1+i)z - i = \sqrt{2}e^{i\pi/4}z - i\).
-    \item L'application \(T\) est donc une homothétie de rapport \(k = |1+i| = \sqrt{2}\) suivie d'une rotation d'angle \(\theta = \frac{\pi}{4}\), le tout combiné avec une translation de vecteur \(-i\).
-    \item Le point invariant par \(T\) (point fixe) est obtenu en résolvant \(z' = z\), soit :
-    \[
-    z = \sqrt{2}e^{i\pi/4}z - i \implies z(1 - \sqrt{2}e^{i\pi/4}) = -i \implies z = \frac{-i}{1 - \sqrt{2}e^{i\pi/4}}.
-    \]
-    \item Simplifions : \(z = \Omega = \frac{-i(1 - \sqrt{2}e^{-i\pi/4})}{(1 - \sqrt{2}e^{i\pi/4})(1 - \sqrt{2}e^{-i\pi/4})} = -1 - i\).
-    \item Le point invariant \(\Omega\) a donc pour affixe \(z_\Omega = -1 - i\).
-    \item L'angle orienté \((\overrightarrow{\Omega M}, \overrightarrow{MM'})\), pour \(M \neq \Omega\), est \(\theta = \frac{\pi}{4}\).
-\end{itemize}
-
-\medskip
-\textbf{2.a) Construction de \(M'\), image de \(M\) par \(T\)}
-
-Soit \(M\) un point donné d'affixe \(z\), l'affixe de \(M'\) est :
+Comme $(e_1,e_2,e_3)$ est une base :
 \[
-z' = \sqrt{2}e^{i\pi/4}z - i.
+U\in\ker T\iff\begin{cases}-y=0\\y=0\\x+y+z=0\end{cases}\iff\begin{cases}y=0\\z=-x\end{cases}\iff U=x(e_1-e_3),\ x\in\mathbb{R}.
 \]
-Pour tracer \(M'\), on applique successivement :
-\begin{itemize}
-    \item une homothétie de rapport \(\sqrt{2}\),
-    \item une rotation d'angle \(\frac{\pi}{4}\),
-    \item une translation de vecteur \(-i\).
-\end{itemize}
-
-\textbf{2.b) Image de la droite \((D)\) par \(T\)}
-
-La droite \((D)\) a pour équation \(y = x\), soit \(z = x + ix\). On a donc :
 \[
-z' = (1+i)z - i = (1+i)(x + ix) - i = (1 - x) + i(2x - 1).
+\boxed{\ker T=\operatorname{Vect}(e_1-e_3)}
 \]
-Les affixes \(z'\) des points de \((D')\) satisfont l'équation :
+est une droite vectorielle. D'après le théorème du rang, $\operatorname{rg}T=3-1=2$.
+
+\textbf{1.b) Matrice de $T$ dans la base $\mathcal{B}=(e_1,e_2,e_3)$.}
+
+La $j$-ème colonne de $A$ contient les coordonnées de $T(e_j)$ dans $\mathcal{B}$ : $T(e_1)=(0,0,1)$, $T(e_2)=(-1,1,1)$, $T(e_3)=(0,0,1)$. D'où
 \[
-x' = 1 - y', \quad \text{soit } y' = -x' + 1.
-\]
-La droite \((D')\) a donc pour équation \(y = -x + 1\).
-
-\medskip
-\textbf{3.a) Existence et unicité de \(B\)}
-
-On cherche un point \(B\) distinct de \(\Omega\) tel que \(z_0z'_0 = 1\), avec \(z'_0 = (1+i)z_0 - i\). On a donc :
-\[
-z_0 \big((1+i)z_0 - i\big) = 1 \implies z_0^2(1+i) - iz_0 - 1 = 0.
-\]
-Posons \(z_0 = x + iy\) (où \(x, y \in \mathbb{R}\)) et résolvons cette équation complexe pour trouver \(z_0\). 
-
-Le calcul donne \(z_0 = \frac{1 + i}{2}\). Le point \(B'\), image de \(B\), est alors \(z'_0 = \frac{2}{1+i} = 1 - i\).
-
-\medskip
-3.b) Cocyclicité des points \(\Omega', \Omega, B, B'\)
-
-Le point \(\Omega'\), symétrique de \(\Omega\) par rapport à \(O\), a pour affixe \(z_{\Omega'} = 1 + i\).
-
-Les points \(\Omega', \Omega, B, B'\) sont cocycliques si leurs affixes satisfont la relation de cercle. On montre que le centre \(G\) de ce cercle a pour affixe :
-\[
-z_G = \frac{z_\Omega + z_{\Omega'} + z_B + z_{B'}}{4} = \frac{(-1-i) + (1+i) + \frac{1+i}{2} + (1-i)}{4}.
-\]
-Le calcul donne \(z_G = \frac{1}{2}\).
-
-Ainsi, le centre du cercle est \(G\) d'affixe \(z_G = \frac{1}{2}\).
-
-
-
-
-
-
-
-
-
-\begin{center}
-\textbf{Constructions Géométriques}
-
-
-\begin{tikzpicture}[scale=2]
-    % Repère orthonormé
-    \draw[->] (-2.5, 0) -- (2.5, 0) node[anchor=north west] {$x$};
-    \draw[->] (0, -2.5) -- (0, 2.5) node[anchor=south east] {$y$};
-    \draw[thick] (-2.5, -2.5) -- (2.5, 2.5) node[above right] {$(D)$};
-    \draw[thick, black] (-2.5, 3.5) -- (2.5, -1.5) node[below right] {$(D')$};
-    
-    % Points principaux
-    \filldraw[black] (-1,-1) circle (1pt) node[below left] {$\Omega(-1, -1)$};
-    \filldraw[black] (1,1) circle (1pt) node[above right] {$\Omega'(1, 1)$};
-    \filldraw[black] (0.5, 0.5) circle (1pt) node[above right] {$B\left(\frac{1}{2}, \frac{1}{2}\right)$};
-    \filldraw[black] (1,-1) circle (1pt) node[below right] {$B'(1, -1)$};
-    
-    % Cercle passant par Omega, Omega', B et B'
-    \draw[thick, dashed, purple] (0.25,0) circle (1.25) node[above right] {$(\Gamma)$};
-    
-    % Exemple point M et son image M'
-    \filldraw[black] (0.5, 1.5) circle (1pt) node[above] {$M(0.5, 1.5)$};
-    \filldraw[black] (0.5, -0.5) circle (1pt) node[below] {$M'(0.5, -0.5)$};
-    \draw[->, thick, black] (0.5, 1.5) -- (0.5, -0.5);
-
-    % Légendes et étiquettes
-    \node at (1.3, 1.8) [black] {\small Rotation + Homothétie (1+i)};
-    \node at (-1.8, -2) [black] {\small Image de $(D)$};
-\end{tikzpicture}
-\end{center}
-
-\quad
-
-
-
-\medskip\textbf{Exercice 3}
-
-
-1. Calculons
-
-$I=\int\int_D\frac{dxdy}{(1+x^2+y^2)^2}$ ou $D=\lbrace {(x,y) \in \mathbb{R}^2,\vert x\vert \leq x^2+y^2\leq 1\rbrace}$.
-
-Passage aux coordonnées polaires :
-
-Soit $x=r\cos \theta$ et $y=r\sin\theta$
-
-$x^2+y^2=r^2$
-
-$x^2+y^2\leq 1\Rightarrow r^2\leq 1\Rightarrow 0\leq r\leq 1$
-
-$\vert x\vert \leq x^2+y^2\Rightarrow \theta\in [0,2\pi]$
-
-A travers le jacobien, $dxdy=rdrd\theta$
-
-Donc,
-
-$I=\int_0^1\int_0^{2\pi}\frac{rdrd\theta}{(1+r^2)^2}=\int_0^{2\pi}d\theta\times\int_0^1\frac{rdr}{(1+r^2)^2}=2\pi\int_0^1\frac{rdr}{(1+r^2)^2}$
-
-Posons $u=1+r^2$, $du=2rdr\Longrightarrow dr=\frac{du}{2r}$
-
-Si $r\to 0$, $u\to 1$ et si  $r\to 1$, $u\to 2$
-
-L'intégrale devient :
-
-$I=2\pi\times\frac{1}{2}\int_1^2\frac{du}{u^2}=\pi[-\frac{1}{u}]_1^2=\pi(-\frac{1}{2}+1)=\frac{\pi}{2}$
-
-
-2. Calculons l'intégrale double
-
-$J=\int\int_D(x+y)^2dxdy$ ou $D=\lbrace (x,y)\in \mathbb{R}^2, x^2+y^2-x \leq 0;x^2+y^2-y \geq 0$ et $y \geq 0 \rbrace$.
-
- Définition et analyse de la région \(D\)
- 
-La région \(D\) est définie par trois inégalités :
-\begin{itemize}
-    \item \( x^2 + y^2 - x \leq 0 \), ce qui correspond au disque de centre \(\left( \frac{1}{2}, 0 \right)\) et de rayon \(\frac{1}{2}\).
-    \item \( x^2 + y^2 - y \geq 0 \), ce qui correspond à l'extérieur du disque de centre \((0, \frac{1}{2})\) et de rayon \(\frac{1}{2}\).
-    \item \( y \geq 0 \), restreignant la région au demi-plan supérieur.
-\end{itemize}
-
-\textbf{Intersection :} La région \(D\) est l'intersection du disque centré en \(\left( \frac{1}{2}, 0 \right)\) avec l'extérieur du disque centré en \((0, \frac{1}{2})\), dans le demi-plan supérieur. Les frontières des disques peuvent être exprimées en coordonnées polaires :
-\begin{itemize}
-    \item \( (x - \frac{1}{2})^2 + y^2 = \frac{1}{4} \Rightarrow r = \cos\theta \),
-    \item \( x^2 + (y - \frac{1}{2})^2 = \frac{1}{4} \Rightarrow r = \sin\theta \).
-\end{itemize}
-La région \(D\) en polaires est donc donnée par :
-\[ \theta \in [0, \frac{\pi}{2}], \quad r \in [\sin\theta, \cos\theta]. \]
-
- Réécriture de l'intégrale en coordonnées polaires
- 
-En polaires :
-
-\begin{align*}
-    x &= r\cos\theta, \quad y = r\sin\theta, \quad x + y = r(\cos\theta + \sin\theta), \\
-    dxdy &= r drd\theta.
-\end{align*}
-L'intégrale devient :
-\[
-    J = \int_0^{\pi/2} \int_{\sin\theta}^{\cos\theta} \left[r(\cos\theta + \sin\theta)\right]^2 r \, dr \, d\theta.
-\]
-
-Développons \((\cos\theta + \sin\theta)^2\) :
-\[
-    (\cos\theta + \sin\theta)^2 = \cos^2\theta + 2\cos\theta\sin\theta + \sin^2\theta = 1 + 2\cos\theta\sin\theta.
-\]
-Ainsi :
-\[
-    J = \int_0^{\pi/2} \int_{\sin\theta}^{\cos\theta} r^3 \left(1 + 2\cos\theta\sin\theta\right) \, dr \, d\theta.
-\]
-
-\textbf{Calcul de l'intégrale}
-
- Intégration par rapport à \(r\)
- 
-\[
-    \int_{\sin\theta}^{\cos\theta} r^3 \, dr = \left[ \frac{r^4}{4} \right]_{\sin\theta}^{\cos\theta} = \frac{\cos^4\theta}{4} - \frac{\sin^4\theta}{4}.
-\]
-Substituons dans \(J\) :
-\[
-    J = \int_0^{\pi/2} \left[ \frac{\cos^4\theta}{4} - \frac{\sin^4\theta}{4} \right] \left(1 + 2\cos\theta\sin\theta\right) d\theta.
-\]
-
- Séparation des termes
- 
-Développons :
-\begin{align*}
-    J &= \frac{1}{4} \int_0^{\pi/2} \cos^4\theta (1 + 2\cos\theta\sin\theta) \, d\theta - \frac{1}{4} \int_0^{\pi/2} \sin^4\theta (1 + 2\cos\theta\sin\theta) \, d\theta. \\
-    &= \frac{1}{4} \left[ \int_0^{\pi/2} \cos^4\theta \, d\theta + 2 \int_0^{\pi/2} \cos^5\theta\sin\theta \, d\theta \right] \\
-    &\quad - \frac{1}{4} \left[ \int_0^{\pi/2} \sin^4\theta \, d\theta + 2 \int_0^{\pi/2} \cos\theta\sin^5\theta \, d\theta \right].
-\end{align*}
-
- Calcul des intégrales élémentaires
- 
- \(\int_0^{\pi/2} \cos^4\theta \, d\theta\) et \(\int_0^{\pi/2} \sin^4\theta \, d\theta\) : Utilisons les formules de réduction :
-\[
-    \int_0^{\pi/2} \cos^4\theta \, d\theta = \int_0^{\pi/2} \sin^4\theta \, d\theta = \frac{3\pi}{16}.
-\]
-
- \(\int_0^{\pi/2} \cos^5\theta\sin\theta \, d\theta\) et \(\int_0^{\pi/2} \cos\theta\sin^5\theta \, d\theta\) : Par substitution \(u = \cos\theta\) ou \(u = \sin\theta\), on trouve :
-\[
-    \int_0^{\pi/2} \cos^5\theta\sin\theta \, d\theta = \int_0^{\pi/2} \cos\theta\sin^5\theta \, d\theta = \frac{1}{6}.
-\]
-
-Résultat final
-
-En combinant tous les termes :
-\[
-    J = \frac{1}{4} \left[ \frac{3\pi}{16} + 2 \cdot \frac{1}{6} \right] - \frac{1}{4} \left[ \frac{3\pi}{16} + 2 \cdot \frac{1}{6} \right] = \frac{1}{15}.
-\]
-
-\textbf{Ainsi, la valeur de l'intégrale est :}
-\[
-    J = \frac{1}{15}.
-\]
-
-
-
-
-3. Soit $D=\lbrace (x,y,z)\in \mathbb{R}^3;x\geq 0,y\geq 0,z\geq 0,x+y+z\leq 1 \rbrace$.
-
-Utilisons le changement de variable $u=x+y+z; v=\frac{z}{y+z}; w=\frac{y+z}{x+y+z}$ pour calculer
-
-$S=\int\int_D\frac{z^3}{(x+y+z)(y+z)}dxdydz$.
-
-On effectue le changement de variables suivant :
-\[
-u = x + y + z, \quad v = \frac{z}{y + z}, \quad w = \frac{y + z}{x + y + z}.
-\]
-
- Jacobien du changement de variables
-
-Pour déterminer le jacobien de ce changement de variables, nous devons calculer le déterminant de la matrice des dérivées partielles des nouvelles variables \( u, v, w \) par rapport aux anciennes variables \( x, y, z \). Le jacobien \( J \) est donné par :
-\[
-J = \det \begin{pmatrix} 
-\frac{\partial u}{\partial x} & \frac{\partial u}{\partial y} & \frac{\partial u}{\partial z} \\
-\frac{\partial v}{\partial x} & \frac{\partial v}{\partial y} & \frac{\partial v}{\partial z} \\
-\frac{\partial w}{\partial x} & \frac{\partial w}{\partial y} & \frac{\partial w}{\partial z}
+A=\begin{pmatrix}
+0 & -1 & 0 \\
+0 & 1 & 0 \\
+1 & 1 & 1
 \end{pmatrix}.
 \]
 
-Cela peut être calculé en effectuant les dérivées partielles de chaque variable par rapport à \( x \), \( y \), et \( z \), et en déterminant le déterminant de la matrice résultante.
-
- L'intégrale après changement de variables
-
-L'intégrale que nous devons calculer est :
+\textbf{2.a) Expression des $e_i$ en fonction des $f_i$ ; $(f_1,f_2,f_3)$ est une base.}
 \[
-S = \int \int \int_D \frac{z^3}{(x + y + z)(y + z)} \, dx \, dy \, dz.
+\begin{cases}
+f_1=e_1-e_3\\
+f_2=e_1-e_2\\
+f_3=-e_1+e_2+e_3
+\end{cases}
+\]
+En additionnant les deux dernières équations : $f_2+f_3=e_3$. Puis $e_1=f_1+e_3=f_1+f_2+f_3$, et $e_2=e_1-f_2=f_1+f_3$ :
+\[
+\boxed{e_1=f_1+f_2+f_3,\qquad e_2=f_1+f_3,\qquad e_3=f_2+f_3}.
+\]
+Ainsi $e_1,e_2,e_3\in\operatorname{Vect}(f_1,f_2,f_3)$, donc $\mathbb{R}^3=\operatorname{Vect}(e_1,e_2,e_3)\subset\operatorname{Vect}(f_1,f_2,f_3)$ : la famille $(f_1,f_2,f_3)$ est génératrice de $\mathbb{R}^3$. Comme elle a $3=\dim\mathbb{R}^3$ éléments, c'est une \textbf{base} de $\mathbb{R}^3$, que l'on note $\mathcal{B}'$.
+
+\textbf{2.b) Matrice de $T$ dans la base $\mathcal{B}'=(f_1,f_2,f_3)$.}
+\begin{itemize}
+\item $T(f_1)=T(e_1)-T(e_3)=e_3-e_3=0$ (on savait déjà que $f_1=e_1-e_3\in\ker T$) ;
+\item $T(f_2)=T(e_1)-T(e_2)=e_3-(-e_1+e_2+e_3)=e_1-e_2=f_2$ ;
+\item $T(f_3)=-T(e_1)+T(e_2)+T(e_3)=-e_3+(-e_1+e_2+e_3)+e_3=-e_1+e_2+e_3=f_3$.
+\end{itemize}
+Donc
+\[
+B=\begin{pmatrix}
+0 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{pmatrix}.
+\]
+($T$ est la projection sur $\operatorname{Vect}(f_2,f_3)$ parallèlement à $\operatorname{Vect}(f_1)$, car $B^2=B$.)
+
+\textbf{3. La matrice $P$.}
+
+Les colonnes de $P=\begin{pmatrix}1&1&-1\\0&-1&1\\-1&0&1\end{pmatrix}$ sont les coordonnées de $f_1,f_2,f_3$ dans $\mathcal{B}$ : $P$ est la \textbf{matrice de passage} de $\mathcal{B}$ à $\mathcal{B}'$.
+
+\underline{Inversibilité et calcul de $P^{-1}$.} On résout $PX=Y$ pour $Y=(y_1,y_2,y_3)$ quelconque :
+\[
+\begin{cases}
+x_1+x_2-x_3=y_1 & (L_1)\\
+-x_2+x_3=y_2 & (L_2)\\
+-x_1+x_3=y_3 & (L_3)
+\end{cases}
+\]
+$(L_1)+(L_2)$ donne $x_1=y_1+y_2$ ; puis $(L_3)$ donne $x_3=y_3+x_1=y_1+y_2+y_3$ ; enfin $(L_2)$ donne $x_2=x_3-y_2=y_1+y_3$. Le système a une unique solution pour tout $Y$ : $P$ est inversible, et
+\[
+\boxed{P^{-1}=\begin{pmatrix}
+1 & 1 & 0 \\
+1 & 0 & 1 \\
+1 & 1 & 1
+\end{pmatrix}}.
+\]
+On peut aussi lire $P^{-1}$ directement sur la question 2.a : ses colonnes sont les coordonnées de $e_1,e_2,e_3$ dans $\mathcal{B}'$. (On vérifie $\det P=1\cdot(-1-0)-1\cdot(0-1)+(-1)\cdot(0-1)=1\neq0$.)
+
+\underline{Relation entre $A$, $B$, $P$, $P^{-1}$.} Par la formule de changement de base :
+\[
+\boxed{B=P^{-1}AP\qquad\text{ou, de façon équivalente,}\qquad A=PBP^{-1}}.
+\]
+\emph{Justification.} Soit $u\in\mathbb{R}^3$, de coordonnées $X$ dans $\mathcal{B}$ et $X'$ dans $\mathcal{B}'$ ; on a $X=PX'$. Les coordonnées de $T(u)$ sont $AX$ dans $\mathcal{B}$ et $BX'$ dans $\mathcal{B}'$, donc $AX=P(BX')$, soit $APX'=PBX'$ pour tout $X'$. Ainsi $AP=PB$.
+
+\medskip\textbf{Exercice 2}
+
+$T$ : $M(z)\mapsto M'(z')$ avec $z'=(1+i)z-i$.
+
+\textbf{1. Nature de $T$, point invariant, angle $(\overrightarrow{\Omega M},\overrightarrow{MM'})$.}
+
+\underline{Point invariant.} $z=(1+i)z-i\iff iz=i\iff z=1$. Le point invariant est $\boxed{\Omega(1)}$.
+
+\underline{Forme réduite.} En soustrayant $1=(1+i)\cdot1-i$ :
+\[
+z'-1=(1+i)(z-1),\qquad 1+i=\sqrt2\,e^{i\pi/4}.
+\]
+$T$ est donc la similitude directe de centre $\Omega$, de rapport $\sqrt2$ et d'angle $\frac\pi4$. C'est la composée (dans un ordre quelconque, elles commutent) :
+\begin{itemize}
+\item de la rotation $r$ de centre $\Omega$ et d'angle $\frac\pi4$ : $z\mapsto 1+e^{i\pi/4}(z-1)$ ;
+\item de l'homothétie $h$ de centre $\Omega$ et de rapport $\sqrt2>0$ : $z\mapsto1+\sqrt2(z-1)$.
+\end{itemize}
+
+\underline{Angle.} Pour $M\neq\Omega$ :
+\[
+z'-z=(1+i)(z-1)-(z-1)=i(z-1),\qquad\text{donc}\qquad\frac{z'-z}{z-1}=i=e^{i\pi/2}.
+\]
+Ainsi $\boxed{(\overrightarrow{\Omega M},\overrightarrow{MM'})=\dfrac\pi2\ [2\pi]}$ et $MM'=\Omega M$ : le triangle $\Omega MM'$ est \textbf{rectangle isocèle en $M$}.
+
+\textbf{2.a) Construction de $M'$.} D'après la question 1, $M'$ est le point tel que $\overrightarrow{MM'}$ s'obtienne en tournant $\overrightarrow{\Omega M}$ de $+\frac\pi2$ : on trace la perpendiculaire à $(\Omega M)$ en $M$, et on y place $M'$ tel que $MM'=M\Omega$, dans le sens direct. (Exemple : $M(2+i)$ donne $M'(1+2i)$.)
+
+\textbf{2.b) Image de la droite $(D)$ : $y=x$.}
+
+Un point de $(D)$ a pour affixe $z=t(1+i)$, $t\in\mathbb{R}$. Alors
+\[
+z'=(1+i)\,t(1+i)-i=t(1+i)^2-i=2it-i=i(2t-1).
+\]
+Quand $t$ décrit $\mathbb{R}$, $2t-1$ décrit $\mathbb{R}$ : $z'$ décrit l'ensemble des imaginaires purs. Donc
+\[
+\boxed{(D')\ :\ x=0}\quad\text{(l'axe des ordonnées).}
+\]
+(Cohérent avec l'angle $\frac\pi4$ : la droite de pente $1$, tournée de $\frac\pi4$, devient verticale.)
+
+\textbf{3.a) Le point $B$.}
+
+On cherche $z_0\neq1$ tel que $z_0z_0'=1$ avec $z_0'=(1+i)z_0-i$ :
+\[
+z_0\big((1+i)z_0-i\big)=1\iff(1+i)z_0^2-iz_0-1=0 .
+\]
+Discriminant : $\Delta=(-i)^2-4(1+i)(-1)=-1+4+4i=3+4i=(2+i)^2$ (car $(2+i)^2=4+4i-1$). Les racines sont
+\[
+z=\frac{i\pm(2+i)}{2(1+i)}:\qquad z=\frac{2+2i}{2(1+i)}=1\quad\text{ou}\quad z=\frac{-2}{2(1+i)}=\frac{-1}{1+i}=\frac{-1+i}{2}.
+\]
+La racine $z=1$ correspond à $\Omega$, qui est exclu. Il existe donc un unique point $B$ distinct de $\Omega$ :
+\[
+\boxed{z_0=\frac{-1+i}{2}},\qquad z_0'=\frac1{z_0}=\frac{2}{-1+i}=\frac{2(-1-i)}{2}=\boxed{-1-i}.
+\]
+(Vérification : $(1+i)\frac{-1+i}{2}-i=\frac{-2}{2}-i=-1-i$.)
+
+\textbf{3.b) Cocyclicité de $\Omega'$, $\Omega$, $B$, $B'$ et centre $G$.}
+
+$\Omega'$, symétrique de $\Omega$ par rapport à $O$, a pour affixe $-1$. Les points sont $\Omega'(-1)$, $\Omega(1)$, $B\big(-\frac12+\frac12i\big)$, $B'(-1-i)$.
+
+Cherchons un point $G$ équidistant des quatre points. Comme $G$ est équidistant de $\Omega(1,0)$ et $\Omega'(-1,0)$, il est sur la médiatrice de $[\Omega\Omega']$ : l'axe des ordonnées, $G(0,c)$. L'égalité $G\Omega^2=GB'^2$ s'écrit
+\[
+1+c^2=1+(c+1)^2\iff 0=2c+1\iff c=-\frac12 .
+\]
+Avec $G\big(0,-\frac12\big)$ : $G\Omega^2=G\Omega'^2=GB'^2=1+\frac14=\frac54$ et
+\[
+GB^2=\Big(-\frac12\Big)^2+\Big(\frac12+\frac12\Big)^2=\frac14+1=\frac54 .
+\]
+Les quatre points sont à la même distance $\frac{\sqrt5}{2}$ de $G$ : ils sont \textbf{cocycliques}, sur le cercle $(\Gamma)$ de centre $G$ d'affixe
+\[
+\boxed{z_G=-\frac i2}\qquad\text{et de rayon }\frac{\sqrt5}{2}.
 \]
 
-Après le changement de variables, l'intégrale devient :
+\begin{center}
+\begin{tikzpicture}[scale=1.6]
+    \draw[->] (-2.2,0) -- (2.4,0) node[below] {$x$};
+    \draw[->] (0,-2) -- (0,2.4) node[left] {$y$};
+    \foreach \k in {-2,-1,1,2} {\draw (\k,0.04)--(\k,-0.04); \draw (0.04,\k)--(-0.04,\k);}
+    \draw[thick, blue!70!black] (-2,-2) -- (2.4,2.4) node[right] {$(D)$};
+    \draw[thick, red!70!black] (0,-2) -- (0,2.4);
+    \node[red!70!black] at (0.35,2.25) {$(D')$};
+    \draw[dashed, purple] (0,-0.5) circle (1.118);
+    \node[purple] at (1.2,-1.45) {$(\Gamma)$};
+    \filldraw (1,0) circle (1pt) node[below right] {$\Omega$};
+    \filldraw (-1,0) circle (1pt) node[above left] {$\Omega'$};
+    \filldraw (-0.5,0.5) circle (1pt) node[above left] {$B$};
+    \filldraw (-1,-1) circle (1pt) node[below left] {$B'$};
+    \filldraw (0,-0.5) circle (1pt) node[right] {$G$};
+    \filldraw (2,1) circle (1pt) node[right] {$M$};
+    \filldraw (1,2) circle (1pt) node[above] {$M'$};
+    \draw[gray] (1,0) -- (2,1) -- (1,2);
+    \node at (0.15,-0.15) {$O$};
+\end{tikzpicture}
+\end{center}
+
+\medskip\textbf{Exercice 3}
+
+\textbf{1. $I=\displaystyle\iint_D\frac{dx\,dy}{(1+x^2+y^2)^2}$, \quad $D=\{(x,y)\ /\ |x|\le x^2+y^2\le1\}$.}
+
+\underline{Description de $D$ en polaires} ($x=r\cos\theta$, $y=r\sin\theta$, $r\ge0$, $dx\,dy=r\,dr\,d\theta$) :
 \[
-S = \int_0^1 \int_0^1 \int_0^1 \frac{u^3 v^3}{u^3 v} \cdot J \, du \, dv \, dw,
+|x|\le x^2+y^2\iff r|\cos\theta|\le r^2\iff r\ge|\cos\theta|\ \ (\text{pour } r>0),
 \]
-où \( J \) est le jacobien du changement de variables.
-
- Simplification de l'intégrale
-
-Simplifions l'expression de l'intégrale :
 \[
-S = \int_0^1 \int_0^1 \int_0^1 u^2 v^2 \, du \, dv \, dw.
+x^2+y^2\le1\iff r\le1 .
 \]
+Donc $D=\{\,|\cos\theta|\le r\le1,\ \theta\in[0,2\pi]\,\}$ : c'est le disque unité privé des deux disques de diamètres $[O,(1,0)]$ et $[O,(-1,0)]$ (la condition $|x|\le x^2+y^2$ ne doit pas être oubliée).
 
-Cela donne une intégrale séparée, et les intégrales sur \( u \), \( v \), et \( w \) peuvent être calculées indépendamment :
+\underline{Calcul.} Une primitive de $\dfrac{r}{(1+r^2)^2}$ est $-\dfrac{1}{2(1+r^2)}$. Par le théorème de Fubini :
 \[
-\int_0^1 u^2 \, du = \frac{1}{3}, \quad \int_0^1 v^2 \, dv = \frac{1}{3}, \quad \int_0^1 1 \, dw = 1.
+I=\int_0^{2\pi}\Big[-\frac{1}{2(1+r^2)}\Big]_{|\cos\theta|}^{1}d\theta=\int_0^{2\pi}\Big(\frac{1}{2(1+\cos^2\theta)}-\frac14\Big)d\theta=\frac12K-\frac\pi2,
 \]
-
- Conclusion
-
-En multipliant ces résultats, nous obtenons :
+où $K=\displaystyle\int_0^{2\pi}\frac{d\theta}{1+\cos^2\theta}$. Par périodicité et symétries de $\cos^2$, $K=4\displaystyle\int_0^{\pi/2}\frac{d\theta}{1+\cos^2\theta}$. Sur $[0,\frac\pi2[$, on pose $t=\tan\theta$ : $d\theta=\dfrac{dt}{1+t^2}$ et $\cos^2\theta=\dfrac1{1+t^2}$, donc $1+\cos^2\theta=\dfrac{2+t^2}{1+t^2}$ et
 \[
-S = \frac{1}{3} \cdot \frac{1}{3} \cdot 1 = \frac{1}{9}.
+\int_0^{\pi/2}\frac{d\theta}{1+\cos^2\theta}=\int_0^{+\infty}\frac{dt}{2+t^2}=\Big[\frac1{\sqrt2}\arctan\frac{t}{\sqrt2}\Big]_0^{+\infty}=\frac{\pi}{2\sqrt2}.
 \]
-
-Ainsi, l'intégrale \( S \) est égale à \( \frac{1}{9} \)
-
-
-4. Calculons l'aire du domaine elliptique :
-
-$E = \lbrace (x,y)\in \mathbb{R}^2;\frac{x^2}{a^2}+\frac{y^2}{b^2}\leq 1\rbrace$.
-
-Il s'agit d'une ellipse centrée en \( (0, 0) \), avec des axes de longueurs \( 2a \) et \( 2b \) dans les directions \( x \) et \( y \), respectivement.
-
- Changement de variables
-
-Pour calculer l'aire de l'ellipse, nous utilisons un changement de variables pour transformer l'ellipse en un cercle unité. On définit les nouvelles variables \( u \) et \( v \) par :
+Ainsi $K=\dfrac{4\pi}{2\sqrt2}=\pi\sqrt2$ et
 \[
-u = \frac{x}{a}, \quad v = \frac{y}{b}.
-\]
-
-Ainsi, l'ellipse devient l'ensemble des points \( (u, v) \) satisfaisant :
-\[
-u^2 + v^2 \leq 1,
-\]
-c'est-à-dire un disque de rayon 1 centré en \( (0, 0) \).
-
-Jacobien du changement de variables
-
-Le jacobien du changement de variables \( (x, y) \mapsto (u, v) \) est donné par le déterminant de la matrice des dérivées partielles :
-\[
-J = \det \begin{pmatrix} \frac{\partial u}{\partial x} & \frac{\partial u}{\partial y} \\ \frac{\partial v}{\partial x} & \frac{\partial v}{\partial y} \end{pmatrix}
-= \det \begin{pmatrix} \frac{1}{a} & 0 \\ 0 & \frac{1}{b} \end{pmatrix}
-= \frac{1}{ab}.
+\boxed{I=\frac{\pi\sqrt2}{2}-\frac\pi2=\frac{\pi(\sqrt2-1)}{2}\approx0{,}651}.
 \]
 
-Le facteur de transformation de l'aire est donc \( \frac{1}{ab} \).
+\textbf{2. $J=\displaystyle\iint_D(x+y)^2\,dx\,dy$, \quad $D=\{x^2+y^2-x\le0,\ x^2+y^2-y\ge0,\ y\ge0\}$.}
 
- Aire du domaine elliptique
-
-L'aire du domaine \( E \) dans le plan \( (x, y) \) est égale à l'aire du disque unité dans le plan \( (u, v) \) multipliée par le facteur de transformation \( \frac{1}{ab} \). L'aire du disque unité est \( \pi \), donc l'aire de \( E \) est :
+\underline{Description de $D$.}
+\begin{itemize}
+\item $x^2+y^2\le x\iff(x-\frac12)^2+y^2\le\frac14$ : disque de centre $(\frac12,0)$ de rayon $\frac12$ ; en polaires $r\le\cos\theta$.
+\item $x^2+y^2\ge y\iff x^2+(y-\frac12)^2\ge\frac14$ : extérieur du disque de centre $(0,\frac12)$ de rayon $\frac12$ ; en polaires $r\ge\sin\theta$.
+\item $y\ge0$ : $\theta\in[0,\pi]$ ; avec $r\le\cos\theta$ il faut de plus $\cos\theta\ge0$, donc $\theta\in[0,\frac\pi2]$.
+\end{itemize}
+La condition $\sin\theta\le r\le\cos\theta$ n'est possible que si $\sin\theta\le\cos\theta$, c'est-à-dire $\theta\in[0,\frac\pi4]$. Donc
 \[
-\text{Aire}(E) = \pi \cdot a \cdot b.
+D=\Big\{\,0\le\theta\le\frac\pi4,\ \sin\theta\le r\le\cos\theta\,\Big\}.
+\]
+(Les deux cercles se coupent en $O$ et en $(\frac12,\frac12)$, point d'angle polaire $\frac\pi4$.)
+
+\underline{Calcul.} $(x+y)^2=r^2(\cos\theta+\sin\theta)^2=r^2(1+\sin2\theta)$, d'où
+\[
+J=\int_0^{\pi/4}(1+\sin2\theta)\int_{\sin\theta}^{\cos\theta}r^3\,dr\,d\theta=\int_0^{\pi/4}(1+\sin2\theta)\,\frac{\cos^4\theta-\sin^4\theta}{4}\,d\theta .
+\]
+Or $\cos^4\theta-\sin^4\theta=(\cos^2\theta-\sin^2\theta)(\cos^2\theta+\sin^2\theta)=\cos2\theta$. Donc
+\[
+J=\frac14\int_0^{\pi/4}\big(\cos2\theta+\sin2\theta\cos2\theta\big)\,d\theta=\frac14\Big[\frac{\sin2\theta}{2}+\frac{\sin^22\theta}{4}\Big]_0^{\pi/4}=\frac14\Big(\frac12+\frac14\Big),
+\]
+\[
+\boxed{J=\frac{3}{16}}.
 \]
 
-Conclusion
+\textbf{3. $S=\displaystyle\iiint_D\frac{z^3}{(x+y+z)(y+z)}\,dx\,dy\,dz$, \quad $D=\{x,y,z\ge0,\ x+y+z\le1\}$.}
 
-L'aire du domaine elliptique \( E \) est donnée par :
+\underline{Changement de variables.} $u=x+y+z$, $v=\dfrac{z}{y+z}$, $w=\dfrac{y+z}{x+y+z}$. On exprime $(x,y,z)$ en fonction de $(u,v,w)$ :
 \[
-\text{Aire}(E) = \pi \cdot a \cdot b.
+y+z=uw,\qquad z=v(y+z)=uvw,\qquad y=uw-uvw=uw(1-v),\qquad x=u-uw=u(1-w).
+\]
+\underline{Nouveau domaine.} $x,y,z\ge0$ et $x+y+z\le1$ équivaut (à un ensemble de mesure nulle près) à $(u,v,w)\in\Delta=[0,1]^3$.
+
+\underline{Jacobien.}
+\[
+\frac{D(x,y,z)}{D(u,v,w)}=\begin{vmatrix}
+1-w & 0 & -u\\
+w(1-v) & -uw & u(1-v)\\
+vw & uw & uv
+\end{vmatrix}.
+\]
+En ajoutant la ligne 2 à la ligne 3, puis la ligne 1 à la nouvelle ligne 3, la ligne 3 devient $(1,0,0)$. En développant suivant cette ligne :
+\[
+\frac{D(x,y,z)}{D(u,v,w)}=\begin{vmatrix}0&-u\\-uw&u(1-v)\end{vmatrix}=-u^2w,\qquad\text{donc}\qquad dx\,dy\,dz=u^2w\,du\,dv\,dw .
+\]
+\underline{Intégrande.} $\dfrac{z^3}{(x+y+z)(y+z)}=\dfrac{u^3v^3w^3}{u\cdot uw}=uv^3w^2$.
+
+\underline{Calcul.}
+\[
+S=\iiint_{[0,1]^3}uv^3w^2\cdot u^2w\,du\,dv\,dw=\int_0^1u^3\,du\int_0^1v^3\,dv\int_0^1w^3\,dw=\Big(\frac14\Big)^3,
+\]
+\[
+\boxed{S=\frac1{64}}.
 \]
 
+\textbf{4. Aire de l'ellipse $E=\Big\{\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}\le1\Big\}$ ($a,b>0$).}
 
-
-
+On pose $x=a\rho\cos\theta$, $y=b\rho\sin\theta$ (coordonnées polaires « elliptiques »), avec $\rho\in[0,1]$, $\theta\in[0,2\pi]$. Le jacobien vaut
+\[
+\frac{D(x,y)}{D(\rho,\theta)}=\begin{vmatrix}a\cos\theta&-a\rho\sin\theta\\b\sin\theta&b\rho\cos\theta\end{vmatrix}=ab\rho .
+\]
+Donc
+\[
+\mathcal{A}(E)=\iint_Edx\,dy=\int_0^{2\pi}\int_0^1ab\rho\,d\rho\,d\theta=ab\times2\pi\times\frac12,\qquad\boxed{\mathcal{A}(E)=\pi ab}.
+\]
+(Pour $a=b=R$ on retrouve l'aire $\pi R^2$ du disque.)
 
 \medskip\textbf{Exercice 4}
 
+$f(n)=\displaystyle\int_0^1x^ne^{-x}\,dx$, $n\in\mathbb{N}$.
 
-On pose $f(n)=\int_{0}^{1}x^ne^{-x}dx$  $\forall n\in \mathbb{N}$.
+\textbf{1. Positivité, décroissance, relation de récurrence.}
 
-1. Montrons que la suite $(f(n))$ est positive et décroissante.
+\underline{Positivité.} Sur $[0,1]$, $x^ne^{-x}\ge0$ ; la fonction est continue, positive et non identiquement nulle, donc $f(n)>0$.
 
-$\forall x\in [0,1]$, $x^ne^{-x}>0$ donc $\int_{0}^{1}x^ne^{-x}dx>0$ d'où $f(n)>0$.
+\underline{Décroissance.} Pour $x\in[0,1]$, $x^{n+1}\le x^n$, donc $x^{n+1}e^{-x}\le x^ne^{-x}$ et, par croissance de l'intégrale, $f(n+1)\le f(n)$.
 
-$\forall x\in [0,1]$, $0\leq x\leq 1\Rightarrow 0\leq x^{n+1}\leq x^n$
+\underline{Récurrence.} Pour $n\ge1$, on intègre par parties avec $u(x)=x^n$, $u'(x)=nx^{n-1}$, $v'(x)=e^{-x}$, $v(x)=-e^{-x}$ :
+\[
+f(n)=\Big[-x^ne^{-x}\Big]_0^1+n\int_0^1x^{n-1}e^{-x}\,dx,\qquad\boxed{f(n)=nf(n-1)-\frac1e}.
+\]
 
-Donc $\int_{0}^{1}x^{n+1}e^{-x}dx\leq \int_{0}^{1}x^ne^{-x}dx$. Autrement dit $f(n+1)\leq f(n)$, ainsi cette suite est décroissante.
+\textbf{2. Formule explicite.} Montrons par récurrence $\mathcal{P}(n)$ : $f(n)=\dfrac{n!}{e}\Big(e-\displaystyle\sum_{k=0}^n\frac1{k!}\Big)$.
 
-\medskip
-Donnons une relation de récurrence entre $f(n)$ et $f(n-1)$.
- 
- $f(n)=\int_{0}^{1}x^ne^{-x}dx$
- 
- Posons 
- 
+\emph{Initialisation.} $f(0)=\displaystyle\int_0^1e^{-x}dx=1-\frac1e$, et $\dfrac{0!}{e}(e-1)=1-\dfrac1e$.
 
-$ u =x^n\longrightarrow u'=nx^{n-1}\\
- v' =e^{-x}\longrightarrow v=-e^{-x}
-$ 
- 
- $\Rightarrow f(n)=[-x^ne^{-x}]_0^1+\int_{0}^{1}nx^{n-1}e^{-x}dx$ avec $[-x^ne^{-x}]_0^1=-e^{-1}=-\frac{1}{e}$ et $\int_{0}^{1}nx^{n-1}e^{-x}dx=nf(n-1)$
- 
- $\Rightarrow f(n)=-\frac{1}{e}+nf(n-1)$.
- 
- 
- 2. Montrons par récurrence que pour tout $n\in \mathbb{N}$, $f(n)= \frac{n!}{e}(e-\sum_{k=0}^{n}\frac{1}{k!})$
- 
- Pour $n=0$, $\int_{0}^{1}x^{0}e^{-x}dx=[-e^{-x}]_0^1=-\frac{1}{e}+1$
- 
- On a : $\frac{0!}{e}(e-\sum_{k=0}^{0}\frac{1}{k!})=\frac{1}{e}(e-1)=1-\frac{1}{e}$
- 
- Les deux sont égaux, alors l'hypothèse est vérifié au rang 0.
- 
- Supposons l'hypothèse vrai à l'ordre $n-1$,c'est-à-dire $f(n-1)= \frac{(n-1)!}{e}(e-\sum_{k=0}^{n-1}\frac{1}{k!})$ et vérifions au rang $n$.
- 
- \begin{align*}
-f(n) &= -\frac{1}{e} + n f(n-1) \\
-     &= -\frac{1}{e} + n \frac{(n-1)!}{e} \left( e - \sum_{k=0}^{n-1} \frac{1}{k!} \right) \\
-     \text{avec } n(n-1)! = n! \\
-     &= -\frac{1}{e} + \frac{n!}{e} \left( e - \sum_{k=0}^{n-1} \frac{1}{k!} \right) \\
-     &= -\frac{n!}{n!e} + \frac{n!}{e} \left( e - \sum_{k=0}^{n-1} \frac{1}{k!} \right) \\
-     &= \frac{n!}{e} \left( -\frac{1}{n!} + e - \sum_{k=0}^{n-1} \frac{1}{k!} \right) \\
-     \text{avec } -\frac{1}{n!} - \sum_{k=0}^{n-1} \frac{1}{k!} &= -\sum_{k=0}^{n} \frac{1}{k!} \\
-f(n) &= \frac{n!}{e} \left( e - \sum_{k=0}^{n} \frac{1}{k!} \right)
-\end{align*}
+\emph{Hérédité.} Si $\mathcal{P}(n-1)$ est vraie ($n\ge1$), alors
+\[
+f(n)=n\cdot\frac{(n-1)!}{e}\Big(e-\sum_{k=0}^{n-1}\frac1{k!}\Big)-\frac1e=\frac{n!}{e}\Big(e-\sum_{k=0}^{n-1}\frac1{k!}-\frac1{n!}\Big)=\frac{n!}{e}\Big(e-\sum_{k=0}^{n}\frac1{k!}\Big).
+\]
+La propriété est vraie pour tout $n\in\mathbb{N}$.
 
- 
- L'hypothèse est donc vrai pour tout $n$. Ce qui achève la récurrence.
- 
- 3. Montrons que l'on a $\frac{1}{e(n+1)}\leq f(n)\leq \frac{1}{n+1}$.
- 
- On a :
- 
+\textbf{3. Encadrement.} Pour $x\in[0,1]$, $e^{-1}\le e^{-x}\le1$, donc $\dfrac{x^n}{e}\le x^ne^{-x}\le x^n$. En intégrant sur $[0,1]$, avec $\displaystyle\int_0^1x^n\,dx=\frac1{n+1}$ :
+\[
+\boxed{\frac{1}{e(n+1)}\le f(n)\le\frac1{n+1}}.
+\]
+En particulier $f(n)\to0$.
 
-\begin{align*}
-0 \leq x \leq 1 &\Rightarrow -1 \leq -x \leq 0 \\
-&\Rightarrow e^{-1} \leq e^{-x} \leq e^{0} \\
-&\Rightarrow \frac{1}{e} \times x^n \leq x^n e^{-x} \leq x^n \\
-&\Rightarrow \frac{1}{e} \int_{0}^{1} x^n \, dx \leq\int_{0}^{1} x^n e^{-x} \, dx \leq \\
-\int_{0}^{1} x^n \, dx \\
-\text{avec } \int_{0}^{1} x^n e^{-x} \, dx = f(n) \text{ et } \int_{0}^{1} x^n \, dx = \left[ \frac{1}{n+1} x^{n+1} \right]_{0}^{1} = \frac{1}{n+1} \\
-&\Rightarrow \frac{1}{e(n+1)} \leq f(n) \leq \frac{1}{n+1}
-\end{align*}
+\textbf{4. Nature des séries.}
+\begin{itemize}
+\item $\sum f(n)$ : $f(n)\ge\dfrac{1}{e(n+1)}\ge0$ et $\sum\dfrac{1}{n+1}$ diverge (série harmonique). Par comparaison de séries à termes positifs, \textbf{$\sum f(n)$ diverge}.
+\item $\sum\dfrac{f(n)}{n}$ : $0\le\dfrac{f(n)}{n}\le\dfrac1{n(n+1)}\le\dfrac1{n^2}$, et $\sum\dfrac1{n^2}$ converge (série de Riemann, $2>1$). \textbf{$\sum\dfrac{f(n)}{n}$ converge}.
+\item $\sum(-1)^nf(n)$ : la suite $(f(n))$ est positive, décroissante et tend vers $0$. D'après le critère spécial des séries alternées, \textbf{$\sum(-1)^nf(n)$ converge}.
+\end{itemize}
 
- d'où le résultat
- 
- 4. Déduisons la nature des séries $\sum_{n=1}^{+\infty}f(n)$, $\sum_{n=1}^{+\infty}\frac{f(n)}{n}$ et $\sum_{n=1}^{+\infty}(-1)^nf(n)$.
- 
- On a : $\frac{1}{e(n+1)}\leq f(n)\leq \frac{1}{n+1}$
- 
- 
- \medskip
- $\bullet \sum_{n=1}^{+\infty}f(n)$
+\textbf{5. Rayon de convergence $R$ de $\sum f(n)x^n$.}
 
-$f(n)$ est minorée par $\frac{1}{e(n+1)}\sim \frac{1}{en}$  qui est le terme général d'une série de Riemann divergente donc la série de terme général $f(n)$, c'est-à-dire $\sum_{n=1}^{+\infty}f(n)$ diverge.
- 
- \medskip
- $\bullet \sum_{n=1}^{+\infty}\frac{f(n)}{n}$
- 
- $\frac{1}{e(n+1)}\leq f(n)\leq \frac{1}{n+1}\Rightarrow \frac{1}{en(n+1)}\leq \frac{f(n)}{n}\leq \frac{1}{n(n+1)}$
- 
- $\frac{f(n)}{n}$ est majorée par $\frac{1}{n(n+1)}\sim \frac{1}{n^2}$ qui est le terme générale d'une série de Riemann convergente donc la série de terme général $\frac{f(n)}{n}$ converge.
- 
- $\bullet \sum_{n=1}^{+\infty}(-1)^nf(n)$
- 
- $f(n)$ est positive et décroissante, donc la série de terme général $(-1)^nf(n)$ est une série alternée convergente.
- 
- 
- 5. Déterminons le rayon de convergence de la série entière $\sum_{n=1}^{+\infty}f(n)x^n$.
-
- Soit $R$ le rayon de convergence de la série entière. Comme la série de terme général $f(n)$ diverge cela signifie que 1  n'est pas dans le disque de convergence sinon
-$\sum_{n=1}^{+\infty}f(n)1^n=\sum_{n=1}^{+\infty}f(n)$ convergerait, cela entraine que $R\geq 1$.
-
-Comme la série de terme général $(-1)^nf(n)$ converge, cela signifie que -1 est dans le disque de 
-converge donc $R\leq 1$ , en effet
-
-$\sum_{n=1}^{+\infty}f(n)(-1)^n< +\infty$
-
-Donc $R=1$
+\begin{itemize}
+\item En $x=-1$, la série $\sum f(n)(-1)^n$ converge : donc $R\ge1$ (une série entière diverge grossièrement en tout point de module $>R$, donc tout point de convergence vérifie $|x|\le R$).
+\item En $x=1$, la série $\sum f(n)$ diverge : donc $R\le1$ (une série entière converge absolument en tout point de module $<R$).
+\end{itemize}
+Donc $\boxed{R=1}$. (Autre méthode : l'encadrement de la question 3 et le fait que $\sum\frac{x^n}{n+1}$ a pour rayon $1$.)
 
 \end{spacing}
 \end{document}

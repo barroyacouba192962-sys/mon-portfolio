@@ -7,439 +7,232 @@
 
 \textbf{Exercice 1}
 
+$x(t)=\dfrac{t^2}{t^2+1}$, \quad $y(t)=\dfrac{t^3}{t^2+1}$, \quad $t\in\mathbb{R}$ (le dénominateur ne s'annule jamais).
 
+\textbf{1. Valeurs possibles de $x$ et de $y$.}
 
-
-
-
-\medskip
-1. Déterminons l'ensemble des valeurs possibles pour \(x\) et \(y\)
-
-On a :
+\underline{Pour $x$ :} on écrit $x(t)=1-\dfrac{1}{t^2+1}$. Comme $t^2+1\ge1$, on a $0<\dfrac1{t^2+1}\le1$, donc $0\le x(t)<1$. De plus, $t\mapsto x(t)$ est continue, vaut $0$ en $t=0$ et tend vers $1$ quand $t\to+\infty$ : par le théorème des valeurs intermédiaires, elle prend toutes les valeurs de $[0,1[$. Donc
 \[
-x(t) = \frac{t^2}{t^2 + 1}, \quad y(t) = \frac{t^3}{t^2 + 1}.
+x\in[0,1[ .
 \]
-
-\textbf{Pour \(x\) :}
+\underline{Pour $y$ :} $t\mapsto y(t)$ est continue sur $\mathbb{R}$ et $y(t)=t\cdot\dfrac{t^2}{t^2+1}\sim t$ en $\pm\infty$, donc $\lim\limits_{t\to-\infty}y(t)=-\infty$ et $\lim\limits_{t\to+\infty}y(t)=+\infty$. Par le théorème des valeurs intermédiaires,
 \[
-x(t) = \frac{t^2}{t^2 + 1}.
+y\in\mathbb{R}.
 \]
+(En fait $y'(t)=\dfrac{t^2(t^2+3)}{(t^2+1)^2}\ge0$ : $y$ est strictement croissante de $-\infty$ à $+\infty$.)
+
+\textbf{2. Le point $O$ et la tangente en $O$.}
+
+Pour $t=0$ : $x(0)=0$ et $y(0)=0$, donc $O(0,0)\in C$. C'est le seul paramètre donnant $O$ (car $x(t)=0\iff t=0$).
+
+Pour $t\neq0$, $x(t)\neq0$ et la pente de la droite $(OM)$ est
+\[
+\frac{y(t)-0}{x(t)-0}=\frac{t^3}{t^2}=t\xrightarrow[t\to0]{}0 .
+\]
+La pente de la tangente en $O$ est donc $\boxed{p=0}$ : la tangente en $O$ est l'axe des abscisses.
+
+\remarque{On ne peut pas utiliser directement $\dfrac{y'(t)}{x'(t)}$ en $t=0$ car $x'(0)=y'(0)=0$ ($O$ est un point singulier). Comme $x\ge0$ et que $y$ change de signe en $t=0$, la courbe arrive en $O$ et repart en sens inverse : $O$ est un \emph{point de rebroussement}.}
+
+\textbf{3. Équation cartésienne, dérivée et allure de $C$.}
+
+\underline{Élimination de $t$.} Pour $t\neq0$, $\dfrac yx=t$, donc $y=tx$ (relation vraie aussi pour $t=0$). De $x=\dfrac{t^2}{t^2+1}$ on tire $x(t^2+1)=t^2$, soit $t^2=\dfrac{x}{1-x}$ (car $x<1$). Alors
+\[
+y^2=t^2x^2=\frac{x^3}{1-x}.
+\]
+Comme $y$ a le signe de $t$ :
 \begin{itemize}
-    \item \(t^2 \geq 0 \implies x(t) \geq 0\),
-    \item lorsque \(t \to 0\), \(x(t) \to 0\),
-    \item lorsque \(t \to \pm\infty\), \(x(t) \to \frac{t^2}{t^2} = 1\).
+\item pour $t\ge0$ : $y=g(x)=\sqrt{\dfrac{x^3}{1-x}}=x\sqrt{\dfrac{x}{1-x}}$ ;
+\item pour $t\le0$ : $y=-g(x)$.
 \end{itemize}
+La courbe $C$ a pour équation $y^2(1-x)=x^3$ avec $0\le x<1$ ; elle est la réunion des graphes de $g$ et de $-g$ sur $[0,1[$. Elle est \textbf{symétrique par rapport à l'axe des abscisses} (changer $t$ en $-t$ change $y$ en $-y$ sans changer $x$). C'est la \emph{cissoïde de Diocles}.
 
-Ainsi, \(x(t) \in [0, 1[\).
-
-\textbf{Pour \(y\) :}
+\underline{Dérivée de $g$ sur $]0,1[$.} On écrit $g(x)=x^{3/2}(1-x)^{-1/2}$ :
 \[
-y(t) = \frac{t^3}{t^2 + 1}.
+g'(x)=\frac32x^{1/2}(1-x)^{-1/2}+\frac12x^{3/2}(1-x)^{-3/2}=\frac{x^{1/2}}{(1-x)^{3/2}}\Big[\frac32(1-x)+\frac x2\Big],
 \]
+\[
+\boxed{g'(x)=\frac{(3-2x)\sqrt x}{2(1-x)^{3/2}}}.
+\]
+\underline{Variations.} Sur $]0,1[$, $3-2x>1>0$, donc $g'(x)>0$ : $g$ est strictement croissante sur $[0,1[$. De plus :
 \begin{itemize}
-    \item Lorsque \(t = 0\), \(y(0) = 0\),
-    \item Lorsque \(t > 0\), \(t^3 > 0\), donc \(y(t) > 0\),
-    \item Lorsque \(t < 0\), \(t^3 < 0\), donc \(y(t) < 0\),
-    \item Lorsque \(t \to \pm\infty\), \(y(t) \to \frac{t^3}{t^2} = t\).
+\item $g(0)=0$ et $\dfrac{g(x)-g(0)}{x}=\sqrt{\dfrac{x}{1-x}}\to0$ : tangente horizontale en $O$ ;
+\item $\lim\limits_{x\to1^-}g(x)=+\infty$ : la droite $x=1$ est \textbf{asymptote verticale}.
 \end{itemize}
-
-Ainsi, \(y(t)\) prend toutes les valeurs dans \(\mathbb{R}\).
-
-\medskip
-2. Montrons que \(O(0,0)\) appartient à \(C\)
-
-Pour \(t = 0\), on calcule :
-\[
-x(0) = \frac{0^2}{0^2 + 1} = 0, \quad y(0) = \frac{0^3}{0^2 + 1} = 0.
-\]
-
-Le point \(O(0,0)\) appartient donc à la courbe \(C\).
-
-\textbf{Pente de la tangente au point \(O\) :}
-
-La pente de la tangente est donnée par :
-\[
-p = \frac{\mathrm{d}y}{\mathrm{d}x}.
-\]
-
-On calcule les dérivées paramétriques de \(x(t)\) et \(y(t)\) :
-\[
-x'(t) = \frac{2t(t^2 + 1) - t^2 \cdot 2t}{(t^2 + 1)^2} = \frac{2t}{(t^2 + 1)^2},
-\]
-\[
-y'(t) = \frac{3t^2(t^2 + 1) - t^3 \cdot 2t}{(t^2 + 1)^2} = \frac{t^2(3 - t^2)}{(t^2 + 1)^2}.
-\]
-
-Ainsi :
-\[
-\frac{\mathrm{d}y}{\mathrm{d}x} = \frac{y'(t)}{x'(t)} = \frac{\frac{t^2(3 - t^2)}{(t^2 + 1)^2}}{\frac{2t}{(t^2 + 1)^2}} = \frac{t(3 - t^2)}{2}.
-\]
-
-Au point \(O\) (\(t = 0\)) :
-\[
-p = \frac{0(3 - 0^2)}{2} = 0.
-\]
-
-La tangente à la courbe au point \(O\) est donc horizontale.
-
-\medskip
-3. Équation de la courbe \(C\) sous forme \(y = g(x)\)
-
-On exprime \(t\) en fonction de \(x\) à partir de \(x(t) = \frac{t^2}{t^2 + 1}\) :
-\[
-x = \frac{t^2}{t^2 + 1} \implies t^2 = \frac{x}{1 - x} \quad (\text{pour } x \in [0, 1[).
-\]
-
-En prenant \(t = \pm\sqrt{\frac{x}{1 - x}}\), on substitue dans \(y(t)\) :
-\[
-y = \frac{t^3}{t^2 + 1} = \frac{\left(\pm\sqrt{\frac{x}{1 - x}}\right)^3}{\frac{x}{1 - x} + 1}.
-\]
-
-Cela donne :
-\[
-y = \pm\frac{\left(\frac{x}{1 - x}\right)^{3/2}}{\frac{1}{1 - x}} = \pm \sqrt{\frac{x^3}{1 - x}}.
-\]
-
-Ainsi, l'équation de \(C\) est donnée par :
-\[
-y = \pm\sqrt{\frac{x^3}{1 - x}}, \quad x \in [0, 1[.
-\]
-
-\textbf{Calcul de \(y'\) et variations de \(g(x)\) :}
-
-Pour \(y = \sqrt{\frac{x^3}{1 - x}}\), on a :
-\[
-y' = \frac{1}{2\sqrt{\frac{x^3}{1 - x}}} \cdot \frac{(1 - x) \cdot 3x^2 + x^3}{(1 - x)^2} = \frac{(2 - x)x}{2(1 - x)\sqrt{\frac{x^3}{1 - x}}}.
-\]
-
-Les variations de \(g(x)\) dépendent du signe de \(y'\). En analysant, la courbe \(C\) est symétrique par rapport à l'origine et a une branche croissante pour \(x \in [0, 1[\).
-
-La courbe \(C\) a donc une forme générale qui ressemble à une boucle.
-
-
-
-
-
-\quad
-
+\begin{center}
+\begin{tabular}{c|ccc}
+$x$ & $0$ & & $1$\\
+\hline
+$g'(x)$ & $0$ & $+$ & $\Vert$\\
+\hline
+$g(x)$ & $0$ & $\nearrow$ & $+\infty$
+\end{tabular}
+\end{center}
+\underline{Allure de $C$.} La branche $y=g(x)$ part de $O$ tangentiellement à l'axe $(Ox)$ et monte vers $+\infty$ en s'approchant de l'asymptote $x=1$ ; la branche $y=-g(x)$ est sa symétrique par rapport à $(Ox)$. Les deux branches se rejoignent en $O$ en formant un point de rebroussement.
 
 \begin{center}
-\textbf{Courbe \(C\) : \(y = \pm \sqrt{\frac{x^3}{1-x}}\)}
-
-
 \begin{tikzpicture}
     \begin{axis}[
         axis lines = middle,
         xlabel = $x$,
         ylabel = $y$,
         ymin = -4, ymax = 4,
-        xmin = -0.5, xmax = 1.05,
-        domain = 0.01:0.99, % Évite les singularités aux limites
-        samples = 600,
-        legend pos = north west,
-        grid = both
+        xmin = -0.3, xmax = 1.2,
+        domain = 0:0.985,
+        samples = 400,
+        width=9cm, height=8cm,
     ]
-        % Courbe positive
-        \addplot[
-            color=black,
-            thick
-        ]{sqrt(x^3/(1-x))};
-  %      \addlegendentry{$y = +\sqrt{\frac{x^3}{1-x}}$}
-        
-        % Courbe négative
-        \addplot[
-            color=black,
-            thick
-        ]{-sqrt(x^3/(1-x))};
-      %  \addlegendentry{$y = -\sqrt{\frac{x^3}{1-x}}$}
+        \addplot[color=blue!70!black, thick]{sqrt(x^3/(1-x))};
+        \addplot[color=blue!70!black, thick]{-sqrt(x^3/(1-x))};
+        \addplot[dashed, gray] coordinates {(1,-4) (1,4)};
+        \node at (axis cs:1.1,3) {$x=1$};
     \end{axis}
 \end{tikzpicture}
 \end{center}
 
+\medskip\textbf{Exercice 2}
 
+\remarque{La fonction $x\mapsto\dfrac{x^2}{\operatorname{sh}x}$ est définie pour tout $x\neq0$ ; on étudie donc $f$ définie sur $\mathbb{R}$ par $f(0)=0$ et $f(x)=\dfrac{x^2}{\operatorname{sh}x}$ si $x\neq0$ (l'énoncé original indiquait $\mathbb{R}_+^*$, ce qui est incompatible avec la question 3).}
 
+\textbf{1. Développements limités à l'ordre 5 en 0.}
+\[
+e^x=1+x+\frac{x^2}{2}+\frac{x^3}{6}+\frac{x^4}{24}+\frac{x^5}{120}+o(x^5).
+\]
+Comme $\operatorname{sh}x=\dfrac{e^x-e^{-x}}{2}$, les termes de degré pair s'éliminent :
+\[
+\operatorname{sh}x=x+\frac{x^3}{6}+\frac{x^5}{120}+o(x^5).
+\]
 
-\quad
+\textbf{2. Développement limité de $f$ à l'ordre 3.}
 
-\medskip\textbf{Exercice 2} 
+Pour $x\neq0$ :
+\[
+f(x)=\frac{x^2}{x\big(1+\frac{x^2}{6}+\frac{x^4}{120}+o(x^4)\big)}=x\cdot\frac{1}{1+u},\qquad u=\frac{x^2}{6}+o(x^2)\xrightarrow[x\to0]{}0 .
+\]
+Avec $\dfrac1{1+u}=1-u+o(u)$ et $u=\frac{x^2}{6}+o(x^2)$ : $\dfrac1{1+u}=1-\dfrac{x^2}{6}+o(x^2)$. Donc
+\[
+\boxed{f(x)=x-\frac{x^3}{6}+o(x^3)}.
+\]
+(Ce DL est aussi valable en $x=0$ puisque $f(0)=0$.)
 
-Soit $f$ la fonction définie sur $\mathbb{R}_{+}^{*}$ par
- \[
- \begin{cases}
- f(0)=0\\
- f(x)= \frac{x^2}{sh x}
- \end{cases}
- \]
- 
- 1. Déterminons le développement limité d'ordre 5 de $e^x$ et de $sh x$ en 0.
- 
- \[e^x=\sum_{k=0}^n\frac{x^k}{k!}=1+x+\frac{1}{2}x^2+\frac{1}{6}x^3+\frac{1}{24}x^4+\frac{1}{120}x^5 + \circ(x^5)\]
- 
- 
-\[sh x=\sum_{k=0}\frac{x^{2k+1}}{(2k+1)!}=x+\frac{x^3}{6}+\frac{x^5}{120}+\circ(x^5)\] 
- 
- 2. Déduisons le développement limité d'ordre 3 de $f$ en 0.
- 
- \[f(x)=\frac{x^2}{sh x}=\frac{x^2}{x+\frac{x^3}{6}+\frac{x^5}{120}+\circ(x^5)}=\frac{x}{1+\frac{x^2}{6}+\frac{x^4}{120}+\circ(x^4)}=x-\frac{x^3}{6}+\circ(x^3)\](Obtenue par division euclidienne)
- 
- 3. Déduisons que $f$ est dérivable sur $\mathbb{R}$ et précisons la position relative au voisinage de 0 du graphe de $f$ par rapport à sa tangente en 0.
- 
- $f(x)=x-\frac{x^3}{6}+\circ(x^3)$ est un polynôme donc dérivable sur $\mathbb{R}$
- 
- Sa tangente en 0 est donnée par $(T): y=x$.
- 
- On a : $f(x)-x=-\frac{x^3}{6}+\circ(x^3)\leq 0\forall x\in \mathbb{R}_{+}^{*}$ alors $(C_f)$ est en dessous de $(T)$.
- 
- 
- 4. Déduisons $f^{(3)}(0)$.
- 
- \[f'(0)=1 \text{  } , f''(0)= 0 \text{  }, f^{(3)}(0)=-\frac{1}{6}\]
- 
- En effet, 
- 
- \[f(x)=f(0)+xf'(0)+x^2f''(0)+x^3f^{(3)}(0)=x-\frac{x^3}{6}\]
- 
- Par identification, on trouve les résultats ci-dessus.
- 
+\textbf{3. Dérivabilité et position par rapport à la tangente.}
+
+\underline{Sur $\mathbb{R}^*$} : $f$ est le quotient de fonctions dérivables, le dénominateur $\operatorname{sh}x$ ne s'annulant pas ; $f$ est dérivable.
+
+\underline{En $0$} : le DL donne $f(x)=0+1\cdot x+o(x)$ et $f(0)=0$. Une fonction (continue en $0$) qui admet un DL d'ordre 1 en $0$ est dérivable en $0$, de dérivée le coefficient de $x$ : en effet $\dfrac{f(x)-f(0)}{x}=1-\dfrac{x^2}{6}+o(x^2)\to1$. Donc $f'(0)=1$ et \textbf{$f$ est dérivable sur $\mathbb{R}$}.
+
+\underline{Tangente en $0$} : $(T)\ :\ y=f(0)+f'(0)x$, soit $y=x$.
+
+\underline{Position} : $f(x)-x=-\dfrac{x^3}{6}+o(x^3)$ a, au voisinage de $0$, le signe de $-x^3$ :
+\begin{itemize}
+\item pour $x>0$ voisin de $0$ : $f(x)-x<0$, la courbe est \textbf{en dessous} de $(T)$ ;
+\item pour $x<0$ voisin de $0$ : $f(x)-x>0$, la courbe est \textbf{au-dessus} de $(T)$.
+\end{itemize}
+La courbe traverse sa tangente en $O$ : $O$ est un \textbf{point d'inflexion}.
+
+\textbf{4. Calcul de $f^{(3)}(0)$.}
+
+$f$ est de classe $C^\infty$ au voisinage de $0$ : en effet $f(x)=\dfrac{x}{h(x)}$ où $h(x)=\dfrac{\operatorname{sh}x}{x}=\displaystyle\sum_{k\ge0}\frac{x^{2k}}{(2k+1)!}$ (avec $h(0)=1$) est une fonction $C^\infty$ qui ne s'annule pas. La formule de Taylor-Young s'applique donc :
+\[
+f(x)=f(0)+f'(0)x+\frac{f''(0)}{2!}x^2+\frac{f^{(3)}(0)}{3!}x^3+o(x^3).
+\]
+Par unicité du développement limité, en identifiant avec $x-\frac{x^3}{6}$ :
+\[
+f'(0)=1,\qquad\frac{f''(0)}{2}=0,\qquad\frac{f^{(3)}(0)}{6}=-\frac16,
+\]
+d'où
+\[
+\boxed{f'(0)=1,\quad f''(0)=0,\quad f^{(3)}(0)=-1}.
+\]
+\remarque{Attention à ne pas oublier les factorielles : le coefficient de $x^3$ dans le DL est $\dfrac{f^{(3)}(0)}{3!}$, et non $f^{(3)}(0)$.}
 
 \medskip\textbf{Exercice 3}
 
+Un code est une suite ordonnée de 3 chiffres pris dans $\{1,2,\dots,9\}$ (9 chiffres : 5 impairs $1,3,5,7,9$ et 4 pairs $2,4,6,8$).
 
-1.(a) Le nombre de codes possible :
+\textbf{1. Chiffres quelconques (répétitions autorisées).}
 
-Chaque chiffre peut être compris entre 1 et 9.
+\textbf{(a)} Un code est une 3-liste de $\{1,\dots,9\}$ : il y en a $9^3=\boxed{729}$.
 
-Nombre total de combinaisons : $9\times 9\times 9 =$\textbf{ 729 codes.}
+\textbf{(b)} Dernier chiffre impair : 5 choix ; les deux premiers sont quelconques : $9\times9$ choix. Nombre de codes : $9\times9\times5=\boxed{405}$.
+Codes se terminant par un chiffre pair (évènement contraire) : $729-405=\boxed{324}$ (on vérifie : $9\times9\times4=324$).
 
-(b) Nombre de codes se terminant par un chiffre impair :
+\textbf{(c)} « Au plus un 5 » signifie « aucun 5 » ou « exactement un 5 » (cas disjoints) :
+\begin{itemize}
+\item aucun 5 : chaque chiffre parmi les 8 autres : $8^3=512$ ;
+\item exactement un 5 : on choisit sa position ($3$ choix), puis les deux autres chiffres parmi 8 : $3\times8^2=192$.
+\end{itemize}
+Total : $512+192=\boxed{704}$.
+(Vérification par le contraire : au moins deux 5 : $3\times8+1=25$, et $729-25=704$.)
 
-Les chiffres impairs sont : 1,3,5,7,9 (5 possibilités).
+\textbf{(d)} Aucun chiffre 5 : $8^3=\boxed{512}$.
 
-Les deux premiers chiffres du code peuvent être quelconque : $9\times 9$.
+\textbf{2. Trois chiffres distincts.}
 
-Ainsi le nombre de codes se terminant par un chiffre impair est : $9\times 9\times 5=405$ codes.
+\textbf{(a)} Un code est un arrangement de 3 chiffres parmi 9 : $A_9^3=9\times8\times7=\boxed{504}$.
 
-\medskip
-Déduisons le nombre de codes se terminant par un chiffres pair :
+\textbf{(b)} On choisit d'abord le dernier chiffre, pair : 4 choix ; puis le premier parmi les 8 chiffres restants, et le deuxième parmi les 7 restants : $4\times8\times7=\boxed{224}$.
+Codes se terminant par un chiffre impair : $504-224=\boxed{280}$ (vérification : $5\times8\times7=280$).
 
-Par différence, le nombre de codes se terminant par un chiffre pair est :  729-405=\textbf{ 324 codes}.
+\textbf{(c)} Codes contenant les chiffres 5 et 7 :
+\begin{itemize}
+\item on choisit le troisième chiffre, différent de 5 et 7 : $7$ choix ;
+\item on range les trois chiffres distincts $\{5,7,d\}$ dans les trois positions : $3!=6$ ordres.
+\end{itemize}
+Nombre de codes : $7\times6=\boxed{42}$.
 
-(c) Nombre de codes contenant au plus un chiffre 5 :
+\remarque{Il ne faut pas compter $C_3^2\times7=21$ : choisir les deux \emph{positions} occupées par 5 et 7 ne suffit pas, il faut encore décider laquelle reçoit le 5 (2 possibilités), d'où $3\times2\times7=42$.}
 
-On dénombre ici ou il n'y a aucun chiffre 5 ou il y a exactement un chiffre 5.
+\medskip\textbf{Exercice 4}
 
-$\bullet$ \textbf{Aucun chiffre 5 :} chaque chiffre peut être 1,2,3,4,6,7,8,9 (8 possibilités).
+$f(x,y)=2x^3+xy^2+5x^2+y^2$ sur $\mathbb{R}^2$ (polynomiale, donc de classe $C^\infty$).
 
-Nombre de codes dans ce cas : $8\times 8\times 8=512$  codes
+\textbf{1. Extremum global ?}
 
-$\bullet$ \textbf{Exactement un chiffre 5 :} 5 peut être placé à l'une des 3 positions( choix des positions $C_3^1=3$). Les deux autres chiffres sont choisis parmi 1,2,3,4,6,7,8,9 ( 8 possibilités chacun)
+Sur l'axe $y=0$ : $f(x,0)=2x^3+5x^2$, et $\lim\limits_{x\to+\infty}f(x,0)=+\infty$, $\lim\limits_{x\to-\infty}f(x,0)=-\infty$. La fonction $f$ n'est ni majorée ni minorée sur $\mathbb{R}^2$ : elle n'a \textbf{ni maximum global ni minimum global}.
 
-Nombre de codes : $3\times 8\times 8 = 192$ codes.
+\textbf{2. Extremums locaux.}
 
-$\quad$
-
-Ainsi le nombre total de codes avec au plus un chiffre 5 est :512+192 codes = \textbf{704 codes}
-
-
-(d) Le nombre de codes ne contenant pas le chiffre 5.
-
-Tous les chiffres sont choisis parmi 1,2,3,4,6,7,8,9(8 possibilités).
-
-Nombre de codes : $8\times 8\times 8$= \textbf{512 codes}.
-
-\quad
-
-2.(a) Nombre de codes possibles
-
-Les chiffres doivent être distincts :
-
-$\bullet$ \underline{$1^{er}$ chiffre :} 9 choix.
-
-$\bullet$ \underline{$2^{eme}$ chiffre :} 8 choix (différent du premier).
-
-$\bullet$ \underline{$3^{eme}$ chiffre :} 7 choix (différent des deux premiers).
-
-Nombre total des combinaisons possibles : $9\times 8\times 7$= \textbf{504 codes}
-
-(b) Le nombre de codes se terminant par un chiffre pair :
-
-Le dernier chiffre est choisi parmi les chiffres pairs (2,4,6,8) (4 possibilités).
-
-Les deux premiers chiffres sont choisis parmi les 8 chiffres restants de façon distincts : 8 choix pour le premier et 7 choix pour le deuxième.
-
-Nombre de codes : $8\times 7\times 4$=\textbf{224 codes}
-
-\quad
-
-Déduisons le nombre de codes se terminant par un chiffre impair :
-
-
-Par différence, le nombre de codes se terminant par un chiffre impair est : 504-224 = \textbf{280 codes}
-
-
-(c) Nombre de codes comprenant les chiffres 5 et 7 :
-
-$\cdot$ Les chiffres 5 et 7 doivent être dans le code.
-
-$\cdot$ Choix des positions des chiffres 5 et 7 dans les trois places : $C_3^2=3$
-
-$\cdot$ Le troisième chiffre est choisi parmi les 7 chiffres restants (distincts de 5 et 7).
-
-Nombre de codes : $3\times 7=$\textbf{ 21 codes}
-
-
-\quad
-
-\textbf{Exercice 4}
-
-La fonction f est définie sur $\mathbb{R}^2$ par :
+\underline{Points critiques.}
 \[
-f(x, y) = 2x^3 + xy^2 + 5x^2 + y^2.
+\frac{\partial f}{\partial x}=6x^2+y^2+10x,\qquad \frac{\partial f}{\partial y}=2xy+2y=2y(x+1).
 \]
+$\dfrac{\partial f}{\partial y}=0\iff y=0$ ou $x=-1$.
+\begin{itemize}
+\item Si $y=0$ : $6x^2+10x=2x(3x+5)=0$, d'où $x=0$ ou $x=-\frac53$.
+\item Si $x=-1$ : $6-10+y^2=0$, d'où $y^2=4$, $y=\pm2$.
+\end{itemize}
+Les points critiques sont $(0,0)$, $\big(-\frac53,0\big)$, $(-1,2)$ et $(-1,-2)$.
 
-1. Recherche d'un maximum ou minimum global
-
-Pour déterminer si $f$ possède un maximum ou minimum global sur $\mathbb{R}^2$, nous analysons le comportement de $f(x, y)$ lorsque $\|(x, y)\| \to \infty$.
-
+\underline{Dérivées secondes} (notations de Monge) :
 \[
-f(x, y) = 2x^3 + xy^2 + 5x^2 + y^2.
+r=\frac{\partial^2f}{\partial x^2}=12x+10,\qquad s=\frac{\partial^2f}{\partial x\partial y}=2y,\qquad t=\frac{\partial^2f}{\partial y^2}=2x+2 .
 \]
+On rappelle : si $rt-s^2>0$, il y a un extremum local (minimum si $r>0$, maximum si $r<0$) ; si $rt-s^2<0$, c'est un point selle (pas d'extremum).
 
-Lorsque $x \to \pm \infty$, le terme dominant est $2x^3$, qui diverge respectivement vers $+\infty$ ou $-\infty$. Donc, $f(x, y)$ ne possède pas de borne supérieure ni de borne inférieure. 
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+Point & $r$ & $s$ & $t$ & $rt-s^2$ & Conclusion\\
+\hline
+$(0,0)$ & $10$ & $0$ & $2$ & $20>0$ & minimum local ($r>0$)\\
+\hline
+$\big(-\frac53,0\big)$ & $-10$ & $0$ & $-\frac43$ & $\frac{40}{3}>0$ & maximum local ($r<0$)\\
+\hline
+$(-1,2)$ & $-2$ & $4$ & $0$ & $-16<0$ & point selle\\
+\hline
+$(-1,-2)$ & $-2$ & $-4$ & $0$ & $-16<0$ & point selle\\
+\hline
+\end{tabular}
+\end{center}
+(En $\big(-\frac53,0\big)$ : $r=12\times\big(-\frac53\big)+10=-20+10=-10$ et $t=-\frac{10}{3}+2=-\frac43$.)
 
-Conclusion : La fonction $f$ n'a pas de maximum ni de minimum global sur $\mathbb{R}^2$.
-
-2. Recherche des extrémums locaux
-
-Pour trouver les points où $f$ présente des extrémums locaux, calculons le gradient de $f$ :
-\[
-\nabla f(x, y) = \left( \frac{\partial f}{\partial x}, \frac{\partial f}{\partial y} \right).
-\]
-
-Les dérivées partielles sont :
-\[
-\frac{\partial f}{\partial x} = 6x^2 + y^2 + 10x, \quad \frac{\partial f}{\partial y} = 2xy + 2y.
-\]
-
-Pour trouver les points critiques, résolvons le système :
-\[
-\frac{\partial f}{\partial x} = 0 \quad \text{et} \quad \frac{\partial f}{\partial y} = 0.
-\]
-
-\textbf{ Résolution du système}
-
- $\frac{\partial f}{\partial y} = 2y(x + 1) = 0$ \\
-   Cette équation donne deux cas :
-\[
-   y = 0 \quad \text{ou} \quad x = -1.
-\]
-
- Étudions chaque cas :
-
-   - Si $y = 0$, alors $\frac{\partial f}{\partial x} = 6x^2 + 10x = 0$, soit :
-\[
-     x(6x + 10) = 0 \implies x = 0 \quad \text{ou} \quad x = -\frac{5}{3}.
-\]
-
-   - Si $x = -1$, alors $\frac{\partial f}{\partial x} = 6(-1)^2 + y^2 + 10(-1) = y^2 - 4 = 0$, soit :
-\[
-     y^2 = 4 \implies y = \pm 2.
-\]
-
-$\cdot$ \textbf{Points critiques}
-
-Les points critiques de $f$ sont donc :
-\[
-(0, 0), \quad \left(-\frac{5}{3}, 0\right), \quad (-1, 2), \quad (-1, -2).
-\]
-
-$\cdot$ \textbf{ Nature des points critiques}
-
-Pour déterminer la nature des points critiques (minimum local, maximum local ou point selle), calculons la matrice hessienne de $f$ :
-\[
-H_f(x, y) = 
-\begin{pmatrix}
-\frac{\partial^2 f}{\partial x^2} & \frac{\partial^2 f}{\partial x \partial y} \\
-\frac{\partial^2 f}{\partial y \partial x} & \frac{\partial^2 f}{\partial y^2}
-\end{pmatrix}.
-\]
-
-Les dérivées secondes sont :
-\[
-\frac{\partial^2 f}{\partial x^2} = 12x + 10, \quad 
-\frac{\partial^2 f}{\partial y^2} = 2x + 2, \quad 
-\frac{\partial^2 f}{\partial x \partial y} = \frac{\partial^2 f}{\partial y \partial x} = 2y.
-\]
-
-La matrice hessienne est donc :
-\[
-H_f(x, y) = 
-\begin{pmatrix}
-12x + 10 & 2y \\
-2y & 2x + 2
-\end{pmatrix}.
-\]
-
-$\cdot$ Étudions la nature des points critiques :
-
-- Point $(0, 0)$ :
-\[
-   H_f(0, 0) = 
-   \begin{pmatrix}
-   10 & 0 \\
-   0 & 2
-   \end{pmatrix}.
-\]
-
-   Les valeurs propres sont $10 > 0$ et $2 > 0$. Donc, $(0, 0)$ est un \textbf{minimum local}.
-
-- Point $\left(-\frac{5}{3}, 0\right)$ :
-\[
-   H_f\left(-\frac{5}{3}, 0\right) = 
-   \begin{pmatrix}
-   12\left(-\frac{5}{3}\right) + 10 & 0 \\
-   0 & 2\left(-\frac{5}{3}\right) + 2
-   \end{pmatrix} = 
-   \begin{pmatrix}
-   0 & 0 \\
-   0 & -\frac{4}{3}
-   \end{pmatrix}.
-\]
-
-   La matrice n'est pas définie, donc $\left(-\frac{5}{3}, 0\right)$ est un \textbf{point selle}.
-
-- Point $(-1, 2)$ :
-\[
-   H_f(-1, 2) = 
-   \begin{pmatrix}
-   12(-1) + 10 & 4 \\
-   4 & 2(-1) + 2
-   \end{pmatrix} = 
-   \begin{pmatrix}
-   -2 & 4 \\
-   4 & 0
-   \end{pmatrix}.
-\]
-
-   Le déterminant est $\det(H_f(-1, 2)) = (-2)(0) - (4)(4) = -16 < 0$. Donc, $(-1, 2)$ est un \textbf{point selle}.
-
-- Point $(-1, -2)$ :*
-\[
-   H_f(-1, -2) = 
-   \begin{pmatrix}
-   -2 & -4 \\
-   -4 & 0
-   \end{pmatrix}.
-\]
-
-   Le déterminant est $\det(H_f(-1, -2)) = -16 < 0$. Donc, $(-1, -2)$ est un \textbf{point selle}.
-   
-   \medskip
-
-\textbf{ Conclusion}
-
-- $(0, 0)$ est un \textbf{minimum local}.
-- $\left(-\frac{5}{3}, 0\right), (-1, 2), (-1, -2)$ sont des \textbf{points selle}.
+\textbf{Conclusion :}
+\begin{itemize}
+\item $f$ admet un \textbf{minimum local} en $(0,0)$, de valeur $f(0,0)=0$ ;
+\item $f$ admet un \textbf{maximum local} en $\big(-\frac53,0\big)$, de valeur $f\big(-\frac53,0\big)=2\big(-\frac{125}{27}\big)+5\cdot\frac{25}{9}=\frac{-250+375}{27}=\frac{125}{27}$ ;
+\item $(-1,2)$ et $(-1,-2)$ sont des points selles (pas d'extremum).
+\end{itemize}
+Ces extremums sont seulement locaux, d'après la question 1.
 
 \end{spacing}
 \end{document}
