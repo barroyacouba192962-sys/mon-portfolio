@@ -5,286 +5,244 @@
 \entete{Mathématiques}{Corrigé détaillé du sujet type n°4}{Correction}
 \begin{spacing}{1.5}
 
+\remarque{L'énoncé original indiquait $|a|=1$ ; il faut lire $|a|\neq1$. En effet, si $|a|=1$, alors $1+\bar a z=\bar a(a+z)$ et $f_a$ serait constante égale à $1/\bar a=a$ (et non définie en $-a$) ; de plus les valeurs $a=2$, $2i$, $1+i$ de la question 6 sont de module différent de $1$.}
+
 \textbf{Exercice 1}
 
-1. $f_a(z)$ est bien définie ssi $1+\overline{a}z\neq 0$, c'est-à-dire $\overline{a}z=-1$. Mais comme $z\in U,\mid\overline{a}z\mid =\mid\overline{a}\mid =\mid a \mid\neq 1$ par hypothèse. Comme $\mid -1\mid = 1$, on ne peut donc pas avoir $\overline{a}z =-1$, et $f_a(z)$ est bien définie pour tout élément $z$ de $U$.
+\textbf{1. $f_a$ est bien définie sur $U$.}
 
-2. Si, $z\in U$, $z$ s'écrit sous forme trigonométrique $z = cos\theta + isin\theta$ et donc $\overline{z}= cos\theta-isin\theta$.
+$f_a(z)$ est définie si et seulement si $1+\bar a z\neq0$, c'est-à-dire $\bar a z\neq-1$. Or, pour $z\in U$ :
+\[
+|\bar a z|=|\bar a|\,|z|=|a|\times1=|a|\neq1=|-1| .
+\]
+Les nombres $\bar a z$ et $-1$ n'ont pas le même module, donc $\bar az\neq-1$ : $f_a(z)$ est bien définie pour tout $z\in U$.
 
-En multipliant et divisant par la quantité conjuguée, on trouve que
+\textbf{2. Si $z\in U$, alors $\bar z=\dfrac1z$.}
 
-$\overline{z}=\frac{(cos\theta - isin\theta)(cos\theta + isin\theta)}{cos\theta + isin\theta}=\frac{cos^2\theta + isin^2\theta}{cos\theta + isin\theta}=\frac{1}{z}$.
+Pour tout complexe $z$, $z\bar z=|z|^2$. Si $z\in U$, $|z|=1$ donc $z\neq0$ et $z\bar z=1$, d'où $\bar z=\dfrac1z$.
 
-3. Si $z\in U$, alors
+(Variante : $z=\cos\theta+i\sin\theta$, $\bar z=\cos\theta-i\sin\theta$ et $z\bar z=\cos^2\theta+\sin^2\theta=1$.)
 
-$f_a(z)=\frac{z+a}{z(\frac{1}{z}+\overline{a})}=\frac{z+a}{z(\overline{z}+\overline{a})}=\frac{z+a}{z(\overline{z+a})}$
+\textbf{3. Si $z\in U$, alors $f_a(z)\in U$.}
 
-Comme $\mid z\mid=1$ et $\mid \overline{z+a}\mid=\mid z+a\mid$, le module d'un produit étant le produit des modules, on
-en conclut que $\mid f_a(z)\mid = 1$ d'où le résultat demandé. 
+Pour $z\in U$, on écrit $1=z\bar z$ :
+\[
+1+\bar az=z\bar z+\bar a z=z(\bar z+\bar a)=z\,\overline{(z+a)} .
+\]
+Donc
+\[
+f_a(z)=\frac{z+a}{z\,\overline{(z+a)}} .
+\]
+Remarquons que $z+a\neq0$ (sinon $a=-z$ serait de module $1$). Comme $|\overline{w}|=|w|$ pour tout complexe $w$ et que le module d'un quotient est le quotient des modules :
+\[
+|f_a(z)|=\frac{|z+a|}{|z|\,|z+a|}=\frac1{|z|}=1 .
+\]
+Donc $f_a(z)\in U$.
 
-4. 
-$
-t=f_{a}(z) \Leftrightarrow t = \frac{ z + a}{1 + \overline{a} z } \\
-           \Leftrightarrow t + \overline{a} z t = z + a \\
-           \Leftrightarrow z (1 - \overline{a} t ) = t - a \\
-           \Leftrightarrow z = \frac{t - a}{1 - \overline{a} t}
-$
+\textbf{4. Tout $t\in U$ a un unique antécédent dans $U$.}
 
-Notons que comme $\mid-a\mid\neq 1$, le dénominateur de cette dernière expression n'est pas égal
-à 0 comme nous l'avons vu à la question 1. Par suite on a bien déterminé l'unique nombre
-complexe $z$ tel que $f_a(z) = t$. Par ailleurs, $z = f_{-a}(t)$, et comme $t\in U$, on déduit de la
-question 3 que $z\in U$, ce qui achève le raisonnement.
+Soit $t\in U$. Pour $z\in U$ :
+\[
+t=f_a(z)\iff t(1+\bar az)=z+a\iff t+\bar a tz=z+a\iff z(1-\bar a t)=t-a .
+\]
+Comme $|\bar a t|=|a|\neq1$, on a $1-\bar at\neq0$ et donc
+\[
+t=f_a(z)\iff z=\frac{t-a}{1-\bar at}.
+\]
+Ce nombre $z$ est unique. De plus, $\dfrac{t-a}{1-\bar a t}=\dfrac{t+(-a)}{1+\overline{(-a)}\,t}=f_{-a}(t)$, et comme $|-a|=|a|\neq1$, la question 3 (appliquée à $-a$) montre que $z=f_{-a}(t)\in U$.
 
-5. Nous venons de montrer que pour tous $z$ et $t$ dans $U$, $t = f_a(z)$ ssi $z = f_{-a}(t)$, ce qui prouve que $f_a$ est une bijection de $U$ sur $U$ dont la bijection réciproque est $f_{-a}$.
+\textbf{5. $f_a$ est une bijection de $U$ sur $U$.}
 
-6.(a) $a=2$
+D'après les questions 3 et 4, $f_a$ envoie $U$ dans $U$ et tout élément $t$ de $U$ possède un unique antécédent $z\in U$. Donc $f_a:U\to U$ est bijective et, pour $z,t\in U$ :
+\[
+t=f_a(z)\iff z=f_{-a}(t).
+\]
+Sa bijection réciproque est $\boxed{f_a^{-1}=f_{-a}:\ t\mapsto\dfrac{t-a}{1-\bar at}}$.
 
-D'après ce qui précède, il suffit de calculer les images par $f_{-2}$ des points considérés, et on trouve respectivement les valeurs de $z$ égales à $-1, 1, (-4-3i)/5$ et $(-4 + 3i)/5$.
+\textbf{6. Antécédents des éléments de $\{-1,1,i,-i\}$.}
 
-(b) $a = 2i$;
+Les points cherchés sont les $z=f_{-a}(t)=\dfrac{t-a}{1-\bar a t}$ pour $t\in\{-1,1,i,-i\}$. On calcule en multipliant par le conjugué du dénominateur.
 
-De même, en calculant les images par $f_{-2i}$ des points considérés, on trouve respectivement les valeurs de $z$ égales à $(3-4i)/5, (-3-4i)/5, i$ et $-i$.
+\underline{(a) $a=2$} : $z=\dfrac{t-2}{1-2t}$.
+\begin{itemize}
+\item $t=-1$ : $z=\dfrac{-3}{3}=-1$ ;\quad $t=1$ : $z=\dfrac{-1}{-1}=1$ ;
+\item $t=i$ : $z=\dfrac{-2+i}{1-2i}=\dfrac{(-2+i)(1+2i)}{5}=\dfrac{-2-4i+i-2}{5}=\dfrac{-4-3i}{5}$ ;
+\item $t=-i$ : $z=\dfrac{-2-i}{1+2i}=\dfrac{(-2-i)(1-2i)}{5}=\dfrac{-4+3i}{5}$.
+\end{itemize}
+Ensemble cherché : $\Big\{-1\,;\,1\,;\,\dfrac{-4-3i}{5}\,;\,\dfrac{-4+3i}{5}\Big\}$.
 
-(c) $a = 1 + i$.
+\underline{(b) $a=2i$} ($\bar a=-2i$) : $z=\dfrac{t-2i}{1+2it}$.
+\begin{itemize}
+\item $t=-1$ : $z=\dfrac{-1-2i}{1-2i}=\dfrac{(-1-2i)(1+2i)}{5}=\dfrac{-1-2i-2i+4}{5}=\dfrac{3-4i}{5}$ ;
+\item $t=1$ : $z=\dfrac{1-2i}{1+2i}=\dfrac{(1-2i)^2}{5}=\dfrac{-3-4i}{5}$ ;
+\item $t=i$ : $z=\dfrac{-i}{1-2}=i$ ;\quad $t=-i$ : $z=\dfrac{-3i}{3}=-i$.
+\end{itemize}
+Ensemble cherché : $\Big\{\dfrac{3-4i}{5}\,;\,\dfrac{-3-4i}{5}\,;\,i\,;\,-i\Big\}$.
 
-Le même procédé donne les résultats $(-3-4i)/5,-1, -i$ et $(-4-3i)/5$.
+\underline{(c) $a=1+i$} ($\bar a=1-i$) : $z=\dfrac{t-1-i}{1-(1-i)t}$.
+\begin{itemize}
+\item $t=-1$ : $z=\dfrac{-2-i}{2-i}=\dfrac{(-2-i)(2+i)}{5}=\dfrac{-4-4i+1}{5}=\dfrac{-3-4i}{5}$ ;
+\item $t=1$ : $z=\dfrac{-i}{i}=-1$ ;
+\item $t=i$ : le dénominateur vaut $1-(1-i)i=1-i+i^2=-i$ et le numérateur $i-1-i=-1$, donc $z=\dfrac{-1}{-i}=\dfrac1i=-i$ ;
+\item $t=-i$ : $1+(1-i)i=2+i$, donc $z=\dfrac{-1-2i}{2+i}=\dfrac{(-1-2i)(2-i)}{5}=\dfrac{-4-3i}{5}$.
+\end{itemize}
+Ensemble cherché : $\Big\{\dfrac{-3-4i}{5}\,;\,-1\,;\,-i\,;\,\dfrac{-4-3i}{5}\Big\}$.
+
+On vérifie que tous ces points sont bien de module $1$ (par exemple $|{-4-3i}|=5$), conformément à la question 4.
 
 \medskip\textbf{Exercice 2}
 
-1. Soit $A$ cette matrice
+$q_a(x_1,x_2,x_3)=x_1^2+(1+a)x_2^2+(1+a+a^2)x_3^2+2x_1x_2-2ax_2x_3$.
 
-$q_a((x_1,x_2,x_3)) = x^{2}_1 + (1 + a)x^{2}_2 + (1 + a+a^2)x^{2}_3 +x_1x_2-ax_2x_3+x_2x_1-ax_3x_2$
+\textbf{1. Matrice de $q_a$ dans la base canonique.}
 
-$A=\begin{pmatrix}
-1 & 1 & 0 \\ 
-1 & 1+a & -a \\ 
+Les coefficients diagonaux sont les coefficients des carrés ; le coefficient $(i,j)$, $i\neq j$, est la \emph{moitié} du coefficient de $x_ix_j$ :
+\[
+A=\begin{pmatrix}
+1 & 1 & 0 \\
+1 & 1+a & -a \\
 0 & -a & 1+a+a^2
-\end{pmatrix}$
+\end{pmatrix},\qquad q_a(X)={}^tXAX .
+\]
 
-2. Soit $X=\begin{pmatrix}
-x_1 \\ 
-x_2 \\ 
-x_3
-\end{pmatrix} \in \mathbb{R}^3$ et $Y=\begin{pmatrix}
-y_1 \\ 
-y_2 \\ 
-y_3
-\end{pmatrix} \in \mathbb{R}^3$.
+\textbf{2. Forme bilinéaire symétrique (forme polaire) associée.}
 
-$f.b.s = f(X,Y)=x_1y_1+(1+a)x_2y_2+(1+a+a^2)x_3y_3+x_1y_2+x_2y_1-ax_2y_3-ax_3y_2$.
+Pour $X=(x_1,x_2,x_3)$ et $Y=(y_1,y_2,y_3)$, $\varphi_a(X,Y)={}^tXAY$, soit
+\[
+\varphi_a(X,Y)=x_1y_1+(1+a)x_2y_2+(1+a+a^2)x_3y_3+x_1y_2+x_2y_1-a\,x_2y_3-a\,x_3y_2 .
+\]
+On vérifie que $\varphi_a(X,X)=q_a(X)$ et $\varphi_a(X,Y)=\varphi_a(Y,X)$. (On peut aussi utiliser $\varphi_a(X,Y)=\frac12\big[q_a(X+Y)-q_a(X)-q_a(Y)\big]$.)
 
-3. Décomposition en carré de Gauss
+\textbf{3. Décomposition de Gauss.}
 
+On regroupe d'abord tous les termes contenant $x_1$, en utilisant $x_1^2+2x_1x_2=(x_1+x_2)^2-x_2^2$ :
+\begin{align*}
+q_a(X)&=(x_1+x_2)^2-x_2^2+(1+a)x_2^2-2ax_2x_3+(1+a+a^2)x_3^2\\
+&=(x_1+x_2)^2+a\,x_2^2-2a\,x_2x_3+(1+a+a^2)x_3^2 .
+\end{align*}
+Puis on regroupe les termes en $x_2$ : $a(x_2^2-2x_2x_3)=a(x_2-x_3)^2-ax_3^2$ :
+\[
+\boxed{q_a(X)=(x_1+x_2)^2+a\,(x_2-x_3)^2+(1+a^2)\,x_3^2}.
+\]
+Les formes linéaires $\ell_1=x_1+x_2$, $\ell_2=x_2-x_3$, $\ell_3=x_3$ sont linéairement indépendantes (matrice triangulaire de déterminant $1$).
 
-$q_a((x_1,x_2,x_3)) = x^{2}_{1} + (1 + a)x^{2}_{2} + (1 + a+a^2)x^{2}_{3} +2x_1x_2-2ax_2x_3\\
-= x^{2}_{1} +2x_1x_2+ (1 + a)x^{2}_{2} + (1 + a+a^2)x^{2}_{3} -2ax_2x_3  \text{ puisque }   a^2+2ab=(a+b)^2-b^2 \\
-=(x_1+x_2)^2-x^{2}_{2}+(1 + a)x^{2}_{2}+ (1 + a+a^2)x^{2}_{3}-2ax_2x_3\\
-=(x_1+x_2)^2+ax^{2}_{2}-2ax_2x_3+(1 + a+a^2)x^{2}_{3}\\
-=(x_1+x_2)^2+a(x^{2}_{2}-2x_2x_3)+(1 + a+a^2)x^{2}_3\\
-=(x_1+x_2)^2+a(x_2-x_3)^2-ax^{2}_3+(1 + a+a^2)x^{2}_3\\
-q_a((x_1,x_2,x_3))=(x_1+x_2)^2+a(x_2-x_3)^2+(1+a^2)x^{2}_3
-$
+\textbf{4. Noyau, rang et signature.}
 
+On rappelle que le noyau de $q_a$ est le noyau de sa forme polaire : $\ker q_a=\{X\in\mathbb{R}^3 \ /\ AX=0\}$ ; le rang de $q_a$ est le rang de $A$, et la signature $(p,q)$ compte les carrés affectés d'un coefficient positif / négatif dans la décomposition de Gauss. Comme $1+a^2>0$ pour tout $a$, seul le signe de $a$ intervient.
 
-4. Si $a>0$ alors la signature $sig(q_a)=(3,0)$, le rang $rang(q_a)=3+0=3$ et le noyau $N(q_a)=\{\begin{pmatrix}
-0 \\ 
-0 \\ 
-0
-\end{pmatrix}\} $
+\begin{itemize}
+\item \underline{$a>0$} : trois coefficients strictement positifs. $\operatorname{sign}(q_a)=(3,0)$, $\operatorname{rg}(q_a)=3$, $\ker q_a=\{0\}$.
+\item \underline{$a<0$} : deux coefficients positifs et un négatif. $\operatorname{sign}(q_a)=(2,1)$, $\operatorname{rg}(q_a)=3$, $\ker q_a=\{0\}$.
+\item \underline{$a=0$} : $q_0(X)=(x_1+x_2)^2+x_3^2$. $\operatorname{sign}(q_0)=(2,0)$, $\operatorname{rg}(q_0)=2$. Le noyau est donné par $AX=0$ avec $A=\begin{pmatrix}1&1&0\\1&1&0\\0&0&1\end{pmatrix}$ : $x_1+x_2=0$ et $x_3=0$, d'où
+\[
+\ker q_0=\operatorname{Vect}\big((-1,1,0)\big).
+\]
+\end{itemize}
+(Contrôle : $\det A=(1+a+a^2)\cdot a-a^2\cdot1=a(1+a^2)$, qui est nul si et seulement si $a=0$.)
 
-Si $a<0$ alors $sig(q_a)=(2,1)$, le rang $rang(q_a)=2+1=3$ et le noyau $N(q_a)=\{\begin{pmatrix}
-0 \\ 
-0 \\ 
-0
-\end{pmatrix}\} $
+\textbf{5. Base $q_a$-orthogonale.}
 
-Si $a=0$ alors $sig(q_a)=(2,0)$, le rang $rang(q_a)=2+0=2$.
+On cherche la base $\mathcal{B}=(e_1',e_2',e_3')$ dont les formes coordonnées sont $\ell_1,\ell_2,\ell_3$. Posons
+\[
+\begin{pmatrix}\ell_1\\ \ell_2\\ \ell_3\end{pmatrix}=Q\begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix},\qquad Q=\begin{pmatrix}1&1&0\\0&1&-1\\0&0&1\end{pmatrix},\quad\det Q=1 .
+\]
+En résolvant : $x_3=\ell_3$, $x_2=\ell_2+\ell_3$, $x_1=\ell_1-\ell_2-\ell_3$, donc
+\[
+Q^{-1}=\begin{pmatrix}1&-1&-1\\0&1&1\\0&0&1\end{pmatrix}.
+\]
+Les colonnes de $Q^{-1}$ forment la base cherchée :
+\[
+\mathcal{B}=\left\{e_1'=\begin{pmatrix}1\\0\\0\end{pmatrix},\ e_2'=\begin{pmatrix}-1\\1\\0\end{pmatrix},\ e_3'=\begin{pmatrix}-1\\1\\1\end{pmatrix}\right\}.
+\]
+Dans cette base, $q_a=\ell_1^2+a\ell_2^2+(1+a^2)\ell_3^2$ n'a que des termes carrés : la matrice de $q_a$ dans $\mathcal{B}$ est $\operatorname{diag}(1,\,a,\,1+a^2)$, donc $\mathcal{B}$ est $q_a$-orthogonale (pour tout $a$, en particulier pour $a=2$).
 
-La noyau $N(q_a)=\{\begin{pmatrix}
-x_1 \\ 
-x_2 \\ 
-x_3
-\end{pmatrix} \in \mathbb{R}^3/q_a((x_1,x_2,x_3))=0\} \Longrightarrow \begin{cases}
-x_1+x_2=0\\
-x_3=0
-\end{cases}\Longrightarrow x_1=-x_2$ et $x_3=0
-\Longrightarrow \begin{pmatrix}
-x_1 \\ 
-x_2 \\ 
-x_3
-\end{pmatrix}=\begin{pmatrix}
--x_2 \\ 
-x_2 \\ 
-0
-\end{pmatrix}=x_2\begin{pmatrix}
--1\\ 
-1 \\ 
-0
-\end{pmatrix}\Longrightarrow N(q_a)=\{\begin{pmatrix}
--1 \\ 
-1 \\ 
-0
-\end{pmatrix}\}$
+Vérification directe, par exemple : $\varphi_a(e_1',e_2')={}^te_1'Ae_2'=(1,1,0)\cdot(-1,1,0)=0$ et $\varphi_a(e_2',e_3')=(0,a,-a)\cdot(-1,1,1)=0$.
 
-5. Base $B$
+\textbf{6. $q_a$ définie positive.}
 
-Soit $\begin{pmatrix}
-l_1 \\ 
-l_2 \\ 
-l_3
-\end{pmatrix}\in \mathbb{R}^3$ telle que $\begin{cases}
-l_1= x_1+x_2\\ 
-l_2 =x_2-x_3\\ 
-l_3=x_3
-\end{cases}
-\Longrightarrow \begin{pmatrix}
-l_1 \\ 
-l_2 \\ 
-l_3
-\end{pmatrix}=\begin{pmatrix}
-1 & 1 & 0 \\ 
-0 & 1 & -1 \\ 
-0 & 0 & 1
-\end{pmatrix}\begin{pmatrix}
-x_1 \\ 
-x_2 \\ 
-x_3
-\end{pmatrix}$
-
-Soit $Q=\begin{pmatrix}
-1 & 1 & 0 \\ 
-0 & 1 & -1 \\ 
-0 & 0 & 1
-\end{pmatrix}$
-
-On a : $\det(Q)=1\neq 0$, donc $Q$ est inversible et $Q^{-1}=\begin{pmatrix}
-1 & -1 & -1 \\ 
-0 & 1 & 1 \\ 
-0 & 0 & 1
-\end{pmatrix}$
-
-Soit $u=\begin{pmatrix}
-1\\ 
-0 \\ 
-0
-\end{pmatrix}$, $v=\begin{pmatrix}
--1\\ 
-1 \\ 
-0
-\end{pmatrix}$ et $w=\begin{pmatrix}
--1\\ 
-1 \\ 
-1
-\end{pmatrix}$
-
-$u, v$ et $w$ sont libre, alors ils forment une base $q_2$-orthogonale de $\mathbb{R}^3$.
-
-Ainsi $B=\{u,v,w\}=\{\begin{pmatrix}
-1\\ 
-0 \\ 
-0
-\end{pmatrix},  \begin{pmatrix}
--1\\ 
-1 \\ 
-0
-\end{pmatrix}, 
-\begin{pmatrix}
--1\\ 
-1 \\ 
-1
-\end{pmatrix}\}$
-
-6. La valeur de $a$
-
-$q_a$ est définie positive si $a>0$ et $1+a^2>0$(toujours vrai pour tout réel $a$).
-
-Donc $q_a$ est définie positive si $a\in ]0,+\infty[$
-
+$q_a$ est définie positive si et seulement si sa signature est $(3,0)$, c'est-à-dire si et seulement si $a>0$ (le coefficient $1+a^2$ est toujours strictement positif).
+\[
+\boxed{q_a \text{ est définie positive} \iff a\in\,]0,+\infty[}.
+\]
+(On retrouve ce résultat avec le critère de Sylvester : mineurs principaux $1>0$, $\begin{vmatrix}1&1\\1&1+a\end{vmatrix}=a>0$ et $\det A=a(1+a^2)>0$.)
 
 \medskip\textbf{Exercice 3}
 
-1. remarquons que :
+\textbf{1. $I=J$ sans calcul.}
 
-$I-J=\int_{0}^{\frac{\pi}{2}}\frac{\cos^2(x)-\sin^2(x)}{\cos(x) + \sin(x)}dx=\int_{0}^{\frac{\pi}{2}}(\cos(x)-\sin(x))dx=[\sin(x)+\cos(x)]_0^{\frac{\pi}{2}}=0\Longrightarrow I=J$.
+Effectuons le changement de variable $x=\frac\pi2-u$ ($dx=-du$) dans $I$. Comme $\cos(\frac\pi2-u)=\sin u$ et $\sin(\frac\pi2-u)=\cos u$ :
+\[
+I=\int_{\pi/2}^{0}\frac{\sin^2u}{\sin u+\cos u}\,(-du)=\int_0^{\pi/2}\frac{\sin^2u}{\cos u+\sin u}\,du=J .
+\]
+(Autre méthode : $I-J=\displaystyle\int_0^{\pi/2}\frac{(\cos x-\sin x)(\cos x+\sin x)}{\cos x+\sin x}dx=\big[\sin x+\cos x\big]_0^{\pi/2}=1-1=0$.)
 
-2. On a :
+\textbf{2. $\cos x+\sin x=\sqrt2\cos\big(x-\frac\pi4\big)$.}
 
-$\sqrt{2}\cos(x-\frac{\pi}{4})=\sqrt{2}(cos(x) cos(\frac{\pi}{4}) + sin(x) sin(\frac{\pi}{4}))=\sqrt{2}(\frac{\sqrt{2}}{2}cos(x)+\frac{\sqrt{2}}{2}sin(x))=cos(x)+sin(x)$.
+Par la formule $\cos(p-q)=\cos p\cos q+\sin p\sin q$ :
+\[
+\sqrt2\cos\Big(x-\frac\pi4\Big)=\sqrt2\Big(\frac{\sqrt2}{2}\cos x+\frac{\sqrt2}{2}\sin x\Big)=\cos x+\sin x .
+\]
+(L'énoncé original écrivait $2\cos(x-\frac\pi4)$ : c'est une coquille.) En particulier, $\cos x+\sin x>0$ sur $[0,\frac\pi2]$, donc $I$ et $J$ sont bien définies.
 
-3. Remarquons que :
+\textbf{3. Expression de $I+J$.}
 
-$I+J=\int_{0}^{\frac{\pi}{2}}\frac{\cos^2(x)+\sin^2(x)}{\cos(x) + \sin(x)}dx=\int_{0}^{\frac{\pi}{2}}\frac{dx}{\cos(x) + \sin(x)}=\int_{0}^{\frac{\pi}{2}}\frac{dx}{\sqrt{2}\cos(x-\frac{\pi}{4})}$
+Comme $\cos^2x+\sin^2x=1$ :
+\[
+I+J=\int_0^{\pi/2}\frac{dx}{\cos x+\sin x}=\int_0^{\pi/2}\frac{dx}{\sqrt2\cos(x-\frac\pi4)} .
+\]
+Avec $u=x-\frac\pi4$ ($du=dx$ ; $x=0\Rightarrow u=-\frac\pi4$ ; $x=\frac\pi2\Rightarrow u=\frac\pi4$) :
+\[
+I+J=\frac1{\sqrt2}\int_{-\pi/4}^{\pi/4}\frac{du}{\cos u}=\frac{\sqrt2}{2}\int_{-\pi/4}^{\pi/4}\frac{dx}{\cos x}.
+\]
 
-Posons $u=x-\frac{\pi}{4}$, alors $du=dx$.
+\textbf{4. Calcul de $I+J$, puis de $I$ et $J$.}
 
-Aussi $x=0\Longrightarrow u=-\frac{\pi}{4}$; $x=\frac{\pi}{2}\Longrightarrow u=\frac{\pi}{4}$
+On pose $u=\tan\dfrac x2$ ; alors $dx=\dfrac{2\,du}{1+u^2}$ et $\cos x=\dfrac{1-u^2}{1+u^2}$, d'où $\dfrac{dx}{\cos x}=\dfrac{2\,du}{1-u^2}$.
 
-Donc $I+J=\frac{1}{\sqrt{2}}\int_{\frac{-\pi}{4}}^{\frac{\pi}{4}}\frac{du}{\cos(u)}=\frac{\sqrt{2}}{2}\int_{\frac{-\pi}{4}}^{\frac{\pi}{4}}\frac{du}{\cos(u)}=\frac{\sqrt{2}}{2}\int_{\frac{-\pi}{4}}^{\frac{\pi}{4}}\frac{dx}{\cos(x)}$.
+\underline{Bornes.} Il faut $\tan\frac\pi8$. Avec $\tan\theta=\dfrac{2\tan\frac\theta2}{1-\tan^2\frac\theta2}$ et $\theta=\frac\pi4$ : en notant $T=\tan\frac\pi8>0$, $1=\dfrac{2T}{1-T^2}$, soit $T^2+2T-1=0$, d'où $T=-1+\sqrt2$. Ainsi $x=\pm\frac\pi4\Rightarrow u=\pm(\sqrt2-1)$.
 
-4.  Pour calculer $I + J$, on pose $u = tan(\frac{x}{2})$. Alors, on a :
+\underline{Calcul.} Avec la décomposition $\dfrac{2}{1-u^2}=\dfrac{1}{1-u}+\dfrac{1}{1+u}$ :
+\[
+\int_{-\pi/4}^{\pi/4}\frac{dx}{\cos x}=\int_{1-\sqrt2}^{\sqrt2-1}\Big(\frac1{1+u}+\frac1{1-u}\Big)du=\Big[\ln\frac{1+u}{1-u}\Big]_{1-\sqrt2}^{\sqrt2-1}.
+\]
+Or, pour $u=\sqrt2-1$ : $\dfrac{1+u}{1-u}=\dfrac{\sqrt2}{2-\sqrt2}=\dfrac{\sqrt2(2+\sqrt2)}{2}=\sqrt2+1$, et pour $u=1-\sqrt2$ on obtient l'inverse $\dfrac1{\sqrt2+1}$. Donc
+\[
+\int_{-\pi/4}^{\pi/4}\frac{dx}{\cos x}=\ln(\sqrt2+1)-\ln\frac1{\sqrt2+1}=2\ln(1+\sqrt2),
+\]
+\[
+\boxed{I+J=\frac{\sqrt2}{2}\times2\ln(1+\sqrt2)=\sqrt2\,\ln(1+\sqrt2)}.
+\]
+\remarque{On peut aussi utiliser directement une primitive de $\dfrac1{\cos x}$ sur $]-\frac\pi2,\frac\pi2[$ : $x\mapsto\ln\Big|\tan\Big(\dfrac x2+\dfrac\pi4\Big)\Big|$. On obtient $\ln\tan\frac{3\pi}8-\ln\tan\frac\pi8=\ln\frac{\sqrt2+1}{\sqrt2-1}=2\ln(1+\sqrt2)$.}
 
-$dx=\frac{2du}{1+u^2}$ et $cos(x)=\frac{1-u^2}{1+u^2}$
-
-pour $x=-\frac{\pi}{4}$, on a $u=tan(-\frac{\pi}{8})$ et pour $x=\frac{\pi}{4}$, on a $u=tan(\frac{\pi}{8})$. Sachant que 
-
-$cos(\frac{\theta}{2})=\sqrt{\frac{1+cos(\theta)}{2}}$ et $sin(\frac{\theta}{2})=\sqrt{\frac{1-cos(\theta)}{2}}$
-
-alors pour $\theta=\pi/4$
-
-$cos(\frac{\pi}{8})=\sqrt{\frac{1}{2}(1+\frac{1}{\sqrt{2)}}}$ et $sin(\frac{\pi}{8})=\sqrt{\frac{1}{2}(1-\frac{1}{\sqrt{2)}}}$.
-
-Donc $tan(\frac{\pi}{8})=\frac{sin(\frac{\pi}{8})}{cos(\frac{\pi}{8})}=\sqrt{2}-1$ et $tan(-\frac{\pi}{8})=-\sqrt{2}+1$
-
-Ainsi $I+J=\frac{\sqrt{2}}{2}\int_{-\sqrt{2}+1}^{\sqrt{2}-1}\frac{\frac{2du}{1+u^2}}{\frac{1-u^2}{1+u^2}}=\sqrt{2}\int_{-\sqrt{2}+1}^{\sqrt{2}-1}\frac{du}{1-u^2}$.
-
-On a : 
-
-$\frac{1}{1-u^2}=\frac{a}{1-u}+\frac{b}{1+u}$ qui donne par identification $a=b=\frac{1}{2}$
-
-Par conséquent, 
-
-$
-\sqrt{2}\int_{-\sqrt{2}+1}^{\sqrt{2}-1}\frac{du}{1-u^2}=\frac{\sqrt{2}}{2}[     \int_{-\sqrt{2}+1}^{\sqrt{2}-1}\frac{du}{1-u}+\int_{-\sqrt{2}+1}^{\sqrt{2}-1}\frac{du}{1+u}]      \\
-=\frac{\sqrt{2}}{2}[-ln(1-u)+ln(1-u)]_{-\sqrt{2}+1}^{\sqrt{2}-1}\\
-=\frac{\sqrt{2}}{2}[2ln(\sqrt{2})-2(ln(2-\sqrt{2})]\\
-=\sqrt{2}ln(\frac{\sqrt{2}}{2-\sqrt{2}})
-=\sqrt{2}ln(\sqrt{2}+1)
-$
-
-5. On a :
-$
-\begin{cases}
-I-J=0\\
-I+J=\sqrt{2}ln(\sqrt{2}+1)
-\end{cases}.
-$
-
-Donc $I=J=\frac{\sqrt{2}}{2}ln(\sqrt{2}+1)$.
+Comme $I=J$ et $I+J=\sqrt2\ln(1+\sqrt2)$ :
+\[
+\boxed{I=J=\frac{\sqrt2}{2}\ln(1+\sqrt2)\approx0{,}623}.
+\]
 
 \medskip\textbf{Exercice 4}
 
-1. On a :
+\textbf{1. Constantes $a$ et $b$.} Pour $|x|>1$, en réduisant au même dénominateur :
+\[
+\frac{a}{\sqrt{x^2-1}}+\frac{\sqrt{x^2-1}}{b}=\frac{ab+(x^2-1)}{b\sqrt{x^2-1}}=\frac{\frac1b\,x^2+\big(a-\frac1b\big)}{\sqrt{x^2-1}} .
+\]
+Par identification avec $\dfrac{x^2}{\sqrt{x^2-1}}$ : $\dfrac1b=1$ et $a-\dfrac1b=0$, soit $\boxed{a=1,\ b=1}$ :
+\[
+\frac{x^2}{\sqrt{x^2-1}}=\frac{1}{\sqrt{x^2-1}}+\sqrt{x^2-1}\qquad(\text{car } x^2=1+(x^2-1)).
+\]
 
-$
-\frac{x^2}{\sqrt{x^2-1}}=\frac{ab+x^2-1}{b\sqrt{x^2-1}}=\frac{\frac{ab}{b}+\frac{1}{b}x^2-\frac{1}{b}}{\sqrt{x^2-1}}.
-$
-Par identification, 
+\textbf{2. Aire.}
 
-$\begin{cases}
-\frac{ab}{b}-\frac{1}{b}=0\\
-\frac{1}{b}=1
-\end{cases}\Longrightarrow \begin{cases}
-a=1\\
-b=1
-\end{cases}$
-
-2. On note par $D$, l'aire de la surface délimitée par la courbe d'équation $y =\frac{x^3}{\sqrt{x^2-1}}$, l'axe des $x$ et les droites d'équations $x=\sqrt{2}$ et $x=2$. Alors, 
-
-$Aire(D)=\int_{\sqrt{2}}^{2}\frac{x^3}{\sqrt{x^2-1}}dx=\int_{\sqrt{2}}^{2}\frac{x}{\sqrt{x^2-1}}dx+\int_{\sqrt{2}}^{2}x\sqrt{x^2-1}dx$.
-
-On pose $u=x^2-1$. Alors, $du=2xdx\Longrightarrow xdx=\frac{1}{2}du$
-
-Aussi $x=\sqrt{2}\Longrightarrow u=1$ et $x=2\Longrightarrow u=3$. Ainsi $Aire(D)=\frac{1}{2}\int_1^3\frac{du}{\sqrt{u}}+\frac{1}{2}\int_1^3\sqrt{u}du=[\sqrt{u}]_1^3+[\frac{2}{3}u\sqrt{u}]_1^3=2\sqrt{3}-\frac{4}{3}$.
+Sur $[\sqrt2,2]$, $y=\dfrac{x^3}{\sqrt{x^2-1}}>0$, donc l'aire (en unités d'aire) est
+\[
+\mathcal{A}=\int_{\sqrt2}^{2}\frac{x^3}{\sqrt{x^2-1}}\,dx=\int_{\sqrt2}^{2}x\cdot\frac{x^2}{\sqrt{x^2-1}}\,dx=\int_{\sqrt2}^{2}\frac{x}{\sqrt{x^2-1}}\,dx+\int_{\sqrt2}^{2}x\sqrt{x^2-1}\,dx .
+\]
+On pose $u=x^2-1$, $du=2x\,dx$ ; $x=\sqrt2\Rightarrow u=1$ ; $x=2\Rightarrow u=3$ :
+\[
+\mathcal{A}=\frac12\int_1^3u^{-1/2}\,du+\frac12\int_1^3u^{1/2}\,du=\Big[\sqrt u\Big]_1^3+\frac12\Big[\frac23u^{3/2}\Big]_1^3=(\sqrt3-1)+\frac13(3\sqrt3-1).
+\]
+\[
+\boxed{\mathcal{A}=2\sqrt3-\frac43\ \text{u.a.}\approx2{,}131\ \text{u.a.}}
+\]
 
 \end{spacing}
 \end{document}

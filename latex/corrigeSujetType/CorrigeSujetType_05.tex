@@ -7,224 +7,197 @@
 
 \textbf{Exercice 1}
 
-1.a) L'équation caractéristique est $-\lambda(5-\lambda) + 6 = 0$, soit $\lambda^2 - 5\lambda + 6 = 0$. Elle admet deux racines : $\lambda_1 = 2$ et 
-$\lambda_2 = 3$. 
+$A=\begin{pmatrix}5&-6\\1&0\end{pmatrix}$.
 
-Vecteur propre associé à $\lambda_1 = 2$ : 
+\textbf{1.a) Valeurs propres et vecteurs propres.}
 
-$\begin{pmatrix}
-5 & -6 \\
-1 & 0
-\end{pmatrix}\begin{pmatrix}
-x \\
-y
-\end{pmatrix}=2\begin{pmatrix}
-x\\
-y
-\end{pmatrix}\Longrightarrow 3x-   6y = 0$
+Le polynôme caractéristique est
+\[
+P_A(\lambda)=\det(A-\lambda I_2)=\begin{vmatrix}5-\lambda&-6\\1&-\lambda\end{vmatrix}=-\lambda(5-\lambda)+6=\lambda^2-5\lambda+6=(\lambda-2)(\lambda-3).
+\]
+Les valeurs propres sont $\lambda_1=2$ et $\lambda_2=3$ ($\lambda_1<\lambda_2$).
 
-On prend (par exemple) $x = 2$ et $y = 1$
+\underline{Pour $\lambda_1=2$ :} $(A-2I_2)\begin{pmatrix}x\\y\end{pmatrix}=0\iff\begin{cases}3x-6y=0\\x-2y=0\end{cases}\iff x=2y$. On choisit $v_1=\begin{pmatrix}2\\1\end{pmatrix}$.
 
-Vecteur propre associé à $\lambda_2 = 3$ : 
+\underline{Pour $\lambda_2=3$ :} $(A-3I_2)\begin{pmatrix}x\\y\end{pmatrix}=0\iff\begin{cases}2x-6y=0\\x-3y=0\end{cases}\iff x=3y$. On choisit $v_2=\begin{pmatrix}3\\1\end{pmatrix}$.
 
-$2x-6y = 0 $
+\[
+D=\begin{pmatrix}2&0\\0&3\end{pmatrix}.
+\]
 
-On prendra $x = 3$ et $y = 1$
+\textbf{b) Matrice de passage.}
 
-$D= \begin{pmatrix}
-2 & 0 \\
-0 & 3
-\end{pmatrix}$
+$A$ (d'ordre 2) a deux valeurs propres distinctes, elle est donc diagonalisable. La matrice $P$ a pour colonnes $v_1$ et $v_2$ (dans l'ordre des valeurs propres de $D$) :
+\[
+P=\begin{pmatrix}2&3\\1&1\end{pmatrix},\qquad \det P=2-3=-1\neq0,
+\qquad P^{-1}=\frac{1}{-1}\begin{pmatrix}1&-3\\-1&2\end{pmatrix}=\begin{pmatrix}-1&3\\1&-2\end{pmatrix}.
+\]
+(Pour une matrice $\begin{pmatrix}\alpha&\beta\\\gamma&\delta\end{pmatrix}$ inversible, l'inverse est $\frac{1}{\alpha\delta-\beta\gamma}\begin{pmatrix}\delta&-\beta\\-\gamma&\alpha\end{pmatrix}$.) On a alors $A=PDP^{-1}$, ce que l'on peut vérifier : $PD=\begin{pmatrix}4&9\\2&3\end{pmatrix}$ et $PDP^{-1}=\begin{pmatrix}-4+9&12-18\\-2+3&6-6\end{pmatrix}=A$.
 
-b) La matrice $P$ est formée par les vecteurs propres. 
+\textbf{c) Calcul de $A^n$.}
 
-$P=\begin{pmatrix}
-2 & 3 \\
-1 & 1
-\end{pmatrix}$
+Par récurrence, $A^n=PD^nP^{-1}$ (car $A^{n+1}=PD^nP^{-1}\,PDP^{-1}=PD^{n+1}P^{-1}$), avec $D^n=\begin{pmatrix}2^n&0\\0&3^n\end{pmatrix}$. Ainsi
+\[
+PD^n=\begin{pmatrix}2^{n+1}&3^{n+1}\\2^n&3^n\end{pmatrix},\qquad
+\boxed{A^n=\begin{pmatrix}
+3^{n+1}-2^{n+1} & 3\cdot2^{n+1}-2\cdot3^{n+1}\\
+3^n-2^n & 3\cdot2^{n}-2\cdot3^{n}
+\end{pmatrix}}.
+\]
+Vérification : pour $n=1$, on retrouve $\begin{pmatrix}9-4&12-18\\3-2&6-6\end{pmatrix}=A$.
 
-Un calcul simple montre que $P^{-1}=\begin{pmatrix}
--1 & 3 \\
-1 & -2
-\end{pmatrix}$
+\textbf{2.a) $V_{n+2}=AV_{n+1}$.}
 
-On vérifie aisément $A=PDP^{-1}$.
+Avec $V_{n+1}=\begin{pmatrix}U_{n+1}\\U_n\end{pmatrix}$ :
+\[
+AV_{n+1}=\begin{pmatrix}5&-6\\1&0\end{pmatrix}\begin{pmatrix}U_{n+1}\\U_n\end{pmatrix}=\begin{pmatrix}5U_{n+1}-6U_n\\U_{n+1}\end{pmatrix}=\begin{pmatrix}U_{n+2}\\U_{n+1}\end{pmatrix}=V_{n+2}.
+\]
 
-c) Déduisons la matrice $A^n$
-, $n$ entier strictement positif. 
+\textbf{b) Terme général.}
 
-Par construction, on a : 
+La relation précédente s'écrit $V_{k+1}=AV_k$ pour tout $k\ge1$. Par récurrence immédiate, $V_{n+1}=A^nV_1$ pour tout $n\in\mathbb{N}$, avec $V_1=\begin{pmatrix}U_1\\U_0\end{pmatrix}=\begin{pmatrix}1\\1\end{pmatrix}$.
 
-$A^n= PD^nP^{-1}$
+$U_n$ est la deuxième composante de $V_{n+1}$, c'est-à-dire la somme des coefficients de la deuxième ligne de $A^n$ :
+\[
+U_n=(3^n-2^n)+(3\cdot2^n-2\cdot3^n)=2\cdot2^n-3^n,\qquad\boxed{U_n=2^{n+1}-3^n}.
+\]
+Vérification : $U_0=2-1=1$, $U_1=4-3=1$, $U_2=8-9=-1=5\cdot1-6\cdot1$.
 
-En effectuant les produits, on trouve : 
-$
-A^n=\begin{pmatrix}
--2^{ n+1}+3^{n+1} & 3.2^{n+1}-2.3^{n+1} \\
--2^{ n}+3^{n} & 3.2^{n}-2.3^{n}
-\end{pmatrix}
-$
+\remarque{On retrouve ce résultat avec la méthode de l'équation caractéristique $r^2-5r+6=0$ (racines $2$ et $3$) : $U_n=\alpha2^n+\beta3^n$ avec $\alpha+\beta=1$ et $2\alpha+3\beta=1$, d'où $\alpha=2$, $\beta=-1$.}
 
-2. On considère la suite récurrente d'ordre 2 définie par : 
-$U_{n+2} = 5U_{n+1}-6U_n$ avec $U_0 = U_1 = 1$
-
-On note $V_{n+2}$ le vecteur colonne  $\begin{pmatrix}
-U_{n+2} \\
-U_{n+1}
-\end{pmatrix}$
-
-a)  Montrer que $V_{n+2} = AV_{n+1}$
-
-A travers la forme matricielle, le résultat est évident
-
-b) Déduisons l'expression du terme général $U_n$ en fonction de $n$.
-
-Partant de $V_{n+1} = AV_n$, et allant jusqu'à $V_2 = A V_1$, on en déduit : 
-
-$V_{n+1} = A^nV_1$ , avec $V_1 = (1, 1)'$ Or $V_{n+2} = (U_{n+1}, U_{n})’$
-
-Pour avoir l'expression de $U_n$, il suffit de prendre la somme des termes de la deuxième ligne de $A_n$
-. 
-Soit $U_n = -2^n+ 3^n+ 3.2^n-2.3^n
- = 2^{n+1}-3^n$
- 
- c) Calculons $\lim_{n\longrightarrow +\infty}U_n$
- 
-$U_n = 2^{n+1}-3^n= 3^n(2(2/3)^n-1)$ qui tend vers $-\infty$ quand $n \longrightarrow +\infty$.
+\textbf{c) Limite.}
+\[
+U_n=2^{n+1}-3^n=3^n\Big(2\Big(\frac23\Big)^n-1\Big).
+\]
+Comme $0<\frac23<1$, $\big(\frac23\big)^n\to0$, donc la parenthèse tend vers $-1$, et $3^n\to+\infty$. Par conséquent
+\[
+\boxed{\lim_{n\to+\infty}U_n=-\infty}.
+\]
 
 \medskip\textbf{Exercice 2}
 
-1. Le discriminant de $(E)$ est $\Delta'= 4cos^2\theta-cos^2\theta(5-cos^2\theta) =-cos^2\theta + cos^4\theta=cos^2\theta(cos^2\theta-1) =-cos^2\theta sin^2\theta=(isin\theta cos\theta)^2$
+$(E):\ z^2\cos^2\theta-4z\cos\theta+5-\cos^2\theta=0$, avec $\theta\in J=\,]-\frac\pi2,\frac\pi2[$. Sur $J$, $\cos\theta>0$ ; en particulier $\cos^2\theta\neq0$ et $(E)$ est bien du second degré.
 
-Racine double si $\Delta' = 0$, c'est-à-dire $\theta =0$ puisque $\theta$ appartient à l'intervalle ouvert $J = ]-\frac{\pi}{2}, + \frac{\pi}{2}[$
+\textbf{1. Résolution.}
 
-Pour $\theta = 0$, $(E)$ devient $z^2-4z + 4 = 0 = (z-2)^2$
+Le discriminant réduit ($b'=-2\cos\theta$) est
+\begin{align*}
+\Delta'=b'^2-ac&=4\cos^2\theta-\cos^2\theta(5-\cos^2\theta)=\cos^4\theta-\cos^2\theta\\
+&=-\cos^2\theta(1-\cos^2\theta)=-\cos^2\theta\sin^2\theta=(i\sin\theta\cos\theta)^2.
+\end{align*}
+\underline{Racine double.} $\Delta'=0\iff\sin\theta\cos\theta=0\iff\sin\theta=0$ (car $\cos\theta\neq0$) $\iff\theta=0$ (sur $J$). Pour $\theta=0$, $(E)$ s'écrit $z^2-4z+4=(z-2)^2=0$ : la racine double est $z_0=2$.
 
-La racine double est $z^* = 2$. 
+\underline{Cas général.} Les solutions sont
+\[
+z_{1,2}=\frac{-b'\mp i\sin\theta\cos\theta}{a}=\frac{2\cos\theta\mp i\sin\theta\cos\theta}{\cos^2\theta},
+\]
+soit
+\[
+\boxed{z_1=\frac{2}{\cos\theta}-i\tan\theta,\qquad z_2=\frac{2}{\cos\theta}+i\tan\theta}.
+\]
+(Pour $\theta=0$ on retrouve $z_1=z_2=2$.)
 
-Cas général : 
+\textbf{2. Lieu géométrique de $M_1$ et $M_2$.}
 
-Pour $\theta$ non nul, les solutions sont : 
-$z_1 = (2cos\theta-isin\theta cos\theta)/cos^2\theta$ 
-et $z_2 = (2cos\theta + isin\theta cos\theta)/cos^2\theta$
+Les coordonnées sont $M_1\big(\frac{2}{\cos\theta},-\tan\theta\big)$ et $M_2\big(\frac{2}{\cos\theta},\tan\theta\big)$. Pour $M(x,y)$ égal à $M_1$ ou $M_2$, on a $x=\dfrac2{\cos\theta}$ et $y^2=\tan^2\theta$. Comme $1+\tan^2\theta=\dfrac1{\cos^2\theta}$ :
+\[
+1+y^2=\frac{x^2}{4},\qquad\text{soit}\qquad \frac{x^2}{4}-y^2=1 .
+\]
+C'est l'équation d'une hyperbole $(\mathcal{H})$ de centre $O$, de sommets $(2,0)$ et $(-2,0)$, d'asymptotes $y=\pm\dfrac x2$.
 
-Après transformation, on obtient : 
-$z_1 = 2/cos\theta-itan\theta$
+\underline{Attention :} comme $\cos\theta>0$ sur $J$, on a $x=\dfrac2{\cos\theta}\ge2>0$ : les points $M_1,M_2$ sont sur la \textbf{branche de droite} de l'hyperbole. Réciproquement, tout point $(x,y)$ de cette branche est atteint : $\theta=\arctan y\in J$ donne $\tan\theta=y$ et $\frac{2}{\cos\theta}=2\sqrt{1+y^2}=x$ (point $M_2$).
 
-$z_2 = 2/cos\theta + itan\theta$
-
-2. Les coordonnées de $M_1$ et $M_2$ sont : 
-
-Pour $M_1 : x_1 = 2/cos\theta$ et $y_1 =-tan\theta$
-
-Pour $M_2 : x_2 = 2/cos\theta$ et $y_2 = \tan\theta$
-
-On sait que $1 + \tan^2\theta = 1/cos^2\theta$. 
-
-On en déduit que $1 + y^2= x^2/4$. 
-
-Les points $M_1$ et $M_2$ appartiennent à la courbe d'équation $x^2/4-y^2-1 = 0$, qui est une 
-hyperbole de sommets $A(2,0)$ et $A'(-2,0)$, et d'asymptotes $y = x/2$ et $y =-x/2$.
+\textbf{Conclusion :} le lieu de $M_1$ et $M_2$ est la branche de l'hyperbole d'équation $\dfrac{x^2}{4}-y^2=1$ située dans le demi-plan $x>0$ (c'est-à-dire $x\ge2$).
 
 \medskip\textbf{Exercice 3}
 
-1. La dérivée de $f(x)=(x^2+1)\sin x$ se fait en utilisant la règle du produit : 
+\textbf{1. Dérivée.} $f(x)=(x^2+1)\sin x$ est dérivable sur $\mathbb{R}$ (produit de fonctions dérivables) et, par la formule $(uv)'=u'v+uv'$ :
+\[
+f'(x)=2x\sin x+(x^2+1)\cos x .
+\]
 
-$f'(x)=2x\sin x+(x^2+1)\cos x$
+\textbf{2. L'équation $(x^2+1)\cos x+2x\sin x=0$ a au moins une solution dans $[0,\pi]$.}
 
-2. Démontrons de deux manière que $(x^2+1)\cos x+2x\sin x=0$ admet au moins une solution dans $[0,\pi]$
+\underline{Première méthode : théorème des valeurs intermédiaires.}
+Soit $h(x)=(x^2+1)\cos x+2x\sin x$. La fonction $h$ est continue sur $[0,\pi]$ (sommes et produits de fonctions continues), et
+\[
+h(0)=1>0,\qquad h(\pi)=(\pi^2+1)\cos\pi+2\pi\sin\pi=-(\pi^2+1)<0 .
+\]
+D'après le théorème des valeurs intermédiaires, $h$ s'annule au moins une fois sur $]0,\pi[$.
 
-\underline{\textbf{Première méthode}}(théorème des valeurs intermédiaires)
+\underline{Deuxième méthode : théorème de Rolle.}
+\emph{Rappel (Rolle).} Si $g$ est continue sur $[a,b]$, dérivable sur $]a,b[$ et $g(a)=g(b)$, alors il existe $c\in\,]a,b[$ tel que $g'(c)=0$.
 
-Pour montrer qu'il existe une solution de cette équation dans l'intervalle $[0,\pi]$ on peut utiliser le théorème des valeurs intermédiaires. Ce théorème stipule que si une fonction continue $f(x)$ prend des valeurs de signes opposés aux extrémités d'un intervalle, alors il existe au moins un point $x$ dans cet intervalle où $f(x)=0$.
+La fonction $f$ de la question 1 est continue sur $[0,\pi]$ et dérivable sur $]0,\pi[$, avec $f(0)=1\times\sin0=0$ et $f(\pi)=(\pi^2+1)\sin\pi=0$. D'après le théorème de Rolle, il existe $c\in\,]0,\pi[$ tel que $f'(c)=0$, c'est-à-dire $(c^2+1)\cos c+2c\sin c=0$ : $c$ est solution de l'équation.
 
-Soit $f(x)=(x^2+1)\cos x+2x\sin x$. Cette fonction est continue sur $[0,\pi]$ car elle est composée de fonctions continues.
+\textbf{3. Existence de $x\in\,]0,1[$ tel que $4ax^3+3bx^2+2cx=a+b+c$.}
 
-Calcul des valeurs aux bornes :
-A $x=0$ : $f(0)=(0^2+1)\cos(0)+2\times 0\sin(0)=1$
+On cherche une fonction dont la dérivée est $4ax^3+3bx^2+2cx-(a+b+c)$. Posons
+\[
+g(x)=ax^4+bx^3+cx^2-(a+b+c)x .
+\]
+$g$ est polynomiale, donc continue sur $[0,1]$ et dérivable sur $]0,1[$, et
+\[
+g(0)=0,\qquad g(1)=a+b+c-(a+b+c)=0 .
+\]
+D'après le théorème de Rolle, il existe $x\in\,]0,1[$ tel que $g'(x)=0$, soit
+\[
+4ax^3+3bx^2+2cx-(a+b+c)=0\iff 4ax^3+3bx^2+2cx=a+b+c .
+\]
 
-A $x=\pi$ : $f(\pi)=(\pi^2+1)\cos(\pi)+2\pi\sin(\pi)=-(\pi^2+1)$ car $\cos(\pi)=-1$ et $\sin(\pi)=0$
+\textbf{4. Pour tout $x>0$ : $\dfrac{x}{x+1}<\ln(x+1)<x$.}
 
-Donc $f(0)=1$ et $f(\pi)=-(\pi^2+1)<0.$
+\emph{Rappel (accroissements finis).} Si $f$ est continue sur $[a,b]$ et dérivable sur $]a,b[$, il existe $c\in\,]a,b[$ tel que $f(b)-f(a)=(b-a)f'(c)$.
 
-\medskip Puisque $f(x)$ est continue et change de signe entre 0 et $\pi$(de 1 à $-(\pi^2+1))$, alors  le théorème des valeurs intermédiaires garantit qu'il existe un point $c\in [0,\pi]$ tel que $f(c)=0$. Donc l'équation $(x^2+1)\cos x+2x\sin x=0$ admet au moins une solution dans $[0,\pi]$.
-
-\medskip\underline{\textbf{Deuxième méthode}}( le théorème de Rolle)
-
-\medskip \textbf{Théorème de Rolle} : Soit $f : [a,b]\rightarrow \mathbb{R}$ une fonction continue sur $[a,b]$ et dérivable sur $]a,b[$ telle que $f(a)=f(b)$. Alors il existe $c\in [a,b]$ telle que $f'(c)=0$.
-
-L'idée est de définir une fonction qui satisfait les hypothèses de ce théorème sur l'intervalle $[0,\pi]$ et de montrer qu'il existe un point où sa dérivée s'annule.
-
-\medskip Soit $f(x)=(x^2+1)\sin x$ définie sur $[0,\pi]$. Nous allons examiner si cette fonction satisfait les conditions du théorème de Rolle.
-
-\textbf{Continuité et dérivabilité :} 
-
-$f(x)$ est une fonction continue et dérivable sur $[0,\pi]$ car elle est formée par le produit de polynômes et de sinus, qui sont des fonctions continues et dérivables.
-
-\textbf{Égalité des valeurs aux bornes de l'intervalle :}
-
-$f(0)=(0^2+1)\sin(0)=0$
-
-$f(\pi)=(\pi^2+1)\sin(0)=0$
-
-Donc $f(0)=f(\pi)=0$, ce qui signifie que $f$ satisfait la condition $f(a)=f(b)$ avec $a=0$ et $b=\pi$. Ainsi d'après le théorème de Rolle, il existe au moins un point $c\in ]0,\pi[$ telle que $f'(c)=0$
-
-On a $f'(x)=(x^2+1)\cos x+2x\sin x$ d'après la question 1. Le point $c$ obtenue par le théorème de Rolle est tel que $f'(c)=0$, soit $(c^2+1)\cos c+2c\sin c=0$. Cela signifie que $c$ est une solution de l'équation  $(x^2+1)\cos x+2x\sin x=0$
-
-\medskip Ainsi nous avons prouvé qu'il existe au moins un point $c\in [0,\pi]$ qui est une solution de cette équation.
+Soit $x>0$. La fonction $\ln$ est continue sur $[1,1+x]$ et dérivable sur $]1,1+x[$, avec $\ln'(t)=\frac1t$. Il existe donc $c\in\,]1,1+x[$ tel que
+\[
+\ln(1+x)-\ln1=\big((1+x)-1\big)\times\frac1c,\qquad\text{soit}\qquad \ln(1+x)=\frac{x}{c}.
+\]
+Comme $1<c<1+x$, on a $\dfrac1{1+x}<\dfrac1c<1$ et, en multipliant par $x>0$ :
+\[
+\frac{x}{1+x}<\frac xc<x,\qquad\text{c'est-à-dire}\qquad\boxed{\frac{x}{x+1}<\ln(x+1)<x}.
+\]
 
 \medskip\textbf{Exercice 4}
 
-1. Pour déterminer si les fonctions $f(x)$ et $g(x)$ peuvent être prolongées par continuité en $x=0$, il faut vérifier la limite de chaque fonction lorsque $x$ tend vers 0.
+\textbf{1. Prolongement par continuité en 0.}
 
-\medskip $i)f(x)=\frac{1-\cos x}{x^2}$
+Une fonction définie au voisinage de $0$ sauf en $0$ est prolongeable par continuité en $0$ si et seulement si elle admet une limite \emph{finie} en $0$.
 
-Lorsque $x\rightarrow 0$, on peut utiliser la formule de Taylor pour $\cos(x):\cos(x)\thickapprox 1-\frac{x^2}{2}$ quant $x$ est proche de 0.
+\underline{i) $f(x)=\dfrac{1-\cos x}{x^2}$.} Pour $x\neq0$, avec $1-\cos x=2\sin^2\frac x2$ :
+\[
+f(x)=\frac{2\sin^2\frac x2}{x^2}=\frac12\left(\frac{\sin\frac x2}{\frac x2}\right)^2\xrightarrow[x\to0]{}\frac12\times1^2=\frac12,
+\]
+car $\dfrac{\sin u}{u}\to1$ quand $u\to0$. (On peut aussi utiliser le DL $\cos x=1-\frac{x^2}{2}+o(x^2)$, qui donne $f(x)=\frac12+o(1)$.)
+$f$ est donc prolongeable par continuité en $0$ en posant $f(0)=\dfrac12$.
 
-Substituons cette approximation dans  $f(x)$ :
+\underline{ii) $g(x)=\dfrac1x$.} $\lim\limits_{x\to0^+}g(x)=+\infty$ et $\lim\limits_{x\to0^-}g(x)=-\infty$ : $g$ n'a pas de limite finie en $0$, elle \textbf{n'est pas} prolongeable par continuité en $0$.
 
-$f(x)\thickapprox \frac{1-(1-\frac{x^2}{2})}{x^2}=\frac{\frac{x^2}{2}}{x^2}=\frac{1}{2}$.
+\textbf{2. $f(x)=\ln(x+1)$ si $x\ge0$, $f(x)=\sin x$ si $x<0$.}
 
-Donc $\lim_{x\to 0}f(x)=\frac{1}{2}$. Cette limite existe et est finie, ce qui signifie que $f(x)$ peut être prolongée par continuité en 0 en définissant $f(0)=\frac{1}{2}$.
+$D_f=\mathbb{R}$ (pour $x\ge0$, $x+1>0$ ; $\sin$ est définie partout).
 
-$ii) g(x)=\frac{1}{x}$
+\textbf{(a) Continuité, dérivabilité, continuité de la dérivée.}
 
-Lorsque $x\rightarrow 0$, la fonction $\frac{1}{x}$ diverge, c'est-à-dire qu'elle tend vers $+\infty$ lorsque $x\rightarrow 0^+$ et vers $-\infty$ lorsque $x\rightarrow 0^-$. Ainsi $\lim_{x\to 0}g(x)$ n'existe pas. D'où $g(x)$ n'est pas prolongeable par continuité en 0.
+\underline{Sur $]0,+\infty[$ et sur $]-\infty,0[$} : $f$ coïncide avec $x\mapsto\ln(x+1)$ (resp. $\sin$), qui est de classe $C^\infty$. Donc $f$ est continue et dérivable sur $\mathbb{R}^*$, avec
+\[
+f'(x)=\frac1{x+1}\ \text{ si } x>0,\qquad f'(x)=\cos x\ \text{ si } x<0 .
+\]
 
-2. Soit la fonction définie par : $f(x)=\begin{cases}
-\ln (x+1), \hspace{0,5 cm} si \hspace{0,5 cm} x\geq 0\\
-\sin x, \hspace{0,5 cm} si \hspace{0,5 cm} x<0
-\end{cases}$
+\underline{Continuité en $0$.} $f(0)=\ln1=0$ ; $\lim\limits_{x\to0^+}\ln(x+1)=0$ et $\lim\limits_{x\to0^-}\sin x=0$. Donc $\lim\limits_{x\to0}f(x)=f(0)$ : $f$ est continue en $0$, donc sur $\mathbb{R}$.
 
- (a) Étudions la continuité, la dérivabilité et la continuité éventuelle de la dérivée de la fonction $f$ sur son domaine de définition $D_f$.
- 
- $\cdot$\textbf{Continuité en 0}
- 
- Pour la continuité, il faut vérifier si les limites à gauche et à droite en $x=0$ sont égales et valent la même chose que $f(0)$.
- 
- On a :
- 
- $\lim_{x \to 0^+}f(x)=ln(1)=0$
- 
- $\lim_{x\to 0^-}=\sin(0)=0$
- 
- $f(0)=ln(0+1)=0$
- 
- On a $\lim_{x \to 0^+}f(x)=\lim_{x\to 0^-}=f(0)=0$, donc la fonction est continue en 0.
- 
- $\cdot$\textbf{Dérivabilité en 0}
- 
- Pour $x\geq 0$, la dérivée de $f(x)=ln(x+1)$ est $f'(x)=\frac{1}{x+1}$. Donc $\lim_{x\to 0^+}f'(x)=\frac{1}{1}=1$
- 
- Pour $x<0$, la la dérivée de $f(x)=\sin x$ est $f'(x)=\cos x$. Donc, $\lim_{0^-}f'(x)=\cos(0)=1$
- 
- \medskip Les dérivées à gauche et à droite de 0 sont égales et valent 1, donc la fonction est dérivable en $x=0$ et donc continue.
- 
- b) Classe $C^1$ sur $D_f$.
- 
- La fonction $f$ est continue et dérivable sur $D_f$ et sa dérivée est continue en 0 (puisque les dérivées à gauche et à droite sont égales). Par conséquent $f$ est de classe $C^1$ sur sont domaine de définitions.
- 
- 
+\underline{Dérivabilité en $0$.} On étudie le taux d'accroissement :
+\[
+\lim_{h\to0^+}\frac{f(h)-f(0)}{h}=\lim_{h\to0^+}\frac{\ln(1+h)}{h}=1,\qquad
+\lim_{h\to0^-}\frac{f(h)-f(0)}{h}=\lim_{h\to0^-}\frac{\sin h}{h}=1 .
+\]
+Les dérivées à droite et à gauche existent et sont égales : $f$ est dérivable en $0$ et $f'(0)=1$. Donc $f$ est dérivable sur $\mathbb{R}$.
+
+\underline{Continuité de $f'$ en $0$.} $\lim\limits_{x\to0^+}\dfrac1{x+1}=1$ et $\lim\limits_{x\to0^-}\cos x=1$, donc $\lim\limits_{x\to0}f'(x)=1=f'(0)$ : $f'$ est continue en $0$.
+
+\textbf{(b) Classe $C^1$.} $f$ est dérivable sur $\mathbb{R}$ et $f'$ est continue sur $\mathbb{R}^*$ (fonctions usuelles) et en $0$. Donc $f$ est de classe $C^1$ sur $D_f=\mathbb{R}$.
+
+\remarque{$f$ n'est pas de classe $C^2$ : pour $x>0$, $f''(x)=-\frac1{(x+1)^2}\to-1$ quand $x\to0^+$, tandis que pour $x<0$, $f''(x)=-\sin x\to0$ quand $x\to0^-$. Les dérivées secondes à droite et à gauche diffèrent.}
 
 \end{spacing}
 \end{document}

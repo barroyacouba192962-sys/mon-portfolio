@@ -5,194 +5,205 @@
 \entete{Mathématiques}{Corrigé détaillé du sujet type n°6}{Correction}
 \begin{spacing}{1.5}
 
-\medskip\textbf{Exercice 1}
+\textbf{Exercice 1}
 
-Pour tout $x,y \in \mathbb{R}$, montrons les inégalités suivantes :
- 
- 1. Première inégalité triangulaire $\vert x+y\vert \leq \vert x\vert + \vert y\vert$
- 
- On sait que :
- 
- $-\vert x\vert\leq x\leq \vert x\vert$ et $-\vert y\vert\leq y\leq \vert y\vert$.
- 
- En additionnant ces deux inégalités membre par membre, on obtient : 
- 
- $-(\vert x\vert+\vert y\vert)\leq x+y\leq \vert x\vert+\vert y\vert$,
- 
- alors $\vert x+y\vert \leq \vert x\vert + \vert y\vert$
- 
- 
- 
- 2. Seconde inégalité triangulaire $\vert\vert x\vert - \vert y\vert\vert\leq\vert x-y\vert$.
- 
- Puisque $x=(x-y)+y$, on a d'après la première inégalité :$\vert x\vert=\vert(x-y)+y\vert\leq \vert x-y\vert + \vert y\vert$. Donc $\vert x\vert-\vert y\vert\leq \vert x-y\vert$, et en intervertissant les rôles de $x$ et $y$, on a aussi $\vert y\vert-\vert x\vert\leq \vert y-x\vert$ Comme $ \vert y-x\vert=\vert x-y\vert$, on a donc $\vert\vert x\vert - \vert y\vert\vert\leq\vert x-y\vert$.
- 
- 
+On rappelle que pour tout réel $t$ : $|t|=\max(t,-t)$, donc $-|t|\le t\le|t|$, et que pour $M\ge0$ : $|t|\le M\iff -M\le t\le M$.
+
+\textbf{1. Première inégalité triangulaire : $|x+y|\le|x|+|y|$.}
+
+On a $-|x|\le x\le|x|$ et $-|y|\le y\le|y|$. En additionnant membre à membre :
+\[
+-(|x|+|y|)\le x+y\le|x|+|y| .
+\]
+Comme $|x|+|y|\ge0$, cela signifie exactement $|x+y|\le|x|+|y|$.
+
+(Autre preuve : les deux membres sont positifs et $(|x|+|y|)^2-|x+y|^2=2(|x||y|-xy)\ge0$ car $xy\le|xy|=|x||y|$.)
+
+\textbf{2. Seconde inégalité triangulaire : $\big||x|-|y|\big|\le|x-y|$.}
+
+On écrit $x=(x-y)+y$. D'après la question 1 :
+\[
+|x|=|(x-y)+y|\le|x-y|+|y|,\qquad\text{donc}\qquad |x|-|y|\le|x-y| .
+\]
+En échangeant les rôles de $x$ et $y$ : $|y|-|x|\le|y-x|=|x-y|$, soit $-|x-y|\le|x|-|y|$. Ainsi
+\[
+-|x-y|\le|x|-|y|\le|x-y|,\qquad\text{c'est-à-dire}\qquad \big||x|-|y|\big|\le|x-y| .
+\]
+
 \medskip\textbf{Exercice 2}
 
-1. La loi du couple $(X, Y )$ est donnée par le tableau $C$. Obtenu par le fait que la somme des probabilités du tableau donne 1 et la somme des probabilités d'une variable pour une valeur donnée donne exactement les probabilités données. Par exemple en additionnant les probabilités de la première colonne de $C$ (ou $x=1$), on trouve $0,6=P(X=1)$.
+Rappel : un tableau $\big(p_{ij}\big)$ est la loi d'un couple si et seulement si tous les $p_{ij}$ sont positifs et leur somme vaut $1$. Les lois marginales s'obtiennent en sommant les colonnes (loi de $X$) et les lignes (loi de $Y$) :
+\[
+P(X=i)=\sum_jP(X=i,Y=j),\qquad P(Y=j)=\sum_iP(X=i,Y=j).
+\]
 
-2. Le tableau de la loi du couple $(X, Y )$ si les variables $X$ et $Y$ étaient indépendantes.
+\textbf{1. Le tableau qui convient.}
 
-On sait que : $P(X,Y)=P(X)\times P(Y)$
+On calcule, pour chaque tableau, la somme totale et les sommes par colonne ($X$) et par ligne ($Y$) :
 
-$P(X=1,Y=1)=P(X=1)\times P(Y=1)=0,6*0,4=0,24$, etc.
-
-$
- \begin{tabular}{|c|c|c|c|}
- \hline 
- $Y\setminus X $& 1 & 2 & 3 \\ 
- \hline 
- 1 & 0,24 & 0,08 & 0,08 \\ 
- \hline 
- 2 & 0,30 & 0,10 & 0,10 \\ 
- \hline 
- 3 & 0,06 & 0,02 & 0,02 \\ 
- \hline 
- \end{tabular}
-$
-
-3. C'est le tableau $A$. Il s'agit du tableau dont la somme des probabilités donne 1.
-
-\textbf{Loi marginale de $X$}
-
-$
+\begin{center}
+\small
 \begin{tabular}{|c|c|c|c|}
-\hline 
-k & 1 & 2 & 3 \\ 
-\hline 
-P(X=k) & 0,8 & 0,1 & 0,1 \\ 
-\hline 
-\end{tabular} 
-$
+\hline
+Tableau & Somme totale & Colonnes ($X=1,2,3$) & Lignes ($Y=1,2,3$)\\
+\hline
+$A$ & $1$ & $0{,}8\ ;\ 0{,}1\ ;\ 0{,}1$ & $0{,}6\ ;\ 0{,}3\ ;\ 0{,}1$\\
+\hline
+$B$ & $0{,}8$ & --- & ---\\
+\hline
+$C$ & $1$ & $0{,}6\ ;\ 0{,}2\ ;\ 0{,}2$ & $0{,}4\ ;\ 0{,}5\ ;\ 0{,}1$\\
+\hline
+$D$ & $3$ & --- & ---\\
+\hline
+\end{tabular}
+\end{center}
 
-\textbf{Loi marginale de $Y$}
+Seul le tableau $C$ redonne les lois de $X$ ($0{,}6$ ; $0{,}2$ ; $0{,}2$) et de $Y$ ($0{,}4$ ; $0{,}5$ ; $0{,}1$) : \textbf{la loi du couple est donnée par le tableau $C$}.
 
-$
+\textbf{2. Cas où $X$ et $Y$ seraient indépendantes.}
+
+Si $X$ et $Y$ sont indépendantes, $P(X=i,Y=j)=P(X=i)\times P(Y=j)$ pour tous $i,j$. Par exemple $P(X=1,Y=1)=0{,}6\times0{,}4=0{,}24$. On obtient :
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+$Y\backslash X$ & 1 & 2 & 3 & Loi de $Y$\\
+\hline
+1 & $0{,}6\times0{,}4=0{,}24$ & $0{,}2\times0{,}4=0{,}08$ & $0{,}08$ & $0{,}4$\\
+\hline
+2 & $0{,}6\times0{,}5=0{,}30$ & $0{,}2\times0{,}5=0{,}10$ & $0{,}10$ & $0{,}5$\\
+\hline
+3 & $0{,}6\times0{,}1=0{,}06$ & $0{,}2\times0{,}1=0{,}02$ & $0{,}02$ & $0{,}1$\\
+\hline
+Loi de $X$ & $0{,}6$ & $0{,}2$ & $0{,}2$ & $1$\\
+\hline
+\end{tabular}
+\end{center}
+
+On remarque que ce tableau est différent du tableau $C$ : par exemple $P(X=1,Y=1)=0{,}2\neq0{,}24$. Donc \textbf{$X$ et $Y$ ne sont pas indépendantes}.
+
+\textbf{3. Les autres tableaux.}
+
+\begin{itemize}
+\item Tableau $B$ : la somme des probabilités vaut $0{,}5+0{,}1+0{,}1+0{,}1=0{,}8\neq1$ : ce n'est pas une loi de probabilité.
+\item Tableau $D$ : la somme vaut $3\neq1$ : ce n'est pas une loi de probabilité.
+\item Tableau $A$ : tous les coefficients sont positifs et leur somme vaut $1$ : c'est la loi d'un couple $(X',Y')$, dont les lois marginales sont :
+\end{itemize}
+
+\begin{center}
 \begin{tabular}{|c|c|c|c|}
-\hline 
-k & 1 & 2 & 3 \\ 
-\hline 
-P(Y=k) & 0,6 & 0,3 & 0,1 \\ 
-\hline 
-\end{tabular} 
-$
+\hline
+$k$ & 1 & 2 & 3 \\
+\hline
+$P(X'=k)$ & $0{,}8$ & $0{,}1$ & $0{,}1$ \\
+\hline
+\end{tabular}
+\qquad
+\begin{tabular}{|c|c|c|c|}
+\hline
+$k$ & 1 & 2 & 3 \\
+\hline
+$P(Y'=k)$ & $0{,}6$ & $0{,}3$ & $0{,}1$ \\
+\hline
+\end{tabular}
+\end{center}
+(Ces lois ne sont pas celles de $X$ et $Y$, ce qui confirme que $A$ ne convenait pas à la question 1.)
 
-\medskip
-\textbf{Exercice 3}
+\medskip\textbf{Exercice 3}
 
-1. $F_n(x)=\int(1+x)^ndx=\frac{(1+x)^{n+1}}{n+1}+C=C+\frac{f_{n+1}(x)}{n+1}$.
+$f_n(x)=(1+x)^n$ et $g_n(x)=(1-x)^n$.
 
-De même: 
+\textbf{1. Primitives (calcul direct).}
 
-$G_n(x)=\int(1-x)^ndx=-\frac{(1-x)^{n+1}}{n+1}+C'=C'-\frac{g_{n+1}(x)}{n+1}$.
+Une primitive de $u'u^n$ est $\dfrac{u^{n+1}}{n+1}$. Avec $u=1+x$ ($u'=1$) puis $u=1-x$ ($u'=-1$) :
+\[
+F_n(x)=\frac{(1+x)^{n+1}}{n+1}+C_1,\qquad G_n(x)=-\frac{(1-x)^{n+1}}{n+1}+C_2,\qquad C_1,C_2\in\mathbb{R}.
+\]
 
-2. $f_n(x) = (1 + x)^n =\sum_{k=0}^{k=n}C_n^kX^k$
+\textbf{2. Primitives à l'aide du binôme.}
 
-D'où, $F_n(X)=\frac{\sum_{k=0}^{k=n}C_n^kX^{k+1}}{k+1}+C_1$.
+D'après la formule du binôme :
+\[
+f_n(x)=\sum_{k=0}^nC_n^kx^k,\qquad g_n(x)=\sum_{k=0}^nC_n^k(-x)^k=\sum_{k=0}^n(-1)^kC_n^kx^k .
+\]
+En intégrant terme à terme (une primitive de $x^k$ est $\frac{x^{k+1}}{k+1}$) :
+\[
+F_n(x)=\sum_{k=0}^n\frac{C_n^k}{k+1}x^{k+1}+C_3,\qquad G_n(x)=\sum_{k=0}^n\frac{(-1)^kC_n^k}{k+1}x^{k+1}+C_4 .
+\]
 
-De même :
+\textbf{3. Calcul de $F_n(1)-F_n(0)$, $G_n(1)-G_n(0)$, puis de $A$ et $B$.}
 
-$g_n(x) = (1 - x)^n =\sum_{k=0}^{k=n}(-1)^kC_n^kX^k$.
+La différence $F_n(1)-F_n(0)=\int_0^1f_n(x)\,dx$ ne dépend pas de la primitive choisie.
 
-D'où : 
-
-$G_n(X)=\frac{\sum_{k=0}^{k=n}(-1)^{k}C_n^kX^{k+1}}{k+1}+C_2$.
-
-3. $F_n(1)-F_n(0)=\frac{2^{n+1}-1}{n+1}=\sum_{k=0}^{k=n}\frac{1}{k+1} C_n^k=A$.
-
-$G_n(1)-G_n(0)=\frac{1}{k+1}=\sum_{k=0}^{k=n}(-1)^{k+1} \frac{1}{k+1} C_n^k=B$.
+\underline{Avec les expressions de la question 1 :}
+\[
+F_n(1)-F_n(0)=\frac{2^{n+1}}{n+1}-\frac{1}{n+1}=\frac{2^{n+1}-1}{n+1},\qquad
+G_n(1)-G_n(0)=-\frac{0}{n+1}+\frac{1^{n+1}}{n+1}=\frac{1}{n+1}.
+\]
+\underline{Avec les expressions de la question 2 :}
+\[
+F_n(1)-F_n(0)=\sum_{k=0}^n\frac{C_n^k}{k+1}=A,\qquad G_n(1)-G_n(0)=\sum_{k=0}^n\frac{(-1)^kC_n^k}{k+1}.
+\]
+En comparant :
+\[
+\boxed{A=\sum_{k=0}^n\frac{1}{k+1}C_n^k=\frac{2^{n+1}-1}{n+1}}
+\]
+et, comme $(-1)^{k+1}=-(-1)^k$ :
+\[
+B=\sum_{k=0}^n(-1)^{k+1}\frac{1}{k+1}C_n^k=-\sum_{k=0}^n\frac{(-1)^kC_n^k}{k+1}=-\big(G_n(1)-G_n(0)\big),\qquad\boxed{B=-\frac{1}{n+1}}.
+\]
+Vérification pour $n=1$ : $A=1+\frac12=\frac32=\frac{2^2-1}{2}$ et $B=-1+\frac12=-\frac12$.
 
 \medskip\textbf{Exercice 4}
 
-\textbf{On munit $\mathbb{R}^n$ de son produit scalaire usuel.}
+On note $\langle x,y\rangle=\sum_{i=1}^nx_iy_i$ le produit scalaire usuel de $\mathbb{R}^n$ et on rappelle l'\textbf{inégalité de Cauchy-Schwarz} : $\langle x,y\rangle^2\le\langle x,x\rangle\,\langle y,y\rangle$.
 
-1. Montrons que pour tout $x = (x_i) \in \mathbb{R}^n$, on a :
+\textbf{1. $\Big(\sum_{i=1}^nx_i\Big)^2\le n\sum_{i=1}^nx_i^2$.}
+
+On applique Cauchy-Schwarz à $x=(x_1,\dots,x_n)$ et $u=(1,\dots,1)$ :
 \[
-\left( \sum_{i=1}^n x_i \right)^2 \leq n \sum_{i=1}^n x_i^2
+\Big(\sum_{i=1}^nx_i\Big)^2=\langle x,u\rangle^2\le\langle u,u\rangle\langle x,x\rangle=\Big(\sum_{i=1}^n1\Big)\Big(\sum_{i=1}^nx_i^2\Big)=n\sum_{i=1}^nx_i^2 .
+\]
+(Il y a égalité si et seulement si $x$ et $u$ sont colinéaires, c'est-à-dire si tous les $x_i$ sont égaux.)
+
+\textbf{2. Calcul de $\operatorname{tr}({}^tAA)$ et inégalité $|\operatorname{tr}A|\le\sqrt{n\operatorname{tr}({}^tAA)}$.}
+
+Le coefficient $(i,i)$ de ${}^tAA$ est $\displaystyle({}^tAA)_{ii}=\sum_{k=1}^n({}^tA)_{ik}a_{ki}=\sum_{k=1}^na_{ki}^2$ (somme des carrés de la $i$-ème colonne de $A$). Donc
+\[
+\boxed{\operatorname{tr}({}^tAA)=\sum_{i=1}^n\sum_{k=1}^na_{ki}^2=\sum_{i=1}^n\sum_{j=1}^na_{ij}^2}
+\]
+est la somme des carrés de tous les coefficients de $A$.
+
+D'après la question 1 appliquée à $x=(a_{11},a_{22},\dots,a_{nn})$ :
+\[
+(\operatorname{tr}A)^2=\Big(\sum_{i=1}^na_{ii}\Big)^2\le n\sum_{i=1}^na_{ii}^2\le n\sum_{i=1}^n\sum_{j=1}^na_{ij}^2=n\operatorname{tr}({}^tAA),
+\]
+la deuxième inégalité venant du fait que l'on ajoute les carrés (positifs) des coefficients non diagonaux. En prenant la racine carrée (fonction croissante sur $\mathbb{R}_+$) :
+\[
+|\operatorname{tr}(A)|\le\sqrt{n\operatorname{tr}({}^tAA)} .
 \]
 
-Par l'inégalité de Cauchy-Schwarz dans $\mathbb{R}^n$, pour deux vecteurs $u = (1, 1, \dots, 1)$ et $v = (x_1, x_2, \dots, x_n)$, on a :
+\textbf{3. $(A,B)\mapsto\operatorname{tr}({}^tAB)$ est un produit scalaire sur $\mathcal{M}_n(\mathbb{R})$.}
+
+Notons $\varphi(A,B)=\operatorname{tr}({}^tAB)$. Comme dans la question 2, $\varphi(A,B)=\displaystyle\sum_{i=1}^n\sum_{j=1}^na_{ij}b_{ij}$. Vérifions les propriétés d'un produit scalaire.
+\begin{itemize}
+\item \emph{Symétrie} : la trace est invariante par transposition, donc $\varphi(A,B)=\operatorname{tr}({}^tAB)=\operatorname{tr}\big({}^t({}^tAB)\big)=\operatorname{tr}({}^tBA)=\varphi(B,A)$.
+\item \emph{Linéarité à droite} : pour $\lambda\in\mathbb{R}$, ${}^tA(B+\lambda C)={}^tAB+\lambda\,{}^tAC$ et la trace est linéaire, donc $\varphi(A,B+\lambda C)=\varphi(A,B)+\lambda\varphi(A,C)$. Par symétrie, $\varphi$ est aussi linéaire à gauche : $\varphi$ est \emph{bilinéaire}.
+\item \emph{Positivité} : $\varphi(A,A)=\displaystyle\sum_{i,j}a_{ij}^2\ge0$.
+\item \emph{Caractère défini} : si $\varphi(A,A)=\sum_{i,j}a_{ij}^2=0$, alors chaque $a_{ij}^2$ (positif) est nul, donc $A=0$.
+\end{itemize}
+$\varphi$ est une forme bilinéaire symétrique définie positive : c'est un produit scalaire sur $\mathcal{M}_n(\mathbb{R})$. (C'est en fait le produit scalaire usuel de $\mathbb{R}^{n^2}$ lu sur les coefficients.)
+
+\textbf{4. Pour $A,B$ symétriques : $|\operatorname{tr}(AB)|^2\le\operatorname{tr}(A^2)\operatorname{tr}(B^2)$.}
+
+L'inégalité de Cauchy-Schwarz pour le produit scalaire $\varphi$ de la question 3 donne, pour toutes matrices $A,B$ :
 \[
-\left( \sum_{i=1}^n u_i v_i \right)^2 \leq \left( \sum_{i=1}^n u_i^2 \right) \cdot \left( \sum_{i=1}^n v_i^2 \right).
+\varphi(A,B)^2\le\varphi(A,A)\,\varphi(B,B),\qquad\text{soit}\qquad \big(\operatorname{tr}({}^tAB)\big)^2\le\operatorname{tr}({}^tAA)\operatorname{tr}({}^tBB).
 \]
-En remplaçant $u_i = 1$ et $v_i = x_i$, on obtient :
+Si $A$ et $B$ sont symétriques, ${}^tA=A$ et ${}^tB=B$, donc ${}^tAB=AB$, ${}^tAA=A^2$ et ${}^tBB=B^2$. On obtient
 \[
-\left( \sum_{i=1}^n x_i \cdot 1 \right)^2 \leq \left( \sum_{i=1}^n 1^2 \right) \cdot \left( \sum_{i=1}^n x_i^2 \right).
+|\operatorname{tr}(AB)|^2\le\operatorname{tr}(A^2)\,\operatorname{tr}(B^2).
 \]
-Comme $\sum_{i=1}^n 1^2 = n$, l'inégalité devient :
-\[
-\left( \sum_{i=1}^n x_i \right)^2 \leq n \sum_{i=1}^n x_i^2.
-\]
-Ceci prouve l'inégalité demandée.
-
-2. Soit $A \in M_n(\mathbb{R})$, $A = [a_{ij}]$. Calculons $\text{tr}(A^t A)$ 
-
-Pour $A \in M_n(\mathbb{R})$, la trace de $A^t A$ est donnée par :
-\[
-\text{tr}(A^t A) = \sum_{i=1}^n \sum_{j=1}^n a_{ij}^2.
-\]
-En effet, les éléments diagonaux de $A^t A$ sont obtenus en prenant :
-\[
-(A^t A){ii} = \sum{k=1}^n a_{ki}^2,
-\]
-et la trace est la somme de ces termes :
-\[
-\text{tr}(A^t A) = \sum_{i=1}^n \sum_{j=1}^n a_{ij}^2.
-\]
-
-\medskip
-Déduisons que
-
-\[
-|\text{tr}(A)| \leq \sqrt{n \cdot \text{tr}(A^t A)}.
-\]
-Cette inégalité découle du fait que la trace $\text{tr}(A)$ est une somme des éléments diagonaux, et sa borne supérieure provient de la norme de Frobenius de $A$. Pour la démontrer on applique l'inégalité de Cauchy-Schwarz aux vecteurs des lignes ou colonnes de $A$.(il suffit d'appliquer l'inégalité de Cauchy-Schwarz en considérant les vecteurs $x=(a_{11}, a_{22},...,a_{nn})$ (formé des éléments diagonaux de $A$) et $y=(1,1,...,1)$.
-
-
-On a:
-
-$\text{tr}(A)=\sum_{i=1}^na_{ii}$.
-
-
-
-
-
-
-3. Montrons que l'application $A, B \mapsto \text{tr}(A^t B)$ définit un produit scalaire.
-
-Pour prouver que $\text{tr}(A^t B)$ définit un produit scalaire sur $M_n(\mathbb{R})$, il faut vérifier les quatre propriétés suivantes :
-
-Soit $A,B,C\in M_n(\mathbb{R})$
-
-
-     \textbf{Bilinéarité :} La trace est linéaire, donc $\text{tr}(A^t (B + C)) = \text{tr}(A^t B) + \text{tr}(A^t C)$ et $\text{tr}((\lambda A)^t B) = \lambda \text{tr}(A^t B)$.
-     
-     \textbf{Symétrie :} $\text{tr}(A^t B) = \text{tr}(B^t A)$, car $\text{tr}(X^t) = \text{tr}(X)$.
-     
-     \textbf{Définie positive :} $\text{tr}(A^t A)=\text{tr}(A^t A) = \sum_{i=1}^n \sum_{j=1}^n a_{ij}^2 \geq 0$, et $\text{tr}(A^t A) = 0 \implies A = 0$.
-     
-     \textbf{Non-dégénérescence :} Si $\text{tr}(A^t B) = 0$ pour tout $B$, alors $A = 0$.
-
-Ainsi, l'application est bien un produit scalaire.
-
-4. Montrons que pour toutes matrices $A$ et $B$ symétriques, on a :
-\[
-|\text{tr}(AB)|^2 \leq \text{tr}(A^2) \cdot \text{tr}(B^2).
-\]
-
-L'inégalité découle de l'inégalité de Cauchy-Schwarz dans l'espace des matrices muni du produit scalaire $\text{tr}(A^t B)$. On a :
-
-
-\begin{align*}
-\langle A,B\rangle &=\text{tr}(A^tB)\\
-\vert\langle A,B\rangle\vert^2 &\leq \langle A,A\rangle.\langle B,B\rangle.\\
-|\text{tr}(AB)|^2 &\leq \text{tr}(A^2) \cdot \text{tr}(B^2),
-\end{align*}
-où $\text{tr}(A^2)$ et $\text{tr}(B^2)$ correspondent aux normes des matrices $A$ et $B$ respectivement.
-
-
-\quad
 
 \end{spacing}
 \end{document}

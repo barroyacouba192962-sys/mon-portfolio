@@ -7,157 +7,204 @@
 
 \textbf{Exercice 1}
 
-Soit $f :\mathbb{R}^2\longrightarrow \mathbb{R}$ la fonction ainsi définie par:
- $f(x,y)=2x^2+2y^2+2xy-x-y$
- 
-1. Calculons les dérivées partielles premières de $f$.
- 
- $\frac{\partial f}{\partial x}(x,y)=4x+2y-1$
- 
- $\frac{\partial f}{\partial y}(x,y)=4y+2x-1$
- 
- 
-2. Déterminons l'unique point critique $A$ de $f$.
+$f(x,y)=2x^2+2y^2+2xy-x-y$, définie sur $\mathbb{R}^2$ (fonction polynomiale, donc de classe $C^\infty$).
 
-$\begin{cases}
- 4x+2y-1=0(1)\\
- 4y+2x-1=0(2)
- \end{cases}$
- 
- $(1)-(2)\Longrightarrow x=y (3)$
- 
- $(3) dans (1)\Longrightarrow x=\frac{1}{6}=y$
- 
- \textbf{$A=(\frac{1}{6},\frac{1}{6})$}
- 
- 3. Calculons les dérivées partielles secondes de $f$.
- 
- $\frac{\partial^2f}{\partial x^2}(x,y)=4$, $\frac{\partial^2 f}{\partial y^2}(x,y)=4$, $\frac{\partial^2 f}{\partial x\partial y}(x,y)=\frac{\partial^2 f}{\partial y\partial x}(x,y)=2$
- 
- 4. montrons que $f$ présente en $A$ un extremum en précisant sa nature.
+\textbf{1. Dérivées partielles premières.} On dérive par rapport à une variable en considérant l'autre comme constante :
+\[
+\frac{\partial f}{\partial x}(x,y)=4x+2y-1,\qquad \frac{\partial f}{\partial y}(x,y)=4y+2x-1 .
+\]
 
-La matrice hessienne de $f$ est donnée par :
+\textbf{2. Point critique.} Un point critique annule les deux dérivées partielles :
+\[
+\begin{cases}
+4x+2y-1=0 & (1)\\
+2x+4y-1=0 & (2)
+\end{cases}
+\]
+$(1)-(2)$ donne $2x-2y=0$, soit $x=y$. En reportant dans $(1)$ : $6x-1=0$, d'où $x=y=\dfrac16$. Le système (de déterminant $16-4=12\neq0$) a une unique solution :
+\[
+\boxed{A=\Big(\frac16\,;\,\frac16\Big)}.
+\]
 
-$H=\begin{pmatrix}
-4&2\\
-2&4
-\end{pmatrix}$
+\textbf{3. Dérivées partielles secondes.}
+\[
+r=\frac{\partial^2f}{\partial x^2}=4,\qquad t=\frac{\partial^2 f}{\partial y^2}=4,\qquad s=\frac{\partial^2 f}{\partial x\partial y}=\frac{\partial^2 f}{\partial y\partial x}=2
+\]
+(constantes, et égales d'après le théorème de Schwarz).
 
-$\det H=\begin{vmatrix}
-4&2\\
-2&4
-\end{vmatrix}=16-4=12>0$ et $\frac{\partial^2 f}{\partial x^2}(x,y)=4>0$ alors le seul point critique $A$ est un minimum local.
+\textbf{4. Nature du point critique.}
+
+On utilise les notations de Monge : en $A$, $rt-s^2=4\times4-2^2=12>0$ et $r=4>0$. Donc $f$ admet en $A$ un \textbf{minimum local}. (La matrice hessienne $H=\begin{pmatrix}4&2\\2&4\end{pmatrix}$ a pour valeurs propres $2$ et $6$, toutes deux strictement positives.)
+
+Valeur du minimum :
+\[
+f\Big(\frac16,\frac16\Big)=\frac{2}{36}+\frac{2}{36}+\frac{2}{36}-\frac16-\frac16=\frac16-\frac13=-\frac16 .
+\]
+
+\remarque{Le minimum est même \emph{global}. En effet, $f$ étant un polynôme de degré 2, la formule de Taylor est exacte : en posant $x=\frac16+h$, $y=\frac16+k$,
+$f(x,y)=-\frac16+\frac12(4h^2+4hk+4k^2)=-\frac16+2\big[(h+\tfrac k2)^2+\tfrac34k^2\big]\ge-\frac16$, avec égalité si et seulement si $h=k=0$.}
 
 \medskip\textbf{Exercice 2}
 
-1. Calculons $\Delta_1$ en donnant le résultat sous forme factorisée.
+\textbf{1. Calcul de $\Delta_1$.}
 
-$\Delta_1= \begin{vmatrix}
- 1 & 1 & 1\\
- b & c & d\\
- b^2 & c^2 & d^2
- \end{vmatrix}\begin{array}{c}
- c_2\longleftarrow c_2-c_1\\
- c_3\longleftarrow c_3-c_1
- \end{array}=\begin{vmatrix}
- 1 & 0 & 0\\
- b & c-b & d-b\\
- b^2 & c^2-b^2 & d^2-b^2
- \end{vmatrix}=(c-b)(d-b)\begin{vmatrix}
- 1 & 0 & 0\\
- b & 1 & 1\\
- b^2 & c+b & d+b
- \end{vmatrix}$
- 
- $=(c-b)(d-b)\begin{vmatrix}
- 1 & 1\\
- c+b & d+b
- \end{vmatrix}=(c-b)(d-b)(d+b-c-b)=(c-b)(d-b)(d-c)$
- 
-2. Montrons que $\Delta_2 =(b-a)(c-a)(d-a)\Delta_1$. 
- 
- $\Delta_2=\begin{vmatrix}
- 1 & 1 & 1 & 1 \\
- a & b & c & d \\
- a^2 & b^2 & c^2 & d^2 \\
- a^3 & b^3 & c^3 & d^3
-\end{vmatrix} c_i\longleftarrow c_i-c_1$ avec $i=2,3,4 \quad\Delta_2=\begin{vmatrix}
- 1 & 0 & 0 & 0 \\
- a & b-a & c-a & d-a \\
- a^2 & b^2-a^2 & c^2-a^2 & d^2-a^2 \\
- a^3 & b^3-a^3 & c^3-a^3 & d^3-a^3
-\end{vmatrix}$
-
-$=(b-a)(c-a)(d-a)\begin{vmatrix}
-1 & 1 & 1 \\ 
-b+a & c+a & d+a \\ 
-b^2+ab+a^2 & c^2+ac+a^2 & d^2+ad+a^2
-\end{vmatrix}\begin{array}{c}
-L_2\longleftarrow L_2-aL_1\\
-L_3\longleftarrow L_3-aL_2
-\end{array}$
-
-$\Delta_2=(b-a)(c-a)(d-a)\begin{vmatrix}
-1 & 1 & 1 \\ 
-b & c & d \\ 
+Avec $C_2\leftarrow C_2-C_1$ et $C_3\leftarrow C_3-C_1$ :
+\[
+\Delta_1=\begin{vmatrix}
+1 & 1 & 1\\
+b & c & d\\
 b^2 & c^2 & d^2
-\end{vmatrix}=\Delta_2 =(b-a)(c-a)(d-a)\Delta_1$.
+\end{vmatrix}
+=\begin{vmatrix}
+1 & 0 & 0\\
+b & c-b & d-b\\
+b^2 & c^2-b^2 & d^2-b^2
+\end{vmatrix}
+=\begin{vmatrix}
+c-b & d-b\\
+(c-b)(c+b) & (d-b)(d+b)
+\end{vmatrix}
+\]
+(développement suivant la première ligne). En factorisant $(c-b)$ et $(d-b)$ :
+\[
+\Delta_1=(c-b)(d-b)\begin{vmatrix}
+1 & 1\\
+c+b & d+b
+\end{vmatrix}=(c-b)(d-b)\big[(d+b)-(c+b)\big],
+\]
+\[
+\boxed{\Delta_1=(c-b)(d-b)(d-c)}.
+\]
 
-3. Déduisons $\Delta_2$ sous forme factorisée.  
+\textbf{2. Montrons que $\Delta_2=(b-a)(c-a)(d-a)\Delta_1$.}
 
-$\Delta_2 =(b-a)(c-a)(d-a)\Delta_1=(b-a)(c-a)(d-a)(c-b)(d-b)(d-c)$.
+\emph{Étape 1 : faire apparaître des zéros sur la première ligne.} Avec $C_i\leftarrow C_i-C_1$ pour $i=2,3,4$ :
+\[
+\Delta_2=\begin{vmatrix}
+1 & 0 & 0 & 0 \\
+a & b-a & c-a & d-a \\
+a^2 & b^2-a^2 & c^2-a^2 & d^2-a^2 \\
+a^3 & b^3-a^3 & c^3-a^3 & d^3-a^3
+\end{vmatrix}
+=\begin{vmatrix}
+b-a & c-a & d-a \\
+b^2-a^2 & c^2-a^2 & d^2-a^2 \\
+b^3-a^3 & c^3-a^3 & d^3-a^3
+\end{vmatrix}.
+\]
+\emph{Étape 2 : factoriser.} On utilise $x^2-a^2=(x-a)(x+a)$ et $x^3-a^3=(x-a)(x^2+ax+a^2)$, puis on factorise $(b-a)$, $(c-a)$, $(d-a)$ dans les colonnes 1, 2, 3 :
+\[
+\Delta_2=(b-a)(c-a)(d-a)\begin{vmatrix}
+1 & 1 & 1 \\
+b+a & c+a & d+a \\
+b^2+ab+a^2 & c^2+ac+a^2 & d^2+ad+a^2
+\end{vmatrix}.
+\]
+\emph{Étape 3 : simplifier les lignes.} Attention à l'ordre des opérations. On fait d'abord $L_3\leftarrow L_3-aL_2$ : $x^2+ax+a^2-a(x+a)=x^2$ ; puis $L_2\leftarrow L_2-aL_1$ : $x+a-a=x$. On obtient
+\[
+\Delta_2=(b-a)(c-a)(d-a)\begin{vmatrix}
+1 & 1 & 1 \\
+b & c & d \\
+b^2 & c^2 & d^2
+\end{vmatrix}=(b-a)(c-a)(d-a)\,\Delta_1 .
+\]
 
-4. Le rang de $\Delta_2$.
+\textbf{3. Forme factorisée de $\Delta_2$.}
+\[
+\boxed{\Delta_2=(b-a)(c-a)(d-a)(c-b)(d-b)(d-c)=\prod_{\text{paires } \{x<y\}}(y-x)}
+\]
+(produit de toutes les différences, dans l'ordre $a,b,c,d$ : c'est le déterminant de Vandermonde).
 
-Si les $a,b,c,d$ sont distinct deux à deux, alors $\Delta_2\neq 0$, donc de $rang(\Delta_2)=4$, sinon  $1\leq rang(\Delta_2)<4$:
+\textbf{4. Rang de la matrice $V=\begin{pmatrix}
+1 & 1 & 1 & 1 \\
+a & b & c & d \\
+a^2 & b^2 & c^2 & d^2 \\
+a^3 & b^3 & c^3 & d^3
+\end{pmatrix}$ dont $\Delta_2$ est le déterminant.}
 
+(Un déterminant est un nombre : on parle du rang de la matrice associée.)
 
- 
- 
- 
+\begin{itemize}
+\item Si $a,b,c,d$ sont \textbf{deux à deux distincts}, $\Delta_2\neq0$, donc $\operatorname{rg}(V)=4$.
+\item Sinon, $\Delta_2=0$ et $\operatorname{rg}(V)<4$. Plus précisément, deux colonnes égales correspondent à deux valeurs égales, et des colonnes associées à $k$ valeurs distinctes $t_1,\dots,t_k$ sont libres (une sous-matrice carrée $k\times k$ formée des $k$ premières lignes est un Vandermonde non nul). Donc
+\[
+\operatorname{rg}(V)=\text{nombre de valeurs distinctes parmi } a,b,c,d .
+\]
+Par exemple : si $a=b$ et $c$, $d$, $a$ distincts, $\operatorname{rg}(V)=3$ ; si $a=b$ et $c=d\neq a$, $\operatorname{rg}(V)=2$ ; si $a=b=c=d$, $\operatorname{rg}(V)=1$.
+\end{itemize}
+
 \medskip\textbf{Exercice 3}
 
-1. Déterminons le développement limité à l'ordre 3 au voisinage de 0 de $f$.
- 
- On sait que : $e^u=1+\frac{u}{1!}+\frac{u^2}{2!}+\frac{u^3}{3!}+o(u^3)$ et $\sin(u)=u-\frac{u^3}{3!}+\circ(u^3)$ 
- 
- Alors $f(x) = 2e^{-2x}sin(x)=2(1-2x+\frac{(-2x)^2}{2}+\frac{(-2x)^3}{6} +\circ(x^3))(x-\frac{x^3}{3!}+\circ(x^3))=2x-4x+\frac{11}{3}x^3+\circ(x^3)$
- 
- 2. Déduisons
+$f(x)=2e^{-2x}\sin x$.
 
-$\lim_{x \to 0} \frac{2e^{-2x} \sin(x)}{x} = \lim_{x \to 0} \left( 2 - 4x + \frac{11}{3}x^2 + o(x^2) \right) = 2$
+\textbf{1. Développement limité à l'ordre 3 en $0$.}
+
+On rappelle, au voisinage de $0$ :
+\[
+e^{u}=1+u+\frac{u^2}{2}+\frac{u^3}{6}+o(u^3),\qquad \sin x=x-\frac{x^3}{6}+o(x^3).
+\]
+Avec $u=-2x$ :
+\[
+e^{-2x}=1-2x+\frac{4x^2}{2}-\frac{8x^3}{6}+o(x^3)=1-2x+2x^2-\frac43x^3+o(x^3).
+\]
+Comme $\sin x=x+O(x^3)$ commence au degré 1, il suffit de connaître $e^{-2x}$ à l'ordre 2 pour obtenir le produit à l'ordre 3. On ne garde que les termes de degré $\le3$ :
+\begin{align*}
+e^{-2x}\sin x&=\big(1-2x+2x^2+o(x^2)\big)\Big(x-\frac{x^3}{6}+o(x^3)\Big)\\
+&=x-2x^2+2x^3-\frac{x^3}{6}+o(x^3)=x-2x^2+\frac{11}{6}x^3+o(x^3).
+\end{align*}
+Donc
+\[
+\boxed{f(x)=2x-4x^2+\frac{11}{3}x^3+o(x^3)}.
+\]
+
+\textbf{2. Limite.} Pour $x\neq0$, en divisant le DL par $x$ :
+\[
+\frac{2e^{-2x}\sin x}{x}=2-4x+\frac{11}{3}x^2+o(x^2)\xrightarrow[x\to0]{}2 .
+\]
+\[
+\boxed{\lim_{x\to0}\frac{2e^{-2x}\sin x}{x}=2}.
+\]
+(On retrouve le résultat classique $\frac{\sin x}{x}\to1$ et $e^{-2x}\to1$.)
 
 \medskip\textbf{Exercice 4}
 
-1. Deux évènements sont dit incompatibles si les deux ne peuvent pas être réalisés en même temps, c'est-à-dire $A\cap B = \emptyset$.
+On lance un dé rouge et un dé vert, équilibrés. Une issue est un couple $(r;v)$ (résultat du dé rouge, résultat du dé vert). L'univers $\Omega$ compte $6\times6=36$ issues \textbf{équiprobables}, donc $P(E)=\dfrac{\operatorname{card}(E)}{36}$.
 
-2. Compatibilité de $A$ et $B$
+\textbf{1. Évènements incompatibles.} Deux évènements $A$ et $B$ sont incompatibles s'ils ne peuvent pas se réaliser simultanément, c'est-à-dire si $A\cap B=\emptyset$.
 
-On a:
+\textbf{2. $A$ et $B$ sont-ils incompatibles ?}
+\[
+A=\{(1;5),(2;4),(3;3),(4;2),(5;1)\},\qquad A\cap B=\{(2;4),(4;2)\}
+\]
+(le rouge doit être pair et la somme égale à 6). Comme $A\cap B\neq\emptyset$, \textbf{$A$ et $B$ ne sont pas incompatibles}.
 
- $\Omega(A\cap B)=\{(2,4);(4,2)\}$
+\textbf{3. Évènements indépendants.} Deux évènements $A$ et $B$ sont indépendants si $P(A\cap B)=P(A)\times P(B)$ (la réalisation de l'un ne modifie pas la probabilité de l'autre : $P_B(A)=P(A)$ lorsque $P(B)\neq0$).
 
- $A\cap B \neq \emptyset$ alors $A$ et $B$ ne sont pas incompatibles.
- 
- 3. Deux évènements $A$ et $B$ sont dit indépendants si $P(A\cap B)=P(A)\times P(B)$
- 
- 4. Calculons $P(A)$ et $P(B)$
+\textbf{4. Calcul de $P(A)$ et $P(B)$.}
 
-$\Omega(A)=\{(1,5);(2,4);(3,3);(5,1);(4,2);(3,3)\}$
+$A$ contient $5$ issues (attention : le couple $(3;3)$ ne doit être compté qu'une fois) :
+\[
+P(A)=\frac{5}{36}.
+\]
+$B$ : le dé rouge donne $2$, $4$ ou $6$ ($3$ possibilités), le vert est quelconque ($6$ possibilités) :
+\[
+P(B)=\frac{3\times6}{36}=\frac{18}{36}=\frac12 .
+\]
 
-$P(A)=\frac{6}{36}=\frac{1}{6}$
+\textbf{5. Calcul de $P(A\cap B)$ et $P(A\,\triangle\,B)$.}
+\[
+P(A\cap B)=\frac{2}{36}=\frac1{18}.
+\]
+La différence symétrique $A\triangle B=(A\cup B)\setminus(A\cap B)$ est l'évènement « un seul des deux évènements est réalisé ». Comme $P(A\cup B)=P(A)+P(B)-P(A\cap B)$, on a
+\[
+P(A\triangle B)=P(A\cup B)-P(A\cap B)=P(A)+P(B)-2P(A\cap B)=\frac{5}{36}+\frac{18}{36}-\frac{4}{36}=\frac{19}{36}.
+\]
 
-$P(B)=\frac{6+6+6}{36}=\frac{18}{36}=\frac{1}{2}$
-
-5. Calculons $P(A\cap B)$ et $P(A\bigtriangleup B)$
-
-$P(A\cap B)=\frac{2}{36}=\frac{1}{18}$
-
-$P(A\bigtriangleup B)=P(A)+P(B)-2P(A\cap B)$
-
-$P(A\bigtriangleup B)=\frac{1}{6}+\frac{1}{2}-2\frac{1}{18}=\frac{10}{18}=\frac{5}{9}$
-
-6. $P(A)\times P(B)=\frac{1}{6}\times \frac{1}{2}=\frac{1}{12}\neq P(A\cap B)$ alors $A$ et $B$ ne sont pas indépendants.
+\textbf{6. Conclusion.}
+\[
+P(A)\times P(B)=\frac{5}{36}\times\frac12=\frac{5}{72}\neq\frac{4}{72}=P(A\cap B).
+\]
+Les évènements $A$ et $B$ \textbf{ne sont pas indépendants}. Ils ne sont pas non plus incompatibles (question 2). Ainsi, savoir que le dé rouge est pair modifie la probabilité d'obtenir une somme égale à 6 : $P_B(A)=\dfrac{P(A\cap B)}{P(B)}=\dfrac{1}{9}\neq\dfrac{5}{36}=P(A)$.
 
 \end{spacing}
 \end{document}
