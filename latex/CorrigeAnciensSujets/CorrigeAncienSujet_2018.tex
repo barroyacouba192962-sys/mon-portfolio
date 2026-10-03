@@ -1,0 +1,723 @@
+\documentclass[12pt]{article}
+\input{../preambule}
+
+\begin{document}
+\entete{Mathématiques}{Corrigé détaillé -- Session 2018}{Correction}
+\begin{spacing}{1.5}
+
+\medskip
+\textbf{Exercice 1}
+
+On donne $A=\begin{pmatrix}
+2 & 2& 2 \\ 
+-1 & -1 & 1 \\ 
+3 & 3 & 1
+\end{pmatrix} $
+
+1.a. Calculons les valeurs propres de $A$ et déduisons que A est diagonalisable.
+
+Le polynôme caractéristique de $A$ est :
+
+\begin{align*}
+P_A(x)=det(A-xI_3)&=\begin{vmatrix}
+2-x & 2& 2 \\ 
+-1 & -1-x & 1 \\ 
+3 & 3 & 1-x
+\end{vmatrix}L_1\leftarrow L_1+L_2+L_3\\
+&=\begin{vmatrix}
+4-x & 4-x & 4-x \\ 
+-1 & -1-x & 1 \\ 
+3 & 3 & 1-x
+\end{vmatrix}\\
+&=(4-x)\begin{vmatrix}
+1 & 1 & 1 \\ 
+-1 & -1-x & 1 \\ 
+3 & 3 & 1-x
+\end{vmatrix}c_2\leftarrow c_2-c_1, c_3\leftarrow c_3-c_1\\
+&=(4-x)\begin{vmatrix}
+1 & 0 & 0 \\ 
+-1 & -x & 2+x \\ 
+3 & 0 & -2-x
+\end{vmatrix}\\
+&=x(4-x)(2+x)\begin{vmatrix}
+-1 & 1 \\ 
+ 0 & -1
+\end{vmatrix}\\
+P_A(x) &= x(4-x)(2+x)
+\end{align*}
+
+Donc les valeurs propres de $A$ sont 0, -2 et 4
+
+$A$ est diagonalisable car ses valeurs propres sont distinctes deux à deux. Ou autrement car le polynôme caractéristique est scindé en racines simples.
+
+1.b. Déterminons une matrice inversible $P$ et une matrice diagonale $D$ tel que $A=PDP^{-1}$.
+
+$D=\begin{pmatrix}
+-2 & 0& 0 \\ 
+0 & 0 & 0 \\ 
+0 & 0 & 4
+\end{pmatrix}$
+
+Calculons les sous-espaces propres.
+
+Soit $E_\lambda$ le sous-espace propre lié à la valeur propre $\lambda$
+
+\[
+E_\lambda=\{u=(x,y,z)\in \mathbb{R}^3/Au=\lambda u\}
+\]
+
+\medskip
+$\bullet$ Pour $\lambda=0$, on a :
+
+$\forall u\in E_0,Au=0\Rightarrow \begin{pmatrix}
+2 & 2& 2 \\ 
+-1 & -1 & 1 \\ 
+3 & 3 & 1
+\end{pmatrix}\begin{pmatrix}
+x\\
+y\\
+z
+\end{pmatrix}=\begin{pmatrix}
+0\\
+0\\
+0
+\end{pmatrix}\Rightarrow \begin{cases}
+2x+2y+2z=0(1)\\
+-x-y+z=0(2)\\
+3x+3y+z=0(3)
+\end{cases}$
+
+$(1)+(2)\Longrightarrow z=0 (4)$
+
+$(4)$ dans $(3)\Longrightarrow x=-y$
+
+$\Rightarrow u=\begin{pmatrix}
+-y\\
+y\\
+0
+\end{pmatrix}=y\begin{pmatrix}
+-1\\
+1  \\
+0
+\end{pmatrix}\Rightarrow E_0=\langle \begin{pmatrix}
+-1\\
+1\\
+0
+\end{pmatrix}\rangle$
+
+$\bullet$ Pour $\lambda=-2$, on a :
+
+$\begin{cases}
+2x+2y+2z=-2x(1)\\
+-x-y+z=-2y(2)\\
+3x+3y+z=-2z(3)
+\end{cases}=\begin{cases}
+4x+2y+2z=0(1)\\
+-x+y+z=0(2)\\
+3x+3y+3z=0(3)
+\end{cases}=\begin{cases}
+2x+y+z=0(1)\\
+-x+y+z=0(2)\\
+x+y+z=0(3)
+\end{cases}$
+
+$(1)-(2)\Rightarrow x=0 (4)$
+
+$(4)$ dans $(3)\Longrightarrow z=-y$
+
+$\Rightarrow u=\begin{pmatrix}
+0\\
+y\\
+-y
+\end{pmatrix}=y\begin{pmatrix}
+0\\
+1\\
+-1
+\end{pmatrix}\Rightarrow E_{-2}=\langle \begin{pmatrix}
+0 \\
+1 \\
+-1
+\end{pmatrix}\rangle$
+
+$\bullet$ Pour $\lambda=4$, on a :
+
+$\begin{cases}
+2x+2y+2z=4x(1)\\
+-x-y+z=4y(2)\\
+3x+3y+z=4z(3)
+\end{cases}=\begin{cases}
+-2x+2y+2z=0(1)\\
+-x-5y+z=0(2)\\
+3x+3y-3z=0(3)
+\end{cases}=\begin{cases}
+-x+y+z=0(1)\\
+-x-5y+z=0(2)\\
+x+y-z=0(3)
+\end{cases}$
+
+$(1)+(3)\Rightarrow y=0 (4)$
+
+$(4)$ dans $(2)\Longrightarrow z=x$
+
+$\Rightarrow u=\begin{pmatrix}
+x\\
+0\\
+x
+\end{pmatrix}=x\begin{pmatrix}
+1\\
+0\\
+1
+\end{pmatrix}\Rightarrow E_{4}=\langle \begin{pmatrix}
+1\\
+0\\
+1
+\end{pmatrix}\rangle$
+
+$P=\begin{pmatrix}
+0  & -1 & 1 \\ 
+1  & 1  & 0 \\ 
+-1 & 0  & 1
+\end{pmatrix} $
+
+$det(P)=\begin{vmatrix}
+0  & -1 & 1 \\ 
+1  & 1  & 0 \\ 
+-1 & 0  & 1
+\end{vmatrix} = 1+1=2\neq 0$ $P$ est inversible et $P^{-1}=\frac{1}{\det(P)}t_{com(P)}$
+
+$com(P)=\begin{pmatrix}
+1  & -1 & 1 \\ 
+1  & 1  & 1 \\ 
+-1 & 1  & 1
+\end{pmatrix}\Rightarrow t_{com(P)}=\begin{pmatrix}
+1  & 1 & -1 \\ 
+-1  & 1  & 1 \\ 
+1 & 1  & 1
+\end{pmatrix} \Rightarrow P^{-1}=\frac{1}{2} \begin{pmatrix}
+1  & 1 & -1 \\ 
+-1  & 1  & 1 \\ 
+1 & 1  & 1
+\end{pmatrix}$
+
+On vérifie que :
+
+\[PDP^{-1}=\frac{1}{2}\begin{pmatrix}
+0  & -1 & 1 \\ 
+1  & 1  & 0 \\ 
+-1 & 0  & 1
+\end{pmatrix}\begin{pmatrix}
+-2 & 0& 0 \\ 
+0 & 0 & 0 \\ 
+0 & 0 & 4
+\end{pmatrix}\begin{pmatrix}
+1  & 1 & -1 \\ 
+-1  & 1  & 1 \\ 
+1 & 1  & 1
+\end{pmatrix}=\begin{pmatrix}
+2 & 2& 2 \\ 
+-1 & -1 & 1 \\ 
+3 & 3 & 1
+\end{pmatrix}=A\]
+
+2.a. Montrons que 
+\[
+\forall {n\in\mathbb{N}^*}, A^n = PD^nP^{-1}
+\]
+
+Raisonnons par récurrence
+
+-Pour $n=1$
+
+D'après 1.b. $PDP^{-1}=A$, donc la propriété est vrai à l'ordre 1.
+
+-Supposons que la propriété est vrai à l'ordre $n$ et vérifions à l'ordre $n+1$
+
+On a : $A^n = PD^nP^{-1}$(*) et  $A=PDP^{-1}$(**).
+
+En multipliant (*) et (**) membres par membres, on obtient :
+
+\begin{align*}
+A\times A^n &= PDP^{-1}PD^nP^{-1}\\
+A^{n+1} &=PDD^nP^{-1}\\
+A^{n+1} &=PD^{n+1}P^{-1}
+\end{align*}.
+Alors la propriété est vrai à l'ordre $n+1$. On conclut donc que \[
+\forall {n\in\mathbb{N}^*}, A^n = PD^nP^{-1}
+\]
+
+Déduisons $A^n$.
+
+$A^n = PD^nP^{-1}$ avec $D^n=\begin{pmatrix}
+(-2)^n & 0& 0 \\ 
+0 & 0 & 0 \\ 
+0 & 0 & 4^n
+\end{pmatrix}$
+
+$A^n=\frac{1}{2}\begin{pmatrix}
+0  & -1 & 1 \\ 
+1  & 1  & 0 \\ 
+-1 & 0  & 1
+\end{pmatrix}\begin{pmatrix}
+(-2)^n & 0& 0 \\ 
+0 & 0 & 0 \\ 
+0 & 0 & 4^n
+\end{pmatrix}\begin{pmatrix}
+1  & 1 & -1 \\ 
+-1  & 1  & 1 \\ 
+1 & 1  & 1
+\end{pmatrix}$
+
+$A^n=\frac{1}{2}\begin{pmatrix}
+4^n & 4^n & 4^n \\ 
+(-2)^n & (-2)^n & -(-2)^n \\ 
+-(-2)^n+4^n & -(-2)^n+4^n & (-2)^n+4^n
+\end{pmatrix}$
+
+2.b. Appliquons ce résultat au  calcul de $A^4$. 
+
+$A^4=\frac{1}{2}\begin{pmatrix}
+4^4 & 4^4 & 4^4 \\ 
+(-2)^4 & (-2)^4 & -(-2)^4 \\ 
+-(-2)^4+4^4 & -(-2)^4+4^4 & (-2)^4+4^4
+\end{pmatrix}=\frac{1}{2}\begin{pmatrix}
+256 & 256 & 256 \\ 
+16 & 16 & -16 \\ 
+240 & 240 & 272
+\end{pmatrix} =\begin{pmatrix}
+128 & 128 & 128 \\ 
+8 & 8 & -8 \\ 
+120 & 120 & 136
+\end{pmatrix}$
+
+
+\medskip
+\textbf{Exercice 2}
+
+Soit l'application : 
+\begin{align*}
+f:\mathbb{R}^3 &\longrightarrow \mathbb{R}^3\\
+(x,y,z) &\longmapsto f(x,y,z)=(-x+y+z, -6x+4y+2z, 3x-y+z)
+\end{align*} 
+
+1. Écrivons la matrice de $f$ dans la base canonique de $\mathbb{R}^3$.
+
+Soit $M$ cette matrice,
+
+$M=\begin{pmatrix}
+-1 & 1 & 1 \\ 
+-6 & 4 & 2 \\ 
+3 & -1 & 1
+\end{pmatrix}$ 
+
+2. Montrons l'égalité $f\circ f= 2f$.
+
+$f\circ f=f^2=M^2=\begin{pmatrix}
+-1 & 1 & 1 \\ 
+-6 & 4 & 2 \\ 
+3 & -1 & 1
+\end{pmatrix}\times\begin{pmatrix}
+-1 & 1 & 1 \\ 
+-6 & 4 & 2 \\ 
+3 & -1 & 1
+\end{pmatrix}=\begin{pmatrix}
+-2 & 2 & 2 \\ 
+-12 & 8 & 4 \\ 
+6 & -2 & 2
+\end{pmatrix}=2\begin{pmatrix}
+-1 & 1 & 1 \\ 
+-6 & 4 & 2 \\ 
+3 & -1 & 1
+\end{pmatrix}=2M=2f$
+
+\medskip
+Déduisons que si $v\in Imf$, alors $f(v)=2v$
+
+$v\in Imf\Leftrightarrow \exists u\in \mathbb{R}^3/v=f(u)$
+
+$v=f(u)\Rightarrow f(v)=f(f(u))=f\circ f(u)=f^2(u)=2f(u)=2v$. D'où le résultat.
+
+3. Montrons que les sous-espaces vectoriels $Kerf$ et $Imf$ sont des sous-espaces supplémentaires de $\mathbb{R}^3$
+
+$Kerf$ et $Imf$ sont dites supplémentaire de $\mathbb{R}^3$ ssi $\begin{cases}
+Kerf\cap Imf=\{0_{\mathbb{R}^3}\}\\
+Kerf+Imf=\mathbb{R}^3
+\end{cases}$
+
+Vérifions ces deux conditions.
+
+\medskip
+\textbf{Déterminons $Imf$}
+
+D'après 2. si $v\in Imf$, alors $f(v)=2v$
+
+Soit $v=\begin{pmatrix}
+x\\
+y\\
+z
+\end{pmatrix}\in Imf$, alors $f(v)=2v$
+
+$f(v)=2v \Rightarrow \begin{cases}
+-x+y+z=2x\\
+-6x+4y+2z=2y\\
+3x-y+z=2z
+\end{cases}\Rightarrow \begin{cases}
+-3x+y+z=0\\
+-6x+2y+2z=0\\
+3x-y-z=0
+\end{cases}\Rightarrow \begin{cases}
+-3x+y+z=0\\
+-3x+y+z=0\\
+-3x+y+z=0
+\end{cases}\Rightarrow z=3x-y$
+
+$\Rightarrow v=\begin{pmatrix}
+x\\
+y\\
+z
+\end{pmatrix}=\begin{pmatrix}
+x\\
+y\\
+3x-y
+\end{pmatrix}=\begin{pmatrix}
+x\\
+0\\
+3x
+\end{pmatrix}+\begin{pmatrix}
+0\\
+y\\
+-y
+\end{pmatrix}=x\begin{pmatrix}
+1\\
+0\\
+3
+\end{pmatrix}+y\begin{pmatrix}
+0\\
+1\\
+-1
+\end{pmatrix}$
+
+D'où $Imf=\langle \begin{pmatrix}
+1\\
+0\\
+3
+\end{pmatrix},\begin{pmatrix}
+0 \\
+1 \\
+-1
+\end{pmatrix}\rangle$ et $dimImf=2$
+
+\medskip
+\textbf{Déterminons $Kerf$}
+
+$Kerf=\{u=\begin{pmatrix}
+x\\
+y\\
+z
+\end{pmatrix}\in \mathbb{R}^3/f(u)=0_{\mathbb{R}^3}\}$
+
+$f(u)=0_{\mathbb{R}^3}\Rightarrow \begin{cases}
+-x+y+z=0\\
+-6x+4y+2z=0\\
+3x-y+z=0
+\end{cases}\Rightarrow \begin{cases}
+-x+y+z=0(1)\\
+-3x+2y+z=0(2)\\
+3x-y+z=0(3)
+\end{cases}$
+
+$(2)+(3)\Rightarrow y=-2z$ (4)
+
+(4) dans (1) $\Rightarrow x=-z$
+
+$\Rightarrow u=\begin{pmatrix}
+x\\
+y\\
+z
+\end{pmatrix}=\begin{pmatrix}
+-z\\
+-2z\\
+z
+\end{pmatrix}=z\begin{pmatrix}
+-1 \\
+-2 \\
+1
+\end{pmatrix}$
+
+D'où $Kerf=\langle \begin{pmatrix}
+-1\\
+-2\\
+1
+\end{pmatrix}\rangle$ et $dimKerf=1$.
+
+\medskip
+On a : $dimImf+dimKerf=2+1=3=dim\mathbb{R}^3$ et $Imf+Kerf=\mathbb{R}^3$, donc la deuxième condition est vérifiée.
+
+\medskip
+Soit $N=\begin{pmatrix}
+1 & 0  & -1 \\ 
+0 & 1  & -2 \\ 
+3 & -1 & 1 
+\end{pmatrix}$ la matrice formée par les vecteurs de $Imf$ et de $Kerf$
+
+On a $\det(N)=\begin{vmatrix}
+1 & 0  & -1 \\ 
+0 & 1  & -2 \\ 
+3 & -1 & 1 
+\end{vmatrix}=(1-2)-(0-3)=-1+3=2\neq 0$ alors la famille formée par les trois vecteurs de $Imf$ et $Kerf$ est libre.
+
+D'où $Imf\cap Kerf=\{0_{\mathbb{R}^3}\}$. La deuxième condition est donc vérifiée.
+
+\medskip
+Ces deux conditions étant vérifiées, on conclut donc que les sous-espaces vectoriels $Kerf$ et $Imf$ sont des sous-espaces supplémentaires de $\mathbb{R}^3$
+
+
+4. Trouvons une base $(e_1,e_2,e_3)$ de $\mathbb{R}^3$ dont le premier vecteur appartient à $Kerf$ et les derniers à $Imf$. 
+
+$e_1\in Kerf\Rightarrow f(e_1)=0_{\mathbb{R}^3}\Longrightarrow e_1=\begin{pmatrix}
+-1\\
+-2\\
+1
+\end{pmatrix}$ (Calculé dans la question 3)
+
+$e_2,e_3\in Imf \Longrightarrow e_2=\begin{pmatrix}
+1\\
+0\\
+3
+\end{pmatrix}$ et $e_3=\begin{pmatrix}
+0 \\
+1 \\
+-1
+\end{pmatrix}$
+
+D'où $(e_1,e_2,e_3)=(\begin{pmatrix}
+-1\\
+-2\\
+1
+\end{pmatrix},\begin{pmatrix}
+1\\
+0\\
+3
+\end{pmatrix},\begin{pmatrix}
+0 \\
+1 \\
+-1
+\end{pmatrix})$
+
+\medskip
+La matrice de $f$ dans la base $(e_1,e_2,e_3)$. Soit 	$A$ cette matrice.
+
+$f(e_1)=(1-2+1,6-8+2,-3+2+1)=(0,0,0)$
+
+$f(e_2)=(-1+0+3,-6+0+6,3-0+3)=(2,0,6)=2e_2$
+
+$f(e_3)=(-0+1-1,-0+4-2,0-1-1)=(0,2,-2)=2e_3$
+
+$A=\begin{pmatrix}
+0 & 0 & 0 \\ 
+0 & 2 & 0 \\ 
+0 & 0 & 2
+\end{pmatrix} $
+
+
+5. Trouvons une équation de $Imf$.
+
+D'après 2. si $v\in Imf$, alors $f(v)=2v$
+
+Soit $v\in Imf\Longrightarrow f(v)=2v\Longrightarrow Mv=2v\Longrightarrow Mv-2v=0\Longrightarrow (M-2I_3)v=0$
+
+Ainsi $Imf=\{v\in \mathbb{R}^3/(M-2I_3)v=0\}$
+
+\medskip
+\textbf{Exercice 3}
+
+On pose pour $(x,y)\in\Omega=\mathbb{R}\times]0,+\infty[$,  $f(x,y)=y(x^2 + ln^2{(y)})$.
+
+1.a. Calculons $\frac{\partial{f}}{\partial{x}}(x,y)$ 
+
+$\frac{\partial{f}}{\partial{x}}(x,y)=2xy$
+
+\medskip
+trouvons les $(x,y)\in\Omega$ tels que $\frac{\partial{f}}{\partial{x}}(x,y) = 0$.
+
+$\frac{\partial{f}}{\partial{x}}(x,y) = 0\Rightarrow 2xy=0\Rightarrow x=0$ ou $y=0$
+
+Comme $x\in\mathbb{R}$ et $y\in ]0,+\infty[$ alors $y>0$ et $x=0$.
+
+Donc l'ensemble recherché est $\{(0,y), \forall y\in ]0,+\infty[\}$
+
+
+1.b. Calculons $\frac{\partial{f}}{\partial{y}}(x,y)$éduire les points critiques de $f$.
+
+$\frac{\partial{f}}{\partial{y}}(x,y)=x^2 + ln^2{(y)}+2ln(y)$
+
+\medskip
+Déduisons les points critiques de $f$.
+
+Les points critiques sont les points qui annulent les dérivées premières.
+
+$\begin{cases}
+\frac{\partial{f}}{\partial{x}}(x,y) = 0 (1)\\
+\frac{\partial{f}}{\partial{y}}(x,y) = 0 (2)
+\end{cases}$
+
+De (1) $\frac{\partial{f}}{\partial{x}}(x,y) = 0\Longrightarrow x=0$ d'après la question 1.a)
+
+De (2) $\frac{\partial{f}}{\partial{y}}(x,y) = 0$ et $x=0$ $\Rightarrow ln^2{(y)}+2ln(y)=0\Rightarrow ln(y)(ln(y)+2)=0\Rightarrow ln(y)=0$ ou $ln(y)+2=0$
+
+$ln(y)=0\Rightarrow y=1$
+
+$ln(y)+2=0\Rightarrow ln(y)=-2\Rightarrow y=e^{-2}$
+
+Donc les points critiques sont : $A=(0,1)$ et $B=(0,e^{-2})$
+
+
+
+2.a. Déduisons les extrema relatifs de $f$.
+
+Calculons la matrice Hessienne de $f$, $Hess_f(x,y)$
+
+$Hess_f(x,y)=\begin{pmatrix}
+\frac{\partial^2{f}}{\partial{x^2}}(x,y) & \frac{\partial^2{f}}{\partial{x}\partial{y}}(x,y) \\ 
+\frac{\partial^2{f}}{\partial{y}\partial{x}}(x,y) & \frac{\partial^2{f}}{\partial{y^2}}(x,y)
+\end{pmatrix}$
+
+$\frac{\partial^2{f}}{\partial{x^2}}(x,y)=2y$, $\frac{\partial^2{f}}{\partial{y^2}}(x,y)=\frac{2}{y}(ln(y)+1)$, $\frac{\partial^2{f}}{\partial{x}\partial{y}}(x,y)=\frac{\partial^2{f}}{\partial{x}\partial{y}}(x,y)=2x$
+
+$\Longrightarrow Hess_f(x,y)=\begin{pmatrix}
+2y & 2x \\ 
+2x & \frac{2}{y}(ln(y)+1)
+\end{pmatrix}$
+
+$\bullet$ Nature de $A=(0,1)$
+
+$Hess_f(A)=\begin{pmatrix}
+2 & 0 \\ 
+0 & 2
+\end{pmatrix} \Longrightarrow det(Hess_f(A))=\begin{vmatrix}
+2 & 0 \\ 
+0 & 2
+\end{vmatrix}=4-0=4>0$ et $\frac{\partial^2{f}}{\partial{x^2}}(A)=2>0$ alors $A$ est un minimum local.
+
+$\bullet$ Nature de $B=(0,e^{-2})$
+
+$Hess_f(B)=\begin{pmatrix}
+2e^{-2} & 0 \\ 
+0 & -2e^2
+\end{pmatrix} \Longrightarrow det(Hess_f(B))=\begin{vmatrix}
+2e^{-2} & 0 \\ 
+0 & -2e^{2}
+\end{vmatrix}=-4-0=-4<0$ alors $B$ est un point selle.
+
+
+2.b. Montrons que si $(x,y)\in\Omega$ et $(x,y)\neq(0,1)$, on a $f(x,y)>0$.
+
+$\forall (x,y)\in\Omega$ et $(x,y)\neq(0,1)$, on a :
+
+$y>0$, $x^2>0$ et $ln^2(y)>0$ $\Rightarrow y(x^2+ln^2(y))>0\Rightarrow f(x,y)>0$
+
+\medskip
+On a : $f(0,1)=1(0^2+ln^2(1))=0$
+
+Comme $\begin{cases}
+\forall (x,y)\in\Omega\hspace{0.7cm} et\hspace{0.7cm} (x,y)\neq(0,1), f(x,y)>0\\
+et\\
+f(0,1)=0
+\end{cases}$ alors on en déduire que (0,1) est un minimum global.
+
+\medskip\textbf{Exercice 4}
+
+a. Soit $\alpha\in \mathbb{R}$. Résolvons l'équation $(E_1):y^{\prime\prime} -2y^{\prime} +(1-\alpha^2)y=e^x$.
+
+Cherchons la solution de l'équation homogène $(E_0) : y^{\prime\prime} -2y^{\prime} +(1-\alpha^2)y=0$
+
+L'équation caractéristiques est :
+
+$r^2-2r^2+1-\alpha^2=0$
+
+$\Delta = 4-4(1-\alpha^2)=4\alpha^2=(2\alpha)^2$
+
+$r_1=\frac{2-2\alpha}{2}=1-\alpha$ et $r_2=\frac{2+2\alpha}{2}=1+\alpha$
+
+Nous avons deux cas :
+
+$\bullet$ Si $\alpha=0$, on a : $r_1=r_2=1$
+
+Ainsi, $y_0(x)=(Ax+B)e^x$
+
+\textbf{Solution particulière :}
+
+Le second membre $\varphi (x)=e^x$ est de la forme $e^{mx}$, avec  $m=1=r_1=r_2$, il existe donc une solution particulière sous la forme $y_p(x)=Cx^2e^x$ avec $C$ une constante réelle à déterminer. On a:
+
+$y_p(x)=Cx^2e^x$
+
+$y'_p(x)=2Cxe^x+Cx^2e^x=(2Cx+Cx^2)e^x$
+
+$y''_p(x)=(2C+4Cx+Cx^2)e^x$
+
+En reportant dans l'équation différentielle, on obtient :
+
+$(2C+4Cx+Cx^2-2(2Cx+Cx^2)+Cx^2)e^x=e^x$
+
+$2C=1\Rightarrow C=\frac{1}{2}$
+
+Donc la solution particulière est $y_p(x)=\frac{1}{2}x^2e^x$
+
+Ainsi la solution générale de l'équation pour $\alpha=0$ est  
+
+$y(x)=y_0(x)+y_p(x)=(Ax+B)e^x+ \frac{1}{2}x^2e^x=(\frac{1}{2}x^2+Ax+B)e^x$ avec $A,B\in \mathbb{R}$
+
+\medskip
+$\bullet$ Pour $\alpha\neq 0$
+
+L'équation caractéristique a deux racines distinctes $r_1=1-\alpha$ et $r_2=1+\alpha$
+
+Donc la solution de l'équation homogène est donnée par :
+
+$y_0(x)=C_1e^{(1-a)x}+C_2e^{(1+a)x}$
+
+\medskip
+Cherchons une solution particulière
+
+Le second membre $\varphi (x)=e^x$ est de la forme $e^{mx}$ ou $m=1$ n'est pas une racine de l'équation caractéristique.
+
+Donc il existe une solution particulière de la forme $y_p(x)=Ke^x$ avec $K$ une constante réelle à déterminer.
+
+On a :
+
+$y_p(x)=Ke^x$
+
+$y'_p(x)=Ke^x$
+
+$y''_p(x)=Ke^x$
+
+En remplaçant dans l'équation, on obtient :
+
+$K-2K+(1-\alpha^2)K)e^x=e^x$
+
+$-K\alpha^2=1\Longrightarrow K=-\frac{1}{\alpha^2}$
+
+Donc la solution particulière est $y_p(x)=-\frac{1}{\alpha^2}e^x$
+
+Ainsi la solution générale de l'équation différentielle pour $\alpha\neq 0$ est :
+
+$y(x)=C_1e^{(1-a)x}+C_2e^{(1+a)x}-\frac{1}{\alpha^2}e^x$.
+
+b. Déduisons la solution de l'équation différentielle $(E_2):y^{\prime\prime} -2y^{\prime}+y=e^x$ satisfaisant au conditions initiales $y(0)=1$ et $y^\prime(0)=3$.
+
+
+La solution générale de l'équation est :
+
+$(\frac{1}{2}x^2+Ax+B)e^x$ d'après la première question.
+
+$y(0)=1\Rightarrow B=1$
+
+$y'(x)=(x+A+\frac{1}{2}x^2+Ax+B)e^x=(\frac{1}{2}x^2+(A+1)x+A+B)e^x$
+
+$y'(0)=3\Longrightarrow A+B=3\Longrightarrow A=2$
+
+Donc la solution recherchée est $y(x)=(\frac{1}{2}x^2+2x+1)e^x$
+
+\medskip
+
+\end{spacing}
+\end{document}

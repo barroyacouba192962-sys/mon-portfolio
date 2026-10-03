@@ -1,0 +1,290 @@
+\documentclass[12pt]{article}
+\input{../preambule}
+
+\begin{document}
+\entete{Mathématiques}{Corrigé détaillé du sujet type n°4}{Correction}
+\begin{spacing}{1.5}
+
+\textbf{Exercice 1}
+
+1. $f_a(z)$ est bien définie ssi $1+\overline{a}z\neq 0$, c'est-à-dire $\overline{a}z=-1$. Mais comme $z\in U,\mid\overline{a}z\mid =\mid\overline{a}\mid =\mid a \mid\neq 1$ par hypothèse. Comme $\mid -1\mid = 1$, on ne peut donc pas avoir $\overline{a}z =-1$, et $f_a(z)$ est bien définie pour tout élément $z$ de $U$.
+
+2. Si, $z\in U$, $z$ s'écrit sous forme trigonométrique $z = cos\theta + isin\theta$ et donc $\overline{z}= cos\theta-isin\theta$.
+
+En multipliant et divisant par la quantité conjuguée, on trouve que
+
+$\overline{z}=\frac{(cos\theta - isin\theta)(cos\theta + isin\theta)}{cos\theta + isin\theta}=\frac{cos^2\theta + isin^2\theta}{cos\theta + isin\theta}=\frac{1}{z}$.
+
+3. Si $z\in U$, alors
+
+$f_a(z)=\frac{z+a}{z(\frac{1}{z}+\overline{a})}=\frac{z+a}{z(\overline{z}+\overline{a})}=\frac{z+a}{z(\overline{z+a})}$
+
+Comme $\mid z\mid=1$ et $\mid \overline{z+a}\mid=\mid z+a\mid$, le module d'un produit étant le produit des modules, on
+en conclut que $\mid f_a(z)\mid = 1$ d'où le résultat demandé. 
+
+4. 
+$
+t=f_{a}(z) \Leftrightarrow t = \frac{ z + a}{1 + \overline{a} z } \\
+           \Leftrightarrow t + \overline{a} z t = z + a \\
+           \Leftrightarrow z (1 - \overline{a} t ) = t - a \\
+           \Leftrightarrow z = \frac{t - a}{1 - \overline{a} t}
+$
+
+Notons que comme $\mid-a\mid\neq 1$, le dénominateur de cette dernière expression n'est pas égal
+à 0 comme nous l'avons vu à la question 1. Par suite on a bien déterminé l'unique nombre
+complexe $z$ tel que $f_a(z) = t$. Par ailleurs, $z = f_{-a}(t)$, et comme $t\in U$, on déduit de la
+question 3 que $z\in U$, ce qui achève le raisonnement.
+
+5. Nous venons de montrer que pour tous $z$ et $t$ dans $U$, $t = f_a(z)$ ssi $z = f_{-a}(t)$, ce qui prouve que $f_a$ est une bijection de $U$ sur $U$ dont la bijection réciproque est $f_{-a}$.
+
+6.(a) $a=2$
+
+D'après ce qui précède, il suffit de calculer les images par $f_{-2}$ des points considérés, et on trouve respectivement les valeurs de $z$ égales à $-1, 1, (-4-3i)/5$ et $(-4 + 3i)/5$.
+
+(b) $a = 2i$;
+
+De même, en calculant les images par $f_{-2i}$ des points considérés, on trouve respectivement les valeurs de $z$ égales à $(3-4i)/5, (-3-4i)/5, i$ et $-i$.
+
+(c) $a = 1 + i$.
+
+Le même procédé donne les résultats $(-3-4i)/5,-1, -i$ et $(-4-3i)/5$.
+
+\medskip\textbf{Exercice 2}
+
+1. Soit $A$ cette matrice
+
+$q_a((x_1,x_2,x_3)) = x^{2}_1 + (1 + a)x^{2}_2 + (1 + a+a^2)x^{2}_3 +x_1x_2-ax_2x_3+x_2x_1-ax_3x_2$
+
+$A=\begin{pmatrix}
+1 & 1 & 0 \\ 
+1 & 1+a & -a \\ 
+0 & -a & 1+a+a^2
+\end{pmatrix}$
+
+2. Soit $X=\begin{pmatrix}
+x_1 \\ 
+x_2 \\ 
+x_3
+\end{pmatrix} \in \mathbb{R}^3$ et $Y=\begin{pmatrix}
+y_1 \\ 
+y_2 \\ 
+y_3
+\end{pmatrix} \in \mathbb{R}^3$.
+
+$f.b.s = f(X,Y)=x_1y_1+(1+a)x_2y_2+(1+a+a^2)x_3y_3+x_1y_2+x_2y_1-ax_2y_3-ax_3y_2$.
+
+3. Décomposition en carré de Gauss
+
+
+$q_a((x_1,x_2,x_3)) = x^{2}_{1} + (1 + a)x^{2}_{2} + (1 + a+a^2)x^{2}_{3} +2x_1x_2-2ax_2x_3\\
+= x^{2}_{1} +2x_1x_2+ (1 + a)x^{2}_{2} + (1 + a+a^2)x^{2}_{3} -2ax_2x_3  \text{ puisque }   a^2+2ab=(a+b)^2-b^2 \\
+=(x_1+x_2)^2-x^{2}_{2}+(1 + a)x^{2}_{2}+ (1 + a+a^2)x^{2}_{3}-2ax_2x_3\\
+=(x_1+x_2)^2+ax^{2}_{2}-2ax_2x_3+(1 + a+a^2)x^{2}_{3}\\
+=(x_1+x_2)^2+a(x^{2}_{2}-2x_2x_3)+(1 + a+a^2)x^{2}_3\\
+=(x_1+x_2)^2+a(x_2-x_3)^2-ax^{2}_3+(1 + a+a^2)x^{2}_3\\
+q_a((x_1,x_2,x_3))=(x_1+x_2)^2+a(x_2-x_3)^2+(1+a^2)x^{2}_3
+$
+
+
+4. Si $a>0$ alors la signature $sig(q_a)=(3,0)$, le rang $rang(q_a)=3+0=3$ et le noyau $N(q_a)=\{\begin{pmatrix}
+0 \\ 
+0 \\ 
+0
+\end{pmatrix}\} $
+
+Si $a<0$ alors $sig(q_a)=(2,1)$, le rang $rang(q_a)=2+1=3$ et le noyau $N(q_a)=\{\begin{pmatrix}
+0 \\ 
+0 \\ 
+0
+\end{pmatrix}\} $
+
+Si $a=0$ alors $sig(q_a)=(2,0)$, le rang $rang(q_a)=2+0=2$.
+
+La noyau $N(q_a)=\{\begin{pmatrix}
+x_1 \\ 
+x_2 \\ 
+x_3
+\end{pmatrix} \in \mathbb{R}^3/q_a((x_1,x_2,x_3))=0\} \Longrightarrow \begin{cases}
+x_1+x_2=0\\
+x_3=0
+\end{cases}\Longrightarrow x_1=-x_2$ et $x_3=0
+\Longrightarrow \begin{pmatrix}
+x_1 \\ 
+x_2 \\ 
+x_3
+\end{pmatrix}=\begin{pmatrix}
+-x_2 \\ 
+x_2 \\ 
+0
+\end{pmatrix}=x_2\begin{pmatrix}
+-1\\ 
+1 \\ 
+0
+\end{pmatrix}\Longrightarrow N(q_a)=\{\begin{pmatrix}
+-1 \\ 
+1 \\ 
+0
+\end{pmatrix}\}$
+
+5. Base $B$
+
+Soit $\begin{pmatrix}
+l_1 \\ 
+l_2 \\ 
+l_3
+\end{pmatrix}\in \mathbb{R}^3$ telle que $\begin{cases}
+l_1= x_1+x_2\\ 
+l_2 =x_2-x_3\\ 
+l_3=x_3
+\end{cases}
+\Longrightarrow \begin{pmatrix}
+l_1 \\ 
+l_2 \\ 
+l_3
+\end{pmatrix}=\begin{pmatrix}
+1 & 1 & 0 \\ 
+0 & 1 & -1 \\ 
+0 & 0 & 1
+\end{pmatrix}\begin{pmatrix}
+x_1 \\ 
+x_2 \\ 
+x_3
+\end{pmatrix}$
+
+Soit $Q=\begin{pmatrix}
+1 & 1 & 0 \\ 
+0 & 1 & -1 \\ 
+0 & 0 & 1
+\end{pmatrix}$
+
+On a : $\det(Q)=1\neq 0$, donc $Q$ est inversible et $Q^{-1}=\begin{pmatrix}
+1 & -1 & -1 \\ 
+0 & 1 & 1 \\ 
+0 & 0 & 1
+\end{pmatrix}$
+
+Soit $u=\begin{pmatrix}
+1\\ 
+0 \\ 
+0
+\end{pmatrix}$, $v=\begin{pmatrix}
+-1\\ 
+1 \\ 
+0
+\end{pmatrix}$ et $w=\begin{pmatrix}
+-1\\ 
+1 \\ 
+1
+\end{pmatrix}$
+
+$u, v$ et $w$ sont libre, alors ils forment une base $q_2$-orthogonale de $\mathbb{R}^3$.
+
+Ainsi $B=\{u,v,w\}=\{\begin{pmatrix}
+1\\ 
+0 \\ 
+0
+\end{pmatrix},  \begin{pmatrix}
+-1\\ 
+1 \\ 
+0
+\end{pmatrix}, 
+\begin{pmatrix}
+-1\\ 
+1 \\ 
+1
+\end{pmatrix}\}$
+
+6. La valeur de $a$
+
+$q_a$ est définie positive si $a>0$ et $1+a^2>0$(toujours vrai pour tout réel $a$).
+
+Donc $q_a$ est définie positive si $a\in ]0,+\infty[$
+
+
+\medskip\textbf{Exercice 3}
+
+1. remarquons que :
+
+$I-J=\int_{0}^{\frac{\pi}{2}}\frac{\cos^2(x)-\sin^2(x)}{\cos(x) + \sin(x)}dx=\int_{0}^{\frac{\pi}{2}}(\cos(x)-\sin(x))dx=[\sin(x)+\cos(x)]_0^{\frac{\pi}{2}}=0\Longrightarrow I=J$.
+
+2. On a :
+
+$\sqrt{2}\cos(x-\frac{\pi}{4})=\sqrt{2}(cos(x) cos(\frac{\pi}{4}) + sin(x) sin(\frac{\pi}{4}))=\sqrt{2}(\frac{\sqrt{2}}{2}cos(x)+\frac{\sqrt{2}}{2}sin(x))=cos(x)+sin(x)$.
+
+3. Remarquons que :
+
+$I+J=\int_{0}^{\frac{\pi}{2}}\frac{\cos^2(x)+\sin^2(x)}{\cos(x) + \sin(x)}dx=\int_{0}^{\frac{\pi}{2}}\frac{dx}{\cos(x) + \sin(x)}=\int_{0}^{\frac{\pi}{2}}\frac{dx}{\sqrt{2}\cos(x-\frac{\pi}{4})}$
+
+Posons $u=x-\frac{\pi}{4}$, alors $du=dx$.
+
+Aussi $x=0\Longrightarrow u=-\frac{\pi}{4}$; $x=\frac{\pi}{2}\Longrightarrow u=\frac{\pi}{4}$
+
+Donc $I+J=\frac{1}{\sqrt{2}}\int_{\frac{-\pi}{4}}^{\frac{\pi}{4}}\frac{du}{\cos(u)}=\frac{\sqrt{2}}{2}\int_{\frac{-\pi}{4}}^{\frac{\pi}{4}}\frac{du}{\cos(u)}=\frac{\sqrt{2}}{2}\int_{\frac{-\pi}{4}}^{\frac{\pi}{4}}\frac{dx}{\cos(x)}$.
+
+4.  Pour calculer $I + J$, on pose $u = tan(\frac{x}{2})$. Alors, on a :
+
+$dx=\frac{2du}{1+u^2}$ et $cos(x)=\frac{1-u^2}{1+u^2}$
+
+pour $x=-\frac{\pi}{4}$, on a $u=tan(-\frac{\pi}{8})$ et pour $x=\frac{\pi}{4}$, on a $u=tan(\frac{\pi}{8})$. Sachant que 
+
+$cos(\frac{\theta}{2})=\sqrt{\frac{1+cos(\theta)}{2}}$ et $sin(\frac{\theta}{2})=\sqrt{\frac{1-cos(\theta)}{2}}$
+
+alors pour $\theta=\pi/4$
+
+$cos(\frac{\pi}{8})=\sqrt{\frac{1}{2}(1+\frac{1}{\sqrt{2)}}}$ et $sin(\frac{\pi}{8})=\sqrt{\frac{1}{2}(1-\frac{1}{\sqrt{2)}}}$.
+
+Donc $tan(\frac{\pi}{8})=\frac{sin(\frac{\pi}{8})}{cos(\frac{\pi}{8})}=\sqrt{2}-1$ et $tan(-\frac{\pi}{8})=-\sqrt{2}+1$
+
+Ainsi $I+J=\frac{\sqrt{2}}{2}\int_{-\sqrt{2}+1}^{\sqrt{2}-1}\frac{\frac{2du}{1+u^2}}{\frac{1-u^2}{1+u^2}}=\sqrt{2}\int_{-\sqrt{2}+1}^{\sqrt{2}-1}\frac{du}{1-u^2}$.
+
+On a : 
+
+$\frac{1}{1-u^2}=\frac{a}{1-u}+\frac{b}{1+u}$ qui donne par identification $a=b=\frac{1}{2}$
+
+Par conséquent, 
+
+$
+\sqrt{2}\int_{-\sqrt{2}+1}^{\sqrt{2}-1}\frac{du}{1-u^2}=\frac{\sqrt{2}}{2}[     \int_{-\sqrt{2}+1}^{\sqrt{2}-1}\frac{du}{1-u}+\int_{-\sqrt{2}+1}^{\sqrt{2}-1}\frac{du}{1+u}]      \\
+=\frac{\sqrt{2}}{2}[-ln(1-u)+ln(1-u)]_{-\sqrt{2}+1}^{\sqrt{2}-1}\\
+=\frac{\sqrt{2}}{2}[2ln(\sqrt{2})-2(ln(2-\sqrt{2})]\\
+=\sqrt{2}ln(\frac{\sqrt{2}}{2-\sqrt{2}})
+=\sqrt{2}ln(\sqrt{2}+1)
+$
+
+5. On a :
+$
+\begin{cases}
+I-J=0\\
+I+J=\sqrt{2}ln(\sqrt{2}+1)
+\end{cases}.
+$
+
+Donc $I=J=\frac{\sqrt{2}}{2}ln(\sqrt{2}+1)$.
+
+\medskip\textbf{Exercice 4}
+
+1. On a :
+
+$
+\frac{x^2}{\sqrt{x^2-1}}=\frac{ab+x^2-1}{b\sqrt{x^2-1}}=\frac{\frac{ab}{b}+\frac{1}{b}x^2-\frac{1}{b}}{\sqrt{x^2-1}}.
+$
+Par identification, 
+
+$\begin{cases}
+\frac{ab}{b}-\frac{1}{b}=0\\
+\frac{1}{b}=1
+\end{cases}\Longrightarrow \begin{cases}
+a=1\\
+b=1
+\end{cases}$
+
+2. On note par $D$, l'aire de la surface délimitée par la courbe d'équation $y =\frac{x^3}{\sqrt{x^2-1}}$, l'axe des $x$ et les droites d'équations $x=\sqrt{2}$ et $x=2$. Alors, 
+
+$Aire(D)=\int_{\sqrt{2}}^{2}\frac{x^3}{\sqrt{x^2-1}}dx=\int_{\sqrt{2}}^{2}\frac{x}{\sqrt{x^2-1}}dx+\int_{\sqrt{2}}^{2}x\sqrt{x^2-1}dx$.
+
+On pose $u=x^2-1$. Alors, $du=2xdx\Longrightarrow xdx=\frac{1}{2}du$
+
+Aussi $x=\sqrt{2}\Longrightarrow u=1$ et $x=2\Longrightarrow u=3$. Ainsi $Aire(D)=\frac{1}{2}\int_1^3\frac{du}{\sqrt{u}}+\frac{1}{2}\int_1^3\sqrt{u}du=[\sqrt{u}]_1^3+[\frac{2}{3}u\sqrt{u}]_1^3=2\sqrt{3}-\frac{4}{3}$.
+
+\end{spacing}
+\end{document}

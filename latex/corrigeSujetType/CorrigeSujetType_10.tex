@@ -1,0 +1,471 @@
+\documentclass[12pt]{article}
+\input{../preambule}
+
+\begin{document}
+\entete{Mathématiques}{Corrigé détaillé du sujet type n°10}{Correction}
+\begin{spacing}{1.5}
+
+\textbf{Exercice 1}
+
+$\begin{cases}
+ax-by=c\\
+x-2y=3
+\end{cases}$
+
+1) Il y a $6^3=216$ possibilités pour le triplets $(a,b,c)$.
+
+2) Calculons la probabilité $P_1$ que $(S)$ ait une infinité de solutions.
+
+Pour que $(S)$ ait une infinité de solution, les deux équations doivent être proportionnelles, soit : 
+
+$a = 1, b = 2$ et $c = 3$ ou 
+
+$a = 2, b = 4$ et $c = 6$  
+
+Aucune autre configuration de tirages ne conduit à la même équation $x-2y = 3$. 
+
+La probabilité $P_1$ pour que $(S)$ ait une infinité de solutions est donc $2/216 = 1/108$. 
+
+3) Calculons la probabilité $P_2$ que $(S)$ n'admette aucune solution. 
+
+Pour qu'il n'y ait pas de solution, il faut que $b-2a = 0$. 
+
+Cela conduit à : 
+
+$a = 1, b = 2$, et $c\neq 3$ (car si $c = 3$, on est dans le cas précédent) 
+
+$a = 2, b = 4$, et $c\neq 6$ 
+
+$a = 3, b = 6$, et $c$ prend n'importe quelle valeur. 
+
+Soit au total 5 + 5 + 6 = 16 cas possibles. 
+
+La probabilité $P_2$ pour que $(S)$ n'admette aucune solution est 16/216 = 8/108. 
+
+4) Calculons la probabilité $P_3$ que $(S)$ admette une solution unique. 
+
+Il existe une et une seule solution si $b-2a\neq 0$. 
+
+Soit : 
+$a = 1, b = 1, 3, 4, 5, 6 $, $\forall c$
+ 
+a$ = 2, b = 1, 2, 3, 5, 6 $, $\forall c $
+
+$a = 2, b = 1, 2, 3, 4, 5 $, $\forall c $
+
+$a = 4$, $\forall b$, $\forall c$ 
+
+$a = 5$, $\forall b$, $\forall c$
+ 
+$a = 6$, $\forall b$, $\forall c$
+ 
+Cela représente 3 x 6 x 5 + 3 x 36 = 198 cas possibles. 
+
+La probabilité $P_3$ pour que $(S)$ admette une solution unique est 198/218 = 99/108. 
+
+On vérifie $P_1 + P_2 + P_3 = 1$.
+
+5) Calculons la probabilité $P_4$ que $(S)$ admette le couple $(x = 3, y = 0)$ comme unique 
+solution.
+
+Si (3,0) est solution : $3a-0 = c 
+\Rightarrow a = 1$ et $c = 3$, ou $a = 2$ et $c = 6$, et $b$ est quelconque. 
+
+$P_4 = 12/216 = 6/108$
+
+\medskip\textbf{Exercice 2}
+
+
+On considère la série entière:
+
+\[\sum_{n=1}^{+\infty}\frac{x^n}{n(n+2)}\]
+
+1) Déterminons son rayon de convergence $R$.
+
+Soit $u_n=\frac{1}{n(n+2)}$ donc $u_{n+1}=\frac{1}{(n+1)(n+3)}$
+
+\[R=\frac{1}{l} \text{ avec } l=\lim_{n\to +\infty}\frac{u_{n+1}}{u_n}=\frac{n(n+2)}{(n+1)(n+3)}=\lim_{n\to +\infty}\frac{n^2}{n^2}=1\\
+\text{ ainsi } R=1\]
+
+2) Étudions la nature de la série pour $x=1$ et $x=-1$.
+
+$-$ Si $x=1$, on a :
+
+\[\sum_{n=1}^{+\infty}\frac{1}{n(n+2)}\sim\sum_{n=1}^{+\infty}\frac{1}{n^2}\]
+
+$\sum_{n=1}^{+\infty}\frac{1}{n^2}$ est Riemann convergente, alors $\sum_{n=1}^{+\infty}\frac{1}{n(n+2)}$ converge.
+
+\quad
+$-$ Si $x=-1$, on a $\sum_{n=1}^{+\infty}\frac{(-1)^n}{n(n+2)}$
+
+Posons $u_n=\frac{1}{n(n+2)}$
+
+$\lim_{n\to +\infty}u_n=\lim_{n\to +\infty}\frac{1}{n(n+2)}=0$
+
+$\frac{u_{n+1}}{u_n}=\frac{n(n+2)}{(n+1)(n+3)}< 1$ (puisque $n<n+1$ et $n+2<n+3$). Alors $u_{n+1}<u_n$, d'où $u_n$ est décroissante.
+
+Comme $\lim_{n\to +\infty}u_n=0$ et $u_n$ est décroissante, alors on conclut que $u_n$ est convergente d'après le critère des série alternées
+
+
+
+3) Décomposons en éléments simples la fraction rationnelle $\frac{1}{X(X+2)}$.
+
+$\frac{1}{X(X+2)}=\frac{a}{X}+\frac{b}{X+2}$
+
+En multipliant chaque terme par $x$, et en prenant $X=0$, on obtient $a=\frac{1}{2}$
+
+En multipliant chaque terme par $x+2$, et en prenant $X=-2$, on obtient $b=-\frac{1}{2}$
+
+Alors $\frac{1}{X(X+2)}=\frac{1}{2}(\frac{1}{X}-\frac{1}{X+2})$
+
+4) Rappelons le développement en série entière de la fonction x$\longmapsto ln(1-x)$ en 0.
+
+On a :$\sum_{n=0}^{+\infty}x^n=-\frac{1}{1-x}$
+
+En appliquant l'intégrale , on obtient :$\sum_{n=0}^{+\infty}\frac{x^{n+1}}{n+1}=-\ln(1-x)$
+
+Posons : \[p=n+1\Rightarrow \sum_{p=1}^{+\infty}\frac{x^p}{p}=-ln(1-x)\Rightarrow \ln(1-x)= -\sum_{p=1}^{+\infty}\frac{x^p}{p}=-\sum_{n=1}^{+\infty}\frac{x^n}{n}\]
+
+5) $\forall x\in ]-R,R[$, Déduisons la somme:
+
+$S=\sum_{n=1}^{+\infty}\frac{x^n}{n+2}$.
+
+\[S=\sum_{n=1}^{+\infty}\frac{x^n}{n+2}=\sum_{n=1}^{+\infty}\frac{x^{n+2-2}}{n+2}=\sum_{n=1}^{+\infty}\frac{x^{n+2}}{n+2}\times\frac{1}{x^2}=\frac{1}{x^2}\sum_{n=1}^{+\infty}\frac{x^{n+2}}{n+2}\]
+
+Posons : $p=n+2$, donc $S=\frac{1}{x^2}\sum_{p=3}^{+\infty}\frac{x^{p}}{p}$
+
+$p$ est une variable muette, donc $S=\frac{1}{x^2}\sum_{p=3}^{+\infty}\frac{x^{p}}{p}=\frac{1}{x^2}\sum_{n=3}^{+\infty}\frac{x^{n}}{n}$
+
+
+On a : $\ln(1-x)=-\sum_{n=1}^{+\infty}\frac{x^n}{n}=-\left( x+\frac{x^2}{2}+\sum_{n=3}^{+\infty}\frac{x^n}{n}\right)$ d'où  $\sum_{n=3}^{+\infty}\frac{x^n}{n}=-\ln(1-x)-x-\frac{x^2}{2}$
+
+Donc $S=\frac{1}{x^2}\left(\ln(1-x)-x-\frac{x^2}{2}\right)=\frac{-2\ln(1-x)-2x-x^2}{2x^2}$
+
+
+6) Montrons que $\forall x\in ]-R,0[\cup ]0,R[$, $\sum_{n=1}^{+\infty}\frac{x^n}{n(n+2)}=\frac{2(1-x^2)ln(1-x)+2x+x^2}{4x^2}$.
+
+
+\begin{align*}
+\sum_{n=1}^{+\infty}\frac{x^n}{n(n+2)} &=\sum_{n=1}^{+\infty}\frac{1}{2}\left(\frac{1}{n}-\frac{1}{n+2}\right)x^n =\frac{1}{2}\sum_{n=1}^{+\infty}\frac{x^n}{n} - \frac{1}{2}\sum_{n=1}^{+\infty}\frac{x^n}{n+2}\\
+&=\frac{1}{2}(-\ln(1-x))-\frac{1}{2}\frac{-2\ln(1-x)-2x-x^2}{2x^2}\\
+&=\frac{1}{2}\frac{-2x^2\ln(1-x)+2\ln(1-x)+2x+x^2}{2x^2}\\
+ &=\frac{2(1-x^2)\ln(1-x)+2x+x^2}{4x^2}\text{  } \forall x\in ]-R,0[\cup ]0,R[
+\end{align*}
+
+
+7) Via un équivalent de $\ln(1-x)$, vérifions que l'on peut prolonger cette dernière expression en 0.
+
+
+En $x=0$, $\ln(1-x)\sim x$, alors :
+
+\[\lim_{x\to 0}\frac{2(1-x^2)\ln(1-x)+2x+x^2}{4x^2}=\lim_{x\to 0}\frac{2(1-x^2)x+2x+x^2}{4x^2}=\lim_{x\to 0}\frac{2x+1}{4}=\frac{1}{4}\]
+
+8) En utilisant la question précédentes calculons les sommes suivantes :
+
+\[S_1=\sum_{n=2}^{+\infty}\frac{(-1)^n}{n(n+2)} \text{ et } S_2=\sum_{n=2}^{+\infty}\frac{1}{n(n+2)}\]
+
+On a :
+
+\[* \sum_{n=1}^{+\infty}\frac{(-1)^n}{n(n+2)}=\frac{2(1-(-1)^2)\ln(1-(-1))+2\times(-1)+(-1)^2}{4(-1)^2}=-\frac{1}{4}\]
+\[\sum_{n=1}^{+\infty}\frac{(-1)^n}{n(n+2)}=-\frac{1}{3}+\sum_{n=2}^{+\infty}\frac{(-1)^n}{n(n+2)}=-\frac{1}{3}+S_1\Rightarrow S_1=\frac{1}{3}-\frac{1}{4}=\frac{1}{12}\]
+
+
+\[* \sum_{n=1}^{+\infty}\frac{1}{n(n+2)}=\frac{3}{4}=\frac{1}{3}+\sum_{n=2}^{+\infty}\frac{1}{n(n+2)}=\frac{1}{3}+S_2\Rightarrow S_2 =\frac{3}{4}-\frac{1}{3}=\frac{5}{12}\]
+
+
+
+
+
+
+
+\medskip\textbf{Exercice 3}
+
+1. Démonstration des valeurs propres de $A$
+
+Les valeurs propres de $A$ sont les solutions de l'équation caractéristique $\det(A - \lambda I) = 0$, où $I$ est la matrice identité. $
+A - \lambda I = 
+\begin{pmatrix}
+1-\lambda & 0 & 1 \\ 
+-1 & 2-\lambda & 1 \\ 
+1 & -1 & 1-\lambda
+\end{pmatrix}.
+$
+
+Le déterminant est donné par :
+$
+\det(A - \lambda I) = \begin{vmatrix}
+1-\lambda & 0 & 1 \\ 
+-1 & 2-\lambda & 1 \\ 
+1 & -1 & 1-\lambda
+\end{vmatrix}.
+$
+
+En développant suivant la première ligne :
+\[
+\det(A - \lambda I) = (1-\lambda) \begin{vmatrix}
+2-\lambda & 1 \\ 
+-1 & 1-\lambda
+\end{vmatrix} 
++ \begin{vmatrix}
+-1 & 2-\lambda \\ 
+1 & -1
+\end{vmatrix}.
+\]
+
+Les mineurs sont :
+$
+\begin{vmatrix}
+2-\lambda & 1 \\ 
+-1 & 1-\lambda
+\end{vmatrix} = \lambda^2 - 3\lambda + 3,$ et 
+$
+\begin{vmatrix}
+-1 & 2-\lambda \\ 
+1 & -1
+\end{vmatrix} = -1+\lambda.
+$
+
+Ainsi :
+\[
+\det(A - \lambda I) = (1-\lambda)(\lambda^2 - 3\lambda + 3) +\lambda -1=
+\]
+
+En factorisant, on obtient :
+\[
+\det(A - \lambda I) =(\lambda-1)(-\lambda^2 + 3\lambda - 3+1)=(\lambda-1)(-\lambda^2 + 3\lambda -2)= (\lambda - 1)^2 (\lambda - 2).
+\]
+
+Les valeurs propres sont donc :
+$
+\lambda = 1 \quad (\text{multiplicité 2}) \quad \text{et} \quad \lambda = 2 \quad (\text{multiplicité 1}).
+$
+
+2. Sous-espaces propres et diagonalisabilité de $A$
+
+Valeur propre $\lambda = 1$
+
+La matrice $A - I$ est :
+$
+A - I = 
+\begin{pmatrix}
+0 & 0 & 1 \\ 
+-1 & 1 & 1 \\ 
+1 & -1 & 0
+\end{pmatrix}.
+$
+
+Résolvons $(A - I)X = 0$. Le système est :
+$
+\begin{cases}
+x + z = 0, \\
+-y + z = 0, \\
+x - y = 0.
+\end{cases}
+$
+
+On trouve une base de $E_1$ :
+$
+E_1 = \mathrm{Vect}\left(\begin{pmatrix} 1 \\ 1 \\ -1 \end{pmatrix}\right).
+$
+
+Valeur propre $\lambda = 2$
+
+La matrice $A - 2I$ est :
+$
+A - 2I = 
+\begin{pmatrix}
+-1 & 0 & 1 \\ 
+-1 & 0 & 1 \\ 
+1 & -1 & -1
+\end{pmatrix}.
+$
+
+Résolvons $(A - 2I)X = 0$. Le système est :
+$
+\begin{cases}
+-x + z = 0, \\
+-y + z = 0, \\
+x - y = 0.
+\end{cases}
+$
+
+On trouve une base de $E_2$ :
+$
+E_2 = \mathrm{Vect}\left(\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}\right).
+$
+
+Diagonalisabilité
+
+La matrice $A$ n'est \textbf{pas diagonalisable}, car la dimension de $E_1$ est strictement inférieure à la multiplicité algébrique de $\lambda = 1$.
+
+3. Sous-espaces caractéristiques
+
+Le sous-espace caractéristique de $\lambda = 1$ est donné par $F_1 = \ker((A - I)^2)$.
+
+Calculons :
+\[
+(A - I)^2 = 
+\begin{pmatrix}
+0 & 0 & 1 \\ 
+-1 & 1 & 1 \\ 
+1 & -1 & 0
+\end{pmatrix}^2 = 
+\begin{pmatrix}
+1 & -1 & 0 \\ 
+-1 & 1 & 0 \\ 
+0 & 0 & 0
+\end{pmatrix}.
+\]
+
+Résolvons $(A - I)^2X = 0$. On trouve :
+$
+F_1 = \mathrm{Vect}\left(\begin{pmatrix} 1 \\ 1 \\ -1 \end{pmatrix}, \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}\right).
+$
+
+Le sous-espace caractéristique pour $\lambda = 2$ est $F_2 = E_2$.
+
+4. Base pour obtenir $B$ et décomposition de Dunford
+
+Une base permettant de transformer $A$ en une matrice $B$ est :
+\[
+\mathcal{B} = \left\{\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}, \begin{pmatrix} 1 \\ 1 \\ -1 \end{pmatrix}, \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}\right\}.
+\]
+
+Dans cette base, $A$ devient :
+$
+B = \begin{pmatrix}
+2 & 0 & 0 \\ 
+0 & 1 & 1 \\ 
+0 & 0 & 1
+\end{pmatrix}.
+$
+
+La décomposition de Dunford est donnée par :$
+B = D + N,
+$
+avec :
+$
+D = \begin{pmatrix}
+2 & 0 & 0 \\ 
+0 & 1 & 0 \\ 
+0 & 0 & 1
+\end{pmatrix}, \quad
+N = \begin{pmatrix}
+0 & 0 & 0 \\ 
+0 & 0 & 1 \\ 
+0 & 0 & 0
+\end{pmatrix}.
+$
+
+5. Résolution du système différentiel
+
+Le système est :
+$
+\begin{cases}
+x' = x + z, \\
+y' = -x + 2y + z, \\
+z' = x - y + z.
+\end{cases}
+$
+
+En notation matricielle :
+\[
+X'(t) = AX(t),
+\]
+où $A = \begin{pmatrix}
+1 & 0 & 1 \\ 
+-1 & 2 & 1 \\ 
+1 & -1 & 1
+\end{pmatrix}.
+$
+
+La solution est donnée par :$
+X(t) = e^{tA}X(0).
+$
+
+En utilisant $A = D + N$, on trouve :$
+e^{tA} = e^{tD}e^{tN}.
+$
+
+Avec :
+$
+e^{tD} = \begin{pmatrix}
+e^{2t} & 0 & 0 \\ 
+0 & e^t & 0 \\ 
+0 & 0 & e^t
+\end{pmatrix}, \quad
+e^{tN} = \begin{pmatrix}
+1 & 0 & 0 \\ 
+0 & 1 & t \\ 
+0 & 0 & 1
+\end{pmatrix}.
+$ 
+Ainsi :
+$
+e^{tA} = \begin{pmatrix}
+e^{2t} & 0 & 0 \\ 
+0 & e^t & te^t \\ 
+0 & 0 & e^t
+\end{pmatrix}.
+$
+
+La solution est :
+$
+X(t) = \begin{pmatrix}
+e^{2t}x_0 \\ 
+e^ty_0 + te^tz_0 \\ 
+e^tz_0
+\end{pmatrix}.
+$
+
+
+\medskip\textbf{Exercice 4}
+
+Trouvons toutes les applications $f :\mathbb{R} \longrightarrow \mathbb{R}$ deux fois dérivables telles que: 
+$\forall x \in \mathbb{R}$ , $f"(x) + f(-x) = x$ $(E)$.
+
+L'équation proposée $(E)$ n'est pas une équation différentielle.
+En remplaçant $x$ par $-x$ dans $(E)$, on obtient : $f"(-x) + f(x) = -x$
+
+D'où le système :
+
+\[
+\begin{cases}
+f"(x) + f(-x) = x\\
+f"(-x) + f(x) = -x
+\end{cases}
+\]
+
+En additionnant membre par membre ces deux équations, puis en les soustrayant, on obtient en tenant compte des notations des fonctions $f$ et $g$ : 
+
+\[
+\begin{cases}
+[f"(x)+f"(-x)]+[f(x)+f(-x)] =g"(x) + g(x) =0\\
+[f"(x)-f"(-x)]+[f(x)-f(-x)] =h"(x)-h(x)=2x
+\end{cases}
+\]
+
+La première équation admet pour solution
+
+ $g(x) = C_1\cos x + C_2\sin x$ avec $(C_1,C_2 )\in \mathbb{R}^2$
+
+La seconde équation admet pour solution $h(x) =-2x + D_1chx + D_2shx$ avec $(D_1,D_2 )\in\mathbb{R}^2$ et donc puisque
+
+$f(x) =\frac{1}{2}[g(x) +h(x)]=-x +\frac{1}{2}[C_1 \cos x + C_2 \sin x + D_1chx + D_2shx]$
+
+Étudions la réciproque :
+
+Les solutions $f(x)$ vérifiant l'équation $(E)$ 
+$f"(x) + f(-x) = 0$ $\forall x\in \mathbb{R}$ doivent satisfaire
+ 
+$C_2\sin x + D_1chx = 0$  $\forall x\in \mathbb{R}$ et donc $C_2 = D_1 = 0$
+
+Les solutions de $(E)$ sont donc : $f(x) =-x+\frac{1}{2}[C_1\cos x + D_2shx]$ avec $(C_1,D_2)\in\mathbb{R}^2$
+
+\medskip\underline{Remarque} :
+
+Par construction, $g$ est une fonction paire ce qui implique $C_2 = 0$ et $h$ une fonction impaire ce
+qui implique $D_1 =0$ 
+
+\end{spacing}
+\end{document}

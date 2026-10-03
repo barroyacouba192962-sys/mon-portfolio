@@ -1,0 +1,811 @@
+\documentclass[12pt]{article}
+\input{../preambule}
+
+\begin{document}
+\entete{Mathématiques}{Corrigé détaillé du sujet type n°2}{Correction}
+\begin{spacing}{1.5}
+
+\textbf{Exercice 1}
+
+(a) Calculons le déterminant de $B$ en fonction de $a,b$ et $c$.
+
+
+$\det(B)=\begin{vmatrix}
+1 & 1 & 1 \\ 
+c & a & b \\ 
+c^2 & a^2 & b^2
+\end{vmatrix}\begin{array}{c}
+ c_2\longleftarrow c_2-c_1 \\ 
+ c_3\longleftarrow c_3-c_1
+ \end{array}  
+\begin{vmatrix}
+1 & 0 & 0 \\ 
+c & a-c & b-c \\ 
+c^2 & a^2-c^2 & b^2-c^2
+\end{vmatrix} = (a-c)(b-c)\begin{vmatrix}
+ 1 & 1 \\ 
+ a+c & b+c
+\end{vmatrix}=(a-c)(b-c)(b-a)$.
+
+(b) Montrer que $\det(A) = 2abc×\det(B)$
+
+$\det(A)=\begin{vmatrix}
+a+b & b+c & c+a \\ 
+a^2+b^2 & b^2+c^2 & c^2+a^2 \\ 
+a^3+b^3 & b^3+c^3 & c^3+a^3
+\end{vmatrix}c_1\longleftarrow c_1+c_2+c_3$
+
+$=\begin{vmatrix}
+2a+2b+2c & b+c & c+a \\ 
+2a^2+2b^2+2c^2 & b^2+c^2 & c^2+a^2 \\ 
+2a^3+2b^3+2c^3& b^3+c^3 & c^3+a^3
+\end{vmatrix}=2\begin{vmatrix}
+a+b+c & b+c & c+a \\ 
+a^2+b^2+c^2 & b^2+c^2 & c^2+a^2 \\ 
+a^3+b^3+c^3& b^3+c^3 & c^3+a^3
+\end{vmatrix}\begin{array}{c}
+c_2\longleftarrow c_2-c_1 \\ 
+c_3\longleftarrow c_3-c_1
+\end{array} $
+
+$=2\begin{vmatrix}
+a+b+c & -a & -b \\ 
+a^2+b^2+c^2 & -a^2 & -b^2 \\ 
+a^3+b^3+c^3& -a^3 &-b^3
+\end{vmatrix}c_1\longleftarrow c_1+c_2+c_3=2\begin{vmatrix}
+c & -a & -b \\ 
+c^2 & -a^2 & -b^2 \\ 
+c^3& -a^3 &-b^3
+\end{vmatrix}=2abc\begin{vmatrix}
+1 & 1 & 1 \\ 
+c & a & b \\ 
+c^2& a^2 &b^2
+\end{vmatrix}=2abc\det(B)$
+
+c) Calculons $\det(A)$
+
+$\det(A)=2abc\det(B)=2abc(a-c)(b-c)(b-a)$
+
+d) Déduisons le rang de $A$ suivant les valeurs de $a, b$ et $c$.
+
+
+Si $a\neq 0,b\neq 0,c\neq 0,a\neq b,a\neq c,b\neq c$ alors $\det(A)\neq 0$, ainsi $rang(A)=3$
+
+Si $a=0$ ou $b=0$ ou $c=0$ ou $a=b\neq c$ ou $a=c\neq b$ ou $b=c\neq a$, alors $rang(A)=2$
+
+Si $a=b=c\neq 0$ alors $rang(A)=1$
+
+Si $a=b=c=0$ alors $rang(A)=0$
+
+\textbf{Exercice 2}
+
+1. \[A=\begin{pmatrix}
+1 & 3 & -3 \\ 
+2 & 0 & 2 \\ 
+-1 & -1 & 3
+\end{pmatrix}\]
+
+2. Déterminons le spectre de $A$
+
+Le polynôme caractéristiques de $A$ est donnée par : 
+
+$P_A(X)=\det(A-XI_3)=\begin{vmatrix}
+1-X & 3 & -3 \\ 
+2 & -X & 2 \\ 
+-1 & -1 & 3-X
+\end{vmatrix}\begin{array}{c}
+c_1\longleftarrow c_1-c_3\\
+c_2\longleftarrow c_2+c_3
+\end{array} =\begin{pmatrix}
+4-x & 0 & -3 \\ 
+0 & 2-x & 2 \\ 
+-4+x & 2-x & 3-x
+\end{pmatrix}$
+
+\begin{flushright}
+$L_2\longleftarrow L_2-L_3$
+\end{flushright}
+
+$=(4-x)(2-x)\begin{pmatrix}
+1 & 0 & -3 \\ 
+1 & 0 & -1+x \\ 
+-1 & 1 & 3-x
+\end{pmatrix}=-(4-x)(2-x)(2+x)$
+
+Donc $Sp(A)=\{-2;2;4\}$
+
+3. Les sous-espaces propres de $A$
+
+Soit $E_\lambda$ le sous-espace propre associé à la valeur propre $\lambda$.
+
+On a : $E_\lambda=\{u\in \mathbb{R}^3/Au=\lambda u\}$
+
+* Pour $\lambda=-2$, on a:
+
+$\begin{pmatrix}
+1 & 3 & -3 \\ 
+2 & 0 & 2 \\ 
+-1 & -1 & 3
+\end{pmatrix}\begin{pmatrix}
+x \\ 
+y \\ 
+z
+\end{pmatrix}=-2\begin{pmatrix}
+x \\ 
+y \\ 
+z
+\end{pmatrix}\Rightarrow\begin{cases}
+x+3y-3z=-2x\\
+2x+2z=-2y\\
+-x-y+3z=-2z
+\end{cases}\Rightarrow u=\begin{pmatrix}
+-x \\ 
+x \\ 
+0
+\end{pmatrix}$. Alors $E_{-2}=\langle \begin{pmatrix}
+-1 \\ 
+1 \\ 
+0
+\end{pmatrix}\rangle$
+
+* Pour $\lambda=2$, on a :
+
+$\begin{pmatrix}
+1 & 3 & -3 \\ 
+2 & 0 & 2 \\ 
+-1 & -1 & 3
+\end{pmatrix}\begin{pmatrix}
+x \\ 
+y \\ 
+z
+\end{pmatrix}=2\begin{pmatrix}
+x \\ 
+y \\ 
+z
+\end{pmatrix}\Rightarrow\begin{cases}
+x+3y-3z=2x\\
+2x+2z=2y\\
+-x-y+3z=2z
+\end{cases}\Rightarrow  u=\begin{pmatrix}
+0 \\ 
+y \\ 
+y
+\end{pmatrix}$. Alors $E_{2}=\langle \begin{pmatrix}
+0 \\ 
+1 \\ 
+1
+\end{pmatrix}\rangle$
+
+* Pour $\lambda=4$, on a :
+
+$\begin{pmatrix}
+1 & 3 & -3 \\ 
+2 & 0 & 2 \\ 
+-1 & -1 & 3
+\end{pmatrix}\begin{pmatrix}
+x \\ 
+y \\ 
+z
+\end{pmatrix}=4\begin{pmatrix}
+x \\ 
+y \\ 
+z
+\end{pmatrix}\Rightarrow\begin{cases}
+x+3y-3z=4x\\
+2x+2z=4y\\
+-x-y+3z=4z
+\end{cases}\Rightarrow u=\begin{pmatrix}
+x \\ 
+0 \\ 
+-x
+\end{pmatrix}$. Alors $E_{4}=\langle \begin{pmatrix}
+1 \\ 
+0 \\ 
+-1
+\end{pmatrix}\rangle$
+
+4. Diagonalisabilité de $A$
+
+La matrice $A$ est diagonalisable car elle a trois valeurs propres distinctes et trois vecteurs propres linéairement indépendants.Ou autrement car son polynôme caractéristique est scindé en racines simples.
+
+5. Calcul de $A^n$
+
+Étant donné que $A$ est diagonalisable, on peut écrire $A=PDP^{-1}$ avec $P=\begin{pmatrix}
+-1 & 0 & 1 \\ 
+1 & 1 & 0 \\ 
+0 & 1 & -1
+\end{pmatrix}$ et $D=\begin{pmatrix}
+-2 & 0 & 0 \\ 
+0 & 2 & 0 \\ 
+0 & 0 & 4
+\end{pmatrix}$
+
+Ainsi :$A^n=PD^nP^{-1}$  avec $D^n=\begin{pmatrix}
+(-2)^n & 0 & 0 \\ 
+0 & 2^n & 0 \\ 
+0 & 0 & 4^n
+\end{pmatrix}$
+
+Après calcul, $P^{-1}=\frac{1}{2}\begin{pmatrix}
+-1 & 1 & -1 \\ 
+1 & 1 & 1 \\ 
+1 & 1 & -1
+\end{pmatrix}$
+
+et $A^n=PD^nP^{-1}=\frac{1}{2}\begin{pmatrix}
+-1 & 0 & 1 \\ 
+1 & 1 & 0 \\ 
+0 & 1 & -1
+\end{pmatrix}\begin{pmatrix}
+(-2)^n & 0 & 0 \\ 
+0 & 2^n & 0 \\ 
+0 & 0 & 4^n
+\end{pmatrix}\begin{pmatrix}
+-1 & 1 & -1 \\ 
+1 & 1 & 1 \\ 
+1 & 1 & -1
+\end{pmatrix}$
+
+
+$A^n=\frac{1}{2}\begin{pmatrix}
+(-2)^n+4^n & -(-2)^n+4^n & (-2)^n-4^n \\ 
+-(-2)^n+2^n & (-2)^n+2^n & -(-2)^n+2^n \\ 
+2^n-4^n & 2^n-4^n & 2^n+4^n
+\end{pmatrix}$
+
+\medskip
+6. Calcul de $f\circ f\circ f(u+v+w)=f(f(f(u+v+w)))$
+
+Puisque $f$ est linéaire :
+
+$f(u+v+w)=f(u)+f(v)+f(w)=u+2v-w+3u-w-3u+2v+3w=u+4v+w$.
+
+$f(f(u+v+w))=f(u+4v+w)=f(u)+4f(v)+f(w)=u+2v-w+12u-4w-3u+2v+3w=10u+4v-2w$
+
+$f(f(f(u+v+w)))=f(10u+4v-2w)=10f(u)+4f(v)-2f(w)=28u+16v-20w$
+
+7. Déterminons $a_n,b_n,c_n$ en fonction de $n$.
+
+L'écriture matricielle du système est :
+
+
+$\begin{pmatrix}
+a_{n+1}\\
+b_{n+1}\\
+c_{n+1}
+\end{pmatrix}=\begin{pmatrix}
+1 & 3 & -3 \\ 
+2 & 0 & 2 \\ 
+-1 & -1 & 3
+\end{pmatrix}\begin{pmatrix}
+a_{n}\\
+b_{n}\\
+c_{n}
+\end{pmatrix}$
+
+Soit $X_n=\begin{pmatrix}
+a_{n}\\
+b_{n}\\
+c_{n}
+\end{pmatrix}\Rightarrow X_{n+1}=\begin{pmatrix}
+a_{n+1}\\
+b_{n+1}\\
+c_{n+1}
+\end{pmatrix}$
+
+Ainsi $X_{n+1}=AX_n$.
+
+En raisonnant par récurrence, on a: 
+
+$X_n=A^nX_0=\frac{1}{2}\begin{pmatrix}
+(-2)^n+4^n & -(-2)^n+4^n & (-2)^n-4^n \\ 
+-(-2)^n+2^n & (-2)^n+2^n & -(-2)^n+2^n \\ 
+2^n-4^n & 2^n-4^n & 2^n+4^n
+\end{pmatrix}\begin{pmatrix}
+1\\
+1\\
+1
+\end{pmatrix}$
+
+\[
+\Rightarrow \begin{cases}
+a_n=\frac{1}{2}((-2)^n+4^n)\\
+b_n=\frac{1}{2}(3.2^n-(-2)^n)\\
+c_n=\frac{1}{2}(3.2^n-4^n)
+\end{cases}
+\]
+
+
+\medskip\textbf{Exercice 3}
+
+1. Tableau des résultats de lancer de 2 dés : 
+
+$
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+$X\setminus Y$ & 1 & 2 & 3 & 4 & 5 & 6 \\ 
+\hline 
+1 & (1;1) & (1;2) & (1;3) & (1;4) & (1;5) & (1;6) \\ 
+\hline 
+2 & (2;1) & (2;2) & (2;3) & (2;4) & (2;5) & (2;6) \\ 
+\hline 
+3 & (3;1) & (3;2) & (3;3) & (3;4) & (3;5) & (3;6) \\ 
+\hline 
+4 & (4;1) & (4;2) & (4;3) & (4;4) & (4;5) & (4;6) \\ 
+\hline 
+5 & (5;1) & (5;2) & (5;3) & (5;4) & (5;5) & (5;6) \\ 
+\hline 
+6 & (6;1) & (6;2) & (6;3) & (6;4) & (6;5) & (6;6) \\ 
+\hline 
+\end{tabular} $
+
+2. La loi de probabilité de la variable aléatoire somme $S=X+Y$,
+
+ Les valeurs possibles de la variables aléatoire  sont :  $\lbrace {2;3;4;5;6;7;8;9;10;11;12 \rbrace}$.
+ 
+ Les variables $X$ et $Y$ sont indépendantes donc
+ 
+$
+ P(S=2)=P(X=1)\times P(Y=1)= \frac{1}{6}\times \frac{1}{6}=\frac{1}{36}$ 
+ 
+ $P(S=3)=P(X=1)\times P(Y=2)+P(X=2)\times P(Y=1)= 2\times\frac{1}{6}\times \frac{1}{6}=\frac{2}{36}$
+
+$\cdot\cdot\cdot$
+ 
+On dresse le tableau de la loi de probabilité de la variable aléatoire 
+
+$
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+k & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\ 
+\hline 
+P(S=k) & $\frac{1}{36}$ & $\frac{2}{36}$ & $\frac{3}{36}$ & $\frac{4}{36}$ & $\frac{5}{36}$ & $\frac{6}{36}$ & $\frac{5}{36}$ & $\frac{4}{36}$ & $\frac{3}{36}$ & $\frac{2}{36}$ & $\frac{1}{36}$ \\ 
+\hline 
+\end{tabular}
+$
+
+\medskip\textbf{Exercice 4}
+
+1. Soit le système 
+ 
+ $X'=AX$ avec $A=\begin{pmatrix}
+ 1 & -2 & 0 \\ 
+ 2 & 0 & -1 \\ 
+ 4 & -2 & -1
+ \end{pmatrix} $
+ 
+ Déterminons les valeurs propres de $A$ puis un système de solutions de $X'=AX$.
+ 
+ Le polynôme caractéristiques de $A$
+ 
+ \begin{align*}
+ P_A(x)=\det(A-xI_3) &=\begin{vmatrix}
+ 1-x & -2 & 0 \\ 
+ 2 & -x & -1 \\ 
+ 4 & -2 & -1-x
+ \end{vmatrix} L_3\longleftarrow L_3-2L_2\\
+ &=\begin{vmatrix}
+ 1-x & -2 & 0 \\ 
+ 2 & -x & -1 \\ 
+ 0 & -2+2x & 1-x
+ \end{vmatrix}=(1-x)\begin{vmatrix}
+ 1-x & -2 & 0 \\ 
+ 2 & -x & -1 \\ 
+ 0 & -2 & 1
+ \end{vmatrix}L_2\longleftarrow L_2+L_3\\
+ &=(1-x)\begin{vmatrix}
+ 1-x & -2 & 0 \\ 
+ 2 & -2-x & 0 \\ 
+ 0 & -2 & 1
+ \end{vmatrix}\\
+ &=(1-x)((1-x)(-2-x)+4)=(1-x)(x^2+x+2)
+ \end{align*}
+ 
+$\Delta=1-8=-7=(i\sqrt{7})^2\Rightarrow x_1=\frac{-1-i\sqrt{7}}{2}$ et $x_2=\frac{-1+i\sqrt{7}}{2}$
+
+Donc, $P_A(x)=(1-x)(x+\frac{1+i\sqrt{7}}{2})(x+\frac{1-i\sqrt{7}}{2})$
+
+Ainsi les valeurs propres de $A$ : $Sp(A)=\{1;\frac{-1-i\sqrt{7}}{2};\frac{-1+i\sqrt{7}}{2}\}$
+
+\medskip
+Calculons les sous-espaces propres  et vecteurs propres :
+
+-$E_1=\{u=\begin{pmatrix}
+x\\
+y\\
+z
+\end{pmatrix}\in \mathbb{R}^3/Au=u\}$
+
+$Au=u\Rightarrow \begin{pmatrix}
+ 1 & -2 & 0 \\ 
+ 2 & 0 & -1 \\ 
+ 4 & -2 & -1
+ \end{pmatrix}\begin{pmatrix}
+x\\
+y\\
+z
+\end{pmatrix}=\begin{pmatrix}
+x\\
+y\\
+z
+\end{pmatrix}\Rightarrow \begin{cases}
+x-2y=x\\
+2x-z=y\\
+4x-2y-z=z
+\end{cases}\Rightarrow \begin{cases}
+y=0\\
+z=2x
+\end{cases}$
+
+$\Rightarrow u=\begin{pmatrix}
+x\\
+0\\
+2x
+\end{pmatrix}=x\begin{pmatrix}
+1\\
+0\\
+2
+\end{pmatrix}\Rightarrow E_1=\langle\begin{pmatrix}
+1\\
+0\\
+2
+\end{pmatrix}\rangle$
+
+\medskip
+-$E_{\frac{-1-i\sqrt{7}}{2}}=\{v=\begin{pmatrix}
+x\\
+y\\
+z
+\end{pmatrix}\in \mathbb{C}^3/Av=\frac{-1-i\sqrt{7}}{2}v\}$
+
+\begin{align*}
+Av=\frac{-1-i\sqrt{7}}{2}v &\Rightarrow \begin{cases}
+x-2y=\frac{-1-i\sqrt{7}}{2}x\\
+2x-z=\frac{-1-i\sqrt{7}}{2}y\\
+4x-2y-z=\frac{-1-i\sqrt{7}}{2}z
+\end{cases}\Rightarrow\begin{cases}
+2x-4y=-x-i\sqrt{7}x\\
+4x-2z=-y-i\sqrt{7}y\\
+8x-4y-2z=-z-i\sqrt{7}z
+\end{cases}\\
+&\Rightarrow \begin{cases}
+(3+i\sqrt{7})x-4y=0\\
+4x+(1+i\sqrt{7})y-2z=0\\
+8x-4y-(1-i\sqrt{7})z=0
+\end{cases}
+\end{align*}
+
+$L_1\Longrightarrow y=\frac{3+i\sqrt{7}}{4}x$ (*)
+
+(*) dans $L_3\Longrightarrow z=\frac{3+i\sqrt{7}}{2}x$
+
+$\Rightarrow v=\begin{pmatrix}
+x\\
+\frac{3+i\sqrt{7}}{4}x\\
+\frac{3+i\sqrt{7}}{2}x
+\end{pmatrix}= \frac{3+i\sqrt{7}}{4}x\begin{pmatrix}
+ \frac{3-i\sqrt{7}}{4}\\
+1\\
+2
+\end{pmatrix}\Rightarrow E_{\frac{-1-i\sqrt{7}}{2}}=\langle\begin{pmatrix}
+\frac{3-i\sqrt{7}}{4}\\
+1\\
+2
+\end{pmatrix}\rangle$
+
+\medskip
+-$E_{\frac{-1+i\sqrt{7}}{2}}=\{w=\begin{pmatrix}
+x\\
+y\\
+z
+\end{pmatrix}\in \mathbb{C}^3/Aw=\frac{-1+i\sqrt{7}}{2}w\}$
+
+\begin{align*}
+Aw=\frac{-1+i\sqrt{7}}{2}w &\Rightarrow \begin{cases}
+x-2y=\frac{-1+i\sqrt{7}}{2}x\\
+2x-z=\frac{-1+i\sqrt{7}}{2}y\\
+4x-2y-z=\frac{-1+i\sqrt{7}}{2}z
+\end{cases}\Rightarrow\begin{cases}
+2x-4y=-x+i\sqrt{7}x\\
+4x-2z=-y+i\sqrt{7}y\\
+8x-4y-2z=-z+i\sqrt{7}z
+\end{cases}\\
+&\Rightarrow \begin{cases}
+(3-i\sqrt{7})x-4y=0\\
+4x+(1-i\sqrt{7})y-2z=0\\
+8x-4y-(1+i\sqrt{7})z=0
+\end{cases}
+\end{align*}
+
+$L_1\Longrightarrow y=\frac{3-i\sqrt{7}}{4}x$ (*)
+
+(*) dans $L_3\Longrightarrow z=\frac{3-i\sqrt{7}}{2}x$
+
+$\Rightarrow v=\begin{pmatrix}
+x\\
+\frac{3-i\sqrt{7}}{4}x\\
+\frac{3-i\sqrt{7}}{2}x
+\end{pmatrix}= \frac{3-i\sqrt{7}}{4}x\begin{pmatrix}
+ \frac{3+i\sqrt{7}}{4}\\
+1\\
+2
+\end{pmatrix}\Rightarrow E_{\frac{-1+i\sqrt{7}}{2}}=\langle\begin{pmatrix}
+\frac{3+i\sqrt{7}}{4}\\
+1\\
+2
+\end{pmatrix}\rangle$
+
+Donc, la matrice diagonale $D=\begin{pmatrix}
+1 & 0 & 0 \\ 
+0 & \frac{-1-i\sqrt{7}}{2} & 0 \\ 
+0 & 0 & \frac{-1+i\sqrt{7}}{2}
+\end{pmatrix} $ et la matrice de passage est $P=\begin{pmatrix}
+1 & \frac{3-i\sqrt{7}}{4} & \frac{3+i\sqrt{7}}{4} \\ 
+0 & 1                   & 1 \\
+2 & 2                     & 2 
+\end{pmatrix}$
+
+Calculons $P^{-1}$
+
+$
+\det(P) =\begin{vmatrix}
+1 & \frac{3-i\sqrt{7}}{4} & \frac{3+i\sqrt{7}}{4} \\ 
+0 & 1                   & 1 \\
+2 & 2                     & 2 
+\end{vmatrix}c_3\longleftarrow c_3-c_2=\begin{vmatrix}
+1 & \frac{3-i\sqrt{7}}{4} & \frac{i\sqrt{7}}{2} \\ 
+0 & 1                   & 0 \\
+2 & 2                     & 0 
+\end{vmatrix}=-2\times\frac{i\sqrt{7}}{2}=-i\sqrt{7}
+$
+
+$P^{-1}=\frac{1}{\det(P)}t_{com(P)}$
+
+$com(P)=\begin{pmatrix}
+0 & 2 & -2 \\ 
+i\sqrt{7} & \frac{1-i\sqrt{7}}{2} & -\frac{1+i\sqrt{7}}{2} \\ 
+\frac{-i\sqrt{7}}{2} & -1 & 1
+\end{pmatrix} \Rightarrow t_{com(P)}=\begin{pmatrix}
+0 & i\sqrt{7} & \frac{-i\sqrt{7}}{2} \\ 
+2 & \frac{1-i\sqrt{7}}{2} & -1 \\ 
+-2 & -\frac{1+i\sqrt{7}}{2} & 1
+\end{pmatrix}$
+
+Donc, $P^{-1}=-\frac{1}{i\sqrt{7}}\begin{pmatrix}
+0 & i\sqrt{7} & \frac{-i\sqrt{7}}{2} \\ 
+2 & \frac{1-i\sqrt{7}}{2} & -1 \\ 
+-2 & -\frac{1+i\sqrt{7}}{2} & 1
+\end{pmatrix}=\frac{i\sqrt{7}}{7}\begin{pmatrix}
+0 & i\sqrt{7} & \frac{-i\sqrt{7}}{2} \\ 
+2 & \frac{1-i\sqrt{7}}{2} & -1 \\ 
+-2 & -\frac{1+i\sqrt{7}}{2} & 1
+\end{pmatrix}$
+
+Ainsi $A=PDP^{-1}$
+
+\medskip
+L'équation différentielle $X'=AX$, admet une solution de la forme,
+
+$X(t)=e^{At}X(0)$ avec ,$e^{At}=Pe^{Dt}P^{-1}$, d'où $X(t)=Pe^{Dt}P^{-1}X(0)$ 
+
+$e^{Dt}=\begin{pmatrix}
+e^t & 0 & 0 \\ 
+0 & e^{\frac{-1-i\sqrt{7}}{2}t} & 0 \\ 
+0 & 0 & e^{\frac{-1+i\sqrt{7}}{2}t}
+\end{pmatrix}$
+
+
+\newgeometry{left=1cm, right=1cm, top=1cm, bottom=1cm}% Suppression des marges
+
+\resizebox{\textwidth}{!}{
+$X(t)=\begin{pmatrix}
+x(t)\\
+y(t)\\
+z(t)
+\end{pmatrix}=\frac{i\sqrt{7}}{7}\begin{pmatrix}
+1 & \frac{3-i\sqrt{7}}{4} & \frac{3+i\sqrt{7}}{4} \\ 
+0 & 1                   & 1 \\
+2 & 2                     & 2 
+\end{pmatrix}\begin{pmatrix}
+e^t & 0 & 0 \\ 
+0 & e^{\frac{-1-i\sqrt{7}}{2}t} & 0 \\ 
+0 & 0 & e^{\frac{-1+i\sqrt{7}}{2}t}
+\end{pmatrix}\begin{pmatrix}
+0 & i\sqrt{7} & \frac{-i\sqrt{7}}{2} \\ 
+2 & \frac{1-i\sqrt{7}}{2} & -1 \\ 
+-2 & -\frac{1+i\sqrt{7}}{2} & 1
+\end{pmatrix}\begin{pmatrix}
+x(0)\\
+y(0)\\
+z(0)
+\end{pmatrix}$}
+
+
+\resizebox{\textwidth}{!}{$\begin{pmatrix}
+x(t)\\
+y(t)\\
+z(t)
+\end{pmatrix}=\frac{i\sqrt{7}}{7}\begin{pmatrix}
+\frac{3-i\sqrt{7}}{2}e^{\frac{-1-i\sqrt{7}}{2}t} -\frac{3+i\sqrt{7}}{2}e^{\frac{-1+i\sqrt{7}}{2}t}& i\sqrt{7}e^t- \frac{1+i\sqrt{7}}{2}e^{\frac{-1-i\sqrt{7}}{2}t}-\frac{1-i\sqrt{7}}{2}e^{\frac{-1+i\sqrt{7}}{2}t}& \frac{-i\sqrt{7}}{2}e^t-\frac{3-i\sqrt{7}}{4}e^{\frac{-1-i\sqrt{7}}{2}t}+\frac{3+i\sqrt{7}}{4}e^{\frac{-1+i\sqrt{7}}{2}t} \\ 
+2e^{\frac{-1-i\sqrt{7}}{2}t} -2e^{\frac{-1+i\sqrt{7}}{2}t}& \frac{1-i\sqrt{7}}{2}e^{\frac{-1-i\sqrt{7}}{2}t}-\frac{1+i\sqrt{7}}{2}e^{\frac{-1+i\sqrt{7}}{2}t} & -e^{\frac{-1-i\sqrt{7}}{2}t}+e^{\frac{-1+i\sqrt{7}}{2}t} \\ 
+4e^{\frac{-1-i\sqrt{7}}{2}t}-4e^{\frac{-1+i\sqrt{7}}{2}t} & 2i\sqrt{7}e^t+(1-i\sqrt{7})e^{\frac{-1-i\sqrt{7}}{2}t} -(1+i\sqrt{7})e^{\frac{-1+i\sqrt{7}}{2}t} & -i\sqrt{7}e^t-2e^{\frac{-1-i\sqrt{7}}{2}t}+2e^{\frac{-1+i\sqrt{7}}{2}t}
+\end{pmatrix}\begin{pmatrix}
+x(0)\\
+y(0)\\
+z(0)
+\end{pmatrix} $
+}
+
+\medskip
+
+
+
+
+\resizebox{\textwidth}{!}{$\begin{cases}
+x(t)=\frac{i\sqrt{7}}{7}[(\frac{3-i\sqrt{7}}{2}e^{\frac{-1-i\sqrt{7}}{2}t} -\frac{3+i\sqrt{7}}{2}e^{\frac{-1+i\sqrt{7}}{2}t})x(0)+(i\sqrt{7}e^t- \frac{1+i\sqrt{7}}{2}e^{\frac{-1-i\sqrt{7}}{2}t}-\frac{1-i\sqrt{7}}{2}e^{\frac{-1+i\sqrt{7}}{2}t})y(0)+(\frac{-i\sqrt{7}}{2}e^t-\frac{3-i\sqrt{7}}{4}e^{\frac{-1-i\sqrt{7}}{2}t}+\frac{3+i\sqrt{7}}{4}e^{\frac{-1+i\sqrt{7}}{2}t})]\\
+y(t)=\frac{i\sqrt{7}}{7}[(2e^{\frac{-1-i\sqrt{7}}{2}t} -2e^{\frac{-1+i\sqrt{7}}{2}t})x(0)+(\frac{1-i\sqrt{7}}{2}e^{\frac{-1-i\sqrt{7}}{2}t}-\frac{1+i\sqrt{7}}{2}e^{\frac{-1+i\sqrt{7}}{2}t})y(0)+(-e^{\frac{-1-i\sqrt{7}}{2}t}+e^{\frac{-1+i\sqrt{7}}{2}t})z(0)]\\
+z(t)=\frac{i\sqrt{7}}{7}[(4e^{\frac{-1-i\sqrt{7}}{2}t}-4e^{\frac{-1+i\sqrt{7}}{2}t})x(0)+(2i\sqrt{7}e^t+(1-i\sqrt{7})e^{\frac{-1-i\sqrt{7}}{2}t} -(1+i\sqrt{7})e^{\frac{-1+i\sqrt{7}}{2}t})y(0)+(-i\sqrt{7}e^t-2e^{\frac{-1-i\sqrt{7}}{2}t}+2e^{\frac{-1+i\sqrt{7}}{2}t})z(0)]
+\end{cases}$
+}
+
+\restoregeometry %Restaurercles mages normales
+
+
+
+Avec $x(0),y(0)$ et $z(0)\in \mathbb{R}$ déterminés par les conditions initiales.
+
+\textbf{\underline{N.B :}} La méthode utilisez ici est un peu plus longue. On pourrait utilisez d'autre méthode plus courte, qui consisterait à écrire pour chaque valeur propre une solution fondamentale de la forme $x_i(t)=e^{\lambda t}u$ ou $\lambda$ est la valeur propre et $u$ le vecteur propre associé à la valeur propre $\lambda$.
+
+Ensuite la solution est donnée par $X(t)=x(0)x_1(t)+y(0)x_2(t)+z(0)x_3(t)$.
+
+\medskip
+2. Pour :
+
+$\bullet A=\begin{pmatrix}
+1 & -1 \\
+4 & -3
+\end{pmatrix}$
+
+Le polynôme caractéristique de $A$
+
+$P_A(x)=\det(A-xI_2)=\begin{vmatrix}
+1-x & -1 \\
+4 & -3-x
+\end{vmatrix}=(1-x)(-3-x)+4=x^2+2x+1=(x+1)^2$
+
+$A$ a une seule valeur propre -1.
+
+Calculons le(s) vecteur(s) propre(s) :
+
+Soit $u=\begin{pmatrix}
+x\\
+y
+\end{pmatrix}\in \mathbb{R}^2$ le vecteur propre associé à la valeur propre -1.
+
+$Au=-u\Rightarrow \begin{pmatrix}
+1 & -1 \\
+4 & -3
+\end{pmatrix}\begin{pmatrix}
+x\\
+y
+\end{pmatrix}=-\begin{pmatrix}
+x\\
+y
+\end{pmatrix}\Rightarrow \begin{cases}
+x-y=-x\\
+4x-3y=-y
+\end{cases}\Rightarrow y=2x$
+
+$u=\begin{pmatrix}
+x\\
+y
+\end{pmatrix}=\begin{pmatrix}
+x\\
+2x
+\end{pmatrix}=x\begin{pmatrix}
+1\\
+2
+\end{pmatrix}\Rightarrow u=\begin{pmatrix}
+1\\
+2
+\end{pmatrix}$ et $E_{-1}=\langle\begin{pmatrix}
+1\\
+2
+\end{pmatrix}\rangle$
+
+$A$ n'est pas diagonalisable car la valeur propre -1 de multiplicité 2 à une seule valeur propre.
+
+Solution de l'équation $X'=AX$
+
+Étant donné que cette matrice d'ordre 2 a une seule valeur propre de multiplicité 2, à laquelle est associé un seule vecteur propre $u$ (ce qui est insuffisant pour une base complète), elle est dite \textbf{défectueuse}. Cela signifie que nous devons utiliser un vecteur propre généralisé pour obtenir une solution complète. 
+
+Déterminons cet vecteur pour compléter la base.
+
+Soit $v$ cet vecteur, il est obtenir par la formule :
+
+$(A+I)v=u\Longrightarrow \begin{pmatrix}
+2 & -1 \\
+4 & -2
+\end{pmatrix}\begin{pmatrix}
+x\\
+y
+\end{pmatrix}=\begin{pmatrix}
+1\\
+2
+\end{pmatrix}\Rightarrow \begin{cases}
+2x-y=1\\
+4x-2y=2
+\end{cases}
+\Rightarrow 2x-y=1\Rightarrow y=2x-1$
+
+Soit $v=\begin{pmatrix}
+0\\
+-1
+\end{pmatrix}$ (qui vérifie $y=2x-1$)
+
+Vérifions que $u$ et $v$ sont libre.
+
+On $\det(\begin{pmatrix}
+1 & 0\\
+2 & -1
+\end{pmatrix})=\begin{vmatrix}
+1 & 0\\
+2 & -1
+\end{vmatrix}=-1\neq 0$ alors $u$ et $v$ sont libres. ils forment donc une base de $\mathbb{R}^2$.
+
+\medskip
+\textbf{Solution du système}
+
+La solution associée au vecteur propre est $X_1(t)=e^{-t}\begin{pmatrix}
+1\\
+2
+\end{pmatrix}=\begin{pmatrix}
+e^{-t}\\
+2e^{-t}
+\end{pmatrix}$
+
+
+La solution associée au vecteur propre généralisé est $X_2(t)=te^{-t}\begin{pmatrix}
+1\\
+2
+\end{pmatrix} + e^{-t}\begin{pmatrix}
+0\\
+-1
+\end{pmatrix}$
+
+L'équation différentielle $X'=AX$, admet une solution de la forme,
+
+\resizebox{\textwidth}{!}{
+$X(t)=\begin{pmatrix}
+x(t)\\
+y(t)
+\end{pmatrix}=x(0)X_1(t)+y(0)X_2(t)= x(0)\begin{pmatrix}
+e^{-t}\\
+2e^{-t}
+\end{pmatrix}+y(0)\left( te^{-t}\begin{pmatrix}
+1\\
+2
+\end{pmatrix} + e^{-t}\begin{pmatrix}
+0\\
+-1
+\end{pmatrix}\right)=\begin{pmatrix}
+x(0)e^{-t}+y(0)te^{-t}\\
+2x(0)e^{-t}+2y(0)te^{-t}-y(0)e^{-t}
+\end{pmatrix}$}
+
+
+$\Rightarrow\begin{cases}
+x(t)=x(0)e^{-t}+y(0)te^{-t}\\
+y(t)=(2x(0)-y(0))e^{-t}+2y(0)te^{-t}
+\end{cases}$
+
+
+$\bullet$ On poursuivra les mêmes procédures pour la matrice $A=\begin{pmatrix}
+ 2 & 1 & 0 & 0 \\ 
+ 0 & 0 & -1 & 0 \\ 
+ 1 & 2 & 1 & 0 \\ 
+ -1 & 2 & 2 & 1
+ \end{pmatrix} $.
+
+\end{spacing}
+\end{document}

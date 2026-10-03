@@ -1,0 +1,680 @@
+\documentclass[12pt]{article}
+\input{../preambule}
+
+\begin{document}
+\entete{Mathématiques}{Corrigé détaillé du sujet type n°15}{Correction}
+\begin{spacing}{1.5}
+
+\medskip\textbf{Exercice 1}
+
+1. Forme quadratique $q(x, y, z)$ et matrice associée $A$
+
+La forme quadratique est donnée par :
+\[
+q(x, y, z) = x(x - 4y + 4z) + 2yz.
+\]
+
+\noindent En développant cette expression, nous obtenons :
+\[
+q(x, y, z) = x^2 - 4xy + 4xz + 2yz=x^2-2xy-2yx+2xz+2zx+yz+zy.
+\]
+
+\noindent La matrice symétrique associée $A$ est définie à partir des coefficients quadratiques, mixtes et linéaires :
+\[
+A = 
+\begin{pmatrix}
+1 & -2 & 2 \\
+-2 & 0 & 1 \\
+2 & 1 & 0
+\end{pmatrix}.
+\]
+
+\noindent (a) Déterminons la signature de $q$ par deux méthodes
+
+\textbf{Méthode 1 : Par élimination de Gauss} \\
+On applique l'élimination de Gauss pour diagonaliser $A$ :
+
+\begin{align*}
+\begin{pmatrix}
+\boxed{1} & -2 & 2 \\
+-2 & 0 & 1 \\
+2 & 1 & 0
+\end{pmatrix}\begin{array}{c}
+L_2\longleftarrow L_2+2L_1\\
+L_3\longleftarrow L_3-2L_1
+\end{array}
+\to
+\begin{pmatrix}
+\boxed{1} & -2 & 2 \\
+0 & -4 & 5 \\
+0 & 5 & -4
+\end{pmatrix}L_3\longleftarrow 4L_3+5L_2\\
+\begin{pmatrix}
+\boxed{1} & -2 & 2 \\
+0 & -4 & 1 \\
+0 & 0 & 9
+\end{pmatrix}\begin{array}{c}
+C_2\longleftarrow C_2+2C_1\\
+C_3\longleftarrow C_3+C_2
+\end{array}
+\begin{pmatrix}
+\boxed{1} & 0 & 0 \\
+0 & -4 & -3 \\
+0 & 0 & 9
+\end{pmatrix}C_3\longleftarrow 4C_3-3C_2\\
+\begin{pmatrix}
+\boxed{1} & 0 & 0 \\
+0 & -4 & 0 \\
+0 & 0 & 36
+\end{pmatrix}
+\end{align*}
+Donc $A\to \begin{pmatrix}
+1 & 0 & 0 \\
+0 & -4 & 0 \\
+0 & 0 & 36
+\end{pmatrix}$
+
+La diagonalisation montre que $q$ a deux valeurs propres positives ($1$, $36$) et une valeur propre négative ($-4$). La signature de $q$ est donc $(2, 1, 0)$ ou 2 est le nombre de valeurs propres positive, 1 le nombre de valeurs propres négatives et 0 le nombre de valeurs propres nulles.
+
+\textbf{Méthode 2 : Par les mineurs principaux emboîtés} \\
+Les mineurs principaux de $A$ sont :
+\begin{align*}
+&\text{Premier mineur principal( en haux à gauche d'ordre 1)} M_1 = 1>0,\\ \quad 
+&\text{Deuxième mineur principal( en haux à gauche d'ordre 2)}M_2 = 
+\begin{vmatrix}
+1 & -2 \\
+-2 & 0
+\end{vmatrix} = 4>0,\\ \quad 
+&\text{Troisième mineur principal(A)}\det(A) = -9<0.
+\end{align*}
+
+Les signes des mineurs alternent, ce qui confirme une signature $(2, 1, 0)$.
+
+(b) Factorisation $QR$ de $A$
+
+La décomposition $QR$ consiste à écrire $A = QR$, où $Q$ est orthogonale et $R$ est triangulaire supérieure. Nous allons appliquer le processus de Gram-Schmidt à $A$, 
+
+Les colonnes de $A$sont données par :\\
+\[
+a_1=\begin{pmatrix}
+1\\
+-2\\
+2
+\end{pmatrix}, \quad a_2=\begin{pmatrix}
+-2\\
+0\\
+1
+\end{pmatrix}, \quad a_3=\begin{pmatrix}
+2\\
+1\\
+0
+\end{pmatrix}
+\]
+
+\textbf{Étape 1 : Normalisation de $a_1$}
+
+$\vert\vert a_1\vert\vert=\sqrt{1^2+(-2)^2+2^2}=\sqrt{9}=3$
+
+Le premier vecteur orthonormal est :
+
+\[q_1=\frac{a_1}{\vert\vert a_1\vert\vert}=\frac{1}{3}\begin{pmatrix}
+1\\
+-2\\
+2
+\end{pmatrix}=\begin{pmatrix}
+\frac{1}{3}\\
+-\frac{2}{3}\\
+\frac{2}{3}
+\end{pmatrix}\]
+
+\medskip
+\textbf{Étape 2 : Orthogonalisation de $a_2$ par rapport à $q_1$}
+
+On calcule la projection de $a_2$ sur $q_1$ :
+
+$proj_{q_1}(a_2)=(a_2^{\intercal}q_1)q_1$, ou $a_2^{\intercal}q_1=(-2, 0,1).\frac{1}{3}\begin{pmatrix}
+1\\
+-2\\
+2
+\end{pmatrix}=\frac{1}{3}((-2).1+0.(-2)+1.2)=0$
+
+Ainsi $a_2$ est déjà orthogonal à $q_1$. Normalisons $a_2$ :
+
+$\parallel a_2\parallel =\sqrt{(-2)^2+0^2+1^2}=\sqrt{5}$
+
+Le deuxième vecteur orthonormal est :
+\[q_2=\frac{a_2}{\vert\vert a_2\vert\vert}=\frac{1}{\sqrt{5}}\begin{pmatrix}
+-2\\
+0\\
+1
+\end{pmatrix}=\begin{pmatrix}
+-\frac{2}{\sqrt{5}}\\
+0\\
+\frac{1}{\sqrt{5}}
+\end{pmatrix}\]
+
+\medskip
+\textbf{Étape 3 : Orthogonalisation de $a_3$}
+
+Calculons la projection de $a_3$ d'abord sur $q_1$ :
+
+$proj_{q_1}(a_3)=(a_3^{\intercal}q_1)q_1$, ou $a_3^{\intercal}q_1=(2, 1,0).\frac{1}{3}\begin{pmatrix}
+1\\
+-2\\
+2
+\end{pmatrix}=\frac{1}{3}(2.1+1.(-2)+0.2)=0$
+
+Ainsi $a_3$ est orthogonal à $q_1$.
+
+\medskip
+Calculons la projection de $a_3$  sur $q_2$ 
+
+$proj_{q_2}(a_3)=(a_3^{\intercal}q_2)q_2$, ou $a_3^{\intercal}q_2=(2, 1,0).\frac{1}{\sqrt{5}}\begin{pmatrix}
+-2\\
+0\\
+1
+\end{pmatrix}=\frac{1}{\sqrt{5}}(2.(-2)+1.0+0.1)=\frac{-4}{\sqrt{5}}\neq 0$ alors $a_3$ n'est pas orthogonal à $q_2$.
+
+Nous allons soustraire cette projection de $a_3$ pour la rendre orthogonale à $q_2$.
+
+\[b_3=a_3-\langle a_3,q_2\rangle q_2=\begin{pmatrix}
+2\\
+1\\
+0
+\end{pmatrix}-\left(\frac{-4}{\sqrt{5}}\right)\begin{pmatrix}
+\frac{-2}{\sqrt{5}}\\
+0\\
+\frac{1}{\sqrt{5}}
+\end{pmatrix}=\begin{pmatrix}
+2\\
+1\\
+0
+\end{pmatrix}+\frac{4}{5}\begin{pmatrix}
+2\\
+0\\
+-1
+\end{pmatrix}=\begin{pmatrix}
+2+\frac{8}{5}\\
+1+0\\
+0-\frac{4}{5}
+\end{pmatrix}=\begin{pmatrix}
+\frac{18}{5}\\
+1\\
+-\frac{4}{5}
+\end{pmatrix}\]
+
+La norme est $\parallel b_3\parallel =\sqrt{\left(\frac{18}{5}\right)^2+1^2+\left(-\frac{4}{5}\right)^2}=\frac{\sqrt{365}}{5}$
+
+La troisième colonne orthonormée est $q_3=\frac{b_3}{\parallel b_3\parallel}=\frac{5}{\sqrt{365}}\begin{pmatrix}
+\frac{18}{5}\\
+1\\
+-\frac{4}{5}
+\end{pmatrix}=\begin{pmatrix}
+\frac{18}{\sqrt{365}}\\
+\frac{5}{\sqrt{365}}\\
+-\frac{4}{\sqrt{365}}
+\end{pmatrix}$
+
+Ainsi la matrice orthogonale est : \[Q=\begin{pmatrix}
+\frac{1}{3} & -\frac{2}{\sqrt{5}}& \frac{18}{\sqrt{365}} \\ 
+-\frac{2}{3}& 0                 &  \frac{5}{\sqrt{365}} \\ 
+\frac{2}{3} & \frac{1}{\sqrt{5}} & -\frac{4}{\sqrt{365}}
+\end{pmatrix} \]
+
+\quad
+
+Calculons de $R$
+
+La matrice $R$ est une matrice triangulaire supérieure qui contient les coefficients $r_{ij}$ obtenus en projetant  les colonnes de $A$ sur les vecteurs $q_1,q_2,q_3$.
+
+Calcul des coefficient $r_{ij}$.
+
+$r_{11}=\parallel a_1\parallel=03$ \quad   $r_{12}=\langle a_2,q_1\rangle=0$ (calculé précédemment).
+
+
+$r_{13}=\langle a_3,q_1\rangle =0$, \quad $r_{22}\parallel a_2\parallel=\sqrt{5}$, \quad $r_{23}=\langle a_3,q_2\rangle=-\frac{4}{\sqrt{5}}$
+
+$r_{33}=\parallel b_3\parallel=\frac{\sqrt{365}}{5}$
+
+La matrice triangulaire supérieure $R$ est \[R=\begin{pmatrix}
+3 & 0 & 0 \\ 
+0 & \sqrt{5} & -\frac{4}{\sqrt{5}} \\ 
+0 & 0 & \frac{\sqrt{365}}{5}
+\end{pmatrix} \]
+
+
+
+
+2. Étude des séries
+
+(a) Convergence des séries
+
+\textbf{Première série : $\sum \frac{(n+2)^n}{n^{n+2}}$} \\
+
+Soit $a_n=\frac{(n+2)^n}{n^{n+2}}\Longrightarrow a_{n+1}=\frac{(n+3)^{n+1}}{{n+1}^{n+3}}$
+
+En appliquant le critère de d'Alembert :
+\[
+\lim_{n \to +\infty} \frac{a_{n+1}}{a_n} = \lim_{n \to +\infty} \frac{(n+3)^{n+1} n^{n+2}}{(n+2)^{n+1} (n+1)^{n+3}}\approx \lim_{n \to +\infty} \frac{(n)^{n+1} n^{n+2}}{(n)^{n+1} (n)^{n+3}}\approx \lim_{n \to +\infty} \frac{1}{n}=0<1.
+\]
+Après simplifications, ce critère donne une limite 0 inférieure à $1$, donc la série converge.
+
+\textbf{Deuxième série : $\sum \frac{\sqrt{5n+1}}{n!}$} \\
+
+Posons $a_n=\frac{\sqrt{5n+1}}{n!}\Rightarrow a_{n+1}=\frac{\sqrt{5n+6}}{{n+1}!}$
+
+En appliquant le critère de d'Alembert :
+
+\[
+\lim_{n \to +\infty} \frac{a_{n+1}}{a_n} = \lim_{n \to +\infty} \frac{\frac{\sqrt{5n+6}}{{n+1}!}}{\frac{\sqrt{5n+1}}{n!}}=\lim_{n \to +\infty}\frac{\sqrt{5n+6}n!}{(n+1)n!\sqrt{5n+1}}\approx\lim_{n \to +\infty}\frac{\sqrt{5n}}{(n+1)\sqrt{5n}}=0<1\], alors la série converge d'après le critère de d'Alembert
+
+(b) Rayon de convergence de la série entière
+
+Pour la série entière $\sum \frac{3^n(n+7)^3x^n}{n+3}$, on utilise le critère du rayon de convergence :
+
+\begin{align*}
+R &= \frac{1}{\limsup_{n \to \infty} \sqrt[n]{\left|\frac{3^n(n+7)^3}{n+3}\right|}}\\
+&\approx\frac{1}{\limsup_{n \to \infty} \sqrt[n]{\left|\frac{3^nn^3}{n}\right|}}\\
+&\approx\frac{1}{\limsup_{n \to \infty} \sqrt[n]{\left|3^nn^2\right|}}=\frac{1}{\limsup_{n \to \infty} 3n^{\frac{2}{n}}}=\frac{1}{\limsup_{n \to \infty} 3e^{\frac{2\ln(n)}{n}}}=\frac{1}{3}
+\end{align*}
+On trouve $R = \frac{1}{3}$.
+
+3. Fonction homogène $f(x, y)$
+
+La fonction est donnée par :
+\[
+f(x, y) = \frac{2\sqrt{x} + 3\sqrt{y}}{3x^2 + xy + 2y^2}.
+\]
+
+(a) Homogénéité positive et degré
+
+Pour prouver que $f(x, y)$ est homogène, on calcule $f(\lambda x, \lambda y)$ :
+\[
+f(\lambda x, \lambda y) = \frac{2\sqrt{\lambda x} + 3\sqrt{\lambda y}}{3(\lambda x)^2 + (\lambda x)(\lambda y) + 2(\lambda y)^2}.
+\]
+Après simplifications, on trouve que $f(\lambda x, \lambda y) = \lambda^{-\frac{3}{2}} f(x, y)$, donc $f(x, y)$ est homogène de degré $-\frac{3}{2}$.
+
+(b) Degré d'homogénéité de $(\frac{\partial^2 f}{\partial x \partial y})^3$
+
+Si $f$ est homogène de degré $\alpha$, alors chaque dérivée partielle suit la relation :
+
+\[
+\frac{\partial f}{\partial x } \text{ est homogène de degré } \alpha - 1.\\
+\frac{\partial^2 f}{\partial x \partial y} \text{ est homogène de degré } \alpha - 2.
+\]
+Ici, $\alpha = -\frac{3}{2}$, donc $\frac{\partial^2 f}{\partial x \partial y}$ est homogène de degré $-\frac{3}{2}-2=-\frac{7}{2}$. Ainsi $(\frac{\partial^2 f}{\partial x \partial y})^3$ est homogène de degré $(-\frac{7}{2})\times 3$.
+
+(c) Calcul de l'expression
+
+Nous calculons :
+\[
+x^2 \frac{\partial^2 f}{\partial x^2} + 2xy \frac{\partial^2 f}{\partial x \partial y} + y^2 \frac{\partial^2 f}{\partial y^2}.
+\]
+
+Utilisons une propriété fondamentale des fonctions homogènes (Formule d'Euler): si $f$ est homogène de degré $\alpha$, alors :
+
+
+\[\sum_{k=1}^{n}x_k \frac{\partial f}{\partial x_k}(x)=\alpha f(x,y)\]
+
+
+Dans notre cas :
+
+\[
+x^2 \frac{\partial^2 f}{\partial x^2} + 2xy \frac{\partial^2 f}{\partial x \partial y} + y^2 \frac{\partial^2 f}{\partial y^2}=\alpha(\alpha-1)f(x,y).
+\]
+
+Ainsi : 
+
+\[
+x^2 \frac{\partial^2 f}{\partial x^2} + 2xy \frac{\partial^2 f}{\partial x \partial y} + y^2 \frac{\partial^2 f}{\partial y^2}=-\frac{3}{2}(-\frac{3}{2}-1)f(x,y)=\frac{15}{4}\frac{2\sqrt{x} + 3\sqrt{y}}{3x^2 + xy + 2y^2}.
+\]
+
+
+
+
+
+
+\medskip
+\textbf{Exercice 2}
+
+$X$ est une variable aléatoire prenant des valeurs dans $\{0,1,2,3,4\}$, représentant le nombre de retards subis sur 4 appels.
+
+1(a) Déterminons la loi de 
+$X$, son espérance et sa variance
+
+\textbf{Loi de $X$ :}
+
+$X$ suit une loi binomiale de paramètres $(n;p)=(4;0,25)$ avec $n=4$(nombre d'appels) et $p=0,25$ (probabilité de retard).
+
+La probabilité que $X=k$ (exactement $k$ retards sur 4 appels) est donnée par :
+
+$P(X=k)=C_4^k(0,25)^k(0,75)^{4-k}$, 
+
+Donc les probabilités sont :
+
+$P(X=0)=C_4^0(0,25)^0(0,75)^{4-0}=0,3164$       $P(X=1)=C_4^1(0,25)^1(0,75)^{4-1}=0,4218$
+
+$P(X=2)=C_4^2(0,25)^2(0,75)^{4-2}=0,2109$
+   $P(X=3)=C_4^3(0,25)^3(0,75)^{4-3}=0,0468$
+
+$P(X=4)=C_4^4(0,25)^4(0,75)^{4-4}0,0039$
+
+\medskip
+\textbf{Espérance $E(X)$}
+
+$X$ suit la loi binomiale de paramètre $n=4$ et $p=0,25$ alors l'espérance est donnée par :
+
+$E(X)=n.p=4\times 0,25=1$
+
+\medskip
+\textbf{Variance $V(X)$}
+
+La variance est donnée par :
+
+$V(X)=n.p(1-p)=4\times 0,25\times (1-0,25)=0,75$
+
+(b) Calculons la probabilité de l'évènement : "Le client a au moins subi un retard".
+
+Cela revient à calculer $P(X\geq 1)$
+
+$P(X\geq 1)=1-P(x=0)=1-0,3164=0,6836$
+
+(2) (a) Exprimons la probabilité conditionnelle de $Z = k$ sachant que $Y = n$.
+
+Conditionnellement au fait que $Y=n$, il y a exactement $n$ appels dans la journée.
+
+parmi ces $n$ appels, $Z$ suit une loi binomiale $B(n,p)$ avec $p=0,25$
+
+Donc :
+
+$P(Z=k/Y=n)=C_n^k(0,25)^k(0,75)^{n-k}$
+
+ 
+ \medskip
+ (b) Déduisons la probabilité de $"Z = k$ et $Y = n"$.
+ 
+$P(Z=k,Y=n)=P(Z=k/Y=n)P(Y=n)$ avec,
+
+ $P(Z=k/Y=n)=C_n^kp^k(1-p)^{n-k}$ et $P(Y=n)=e^{-m}\frac{m^n}{n!}$ car $Y$ suit une loi poisson de paramètre $m$
+
+Donc,
+\begin{align*}
+P(Z=k,Y=n)&=C_n^kp^k(1-p)^{n-k}\times e^{-m}\frac{m^n}{n!} \text{ avec }   C_n^k=\frac{n!}{k!(n-k)!}, \text{ alors, } \\
+P(Z=k,Y=n)&=\frac{n!}{k!(n-k)!}\times p^k(1-p)^{n-k}\times e^{-m}\frac{m^n}{n!}=\frac{p^k(1-p)^{n-k}m^n}{k!(n-k)!}.e^{-m}
+\end{align*}
+ 
+ 
+(c) Déterminons la loi de$ Z$. On trouvera que $Z$ suit une loi de Poisson de paramètre
+ $m\times 0,25$.
+ 
+ Pour trouver la loi de $Z$, il suffit de sommer sur tous les $n$ possibles.
+ 
+\begin{align*}
+P(Z=k)&=\sum_{n=k}^{\infty}P(Z=k,Y=n)=\sum_{n=k}^{\infty}P(Z=k/Y=n)P(Y=n)\\
+&=\sum_{n=k}^{\infty}\frac{p^k(1-p)^{n-k}m^n}{k!(n-k)!}.e^{-m}=\sum_{n=k}^{\infty}\frac{p^k(1-p)^{n-k}m^{n-k+k}}{k!(n-k)!}.e^{-m}\\
+&=\sum_{n=k}^{\infty}\frac{p^k(1-p)^{n-k}m^{n-k}m^k}{k!(n-k)!}.e^{-m}=\sum_{n=k}^{\infty}\frac{(p.m)^k(m(1-p))^{n-k}}{k!(n-k)!}.e^{-m}\\
+&=\frac{(p.m)^k}{k!}.e^{-m}\sum_{n=k}^{\infty}\frac{(m(1-p))^{n-k}}{(n-k)!}
+\end{align*}
+
+En posant $n-k=j$, on a :
+
+\[P(Z=k)=\frac{(p.m)^k}{k!}.e^{-m}.\sum_{j=0}^{\infty}\frac{(m(1-p))^j}{j!}\]
+
+La somme est une série exponentielle. En effet, le développement limité de la fonction $x\longmapsto e^x$ en 0 est :
+
+\[\sum_{j=0}^{\infty}\frac{x^j}{j!}=e^x \text{ alors } \sum_{j=0}^{\infty}\frac{(m(1-p))^j}{j!}=e^{m(1-p)}\]
+
+Donc,
+
+\[P(Z=k)=\frac{(p.m)^k}{k!}.e^{-m}.e^{m(1-p)}=\frac{(p.m)^k}{k!}.e^{-m.p}\]
+
+Elle correspond à la probabilité d'une loi poisson de paramètre $m.p$.
+
+Donc $Z$ suit une loi poisson de paramètre $m.p$.
+
+ 
+(3) La loi de $U$ 
+
+Le problème ici suit un schéma de Bernoulli. Le premier appel en retard correspond au \textbf{ nombre d'appels avant le premier succès} dans une suite de Bernoulli avec pour probabilité $p=0,25$.
+
+Puisque $U$ correspond au premier succès après un certain nombre d'échecs, alors la variable $U$ suit une \textbf{loi géométrique} de paramètre $p$, donnée par :
+
+\[
+P(U=k)=p.(1-p)^{k-1},\hspace{0.7cm} k\in \mathbb{N}\]
+
+\medskip
+\textbf{Exercice 3}
+
+$f(x)=\int_{x}^{2x}\frac{du}{u+\sin u}$
+ 
+ 
+ 1.a) Justifions l'existence de $f$.
+ 
+ 
+ \textbf{Continuité de $\frac{1}{u+\sin u}$ sur $[x,2x]$}
+ 
+ La fonction $u+\sin u$ est continue, car $u$ est une fonction linéaire et $\sin u$ est continue.
+ 
+ Le dénominateur $u+\sin u> 0$ pour $u>0$, car $u>0$ et $\sin u\in [-1,1]$. Donc $u+\sin u\neq 0$.
+ 
+ Ainsi $\frac{1}{u+\sin u}$ est bien continue sur $[x,2x]$.
+ 
+ \medskip
+ \textbf{Bornitude de $\frac{1}{u+\sin u}$ sur $[x,2x]$}
+ 
+ $u+\sin u>u-1$ pour $u>1$. Donc $\frac{1}{u+\sin u}\leq\frac{1}{u-1}$, ce qui prouve que $\frac{1}{u+\sin u}$ est bornée.
+ 
+ Par conséquent, l'intégrale $f(x)=\int_{x}^{2x}\frac{du}{u+\sin u}$ est bien définie.
+ 
+ 
+ 
+ b) Étudions la parité de $f$.
+ 
+ $f(x)=\int_{x}^{2x}\frac{du}{u+\sin u}$
+ 
+ $f(-x)=\int_{-x}^{-2x}\frac{du}{u+\sin u}$
+ 
+ Posons :$v=-u$ donc $dv=-du$
+ 
+ En changeant des bornes :
+ 
+$ \cdot$ Quand $u=-x$, $v=x$
+ 
+$ \cdot$ Quand $u=-2x$, $v=2x$
+ 
+ L'intégrale devient :
+ 
+ $f(-x)=\int_{x}^{2x}\frac{-dv}{-v+\sin(-v)}$
+ 
+ Simplifions cette expression :
+ 
+ $\sin(-v)=-\sin(v)$, alors $-v+\sin(-v)=-v-\sin v=-(v+\sin(v)$.
+ 
+ Ainsi 
+
+ $f(-x)=\int_{x}^{2x}\frac{-dv}{-(v+\sin(v))}\int_{x}^{2x}\frac{dv}{v+\sin(v)}=f(x)$ puisque la variable est muette.
+ 
+ On a :$f(x)=f(-x)$ alors $f$ est paire.
+ 
+ c) Montrons que $\forall x>0, \hspace{0.1cm}f(x)>0$
+ 
+ La fonction intégrée $\frac{1}{u+\sin u}>0$ pour $u>0$
+ 
+ L'intégrale d'une fonction positive sur un intervalle $[x,2x]$ est positive :
+ 
+ Alors, $\forall x>0, f(x)=\int_{x}^{2x}\frac{du}{u+\sin u}>0$
+ 
+ Dans la suite on supposera que $x>0$
+ 
+ 2. Calculons $f'(x)$, 
+ 
+ D'après la formule de Leibniz pour les intégrales à bornes variables, on a :
+\[
+f'(x) = \frac{\partial}{\partial x} \int_x^{2x} \frac{1}{u + \sin u} \, du = \frac{1}{2x + \sin(2x)} \cdot \frac{\partial}{\partial x}(2x) - \frac{1}{x + \sin x} \cdot \frac{\partial}{\partial x}(x).
+\]
+
+Les dérivées des bornes \( 2x \) et \( x \) donnent respectivement :
+\[
+\frac{\partial}{\partial x}(2x) = 2 \quad \text{et} \quad \frac{\partial}{\partial x}(x) = 1.
+\]
+
+Ainsi, \( f'(x) \) s'écrit :
+\[
+f'(x) = \frac{2}{2x + \sin(2x)} - \frac{1}{x + \sin x}.
+\]
+
+ Simplification de \( f'(x) \)
+
+Mettons \( f'(x) \) sous une seule fraction. Le dénominateur commun est \((x + \sin x)(2x + \sin(2x))\), et \( f'(x) \) devient :
+\[
+f'(x) = \frac{2(x + \sin x) - (2x + \sin(2x))}{(x + \sin x)(2x + \sin(2x))}.
+\]
+
+Développons le numérateur :
+\[
+2(x + \sin x) = 2x + 2\sin x, \quad -(2x + \sin(2x)) = -2x - \sin(2x).
+\]
+
+Ainsi, le numérateur est donné par :
+\[
+2x + 2\sin x - 2x - \sin(2x) = 2\sin x - \sin(2x).
+\]
+
+En utilisant la formule de double angle \( \sin(2x) = 2\sin x \cos x \), on peut réécrire :
+\[
+2\sin x - \sin(2x) = 2\sin x - 2\sin x \cos x = 2\sin x(1 - \cos x).
+\]
+
+Finalement, on obtient :
+\[
+f'(x) = \frac{2\sin x(1 - \cos x)}{(x + \sin x)(2x + \sin(2x))}.
+\]
+
+Étude du signe de \( f'(x) \)
+
+- Numérateur :\( 2\sin x(1 - \cos x) \).
+
+  - Pour \( x > 0 \), on a \( \sin x \geq 0 \) et \( 1 - \cos x \geq 0 \) (car \( \cos x \leq 1 \)).
+  - Donc, \( 2\sin x(1 - \cos x) \geq 0 \).
+
+- Dénominateur : \( (x + \sin x)(2x + \sin(2x)) \).
+
+  - Pour \( x > 0 \), \( x + \sin x > 0 \) et \( 2x + \sin(2x) > 0 \), donc le dénominateur est strictement positif.
+
+Conclusion : \( f'(x) \geq 0 \) pour \( x > 0 \).
+
+ Variations de \( f(x) \)
+
+Puisque \( f'(x) \geq 0 \) pour \( x > 0 \), la fonction \( f(x) \) est \textbf{croissante} sur \( ]0, +\infty[ \).
+
+Conclusion
+
+ La dérivée de \( f(x) \) est donnée par :
+\[
+f'(x) = \frac{2\sin x(1 - \cos x)}{(x + \sin x)(2x + \sin(2x))}.
+\]
+
+ Comme \( f'(x) \geq 0 \) pour \( x > 0 \), la fonction \( f(x) \) est strictement croissante sur \( ]0, +\infty[ \).
+
+ 
+ 
+
+ 
+ 3.(a) Trouvons pour $u>1$, un encadrement de $\frac{1}{u+\sin u}$ puis pour $x>1$ un encadrement de $f(x)$.
+ 
+ On a :
+ 
+ $\bullet$ Pour $u>1$
+ 
+ \[-1\leq \sin u\leq 1\Rightarrow u-1\leq u+\sin u\leq u+1\Rightarrow \frac{1}{u+1}\leq \frac{1}{u+\sin u}\leq \frac{1}{u-1} \text{ pour } u> 1\] 
+ 
+ \medskip
+ $\bullet$ Pour $x>1$
+ 
+ Appliquons l'intégrale à l'encadrement précédent :
+ 
+ \[
+ \int_{x}^{2x}\frac{1}{u+1}du\leq \int_{x}^{2x}\frac{1}{u+\sin u}du\leq \int_{x}^{2x}\frac{1}{u-1}du\]
+ 
+ \[\int_{x}^{2x}\frac{1}{u+1}du=\ln(2x+1)-\ln(x+1) \text{ et } \int_{x}^{2x}\frac{1}{u-1}du=\ln(2x-1)-\ln(x-1)\]
+ 
+ Donc :
+ 
+ \[\ln\left(\frac{2x+1}{x+1}\right)\leq f(x)\leq \ln\left(\frac{2x-1}{x-1}\right)\]
+ 
+(b) Déterminons \[
+\lim_{x\to +\infty}f(x)
+\]
+
+\[\lim_{x\to +\infty}\ln\left(\frac{2x+1}{x+1}\right)\leq \lim_{x\to +\infty}f(x)\leq \lim_{x\to +\infty}\ln\left(\frac{2x-1}{x-1}\right)\]
+\[\ln(2)\leq \lim_{x\to +\infty}f(x)\leq ln(2)\Rightarrow \lim_{x\to +\infty}f(x)=ln(2)\]
+
+\medskip
+\textbf{Exercice 4}
+
+Calculons la limite des suites suivantes :
+
+1. \[
+u_n=n\sum_{k=0}^{n-1}\frac{1}{n^2+k^2}
+\]
+
+Pour étudier la limite, il est utile de transformer cette somme en une somme de Darboux(Riemann).
+
+On remarque que $k\in \{0,1,2,...,n-1\}$,  et le terme général peut être réécrit en divisant le numérateur et le dénominateur par $n^2$ :
+
+\[\frac{1}{n^2+k^2}=\frac{1}{n^2}.\frac{1}{1+(\frac{k}{n})^2}\]
+
+Ainsi, $u_n$ devient :
+
+\[u_n=\frac{1}{n}\sum_{k=0}^{n-1}\frac{1}{1+(\frac{k}{n})^2}\]. On reconnait une somme de type Riemann. En posant $x=\frac{k}{n}$, on obtient une approximation de l'intégrale définie:
+
+\[\lim_{n\to +\infty} u_n=\int_0^1\frac{1}{1+x^2}dx=[\arctan(x)]_0^1=\arctan(1)-\arctan(0)=\frac{\pi}{4}\]
+
+
+2. \[
+v_n=\prod_{k=1}^{n}\left(1+\frac{k^2}{n^2}\right)^{\frac{1}{n}}.
+\]
+
+\textbf{Expression logarithmique :} Pour étudier cette suite, prenons le logarithme pour simplifier les produits:
+
+\[\ln\left(\prod_{k=1}^{n}\left(1+\frac{k^2}{n^2}\right)^{\frac{1}{n}}\right)=\frac{1}{n}\sum_{k=1}^n\ln\left(1+\frac{k^2}{n^2}\right)\]
+
+Ainsi 
+\[
+v_n=\prod_{k=1}^{n}\left(1+\frac{k^2}{n^2}\right)^{\frac{1}{n}}= e^{\frac{1}{n}\sum_{k=1}^n\ln\left(1+\frac{k^2}{n^2}\right)}.
+\]
+
+On sait qu'en $x=0$, $ \ln(1+x) \stackrel{ 0 }{\sim} x $
+
+Si $n\to +\infty$, $\frac{k^2}{n^2}\to 0$ alors $\ln(1+\frac{k^2}{n^2})\sim \frac{k^2}{n^2}$
+
+
+En reportant dans $v_n$ on obtient la somme simplifiée :
+
+$\frac{1}{n}\sum_{k=1}^n\ln\left(1+\frac{k^2}{n^2}\right)\sim \frac{1}{n}\sum_{k=1}^n\frac{k^2}{n^2}$
+
+\medskip
+\textbf{Limite de la somme :}
+
+\[\lim_{n\to +\infty} \frac{1}{n}\sum_{k=1}^n\frac{k^2}{n^2}=\lim_{n\to +\infty}\frac{1}{n^3}\sum_{k=1}^n k^2 \text{ avec } \sum_{k=1}^n k^2=\frac{n(n+1)(2n+1)}{6}\]
+
+\[\lim_{n\to +\infty} \frac{1}{n}\sum_{k=1}^n\frac{k^2}{n^2}=\lim_{n\to +\infty}\frac{1}{n^3}.\frac{n(n+1)(2n+1)}{6}=\lim_{n\to +\infty}\frac{(n+1)(2n+1)}{6n^2}=\frac{2}{6}=\frac{1}{3}\]
+
+\medskip
+En revenant à l'expression de $v_n$ :
+
+\[\lim_{n\to +\infty}v_n=e^{\frac{1}{3}}\]
+
+
+
+
+
+
+
+
+
+
+\newpage
+
+\end{spacing}
+\end{document}

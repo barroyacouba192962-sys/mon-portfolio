@@ -1,0 +1,134 @@
+\documentclass[12pt]{article}
+\input{../preambule}
+
+\begin{document}
+\entete{Mathématiques}{Sujet type n°6}{Énoncé}
+\begin{spacing}{1.5}
+
+ 
+ \medskip\textbf{Exercice 1 }
+
+ Pour tout $x,y \in \mathbb{R}$, montrer les inégalités suivantes :
+ 
+ 1. Première inégalité triangulaire $\vert x+y\vert \leq \vert x\vert + \vert y\vert$
+ 
+ 2. Seconde inégalité triangulaire $\vert\vert x\vert - \vert y\vert\vert\leq\vert x-y\vert$.
+ 
+ \medskip\textbf{Exercice 2}
+
+ Soient $X$ et $Y$ deux variables aléatoires dont les lois sont données par :
+ 
+ $P(X =1)=0.6$, $P(Y =1)=0.4$
+ 
+ $P(X =2)=0.2$, $P(Y =2)=0.5$
+ 
+$P(X =3)=0.2$, $P(Y =3)=0.1$
+ 
+ 1. La loi du couple $(X,Y)$ est donnée par l'un des tableaux suivants. Lequel?
+ 
+ $A\hspace{4.2cm} B \hspace{4.5cm} C \hspace{4.8cm} D$
+ 
+ $
+ \begin{tabular}{|c|c|c|c|}
+ \hline 
+ $Y\setminus X $& 1 & 2 & 3 \\ 
+ \hline 
+ 1 & 0,5 & 0 & 0,1 \\ 
+ \hline 
+ 2 & 0,2 & 0,1 & 0 \\ 
+ \hline 
+ 3 & 0,1 & 0 & 0 \\ 
+ \hline 
+ \end{tabular}
+ \hspace{0,07cm}
+ \begin{tabular}{|c|c|c|c|}
+ \hline 
+ $Y\setminus X $& 1 & 2 & 3 \\ 
+ \hline 
+ 1 & 0,5 & 0 & 0,1 \\ 
+ \hline 
+ 2 & 0 & 0,1 & 0 \\ 
+ \hline 
+ 3 & 0,1 & 0 & 0 \\ 
+ \hline 
+ \end{tabular}
+ \hspace{0,07cm}
+ \begin{tabular}{|c|c|c|c|}
+ \hline 
+ $Y\setminus X $& 1 & 2 & 3 \\ 
+ \hline 
+ 1 & 0,2 & 0,1 & 0,1 \\ 
+ \hline 
+ 2 & 0,3 & 0,1 & 0,1 \\ 
+ \hline 
+ 3 & 0,1 & 0 & 0 \\ 
+ \hline 
+ \end{tabular}
+ \hspace{0,07cm}
+ \begin{tabular}{|c|c|c|c|}
+ \hline 
+ $Y\setminus X $& 1 & 2 & 3 \\ 
+ \hline 
+ 1 & 1 & 0 & 0 \\ 
+ \hline 
+ 2 & 0 & 1 & 0 \\ 
+ \hline 
+ 3 & 0 & 0 & 1 \\ 
+ \hline 
+ \end{tabular}$
+ 
+ 2. Quel serait le tableau de la loi du couple $(X,Y)$ si les variables $X$ et $Y$ étaient
+ indépendantes ?
+
+3. Parmi les autres tableaux, déterminer lesquels peuvent correspondre à la loi d'un couple de variables. Lorsque c'est le cas, donner les lois marginales correspondantes.
+
+\medskip\textbf{Exercice 3}
+
+On considère les deux fonctions $f_n$ et $g_n$, définies sur $\mathbb{R}$, par : 
+$f_n(x) = (1 + x)^n$ 
+
+$g_n(x) = (1 - x)^n$ où $n$ est un entier naturel. 
+
+1) Par un calcul direct, donner les expressions de leurs primitives, notées respectivement $F_n(x)$ 
+et $G_n(x)$.  
+
+2) En développant $f_n$ et $g_n$ par la formule du binôme, donner deux autres expressions de $F_n(x)$ et $G_n(x)$. 
+
+3) Calculer les quantités $F_n(1)-F_n(0)$ et $G_n(1) - G_n(0)$. 
+
+En déduire la valeur de $A$ et $B$ où : 
+
+\[
+A = \sum_{k=0}^{k=n}\frac{1}{k+1}C_{n}^{k}
+\]
+
+\[
+B=\sum_{k=0}^{k=n}(-1)^{k+1}\frac{1}{k+1}C_{n}^{k}
+\]
+
+\medskip\textbf{Exercice 4}
+
+ On munit $\mathbb{R}^n$ de son produit scalaire usuel.
+ 
+ 1. Montrer que pour tout $x = (x_i) \in \mathbb{R}^n$, on a
+ \[
+ (\sum_{i=1}^{n} x_i)^2\leq n(\sum_{i=1}^{n} x_{i}^{2})
+ \]
+ 
+ 2.  Soit $A \in M_{n}(\mathbb{R}), A = [a_{ij}]$.
+ 
+ Calculer $tr(A^tA)$ en fonction des $a_{ij}$.
+ 
+ En déduire l'inégalité $\mid tr(A)\mid \leq \sqrt{ntr(A^tA)}$ pour toute matrice $A$.
+ 
+ 3. Montrer que sur $M_n(\mathbb{R})$ l'application $A,B \longmapsto tr(A^tB)$ définit un produit scalaire.
+ 
+4. Montrer que pour toutes matrices $A$ et $B$ symétriques, on a :
+ 
+ $\mid tr(AB)\mid^2 \leq  (tr(A^2))(tr(B^2))$.
+ 
+ \quad
+ 
+
+\end{spacing}
+\end{document}

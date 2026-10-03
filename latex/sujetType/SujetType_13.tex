@@ -1,0 +1,113 @@
+\documentclass[12pt]{article}
+\input{../preambule}
+
+\begin{document}
+\entete{Mathématiques}{Sujet type n°13}{Énoncé}
+\begin{spacing}{1.5}
+
+\medskip\textbf{Exercice 1}
+
+\textbf{Partie 1}
+
+Soit $A$ un réel non nul. 
+
+Montrer que, pour tout $n$ entier naturel non nul, on peut déterminer une suite unique de $n+1$ 
+nombres réels $(t_0, t_1,\cdots, t_{n-1},t_n)$ vérifiant les trois conditions suivantes : 
+
+(i)    $t_0 = 0, t_n = A$ 
+(ii)   $t_0 < t_1 < \cdots<t_{n-1} < t_n$
+(iii)  $\forall k\in \lbrace 0, ...., n-1\rbrace, t_{k+1}-t_{k}= A/n$
+
+\textbf{Partie 2}
+
+Soit la fonction $f : [0,1]\longrightarrow \mathbb{R}$, continue et strictement positive. 
+
+1) Montrer que, pour tout $n$ entier non nul, il existe dans $[0,1]^{n+1}$ une suite unique de $n+1$ 
+nombres réels $(x_0, x_1,\cdots,x_{n-1},  x_n)$ vérifiant les trois conditions suivantes : 
+
+(i)  $x_0 = 0, x_n = 1$
+
+(ii) $x_0 < x_1 < \cdots<x_{n-1} < x_n$
+
+(iii) $\forall k \in {0, ...., n-1}, \int_{x_k}^{x_{k+1}}f(t)dt=\frac{1}{n}\int_{0}^{1}f(t)dt$
+ 
+2) Soit $U(n) = \frac{1}{n}\sum_{k=0}^{n}f(x_k)$ 
+
+Déterminer la limite $L$ de $U(n)$ quand $n$ tend vers $+\infty$. 
+
+3) Calculer $L$ dans le cas particulier de $f(x) = e^x$
+
+\medskip\textbf{Exercice 2}
+
+Le symbole $ln$ représente le logarithme népérien et $\mathbb{R}$ désigne l'ensemble des nombres réels. 
+
+1) Soit l'application $g : ]0,1[\cup ]1,+\infty[\longrightarrow \mathbb{R}$, définie par : 
+$g(x)=\frac{1}{lnx}$.
+ 
+ Étudier très précisément les variations de g (dérivées, sens de variation, concavité, limites, 
+asymptotes éventuelles, tableau de variation, graphe). 
+
+Pour toute la suite du problème, on admettra l'existence d'une primitive $G$ de $g$, qu'on ne 
+cherchera pas à calculer explicitement. 
+ 
+2) On considère l'ensemble $D = ]0,1/2[\cup ]1,+\infty[$. 
+On définit l'intégrale J(x) par : 
+$J(x) =\int_{x}^{2x}g(t)dt$
+
+Montrer que $J(x)$ existe pour tout $x\in D$. 
+
+3) Soit l'ensemble $D^+ = [0,1/2[\cup ]1,+\infty[ = D \cup \lbrace 0\rbrace$
+
+On définit l'application $f : D^+\longrightarrow \mathbb{R}$ par : 
+
+$\forall x \in D,f(x) = J(x)$
+
+$f(0)=0$
+
+Montrer que $f$ est dérivable sur $D$, et calculer sa dérivée $f^{\prime}$.
+
+Étudier le signe de $f^{\prime}$ et en déduire le sens des variations de $f$ . 
+
+4) Démontrer que, $\forall x \in D$ : 
+
+$\frac{x}{ln(2x)}\leq f(x)\leq \frac{x}{lnx}$
+
+En déduire les limites de $f(x)$ et de $f(x) /x$ quand $x \longrightarrow 0$. 
+
+Étudier la continuité et la dérivabilité de $f$ en $0$. 
+
+5) Quelles sont les limites de $f(x)$ et de $f(x)/x$ quand $x\longrightarrow \infty$? 
+
+6) Soit l'application $h : ]0,1] \longrightarrow \mathbb{R}$, définie par : 
+$h(u) = ln(u)-2u + 2$ 
+
+Montrer qu'il existe un réel unique, noté $\alpha, 0 < \alpha  <1/2$, tel que $h(\alpha) = 0$. 
+
+Montrer que $\forall u \cup [\alpha, 1]$, on a $Ln(u)\geq 2u-2$. 
+
+En déduire que $f(x)$ est majorée, pour tout $x\in[\alpha,1/2]$, par $\frac{1}{2}ln(\frac{2x-1}{x-1}$
+
+Calculer la limite de $f$ quand  $x \longrightarrow 1/2$. 
+
+7) Montrer que, $\forall u\geq 1, ln(u) \leq u - 1$. 
+
+En déduire la limite de $f$ quand  $x \longrightarrow 1$. 
+
+8) Construire le tableau de variations de $f$ . 
+
+\medskip\textbf{Exercice 3}
+
+Les symboles $Ln$ et $tan$ représentent respectivement le logarithme népérien et la tangente. 
+
+On donne $Ln2 = 0,69$. 
+
+1) Comparer les intégrales $A$ et $B$ :
+
+$A=\int_{0}^{\frac{\pi}{4}}Ln(\cos x)dx$
+
+$B= \int_{0}^{\frac{\pi}{4}}Ln(\cos(\frac{\pi}{4}- x)dx$.
+
+2. Calculer l'intégrale $I=\int_{0}^{\frac{\pi}{4}}Ln(1+\tan x)dx$.
+
+\end{spacing}
+\end{document}

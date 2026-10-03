@@ -1,0 +1,198 @@
+\documentclass[12pt]{article}
+\input{../preambule}
+
+\begin{document}
+\entete{Mathématiques}{Corrigé détaillé du sujet type n°1}{Correction}
+\begin{spacing}{1.5}
+
+\medskip\textbf{Exercice 1}
+
+1. Montrons que $a$ divise $b-a$.
+
+Comme $a$ divise $b$, alors il existe $k\in \mathbb{Z}/b=ka$.
+
+En soustrayant $a$ des deux coté de l'égalité, on obtient : 
+
+$b-a=ka-a\Longrightarrow b-a=(k-1)a$. Donc $a$ divise $b-a$ et le coefficient de $b-a$ par $a$ est $k-1$
+
+2. Déduisons les entiers naturels $n$ tels que $n-1$ divise $n + 3$ 
+
+Si $n-1$ divise $n+3$, alors, d'après la première question, puisque $n-1 < n + 3, n-1$ divise aussi $n+3 - (n-1) = 4$.
+
+Les diviseurs de 4 sont 1, 2 et 4. D'où : $n-1 =1$ ou $n-1= 2$ ou $n-1 = 4$, ce qui conduit à $n = 2$ ou $n = 3$ ou $n =5$. 
+
+Les entiers naturels $n$ tels que $\ll n-1$ divise $n+3\gg$ sont : 2, 3 et 5.
+
+\medskip\textbf{Exercice 2}
+
+1. Donnons la matrice $M(a)$ représentant $f_a$.
+
+\[
+M(a)=\begin{pmatrix}
+2-a & a-1  &0 \\
+2(1-a) & 2a-1&0\\
+0&0&a
+\end{pmatrix}
+\]
+
+2. Trouvons les noyaux K(0) de $f_0$ et K(1) de $f_1$.
+
+Le noyau K($a$)=$\{\begin{pmatrix}
+x\\
+y\\
+z
+\end{pmatrix}\in \mathbb{R}^3/\begin{pmatrix}
+(2-a)x+(a-1)y\\
+2(1-a)x+(2a-1)y\\
+az
+\end{pmatrix}=\begin{pmatrix}
+0\\
+0\\
+0
+\end{pmatrix}\}$
+
+Cas $a = 0$
+
+$2x-y = 0\Longrightarrow y=2x$
+
+$0 = 0$
+
+$\Longrightarrow K(0) = \{(x, 2x, z), x$ et $z$ réels$\}$
+
+
+\medskip Cas $a = 1$ :
+$x = 0$
+
+$y = 0$
+
+$z = 0$
+
+K(1) est le point d'origine $(0, 0, 0)$
+
+3) Le noyau K($a$) de $f_a$
+
+$(2-a)x + (a-1)y = 0$
+
+
+$2(1-a)x + (2a-1)y = 0$
+
+$az = 0$
+
+On remarque que les deux premières équations conduisent à $a(y-x) = 0$. Puisque $a\neq 0$ alors $x=y$, d'où K($a$)$ = 
+\{(x, x, 0)\}$ avec $x$ un réel.
+
+4) Montrons que $M(a)$ peut s'écrire sous la forme $A + aB$ où $ A $ et $B$ sont deux matrices à déterminer.
+
+$M(a) = A + aB$ avec :$A=\begin{pmatrix}
+2 & -1 & 0 \\ 
+2 & -1 & 0 \\ 
+0 & 0 & 0
+\end{pmatrix}$ et $B= \begin{pmatrix}
+-1 & 1 & 0 \\ 
+-2 & 2 & 0 \\ 
+0 & 0 & 1
+\end{pmatrix}$
+
+5. Des calculs simples conduisent à $AB = 0, BA = 0, A^2= A, B^2= B$
+
+$M(a)^2= A^2 + aAB + aBA + a^2B^2 = A + a^2B$
+
+6. Raisonnons par récurrence et faisons l'hypothèse que $M(a)^{n-1} = A +a^{n-1}B.$
+
+$M(a)^n=M(a)^{n-1}.M(a)=(A +a^{n-1}B)(A +aB)= A^2 + aAB + a^{n-1}BA + a^nB^2 = A + a^nB$
+
+On en déduit :
+
+$M(a)^n=A + a^nB=\begin{pmatrix}
+2 & -1 & 0 \\ 
+2 & -1 & 0 \\ 
+0 & 0 & 0
+\end{pmatrix} + a^n \begin{pmatrix}
+-1 & 1 & 0 \\ 
+-2 & 2 & 0 \\ 
+0 & 0 & 1
+\end{pmatrix}$
+
+$=M(a)=\begin{pmatrix}
+2-a^n & a^n-1  &0 \\
+2(1-a^n) & 2a^n-1&0\\
+0&0&a^n
+\end{pmatrix}$
+
+
+\medskip\textbf{Exercice 3}
+
+1. Calculons $B = \sum_{p=0}^{p=n}C_{n}^{p}$
+
+ A partir du développement du binôme de Newton :
+ 
+$(1 + 1)^n = \sum_{p=0}^{p=n}C_{n}^{p}(1)^{n-p}(1)^{p} $
+
+$2^n=\sum_{p=0}^{p=n}C_{n}^{p}\Longrightarrow B=2^n$
+ 
+ 2. Montrons que $C_{n}^{p}=f(n,p).C_{n-1}^{p-1}$ où $f(n,p)$ est une fonction de $n$ et $p$ à expliciter. 
+ 
+ \begin{align*}
+C_{n}^{p}&=\frac{n!}{p!(n-p)!}\\
+		&=\frac{n(n-1)!}{p(p-1)!(n-p)!}\\
+		&=\frac{n}{p}\frac{(n-1)!}{(p-1)!(n-p)!}\\
+		&=\frac{n}{p}C_{n-1}^{p-1}\\
+		&=f(n,p)C_{n-1}^{p-1}
+\end{align*} avec $f(n,p)=\frac{n}{p}$
+
+3. Calculons $S = \sum_{p=0}^{p=n}p.C_{n}^{p}$.
+
+$\sum_{p=0}^{p=n}p.C_{n}^{p}=\sum_{p=1}^{p=n}p.C_{n}^{p}$
+
+D'après les questions 2 et 1, $S=\sum_{p=1}^{p=n}n.C_{n-1}^{p-1}=n\sum_{p=1}^{p=n}C_{n-1}^{p-1}=n\sum_{r=0}^{r=n-1}C_{n-1}^{r}=n2^{n-1}$.
+
+\medskip\textbf{Exercice 4}
+
+$(E): y^{\prime\prime}+y^{\prime}+y=0$
+
+1. C'est une équation différentielle linéaire homogène à coefficients constants. Sa solution générale dépendra des racines de l'équation caractéristique associée :
+
+$r^2+r+1=0$
+
+Calculons les racines de cette équation :
+
+$r=\frac{-1\pm \sqrt{3}i}{2}=-\frac{1}{2}\pm \frac{\sqrt{3}}{2}i$
+
+Les racines sont donc complexes conjuguées, $-\frac{1}{2}\pm \frac{\sqrt{3}}{2}i$. Cela signifie que la solution générale de l'équation différentielle est de la forme :
+
+$y(x)=e^{-\frac{x}{2}}(A\cos(\frac{\sqrt{3}}{2}x)+B\sin(\frac{\sqrt{3}}{2}x))$ où $A$ et $B$ sont des constantes déterminées par les conditions initiales.
+
+\medskip\textbf{Comportement des solutions en $-\infty$ et $+\infty$}
+
+Puisque $e^{-\frac{x}{2}}$ tend vers 0 lorsque $x\longrightarrow +\infty$ ou $x\longrightarrow -\infty$, la solution $y(x)$  tend également vers 0 dans les deux directions. Ainsi, toutes les solutions de l'équation différentielle $(E)$ tendent vers 0 lorsque $x\longrightarrow +\infty$ ou $x\longrightarrow -\infty$
+
+2. $f^{\prime\prime}+f^{\prime}+f$ soit $T$-périodique. 
+
+Montrons que $f(x +T)-f(x)$ est solution de $(E)$.
+
+Soit $g(x)=f(x +T)-f(x)$. Calculons $g'$ et $g''$.
+
+$g'= f'(x +T)-f'(x)$
+
+$g''=f''(x +T)-f''(x)$
+
+puisque $f$ satisfaisant $f^{\prime\prime}+f^{\prime}+f$ est  $T$-périodique alors $f^{\prime\prime}(x+T)+f^{\prime}(x+T)+f(x+T)=f^{\prime\prime}(x)+f^{\prime}(x)+f(x)\Rightarrow f^{\prime\prime}(x+T)+f^{\prime}(x+T)+f(x+T)-f^{\prime\prime}(x)-f^{\prime}(x)-f(x)=0$, on a :
+
+$g^{\prime\prime}(x)+g^{\prime}(x)+g(x)=0$
+
+Cela montre que $g(x)=f(x+T)-f(x)$ est solution de $(E)$
+
+\medskip \underline{Déduisons que si $f$ est bornée sur $\mathbb{R}$, $f$ est elle-même $T$-périodique}.
+
+Supposons que $f$ est bornée sur $\mathbb{R}$. Alors, $g(x)=f(x+T)-f(x)$ est également bornée, car il est la différence de deux valeurs bornées de $f$.
+
+Or, nous avons vu dans la première question que toute solution de $(E)$ tend vers 0 en $\pm\infty$. Comme $g(x)$ est solution de $(E)$ et bornée, cela implique nécessairement que $g(x)\longrightarrow 0$ partout, donc $g(x)=0$ pour tout $x\in \mathbb{R}$.
+
+Ainsi $g(x)=f(x+T)-f(x)=0\Rightarrow f(x+T)=f(x)$ pour tout $x\in \mathbb{R}$, ce qui prouve que $f$ est $T$-périodique.
+
+
+
+\quad
+
+\end{spacing}
+\end{document}

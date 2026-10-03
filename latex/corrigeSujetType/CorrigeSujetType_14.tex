@@ -1,0 +1,273 @@
+\documentclass[12pt]{article}
+\input{../preambule}
+
+\begin{document}
+\entete{Mathématiques}{Corrigé détaillé du sujet type n°14}{Correction}
+\begin{spacing}{1.5}
+
+\textbf{Exercice 1}
+
+1.a) Étudions, dans le même tableau de variations, les variations de $x(t)$ et $y(t)$ en fonction de $t$. 
+
+$x'(t) = t + 1$
+ 
+$y’(t) = 1-t $
+
+Pour $t\in \mathbb{R}$, $x(t)$ décroit de $+\infty$ à -1/2, lorsque $t$ va de $-\infty
+$ à -1, puis croît jusqu'à $+\infty$ pour $t$ allant de -1 à $+\infty$ ; $x(t)$ s'annule en $t = 0$. 
+
+En outre, $x(1) = 3/2$.
+
+\medskip 
+$y(t)$ croît de $-\infty$ à 1/2, lorsque $t$ va de $-\infty$ à +1, puis décroît jusqu'à $-\infty$ pour $t$ allant de 1 à $+\infty$ ; $y(t)$ s'annule en $t = 0$. 
+
+En outre, $y(-1) = -3/2$. 
+
+b) Étudions les points de la courbe $C$ en lesquels la tangente est parallèle à l'un des axes de 
+coordonnées. 
+
+Cela revient à résoudre $x’(t) = 0$ et $y’(t) = 0$.  
+
+$x’(t) = 0$ pour $t = -1$ (le point associé est (-1/2, -3/2)). 
+$y’(t) = 0$ pour $t = 1$ (le point associé est (3/2, 1/2)). 
+
+c) Précisons les points d'intersection de $C$ avec les axes $Ox$ et $Oy$. Donnons un vecteur 
+directeur des tangentes en ces points. 
+
+Avec l'axe des ordonnées : $x(t) = 0$ pour $t = 0$ et -2 
+
+Pour $t = 0$, le point est $O (0, 0) $
+
+Pour $t = -2$, le point correspondant est $A(0, -4)$  
+
+Avec l'axe des abscisses : $y(t) = 0$ pour $t = 0$ et 2 
+
+Pour $t = 0$, le point est $O (0, 0)$ 
+
+Pour $t = 2$, le point correspondant est $B(4, 0)$  
+
+La courbe $C$ coupe donc les axes en trois points : $O, A$ et $B$. 
+
+Vecteur directeur des tangentes en $O, A$ et $B$ :
+ 
+En $O, x’ = 1$ et $y’ = 1$ ; en $A, x’ = -1$ et $y’ = 3$ ; en $B, x’ = 3$ et $y’ = -1$. 
+
+d) Donnons graphiquement l'allure de la courbe $C$, en positionnant les points remarquables déterminés. 
+
+\textbf{Tableau de variation}
+
+
+\begin{center}
+    \begin{tikzpicture}
+        \tkzTabInit[lgt=2, espcl=3]
+        {$t$ /1, $x'(t)$ /1, $x(t)$ /2, $y'(t)$ /1, $y(t)$ /2}
+        {$-\infty$, $-1$, $+\infty$}
+
+        % Ligne des variations de x'(t)
+        \tkzTabLine{, +, 0, -,}
+
+        % Ligne des variations de x(t)
+        \tkzTabVar{+/ $+\infty$, -/$-\frac{1}{2}$ ,  +/$+\infty$,}
+        
+        % Affichage du point (0,0) sur la flèche
+       % \tkzTabIma{3}{2}{3}{$0$}
+
+        
+        % Ligne des variations de y'(t)
+        \tkzTabLine{, +, 0, -,}
+
+        % Ligne des variations de y(t)
+        \tkzTabVar{-/ $-\infty$, +/$\frac{1}{2}$, -/$-\infty$}
+    \end{tikzpicture}
+\end{center}
+
+
+
+
+
+
+
+\quad
+
+\textbf{Allure de la courbe $C$}
+
+
+
+
+
+\begin{tikzpicture}
+    \begin{axis}[
+        axis lines = middle,
+        xlabel = \( x \),
+        ylabel = \( y \),
+        xmin = -5, xmax = 5,
+        ymin = -5, ymax = 5,
+        grid = both,
+        width = 10cm,
+        height = 10cm,
+        samples = 200,
+        domain = -4:4,
+        ]
+
+        % Tracer la courbe C en utilisant des équations paramétriques
+        \addplot [
+            blue,
+            thick,
+            variable = \t, % Définir la variable de paramétrisation
+            parametric, % Activer le mode paramétrique
+        ] ({t + (t^2)/2}, {t - (t^2)/2});
+
+        % Points remarquables
+        \addplot [only marks, mark=*, mark size=2pt] coordinates {
+            (0, 0) % Point O
+            (0, -4) % Point A
+            (4, 0) % Point B
+            (-0.5, -1.5) % Point où x'(t) = 0
+            (1.5, 0.5) % Point où y'(t) = 0
+        };
+
+        % Étiquettes des points
+        \node at (axis cs: 0, 0) [above right] {\( O \)};
+        \node at (axis cs: 0, -4) [below right] {\( A \)};
+        \node at (axis cs: 4, 0) [above right] {\( B \)};
+        \node at (axis cs: -0.5, -1.5) [below left] {\((-0.5, -1.5)\)};
+        \node at (axis cs: 1.5, 0.5) [above right] {\((1.5, 0.5)\)};
+
+    \end{axis}
+\end{tikzpicture}
+
+
+
+
+
+e) Donnons l'équation cartésienne $v(x, y) = 0$ de la courbe $C$. 
+
+On remarque que $t = (x + y)/2$ 
+
+En reportant dans la définition de $x(t)$, on a : 
+
+$x = (x + y)^2/8 + (x + y)/2$ 
+
+En développant, on obtient : 
+
+$v(x, y) = x^2+ y^2 + 2xy-4x + 4y = 0$ 
+
+2 – On se propose de déterminer précisément ce qu'est la courbe $C$. 
+
+a) Le plan étant assimilé au plan complexe, on considère l'application $h$ qui, à tout 
+point $M$ d'affixe $z$ du plan, associe un point $M'$ d'affixe $Z$, définie par : 
+
+\[
+Z= \frac{1}{\sqrt{2}}(1+i)z\]
+
+ Donnons de façon précise la nature de l'application $h$. 
+
+On remarque que $Z = h(z) = e^{i\pi/4}z$
+ 
+$H$ est donc une rotation de centre $O$ et d'angle $\pi/4$. 
+
+b) Soit $M$ le point d'affixe $z(t) = x(t) + i y(t)$.
+ 
+Déterminons les coordonnées $X(t)$ et $Y(t)$ de $M’$, image de $M$ par $h$. 
+Donnons une équation cartésienne $\varphi(X, Y) = 0$ de la courbe $C’$ des points $M$’. 
+  
+Soit $z(t) = \rho e^{i\theta} = \rho cos\theta + i\rho sin\theta$, avec $x(t) =\rho cos\theta$ et $y(t) =\rho sin\theta$. 
+
+$Z = h(z) = e^{i\pi/4}z = \rho e^{i(\theta+\pi/4)} z$.
+ 
+D'où $X(t) = (x(t - y(t))/2^{1/2}$  et $Y(t) = (x(t) + y(t))/2^{1/2}$ 
+
+On en déduit : $Y = 2^{1/2}t$ et $X = 2^{-1/2} t^2$.
+
+D'où la relation $\varphi(X, Y) = 0 = 4.2^{1/2} X-Y^2$
+ 
+La courbe $C’$ est une parabole d'axe $Ox$.
+ 
+Le courbe $C’$ est l'image de $C$ par la rotation de centre $O$ et d'angle $\pi/4$. La courbe $C$ est 
+donc l'image de $C’$ par la rotation de centre $O$ et d'angle $- \pi/4$. 
+
+C'est donc encore une parabole, dont l'axe est la deuxième bissectrice.
+
+\medskip\textbf{Exercice 2}
+
+Donnons la probabilité, l'espérance mathématique et la variance de la variables aléatoires $X$ lorsque $X$ suit chacune des lois discrètes usuelles.
+
+\textbf{$\rightarrow$ Loi discrète uniforme}
+
+\[P(X=k)=\frac{1}{n} \hspace{1cm} E(X)=\frac{n+1}{2} \text{ et } V(X)=\frac{n^2-1}{12}\]
+
+\medskip\textbf{$\rightarrow$ Loi de Bernoulli de paramètre $p$}
+
+\[P(X=1)=p \text{ et } P(X=0)=1-p \hspace{1cm}  E(X)=p \textbf{ et } V(X)=p(1-p)\]
+
+\medskip\textbf{$\rightarrow$ Loi binomiale de paramètres $n$ et $p$}
+
+\[P(X=k)=C_n^kp^k(1-p)^{n-k} \hspace{1cm} E(X)=np \text{ et } V(X)=np(1-p)\]
+
+\medskip\textbf{$\rightarrow$ Loi de Poisson de paramètre $\lambda$}
+
+\[P(X=k)=e^{-\lambda}\frac{\lambda^k}{k!} \text{ ou } k\in \mathbb{N} \hspace{1cm} E(X)=V(X)=\lambda\]
+
+\medskip\textbf{$\rightarrow$ Loi Hypergéométrique de paramètres $(N,n,p)$}
+
+\[p(X=k)=\frac{C_{N_p}^kC_{N-N_p}^{n-k}}{C_N^n} \hspace{1cm} E(X)=np \text{ et } V(X)=np(1-p)\frac{N-n}{N-1}\]
+
+\medskip\textbf{$\rightarrow$ Loi géométrique de paramètre p}
+
+\[P(X=k)=p(1-p)^{k-1} \hspace{1cm} E(X)=\frac{1}{p} \text{ et } V(X)=\frac{q}{p^2}\]
+
+\medskip\textbf{$\rightarrow$ Loi Pascal de paramètre $n$ et $p$}
+
+C'est la loi du nombres d'essais nécessaires pour observer $n$ fois un évènement $A$ de probabilité $p$. L'expérience devant se terminer par $A$.
+
+\[P(X=k)=pC_{k-1}^{n-1}p^{n-1}(1-p)^{(k-1)-(n-1)}=C_{k-1}^{n-1}p^n(1-p)^{k-n} \text{ pour } k=n,n+1,\cdots,\infty\]
+
+C'est la somme de $n$ loi géométriques indépendantes(apparition de $A$ pour la première fois, puis pour la deuxième fois, etc.).
+
+\[E(X)=\frac{n}{p} \text{ et } V(X)=\frac{np}{p^2}\]
+
+\medskip\textbf{$\rightarrow$ Loi binomiale négative}
+
+C'est la loi du nombre d'échec nécessaires pour obtenir $n$ succès.
+
+\[P(X=k)=C_{n+k-1}^{n-1}P^n(1-P)^k\]
+
+C'est la loi de $X'=X-n$ ou $X$ suit la loi binomiale.
+
+\[E(X)=nP \text{ et } V(X)=nP(1-P)\]
+
+
+\medskip\textbf{Exercice 3}
+
+1. La somme exacte que M.Barro touchera le $3^e$ mois correspond à $U_3$.
+
+$U_3=U_2 +0.03U_2=(1+0.03)U_2=1.03*618 000 =\textbf{636 540}$
+
+2. La nature de $(U_n)$
+
+On a $\forall n\in N^*,U_{n+1}=U_n+0.03U_n=1.03U_n$.  Ainsi, $(U_n)$ est une suite géométrique de raison 1,03 et de premier terme 600 000.
+
+Donc l'expression de $U_n$ en fonction de $n$ est donnée par $U_n=600 000(1.03)^n$.
+
+3. La somme que M.Barro touchera le dernier mois$(12^e)$ est:
+
+$U_{12}=600 000*1.03^{12}= \textbf{855456.5321}$
+
+4. Déterminons la somme $S$
+
+$S=U_1+U_2+...+U_{12}$
+
+\hspace{0.358cm}$=U_1+1.03U_1+1.03^2U_1...+1.03^{12}U_1$.
+
+\hspace{0.358cm}$=(1+1.03+1.03^2+...+1.03^{12})U_1$
+
+\hspace{0.358cm}$=U_1\sum_{k=0}^{12}(1.03)^k$
+
+\hspace{0.358cm}$=U_1\frac{1-1.03^{13}}{1-1.03}$. Il s'agit de l'application de la formule générale de la somme des $n$ premiers termes d'une suite géométrique de raison q et de premier terme $U_p$ donnée par $S_n=U_p\frac{1-q^{n-p+1}}{1-q}$
+
+\hspace{0.358cm}$=600 000*15.6178$
+
+\hspace{0.058cm}$\underline{S=9370674.269}$
+
+\end{spacing}
+\end{document}

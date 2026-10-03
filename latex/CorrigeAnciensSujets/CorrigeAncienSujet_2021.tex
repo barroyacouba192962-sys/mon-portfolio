@@ -1,0 +1,296 @@
+\documentclass[12pt]{article}
+\input{../preambule}
+
+\begin{document}
+\entete{Mathématiques}{Corrigé détaillé -- Session 2021}{Correction}
+\begin{spacing}{1.5}
+
+\textbf{Exercice 1}
+
+Étudions la nature(convergente ou divergente) des séries numériques suivantes : 
+
+\[\bullet S_1=\sum^{+\infty}_{n=1}(1-\frac{1}{n})^n\]
+
+Soit $u_n=(1-\frac{1}{n})^n\Longrightarrow S_1=\sum^{+\infty}_{n=1}u_n$
+
+Calculons la limite de $u_n$
+
+On a :
+
+$u_n=(1-\frac{1}{n})^n=e^{nln(1-\frac{1}{n})}$
+
+Si $n\longrightarrow +\infty$ alors $-\frac{1}{n}\longrightarrow 0$ et $ln(1-\frac{1}{n})\sim -\frac{1}{n}+\circ(\frac{1}{n})$ (Développement limité de Taylor)
+
+
+Ainsi,
+
+ \[\lim_{n\to +\infty} u_n=\lim_{n\to +\infty}e^{n(-\frac{1}{n}+\circ(\frac{1}{n}))}=\lim_{n\to +\infty}e^{-1+\circ(1)}\longrightarrow \frac{1}{e}\neq 0\] alors $S_1$ diverge.
+
+\medskip
+\[\bullet S_2=\sum^{+\infty}_{n=1}\frac{n(n-1)}{(n+1)!}\].
+
+Soit $u_n=\frac{n(n-1)}{(n+1)!}\Rightarrow u_{n+1}=\frac{n(n+1)}{(n+2)!}$
+
+On a : 
+\begin{align*}
+\lim_{n\to +\infty}\frac{u_{n+1}}{u_n} &=\lim_{n\to +\infty}\frac{\frac{n(n+1)}{(n+2)!}}{\frac{n(n-1)}{(n+1)!}}\\
+&=\lim_{n\to +\infty}\frac{n(n+1)(n+1)!}{n(n-1)(n+2)!}\\
+&=\lim_{n\to +\infty}\frac{n(n+1)(n+1)!}{n(n-1)(n+2)(n+1)!}\\
+&=\lim_{n\to +\infty}\frac{n+1}{(n-1)(n+2)}=\lim_{n\to +\infty}\frac{n}{n^2}=\lim_{n\to +\infty}\frac{1}{n}=0<1
+\end{align*}, alors $S_2$ converge d'après le critère d'Alembert.
+
+
+
+\medskip
+\textbf{Exercice 2 }
+
+
+
+1 : Développement en série entière de la fonction \( u \)
+
+On considère l'équation différentielle suivante :
+\[
+(x - 1) u'(x) + u(x) = 0,
+\]
+avec la condition initiale \( u(0) = -1 \). Nous cherchons le développement en série entière de la solution \( u(x) \).
+
+\quad
+ Résolution de l'équation différentielle
+
+Nous réécrivons l'équation sous la forme :
+\[
+u'(x) = \frac{-u(x)}{x - 1}.
+\]
+
+Nous cherchons une solution sous la forme d'une série entière autour de \( x = 0 \), soit :
+\[
+u(x) = \sum_{n=0}^{\infty} a_n x^n.
+\]
+
+En dérivant cette série terme à terme, on obtient :
+\[
+u'(x) = \sum_{n=1}^{\infty} a_n n x^{n-1}.
+\]
+
+Nous remplaçons cette expression dans l'équation différentielle :
+\[
+(x - 1) \sum_{n=1}^{\infty} a_n n x^{n-1} + \sum_{n=0}^{\infty} a_n x^n = 0.
+\]
+
+\quad
+ Développement des termes
+
+Développons \( (x - 1) \) et multiplions la série par \( (x - 1) \). Nous obtenons :
+\[
+(x - 1) \sum_{n=1}^{\infty} a_n n x^{n-1} = \sum_{n=1}^{\infty} a_n n (x^{n} - x^{n-1}).
+\]
+
+Cela donne :
+\[
+\sum_{n=1}^{\infty} a_n n x^n - \sum_{n=1}^{\infty} a_n n x^{n-1}.
+\]
+
+En ajoutant la deuxième série \( \sum_{n=0}^{\infty} a_n x^n \), on obtient :
+\[
+\left( \sum_{n=1}^{\infty} a_n n x^n - \sum_{n=1}^{\infty} a_n n x^{n-1} \right) + \sum_{n=0}^{\infty} a_n x^n = 0.
+\]
+
+Nous réorganisons les indices et combinons les termes en \( x^n \), ce qui nous permet d'obtenir une relation de récurrence entre les coefficients \( a_n \).
+
+\quad
+ Résolution de la relation de récurrence
+
+Nous trouvons la relation de récurrence suivante pour les coefficients \( a_n \) :
+\[
+a_n = \frac{1}{n} a_{n-1}, \quad \text{pour } n \geq 1.
+\]
+
+Nous utilisons la condition initiale \( u(0) = -1 \), ce qui donne \( a_0 = -1 \). En utilisant la relation de récurrence, nous pouvons calculer les autres coefficients :
+\[
+a_1 = \frac{1}{1} a_0 = -1, \quad a_2 = \frac{1}{2} a_1 = \frac{1}{2}, \quad a_3 = \frac{1}{3} a_2 = \frac{1}{6}, \quad \dots
+\]
+
+Ainsi, la série entière de la solution \( u(x) \) est :
+\[
+u(x) = \sum_{n=0}^{\infty} \frac{(-1)^n}{n!} x^n.
+\]
+
+Il s'agit du développement en série entière de la fonction \( u(x) \).
+
+ 2. Rayon de convergence de la série
+
+Le rayon de convergence \( R \) de la série entière \( u(x) = \sum_{n=0}^{\infty} a_n x^n \) est donné par la formule de Cauchy-Hadamard :
+\[
+\frac{1}{R} = \limsup_{n \to \infty} \sqrt[n]{|a_n|}.
+\]
+
+Ici, nous avons \( a_n = \frac{(-1)^n}{n!} \), donc :
+\[
+\limsup_{n \to \infty} \sqrt[n]{|a_n|} = \limsup_{n \to \infty} \sqrt[n]{\frac{1}{n!}} = 0.
+\]
+
+Ainsi, le rayon de convergence est \( R = \infty \).
+
+ 3. Domaine de convergence
+
+Étant donné que le rayon de convergence de la série est \( R = \infty \), cela signifie que la série converge pour tous les \( x \in \mathbb{R} \). Ainsi, le domaine de convergence de la série est \( \mathbb{R} \).
+
+
+
+\medskip
+\textbf{Exercice 3}
+
+Calculons $\int\int_{D}f(x,y)dxdy$ dans les cas suivants :
+
+1. $D= \lbrace {y\geq 0, x+y, y-x\leq 1\rbrace}$ et $f(x,y)=x^{2}y$.
+
+
+On a:
+
+$
+\begin{cases}
+x+y\leq 1 (1)\\
+y-x \leq 1 (2)
+\end{cases}$
+
+$(1)+(2)\Longrightarrow 2y\leq 2 \Longrightarrow y\leq 1$
+
+De plus, $y\geq 0$. 	D'où $0\leq y\leq 1\Rightarrow y\in [0,1]$
+
+$
+\begin{cases}
+x+y\leq 1 \\
+y-x \leq 1 
+\end{cases}\Rightarrow 
+\begin{cases}
+x\leq 1-y \\
+x \geq y-1
+\end{cases}\Longrightarrow  y-1\leq x \leq 1-y \Rightarrow x\in [y-1,1-y]$
+
+Donc,
+$
+\int\int_{D}f(x,y)dxdy=\int_0^1\int_{y-1}^{1-y}x^2ydxdy=\int_0^1(\int_{y-1}^{1-y}x^2y.dx)dy
+$
+
+$\int_{y-1}^{1-y}x^2y.dx=2\int_{0}^{1-y}x^2y.dx$ car $x\mapsto x^2y$ est une fonction paire pour $y$ fixée.
+
+Donc
+
+\begin{align*}
+\int\int_{D}f(x,y)dxdy &=\int_0^1(2\int_{0}^{1-y}x^2ydx)dy\\
+&=2\int_0^1([\frac{1}{3}x^3y]_0^{1-y})dy\\
+&=\frac{2}{3}\int_0^1y(1-y)^3dy\\
+&=\frac{2}{3}\int_0^1y(1-3y+3y^2-y^3)dy\\
+&=\frac{2}{3}\int_0^1(y-3y^2+3y^3-y^4)dy\\
+&=\frac{2}{3}[\frac{1}{2}y-y^3+\frac{3}{4}y^4-\frac{1}{5}y^5]_0^1\\
+&=\frac{2}{3}(\frac{1}{2}-1+\frac{3}{4}-\frac{1}{5})\\
+\int\int_{D}f(x,y)dxdy &=\frac{1}{30}
+\end{align*}
+
+\medskip
+2. $D= \lbrace 0\leq y\leq x, x^2+y^2 \leq 1\rbrace$ et $f(x,y)=e^{x^2+y^2}$.
+
+Posons :
+
+$x=rcos\theta$ et $y=rsin\theta$
+
+$x^2+y^2=r^2$
+
+$x^2+y^2 \leq 1\Rightarrow r^2\leq 1\Longrightarrow 0\leq r \leq 1\Longrightarrow r\in [0,1]$
+
+$0\leq y\leq x\Rightarrow 0\leq rsin\theta\leq rcos\theta\Rightarrow 0\leq sin\theta\leq cos\theta\\Rightarrow 0\leq \tan\theta\leq 1$. En appliquant $\arctan(x)$ à cette inégalité, on obtient :
+
+$\arctan(0)\leq \arctan(\tan(\theta))\leq \arctan(1)\Longrightarrow 0\leq \theta\leq \frac{\pi}{4}\Longrightarrow \theta\in [0,\frac{\pi}{4}]$
+
+Calculons le jacobien :
+
+$j(r,\theta)=\begin{vmatrix}
+\frac{\partial x}{\partial r} & \frac{\partial x}{\partial \theta}\\
+\frac{\partial y}{\partial r} & \frac{\partial x}{\partial \theta}
+\end{vmatrix}=\begin{vmatrix}
+cos \theta & -r\sin\theta\\
+\sin\theta & r\cos\theta
+\end{vmatrix}=r\Rightarrow dxdy=rdrd\theta$
+
+Donc,
+
+\begin{align*}
+\int\int_{D}f(x,y)dxdy &=\int_0^{\frac{\pi}{4}}\int_{0}^1e^{r^2}rdrd\theta\\
+&=\int_0^{\frac{\pi}{4}}d\theta\times\int_{0}^1re^{r^2}dr\\
+&=[\theta]_0^{\frac{\pi}{4}}\times[\frac{1}{2}e^{r^2}]_0^1\\
+&=\frac{\pi}{4}\times\frac{1}{2}(e-1)=\frac{\pi}{8}(e-1)
+\end{align*}
+
+\medskip
+\textbf{Exercice 4}
+
+Soit l'équation différentielle
+
+$(E) : y^{\prime\prime}-4y^{\prime} + 4y = (t^2 - 1)e^t$.
+
+1. Trouvons une solution particulière de $(E)$ sous la forme $y_p= Q(t)e^t$ ou $Q$ est un polynôme de degré 2.
+
+$y_p=(at^2+bt+c)e^t$
+
+$y'_p=(2at+b)e^t+(at^2+bt+c)e^t=(at^2+(2a+b)t+b+c)e^t$
+
+$y''_p=(2at+2a+b)e^t+(at^2+(2a+b)t+b+c)e^t=(at^2+(4a+b)t+2a+2b+c)e^t$
+
+En reportant dans l'équation différentielle $(E)$, on obtient;
+
+$(at^2+(4a+b)t+2a+2b+c)e^t-4(at^2+(2a+b)t+b+c)e^t+4(at^2+bt+c)e^t=(t^2 - 1)e^t$
+
+$(at^2+(b-4a)t+(2a-2b+c))e^t=(t^2 - 1)e^t$
+
+Par identification,
+
+$\begin{cases}
+a=1\\
+b-4a=0\\
+2a-2b+c=-1
+\end{cases}\Rightarrow \begin{cases}
+a=1\\
+b=4\\
+c=5
+\end{cases}$
+
+D'où $y_p=(t^2+4t+5)e^t$
+
+2. Déduisons la solution générale de $(E)$.
+
+Calculons la solution homogène :
+
+L'équation homogène est donnée par :
+
+$y^{\prime\prime}-4y^{\prime} + 4y =0$
+
+L'équation caractéristique :
+
+$r^2-4r+4=0\Rightarrow (r-2)^2=0\Rightarrow r_0=2$
+
+On a une racine double, donc la solution homogène est de la forme :
+
+$y_0=(At+B)e^{2t}$ avec $A,B\in \mathbb{R}$
+
+Ainsi la solution générale est donnée par :
+
+\[
+y_G=y_0+y_p=(At+B)e^{2t}+(t^2+4t+5)e^t\] avec $A,B\in \mathbb{R}$
+
+
+3. Trouvons la solution $h$ telle que $h(0)=h^{\prime}(0)=1$
+
+$h(t)=(At+B)e^{2t}+(t^2+4t+5)e^t$
+
+$h(0)=1\Rightarrow B+5=1\Rightarrow B=-4$
+
+$h'(t)=Ae^{2t}+2(At+B)e^{2t}+(2t+4)e^t+(t^2+4t+5)e^t$
+
+$h'(0)=1\Rightarrow A+2B+4+5=1\Rightarrow A+2B=-8\Rightarrow A=0$
+
+$h(t)=-4e^{2t}+(t^2+4t+5)e^t$
+
+\medskip
+
+\end{spacing}
+\end{document}

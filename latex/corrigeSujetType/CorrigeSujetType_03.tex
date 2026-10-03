@@ -1,0 +1,163 @@
+\documentclass[12pt]{article}
+\input{../preambule}
+
+\begin{document}
+\entete{Mathématiques}{Corrigé détaillé du sujet type n°3}{Correction}
+\begin{spacing}{1.5}
+
+\textbf{Exercice 1}
+
+Soit $f :\mathbb{R}^2\longrightarrow \mathbb{R}$ la fonction ainsi définie par:
+ $f(x,y)=2x^2+2y^2+2xy-x-y$
+ 
+1. Calculons les dérivées partielles premières de $f$.
+ 
+ $\frac{\partial f}{\partial x}(x,y)=4x+2y-1$
+ 
+ $\frac{\partial f}{\partial y}(x,y)=4y+2x-1$
+ 
+ 
+2. Déterminons l'unique point critique $A$ de $f$.
+
+$\begin{cases}
+ 4x+2y-1=0(1)\\
+ 4y+2x-1=0(2)
+ \end{cases}$
+ 
+ $(1)-(2)\Longrightarrow x=y (3)$
+ 
+ $(3) dans (1)\Longrightarrow x=\frac{1}{6}=y$
+ 
+ \textbf{$A=(\frac{1}{6},\frac{1}{6})$}
+ 
+ 3. Calculons les dérivées partielles secondes de $f$.
+ 
+ $\frac{\partial^2f}{\partial x^2}(x,y)=4$, $\frac{\partial^2 f}{\partial y^2}(x,y)=4$, $\frac{\partial^2 f}{\partial x\partial y}(x,y)=\frac{\partial^2 f}{\partial y\partial x}(x,y)=2$
+ 
+ 4. montrons que $f$ présente en $A$ un extremum en précisant sa nature.
+
+La matrice hessienne de $f$ est donnée par :
+
+$H=\begin{pmatrix}
+4&2\\
+2&4
+\end{pmatrix}$
+
+$\det H=\begin{vmatrix}
+4&2\\
+2&4
+\end{vmatrix}=16-4=12>0$ et $\frac{\partial^2 f}{\partial x^2}(x,y)=4>0$ alors le seul point critique $A$ est un minimum local.
+
+\medskip\textbf{Exercice 2}
+
+1. Calculons $\Delta_1$ en donnant le résultat sous forme factorisée.
+
+$\Delta_1= \begin{vmatrix}
+ 1 & 1 & 1\\
+ b & c & d\\
+ b^2 & c^2 & d^2
+ \end{vmatrix}\begin{array}{c}
+ c_2\longleftarrow c_2-c_1\\
+ c_3\longleftarrow c_3-c_1
+ \end{array}=\begin{vmatrix}
+ 1 & 0 & 0\\
+ b & c-b & d-b\\
+ b^2 & c^2-b^2 & d^2-b^2
+ \end{vmatrix}=(c-b)(d-b)\begin{vmatrix}
+ 1 & 0 & 0\\
+ b & 1 & 1\\
+ b^2 & c+b & d+b
+ \end{vmatrix}$
+ 
+ $=(c-b)(d-b)\begin{vmatrix}
+ 1 & 1\\
+ c+b & d+b
+ \end{vmatrix}=(c-b)(d-b)(d+b-c-b)=(c-b)(d-b)(d-c)$
+ 
+2. Montrons que $\Delta_2 =(b-a)(c-a)(d-a)\Delta_1$. 
+ 
+ $\Delta_2=\begin{vmatrix}
+ 1 & 1 & 1 & 1 \\
+ a & b & c & d \\
+ a^2 & b^2 & c^2 & d^2 \\
+ a^3 & b^3 & c^3 & d^3
+\end{vmatrix} c_i\longleftarrow c_i-c_1$ avec $i=2,3,4 \quad\Delta_2=\begin{vmatrix}
+ 1 & 0 & 0 & 0 \\
+ a & b-a & c-a & d-a \\
+ a^2 & b^2-a^2 & c^2-a^2 & d^2-a^2 \\
+ a^3 & b^3-a^3 & c^3-a^3 & d^3-a^3
+\end{vmatrix}$
+
+$=(b-a)(c-a)(d-a)\begin{vmatrix}
+1 & 1 & 1 \\ 
+b+a & c+a & d+a \\ 
+b^2+ab+a^2 & c^2+ac+a^2 & d^2+ad+a^2
+\end{vmatrix}\begin{array}{c}
+L_2\longleftarrow L_2-aL_1\\
+L_3\longleftarrow L_3-aL_2
+\end{array}$
+
+$\Delta_2=(b-a)(c-a)(d-a)\begin{vmatrix}
+1 & 1 & 1 \\ 
+b & c & d \\ 
+b^2 & c^2 & d^2
+\end{vmatrix}=\Delta_2 =(b-a)(c-a)(d-a)\Delta_1$.
+
+3. Déduisons $\Delta_2$ sous forme factorisée.  
+
+$\Delta_2 =(b-a)(c-a)(d-a)\Delta_1=(b-a)(c-a)(d-a)(c-b)(d-b)(d-c)$.
+
+4. Le rang de $\Delta_2$.
+
+Si les $a,b,c,d$ sont distinct deux à deux, alors $\Delta_2\neq 0$, donc de $rang(\Delta_2)=4$, sinon  $1\leq rang(\Delta_2)<4$:
+
+
+ 
+ 
+ 
+\medskip\textbf{Exercice 3}
+
+1. Déterminons le développement limité à l'ordre 3 au voisinage de 0 de $f$.
+ 
+ On sait que : $e^u=1+\frac{u}{1!}+\frac{u^2}{2!}+\frac{u^3}{3!}+o(u^3)$ et $\sin(u)=u-\frac{u^3}{3!}+\circ(u^3)$ 
+ 
+ Alors $f(x) = 2e^{-2x}sin(x)=2(1-2x+\frac{(-2x)^2}{2}+\frac{(-2x)^3}{6} +\circ(x^3))(x-\frac{x^3}{3!}+\circ(x^3))=2x-4x+\frac{11}{3}x^3+\circ(x^3)$
+ 
+ 2. Déduisons
+
+$\lim_{x \to 0} \frac{2e^{-2x} \sin(x)}{x} = \lim_{x \to 0} \left( 2 - 4x + \frac{11}{3}x^2 + o(x^2) \right) = 2$
+
+\medskip\textbf{Exercice 4}
+
+1. Deux évènements sont dit incompatibles si les deux ne peuvent pas être réalisés en même temps, c'est-à-dire $A\cap B = \emptyset$.
+
+2. Compatibilité de $A$ et $B$
+
+On a:
+
+ $\Omega(A\cap B)=\{(2,4);(4,2)\}$
+
+ $A\cap B \neq \emptyset$ alors $A$ et $B$ ne sont pas incompatibles.
+ 
+ 3. Deux évènements $A$ et $B$ sont dit indépendants si $P(A\cap B)=P(A)\times P(B)$
+ 
+ 4. Calculons $P(A)$ et $P(B)$
+
+$\Omega(A)=\{(1,5);(2,4);(3,3);(5,1);(4,2);(3,3)\}$
+
+$P(A)=\frac{6}{36}=\frac{1}{6}$
+
+$P(B)=\frac{6+6+6}{36}=\frac{18}{36}=\frac{1}{2}$
+
+5. Calculons $P(A\cap B)$ et $P(A\bigtriangleup B)$
+
+$P(A\cap B)=\frac{2}{36}=\frac{1}{18}$
+
+$P(A\bigtriangleup B)=P(A)+P(B)-2P(A\cap B)$
+
+$P(A\bigtriangleup B)=\frac{1}{6}+\frac{1}{2}-2\frac{1}{18}=\frac{10}{18}=\frac{5}{9}$
+
+6. $P(A)\times P(B)=\frac{1}{6}\times \frac{1}{2}=\frac{1}{12}\neq P(A\cap B)$ alors $A$ et $B$ ne sont pas indépendants.
+
+\end{spacing}
+\end{document}

@@ -1,0 +1,81 @@
+\documentclass[12pt]{article}
+\input{../preambule}
+
+\begin{document}
+\entete{Mathématiques}{Ancien sujet CAPES -- Session 2020}{Énoncé}
+\begin{spacing}{1.5}
+
+\textbf{Exercice 1 : (6pts)}
+
+On donne la matrice $ A= \begin{pmatrix}
+1 & 0 & -1\\
+0 & 1 & 0\\
+-1 & 1 & 1
+\end{pmatrix}$                                                                   
+
+1. Justifier que la matrice $A$ est inversible.
+
+2. Déterminer le polynôme caractéristique de $A$.
+
+3. Soit $\alpha, \beta$ et $\gamma$ les valeurs propres de la matrice $A$. Déterminer $\alpha, \beta$ et $\gamma$ sachant qu'elles sont classées dans l'ordre croissant.
+
+4. Déterminer les vecteurs propres $u$, $v$ et $w$ associés aux valeurs propres $\alpha, \beta$ et $\gamma$.
+
+5. Soit $D=\begin{pmatrix}
+\alpha & 0 & 0 \\ 
+0 & \beta & 0 \\ 
+0 & 0 & \gamma
+\end{pmatrix} $. Donner la matrice de passage $P$ de $A$ à $D$.
+
+\textbf{Exercice 2 : (8pts)}
+
+1. On considère la fonction $f$ définie sur $\mathbb{R}$ par $f(x)=e^{-x}$.
+
+a. Montrer que $f$ est dérivable sur $\mathbb{R}$.
+
+b. Déterminer $f^\prime(x)$, $f^{\prime\prime}(x)$ et $f^{(3)}(x)$; $\forall {x}\in \mathbb{R}$.
+
+c. Démontrer par récurrence que : $f^{(n)}(x)=(-1)^ne^{-x}$
+
+
+
+d. Donner le développement limité d'ordre $n$ de $f$ au voisinage de $0$.
+
+2. On considère la courbe paramétrée : $(\Gamma) :\begin{cases}
+x(t)=\cos 3t\\
+y(t)=\sin 2t
+\end{cases} \forall t\in \mathbb{R}$
+
+a. Montrer que l'étude de la courbe peut être réduite à l'intervalle $[0,\pi]$.
+
+b. Dresser le tableau de variation commun de $x$ et $y$ sur $[0,\pi]$.
+
+\textbf{Exercice 3 : (3pts)}
+
+Soient $n\geq 1$, un entier naturel et $\mathbb{R}_n[X]$ l'espace vectoriel des polynômes réels de degré inférieur ou égal à $n$. $\forall {P,Q\in \mathbb{R}_n[x]}$, on pose :
+
+\[ \beta(P,Q)=\int_{0}^{1}xP(x)Q^{\prime}(x). dx\]
+
+1. Montrer que $\beta$ est une forme bilinéaire.
+
+2. Exprimer $\beta(x,1)$ et $\beta(1,x)$.
+
+3. $\beta$ est-elle symétrique? Antisymétrique?
+
+\textbf{Exercice 4 :(3pts)}
+
+1. Montrer à l'aide du théorème de Fubini que : 
+
+$I=\int_{0}^{+\infty}e^{-\frac{x^2}{2}}dx=\sqrt{\frac{\pi}{2}}$ (indication : introduire $I^2$).
+
+2. On pose $\forall {n\in \mathbb{N}}, \forall {x\in \mathbb{R}}$ $\\
+f_n(x)=(1+\frac{x^2}{n})-\frac{n+1}{2}$ et $a_n=\int_{-\infty}^{+\infty}f_n(x)dx.$
+
+a. Montrer que, $\forall {u\in \mathbb{R}}$ et $\forall {p\in \mathbb{N}}, (1+u)^p\geq 1+pu$.
+
+b. Déduisez que $\forall {x\in \mathbb{R}}, f_n(x) \leq \frac{2}{1+x^2}$.
+
+c. Calculer $lim_{n\to +\infty}a_n$.
+
+\end{spacing}
+\end{document}

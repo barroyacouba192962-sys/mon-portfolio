@@ -1,0 +1,67 @@
+\documentclass[12pt]{article}
+\input{../preambule}
+
+\begin{document}
+\entete{Mathématiques}{Sujet type n°1}{Énoncé}
+\begin{spacing}{1.5}
+
+\textbf{Exercice 1}
+
+1. Soit $a$ et $b$ deux entiers naturels tels que $a \leq b$. On suppose que a divise $b$.
+
+Montrer que a divise $b-a$. Quel est le quotient de $b-a$ par $a$?
+
+2. En déduire les entiers naturels tels que $n-1$ divise $n+3$.
+
+\textbf{Exercice 2 }
+
+On définit l'application linéaire $f_a$ de $\mathbb{R}^3$ dans $\mathbb{R}^3$, $a$ étant un paramètre réel, par : 
+
+\[
+f_a : \begin{pmatrix}
+x\\
+y\\
+z
+\end{pmatrix} \longrightarrow \begin{pmatrix}
+(2-a)x+(a-1)y\\
+2(1-a)x+(2a-1)y\\
+az
+\end{pmatrix}
+\]
+ 
+1. Donner la matrice $M(a)$ représentant $f_a$. 
+
+2. Trouver les noyaux K(0) de $f_0$ et K(1) de $f_1$. 
+
+3. Dans la suite de l'énoncé, on prendra $a \neq 0$ et $a \neq 1$. Quel est le noyau K(a) de $f_a$ ? 
+
+4. Montrer que $M(a)$ peut s'écrire sous la forme $A + aB$ où $A$ et $B$ sont deux matrices à déterminer. 
+
+5. Calculer $AB, BA, A^2, B^2$; donner l'expression de $M(a)^2$ en fonction de $A, B$ et $a$. 
+
+6. Calculer $[M(a)]^n$ en fonction de $a$, où $n$ est un entier naturel.
+
+\textbf{Exercice 3 }
+
+Soit un ensemble $E$ de $n$ éléments, $n\in \mathbb{N}$ ; on appelle combinaison d'ordre $p (0 \leq p \leq n)$ tout sous-ensemble de $E$ comportant $p$ éléments.  
+Le nombre total de combinaisons d'ordre $p$ est égal à $C_{n}^{p}=\frac{n!}{p!(n-p)!}$.
+
+1. Calculer $B = \sum_{p=0}^{p=n}C_{n}^{p}$
+ 
+ 2. Montrer que $C_{n}^{p}=f(n,p).C_{n-1}^{p-1}$ où $f(n,p)$ est une fonction de $n$ et $p$ à expliciter. 
+
+3) Calculer $S = \sum_{p=0}^{p=n}p.C_{n}^{p}$.
+
+\medskip\textbf{Exercice 4}
+
+On considère l'équation différentielle
+ 
+ $(E): y^{\prime\prime}+y^{\prime}+y=0$
+ 
+ 1. Résoudre l'équation différentielle $(E$) et étudier le comportement des solutions en $+\infty$ et $-\infty$
+
+ 2. Soit f une fonction de classe $C^2$ sur $\mathbb{R}$ telle que $f^{\prime\prime}+f^{\prime}+f$ soit $T$-périodique. Montrer que $f(x +T)-f(x)$ est solution de $(E)$. En déduire que si $f$ est bornée sur $\mathbb{R}, f$ est elle-même $T$-périodique.
+ 
+
+\end{spacing}
+\end{document}

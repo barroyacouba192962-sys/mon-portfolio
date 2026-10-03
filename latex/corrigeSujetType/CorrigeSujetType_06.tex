@@ -1,0 +1,198 @@
+\documentclass[12pt]{article}
+\input{../preambule}
+
+\begin{document}
+\entete{Mathématiques}{Corrigé détaillé du sujet type n°6}{Correction}
+\begin{spacing}{1.5}
+
+\medskip\textbf{Exercice 1}
+
+Pour tout $x,y \in \mathbb{R}$, montrons les inégalités suivantes :
+ 
+ 1. Première inégalité triangulaire $\vert x+y\vert \leq \vert x\vert + \vert y\vert$
+ 
+ On sait que :
+ 
+ $-\vert x\vert\leq x\leq \vert x\vert$ et $-\vert y\vert\leq y\leq \vert y\vert$.
+ 
+ En additionnant ces deux inégalités membre par membre, on obtient : 
+ 
+ $-(\vert x\vert+\vert y\vert)\leq x+y\leq \vert x\vert+\vert y\vert$,
+ 
+ alors $\vert x+y\vert \leq \vert x\vert + \vert y\vert$
+ 
+ 
+ 
+ 2. Seconde inégalité triangulaire $\vert\vert x\vert - \vert y\vert\vert\leq\vert x-y\vert$.
+ 
+ Puisque $x=(x-y)+y$, on a d'après la première inégalité :$\vert x\vert=\vert(x-y)+y\vert\leq \vert x-y\vert + \vert y\vert$. Donc $\vert x\vert-\vert y\vert\leq \vert x-y\vert$, et en intervertissant les rôles de $x$ et $y$, on a aussi $\vert y\vert-\vert x\vert\leq \vert y-x\vert$ Comme $ \vert y-x\vert=\vert x-y\vert$, on a donc $\vert\vert x\vert - \vert y\vert\vert\leq\vert x-y\vert$.
+ 
+ 
+\medskip\textbf{Exercice 2}
+
+1. La loi du couple $(X, Y )$ est donnée par le tableau $C$. Obtenu par le fait que la somme des probabilités du tableau donne 1 et la somme des probabilités d'une variable pour une valeur donnée donne exactement les probabilités données. Par exemple en additionnant les probabilités de la première colonne de $C$ (ou $x=1$), on trouve $0,6=P(X=1)$.
+
+2. Le tableau de la loi du couple $(X, Y )$ si les variables $X$ et $Y$ étaient indépendantes.
+
+On sait que : $P(X,Y)=P(X)\times P(Y)$
+
+$P(X=1,Y=1)=P(X=1)\times P(Y=1)=0,6*0,4=0,24$, etc.
+
+$
+ \begin{tabular}{|c|c|c|c|}
+ \hline 
+ $Y\setminus X $& 1 & 2 & 3 \\ 
+ \hline 
+ 1 & 0,24 & 0,08 & 0,08 \\ 
+ \hline 
+ 2 & 0,30 & 0,10 & 0,10 \\ 
+ \hline 
+ 3 & 0,06 & 0,02 & 0,02 \\ 
+ \hline 
+ \end{tabular}
+$
+
+3. C'est le tableau $A$. Il s'agit du tableau dont la somme des probabilités donne 1.
+
+\textbf{Loi marginale de $X$}
+
+$
+\begin{tabular}{|c|c|c|c|}
+\hline 
+k & 1 & 2 & 3 \\ 
+\hline 
+P(X=k) & 0,8 & 0,1 & 0,1 \\ 
+\hline 
+\end{tabular} 
+$
+
+\textbf{Loi marginale de $Y$}
+
+$
+\begin{tabular}{|c|c|c|c|}
+\hline 
+k & 1 & 2 & 3 \\ 
+\hline 
+P(Y=k) & 0,6 & 0,3 & 0,1 \\ 
+\hline 
+\end{tabular} 
+$
+
+\medskip
+\textbf{Exercice 3}
+
+1. $F_n(x)=\int(1+x)^ndx=\frac{(1+x)^{n+1}}{n+1}+C=C+\frac{f_{n+1}(x)}{n+1}$.
+
+De même: 
+
+$G_n(x)=\int(1-x)^ndx=-\frac{(1-x)^{n+1}}{n+1}+C'=C'-\frac{g_{n+1}(x)}{n+1}$.
+
+2. $f_n(x) = (1 + x)^n =\sum_{k=0}^{k=n}C_n^kX^k$
+
+D'où, $F_n(X)=\frac{\sum_{k=0}^{k=n}C_n^kX^{k+1}}{k+1}+C_1$.
+
+De même :
+
+$g_n(x) = (1 - x)^n =\sum_{k=0}^{k=n}(-1)^kC_n^kX^k$.
+
+D'où : 
+
+$G_n(X)=\frac{\sum_{k=0}^{k=n}(-1)^{k}C_n^kX^{k+1}}{k+1}+C_2$.
+
+3. $F_n(1)-F_n(0)=\frac{2^{n+1}-1}{n+1}=\sum_{k=0}^{k=n}\frac{1}{k+1} C_n^k=A$.
+
+$G_n(1)-G_n(0)=\frac{1}{k+1}=\sum_{k=0}^{k=n}(-1)^{k+1} \frac{1}{k+1} C_n^k=B$.
+
+\medskip\textbf{Exercice 4}
+
+\textbf{On munit $\mathbb{R}^n$ de son produit scalaire usuel.}
+
+1. Montrons que pour tout $x = (x_i) \in \mathbb{R}^n$, on a :
+\[
+\left( \sum_{i=1}^n x_i \right)^2 \leq n \sum_{i=1}^n x_i^2
+\]
+
+Par l'inégalité de Cauchy-Schwarz dans $\mathbb{R}^n$, pour deux vecteurs $u = (1, 1, \dots, 1)$ et $v = (x_1, x_2, \dots, x_n)$, on a :
+\[
+\left( \sum_{i=1}^n u_i v_i \right)^2 \leq \left( \sum_{i=1}^n u_i^2 \right) \cdot \left( \sum_{i=1}^n v_i^2 \right).
+\]
+En remplaçant $u_i = 1$ et $v_i = x_i$, on obtient :
+\[
+\left( \sum_{i=1}^n x_i \cdot 1 \right)^2 \leq \left( \sum_{i=1}^n 1^2 \right) \cdot \left( \sum_{i=1}^n x_i^2 \right).
+\]
+Comme $\sum_{i=1}^n 1^2 = n$, l'inégalité devient :
+\[
+\left( \sum_{i=1}^n x_i \right)^2 \leq n \sum_{i=1}^n x_i^2.
+\]
+Ceci prouve l'inégalité demandée.
+
+2. Soit $A \in M_n(\mathbb{R})$, $A = [a_{ij}]$. Calculons $\text{tr}(A^t A)$ 
+
+Pour $A \in M_n(\mathbb{R})$, la trace de $A^t A$ est donnée par :
+\[
+\text{tr}(A^t A) = \sum_{i=1}^n \sum_{j=1}^n a_{ij}^2.
+\]
+En effet, les éléments diagonaux de $A^t A$ sont obtenus en prenant :
+\[
+(A^t A){ii} = \sum{k=1}^n a_{ki}^2,
+\]
+et la trace est la somme de ces termes :
+\[
+\text{tr}(A^t A) = \sum_{i=1}^n \sum_{j=1}^n a_{ij}^2.
+\]
+
+\medskip
+Déduisons que
+
+\[
+|\text{tr}(A)| \leq \sqrt{n \cdot \text{tr}(A^t A)}.
+\]
+Cette inégalité découle du fait que la trace $\text{tr}(A)$ est une somme des éléments diagonaux, et sa borne supérieure provient de la norme de Frobenius de $A$. Pour la démontrer on applique l'inégalité de Cauchy-Schwarz aux vecteurs des lignes ou colonnes de $A$.(il suffit d'appliquer l'inégalité de Cauchy-Schwarz en considérant les vecteurs $x=(a_{11}, a_{22},...,a_{nn})$ (formé des éléments diagonaux de $A$) et $y=(1,1,...,1)$.
+
+
+On a:
+
+$\text{tr}(A)=\sum_{i=1}^na_{ii}$.
+
+
+
+
+
+
+3. Montrons que l'application $A, B \mapsto \text{tr}(A^t B)$ définit un produit scalaire.
+
+Pour prouver que $\text{tr}(A^t B)$ définit un produit scalaire sur $M_n(\mathbb{R})$, il faut vérifier les quatre propriétés suivantes :
+
+Soit $A,B,C\in M_n(\mathbb{R})$
+
+
+     \textbf{Bilinéarité :} La trace est linéaire, donc $\text{tr}(A^t (B + C)) = \text{tr}(A^t B) + \text{tr}(A^t C)$ et $\text{tr}((\lambda A)^t B) = \lambda \text{tr}(A^t B)$.
+     
+     \textbf{Symétrie :} $\text{tr}(A^t B) = \text{tr}(B^t A)$, car $\text{tr}(X^t) = \text{tr}(X)$.
+     
+     \textbf{Définie positive :} $\text{tr}(A^t A)=\text{tr}(A^t A) = \sum_{i=1}^n \sum_{j=1}^n a_{ij}^2 \geq 0$, et $\text{tr}(A^t A) = 0 \implies A = 0$.
+     
+     \textbf{Non-dégénérescence :} Si $\text{tr}(A^t B) = 0$ pour tout $B$, alors $A = 0$.
+
+Ainsi, l'application est bien un produit scalaire.
+
+4. Montrons que pour toutes matrices $A$ et $B$ symétriques, on a :
+\[
+|\text{tr}(AB)|^2 \leq \text{tr}(A^2) \cdot \text{tr}(B^2).
+\]
+
+L'inégalité découle de l'inégalité de Cauchy-Schwarz dans l'espace des matrices muni du produit scalaire $\text{tr}(A^t B)$. On a :
+
+
+\begin{align*}
+\langle A,B\rangle &=\text{tr}(A^tB)\\
+\vert\langle A,B\rangle\vert^2 &\leq \langle A,A\rangle.\langle B,B\rangle.\\
+|\text{tr}(AB)|^2 &\leq \text{tr}(A^2) \cdot \text{tr}(B^2),
+\end{align*}
+où $\text{tr}(A^2)$ et $\text{tr}(B^2)$ correspondent aux normes des matrices $A$ et $B$ respectivement.
+
+
+\quad
+
+\end{spacing}
+\end{document}

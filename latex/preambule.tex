@@ -1,0 +1,52 @@
+% Préambule commun à tous les documents extraits de « La Revue CAPES »
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,amsfonts,mathrsfs}
+\usepackage{setspace}
+\usepackage{listings}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{longtable}
+\usepackage{adjustbox}
+\usepackage{lettrine}
+\usepackage{tkz-tab}
+\usepackage{changepage}
+\usepackage{pdflscape}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage[a4paper,top=2cm,bottom=2.5cm,left=2.5cm,right=2cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{draftwatermark}
+\SetWatermarkText{La RevueCapes}
+\SetWatermarkLightness{0.9}
+\SetWatermarkScale{2}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black}
+
+\definecolor{revue}{RGB}{20,60,120}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\headheight}{15pt}
+
+% \entete{Matière}{Titre}{Type de document}
+\newcommand{\entete}[3]{%
+  \fancyhead[L]{\small\textsc{La Revue CAPES} -- #1}%
+  \fancyhead[R]{\small #2}%
+  \fancyfoot[C]{\thepage}%
+  \thispagestyle{plain}%
+  \begin{center}
+    {\color{revue}\rule{\textwidth}{1.2pt}}\\[4pt]
+    {\small\textsc{Concours directs CAP-CEG / CAPES -- Burkina Faso}}\\[6pt]
+    {\LARGE\bfseries\color{revue} #2}\\[6pt]
+    {\large\itshape #1 -- #3}\\[2pt]
+    {\color{revue}\rule{\textwidth}{1.2pt}}
+  \end{center}
+  \vspace{0.5cm}%
+}
+
+% Encadré pour les remarques ajoutées dans les corrigés
+\newcommand{\remarque}[1]{\par\medskip\noindent\fcolorbox{revue}{revue!6}{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{\textbf{\color{revue}Remarque.} #1}}\par\medskip}

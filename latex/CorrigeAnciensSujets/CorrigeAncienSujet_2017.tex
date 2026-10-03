@@ -1,0 +1,542 @@
+\documentclass[12pt]{article}
+\input{../preambule}
+
+\begin{document}
+\entete{Mathématiques}{Corrigé détaillé -- Session 2017}{Correction}
+\begin{spacing}{1.5}
+
+\textbf{Exercice 1}
+
+On considère la matrice carrée d'ordre 3 définie par  : 
+
+$M=\begin{pmatrix}
+11 & -5 & 5 \\ 
+-5 & 3 & -3 \\ 
+5 & -3 & 3
+\end{pmatrix}$
+
+1. Déterminons le polynôme caractéristique de $M$, ainsi que son spectre.
+
+\begin{align*}
+P_M(x)=\det(M-xI_3)&=\begin{vmatrix}
+11-x & -5 & 5 \\ 
+-5 & 3-x & -3 \\ 
+5 & -3 & 3-x
+\end{vmatrix}c_3\leftarrow c_3+c_2\\
+&=\begin{vmatrix}
+11-x & -5 & 0 \\ 
+-5 & 3-x & -x \\ 
+5 & -3 & -x
+\end{vmatrix}L_2\leftarrow L_2-L_3\\
+&=x\begin{vmatrix}
+11-x & -5 & 0 \\ 
+-10 & 6-x & 0 \\ 
+5 & -3 & -1
+\end{vmatrix}\\
+&=-x\begin{vmatrix}
+11-x & -5 \\
+-10 & 6-x 
+\end{vmatrix}\\
+&=-x((11-x)(6-x)-50)\\
+&=-x(66-11x-6x+x^2-50)\\
+&=-x(x^2-17x+16)\\
+\end{align*}
+
+Factorisation de $x^2-17x+16$
+
+$\Delta=225=(15)^2$
+
+$x=\frac{17-15}{2}=1$ ou $x=\frac{17+15}{2}=16$
+
+Donc $P_M(x)=-x(x-1)(x-16)$.
+
+Ainsi spectre de $M$ est $Sp(M)=\{0;1;16\}$
+
+2. Les sous espaces propres associés aux différentes valeurs propres.
+
+Soit $E_\lambda$ le sous-espace propre lié à la valeur propre $\lambda$
+
+\[
+E_\lambda=\{u=(x,y,z)\in \mathbb{R}^3/Mu=\lambda u\}
+\]
+
+\medskip
+$\bullet$ Pour $\lambda=0$, on a :
+
+$\forall u\in E_0,Mu=0\Rightarrow \begin{pmatrix}
+11 & -5 & 5 \\ 
+-5 & 3 & -3 \\ 
+5 & -3 & 3
+\end{pmatrix}\begin{pmatrix}
+x\\
+y\\
+z
+\end{pmatrix}=\begin{pmatrix}
+0\\
+0\\
+0
+\end{pmatrix}\Rightarrow \begin{cases}
+11x-5y+5z=0\\
+-5x+3y-3z=0\\
+5x-3y+3z=0
+\end{cases}\Rightarrow \begin{cases}
+11x-5y+5z=0(1)\\
+5x-3y+3z=0(2)
+\end{cases}$
+
+$(2)\Longrightarrow x=\frac{3}{5}(y-z)$
+
+$(1)\Longrightarrow \frac{33}{5}(y-z)-5y+5z=0\Longrightarrow  \frac{8}{5}y-\frac{8}{5}=0\Longrightarrow y-z=0\Longrightarrow y=z$ $\Rightarrow x=0$
+
+$\Rightarrow u=\begin{pmatrix}
+0\\
+y\\
+y
+\end{pmatrix}=y\begin{pmatrix}
+0\\
+1  \\
+1
+\end{pmatrix}\Rightarrow E_0=\langle \begin{pmatrix}
+0\\
+1\\
+1
+\end{pmatrix}\rangle$
+
+$\bullet$ Pour $\lambda=1$, on a :
+
+$\begin{pmatrix}
+11 & -5 & 5 \\ 
+-5 & 3 & -3 \\ 
+5 & -3 & 3
+\end{pmatrix}\begin{pmatrix}
+x\\
+y\\
+z
+\end{pmatrix}=\begin{pmatrix}
+x\\
+y\\
+z
+\end{pmatrix}=\begin{cases}
+10x-5y+5z=0(1)\\
+-5x+2y-3z=0(2)\\
+5x-3y+2z=0(3)
+\end{cases}$
+
+$(2)+(3)\Rightarrow z=-y (4)$
+
+$(4)$ dans $(1)\Longrightarrow x=y$
+
+$\Rightarrow u=\begin{pmatrix}
+y\\
+y\\
+-y
+\end{pmatrix}=y\begin{pmatrix}
+1\\
+1\\
+-1
+\end{pmatrix}\Rightarrow E_{1}=\langle \begin{pmatrix}
+1 \\
+1 \\
+-1
+\end{pmatrix}\rangle$
+
+$\bullet$ Pour $\lambda=16$, on a :
+
+$\begin{pmatrix}
+11 & -5 & 5 \\ 
+-5 & 3 & -3 \\ 
+5 & -3 & 3
+\end{pmatrix}\begin{pmatrix}
+x\\
+y\\
+z
+\end{pmatrix}=16\begin{pmatrix}
+x\\
+y\\
+z
+\end{pmatrix}=\begin{cases}
+-5x-5y+5z=0(1)\\
+-5x-13y-3z=0(2)\\
+5x-3y-13z=0(3)
+\end{cases}$
+
+$(2)+(3)\Rightarrow z=-y (4)$
+
+$(4)$ dans $(1)\Longrightarrow x=-2y$
+
+$\Rightarrow u=\begin{pmatrix}
+-2y\\
+y\\
+-y
+\end{pmatrix}=-y\begin{pmatrix}
+2\\
+-1\\
+1
+\end{pmatrix}\Rightarrow E_{16}=\langle \begin{pmatrix}
+2 \\
+-1 \\
+1
+\end{pmatrix}\rangle$
+
+
+3. $M$ est diagonalisable car le polynôme caractéristique de $M$ est scindé en racines simples. Ou autrement car les valeurs propres sont distinctes deux à deux.
+
+\medskip
+\textbf{Diagonalisons $M$}
+
+On a la base $B=\langle \begin{pmatrix}
+0\\
+1\\
+1
+\end{pmatrix},\begin{pmatrix}
+1 \\
+1 \\
+-1
+\end{pmatrix},\begin{pmatrix}
+2 \\
+-1 \\
+1
+\end{pmatrix}\rangle$.
+
+Dans la base $B$, $D=\begin{pmatrix}
+0 & 0 & 0 \\ 
+0 & 1 & 0 \\ 
+0 & 0 & 16
+\end{pmatrix}$ et $P= \begin{pmatrix}
+0 & 1  & 2 \\ 
+1 & 1  & -1\\ 
+1 & -1 & 1 
+\end{pmatrix}$
+
+$M=PDP^{-1}$
+
+\medskip
+Calculons $P^{-1}$
+
+$P^{-1}=\frac{1}{det(P)}t_{com(P)}$
+
+$det(P)=\begin{vmatrix}
+0 & 1  & 2 \\ 
+1 & 1  & -1\\ 
+1 & -1 & 1 
+\end{vmatrix}=-(1+2)+(-1-2)=-6$
+
+$com(P)=\begin{pmatrix}
+0 & -2  & -2 \\ 
+-3 & -2  & 1\\ 
+-3 & 2 & -1 
+\end{pmatrix}\Rightarrow t_{com(P)}=\begin{pmatrix}
+0 & -3  & -3 \\ 
+-2 & -2  & 2\\ 
+-2 & 1 & -1 
+\end{pmatrix}$
+
+Ainsi $P^{-1}=-\frac{1}{6}\begin{pmatrix}
+0 & -3  & -3 \\ 
+-2 & -2  & 2\\ 
+-2 & 1 & -1 
+\end{pmatrix}=\frac{1}{6}\begin{pmatrix}
+0 & 3  & 3 \\ 
+2 & 2  & -2\\ 
+2 & -1 & 1 
+\end{pmatrix}$
+
+
+4. Déduisons $M^{n}$ $\forall n\in \mathbb{N}$.
+
+$M=PDP^{-1}\Rightarrow M^n=PD^nP^{-1}$ avec $D^n=\begin{pmatrix}
+0 & 0 & 0 \\ 
+0 & 1 & 0 \\ 
+0 & 0 & 16^n
+\end{pmatrix}$
+
+$M^n=\frac{1}{6}\begin{pmatrix}
+0 & 1  & 2 \\ 
+1 & 1  & -1\\ 
+1 & -1 & 1 
+\end{pmatrix}\begin{pmatrix}
+0 & 0 & 0 \\ 
+0 & 1 & 0 \\ 
+0 & 0 & 16^n
+\end{pmatrix}\begin{pmatrix}
+0 & 3  & 3 \\ 
+2 & 2  & -2\\ 
+2 & -1 & 1 
+\end{pmatrix}$
+
+$M^n=\frac{1}{6}\begin{pmatrix}
+2+4.(16)^n & 2-2.(16)^n  & -2+2.(16)^n \\ 
+2-2.(16)^n & 2+(16)^n  & -2-(16)^n\\ 
+-2+2.(16)^n & -2-(16)^n & 2+(16)^n 
+\end{pmatrix}$ $\forall n\in \mathbb{N}$
+
+\medskip
+\textbf{Exercice 2}
+
+On considère l'équation différentielle :
+
+\begin{center}
+$2y''-y'-y=-7-3x+(12x+5)e^x$.
+\end{center}
+
+1. Résolvons l'équation homogène associée à $(E)$. On notera $y_H$ sa solution.
+
+L'équation homogène :
+$2y''-y'-y=0$
+
+L'équation caractéristique :
+
+$2r^2-r-1=0$
+
+$\Delta=1+8=9$ $\Longrightarrow r_1=\frac{1-3}{4}=-\frac{1}{2}$ et $r_2=\frac{1+3}{4}=1$.
+
+On a deux racine distinctes donc la solution homogène est de la forme :
+
+$y_H=Ae^{-\frac{1}{2}x}+Be^x$
+
+
+2. Trouvons une solution particulière de l'équation suivante sous la forme $y_1=mx+p$ avec $m,p\in \mathbb{R}$ :
+
+$2y''-y'-y=-7-3x$.
+
+$y_1=mx+p$
+
+$y'_1=m$
+
+$y''_1=0$.
+
+En reportant dans l'équation précédente, on a :
+
+$0-m-mx-p=-7-3x$.
+
+Par identification :
+
+$\begin{cases}
+m=3\\
+m+p=7\Longrightarrow p=7-3=4
+\end{cases}$
+
+Donc $y_1=3x+4$
+
+
+3. Trouvons une solution particulière de l'équation suivante sous la forme 
+
+$y_2=x(ax+b)e^x$ avec $a,b\in \mathbb{R}$
+
+$2y''-y'-y=(12x+5)e^x$.
+
+$y_2=x(ax+b)e^x=(ax^2+bx)e^x$
+
+$y'_2=(2ax+b)e^x+(ax^2+bx)e^x=(ax^2+(2a+b)x+b)e^x$
+
+$y''_2=(2ax+2a+b)e^x+(ax^2+(2a+b)x+b)e^x=(ax^2+(4a+b)x+2a+2b)e^x$
+
+En reportant dans l'équation précédente, on obtient :
+
+$2(ax^2+(4a+b)x+2a+2b)e^x-(ax^2+(2a+b)x+b)e^x-(ax^2+bx)e^x=(12x+5)e^x$.
+
+$\Rightarrow (6ax+2a+b)e^x=(12x+5)e^x$
+
+Par identification, on a :
+
+$\begin{cases}
+6a=12\\
+2a+b=5
+\end{cases}\Rightarrow \begin{cases}
+a=2\\
+b=1
+\end{cases}$
+
+Donc $y_2=x(2x+1)e^x$.
+
+4. Déduisons une solution particulière $y_p$ de l'équation $(E)$.
+
+Par superposition des solutions particulières, on obtient :
+
+$y_p=y_1+y_2=3x+4+x(2x+1)e^x$
+
+5. Écrivons la solution générale $y_G$ de l'équation différentielle $(E)$.
+
+$y_G=y_p+y_H=3x+4+x(2x+1)e^x+Ae^{-\frac{1}{2}x}+Be^x$
+
+
+6. Déterminons la solution $f$ de $(E)$ telle que la tangente à la courbe représentative de $f$ au point $A(0,2)$ soit parallèle à la droite $(D)$ d'équation $y-9x+9=0$.
+
+$y-9x+9=0\Rightarrow y=9x+9$
+
+Au point $A(0,2)$, $f(0)=2\Rightarrow 4 + A +B =2\Rightarrow \underline{A+B=-2}$
+
+La tangente est parallèle à $(D)$ implique que la tangente et $(D)$ ont la même pente qui est 9 selon l'équation de $(D)$.
+
+La pente de la tangente à la courbe de $f$ au point $A$ correspond à $f'(0)$.
+
+D'où $f'(0)=9$
+
+$f(x)=3x+4+x(2x+1)e^x+Ae^{-\frac{1}{2}x}+Be^x$
+
+$f'(x)=3+(4x+1)e^x+(2x^2+x)e^x-\frac{1}{2}Ae^{-\frac{1}{2}x}+Be^x$.
+
+$f'(0)=3+1-\frac{1}{2}A+B=9\Rightarrow \underline{-\frac{1}{2}A+B=5}$
+
+$\begin{cases}
+A+B=-2\\
+-\frac{1}{2}A+B=5
+\end{cases}$
+
+$L_1-L_2\Longrightarrow \frac{3}{2}A=-7\Longrightarrow A=-\frac{14}{3}$
+
+$L_1\Longrightarrow B=-2-A=-2+\frac{14}{3}=\frac{8}{3}$
+
+Ainsi, $f(x)=3x+4+x(2x+1)e^x-\frac{14}{3}e^{-\frac{1}{2}x}+\frac{8}{3}e^x$
+
+
+\medskip\textbf{Exercice 3}
+
+
+
+
+
+Soit $f$ une fonction définie sur $[-1, +\infty[$ par :
+\[
+f(x) = \frac{2}{\pi} \int_{0}^{\frac{\pi}{2}} \sqrt{1 + x \cos^2 t} \, dt.
+\]
+1. Calcul de $f(-1)$ et $f(0)$
+
+$\cdot$ Pour $x = -1$ :
+\[
+f(-1) = \frac{2}{\pi} \int_{0}^{\frac{\pi}{2}} \sqrt{1 - \cos^2 t} \, dt.
+\]
+Or, $\sqrt{1 - \cos^2 t} = \sin t$, donc :
+\[
+f(-1) = \frac{2}{\pi} \int_{0}^{\frac{\pi}{2}} \sin t \, dt.
+\]
+La primitive de $\sin t$ est $-\cos t$, d'où :
+\[
+f(-1) = \frac{2}{\pi} \big[ -\cos t \big]_{0}^{\frac{\pi}{2}} = \frac{2}{\pi} \big( -\cos\frac{\pi}{2} + \cos 0 \big).
+\]
+En simplifiant, $\cos \frac{\pi}{2} = 0$ et $\cos 0 = 1$, donc :
+\[
+f(-1) = \frac{2}{\pi} (0 + 1) = \frac{2}{\pi}.
+\]
+
+$\cdot$ Pour $x = 0$ :
+\[
+f(0) = \frac{2}{\pi} \int_{0}^{\frac{\pi}{2}} \sqrt{1 + 0 \cdot \cos^2 t} \, dt = \frac{2}{\pi} \int_{0}^{\frac{\pi}{2}} 1 \, dt.
+\]
+La primitive de $1$ est $t$, donc :
+\[
+f(0) = \frac{2}{\pi} \big[ t \big]_0^{\frac{\pi}{2}} = \frac{2}{\pi} \left( \frac{\pi}{2} - 0 \right) = 1.
+\]
+
+\textbf{ Conclusion :}
+\[
+f(-1) = \frac{2}{\pi}, \quad f(0) = 1.
+\]
+
+2. Relation entre $f(x)$ et $f\left(\frac{-x}{1+x}\right)$
+
+On cherche à établir la relation :
+\[
+f(x) = \sqrt{1+x} \cdot f\left(\frac{-x}{1+x}\right).
+\]
+
+Définition de $f(x)$ :
+\[
+f(x) = \frac{2}{\pi} \int_{0}^{\frac{\pi}{2}} \sqrt{1 + x \cos^2 t} \, dt.
+\]
+
+Changement de variable :
+
+On pose $u = \arcsin\left(\sqrt{\frac{1}{1+x}} \sin t\right)$, ce qui implique :
+\[
+\sin t = \sqrt{1+x} \sin u, \quad \cos t = \sqrt{1 - (1+x)\sin^2 u}.
+\]
+La différentielle devient :
+\[
+dt = \sqrt{1+x} \cos u \, du.
+\]
+
+Les bornes changent comme suit :  
+\[
+t = 0 \implies u = 0, \quad t = \frac{\pi}{2} \implies u = \arcsin\left(\sqrt{\frac{1}{1+x}}\right) = \frac{\pi}{2}.
+\]
+
+Substitution dans l'intégrale :
+En remplaçant dans $f(x)$, on obtient :
+\[
+f(x) = \frac{2}{\pi} \int_{0}^{\frac{\pi}{2}} \sqrt{1+x} \sqrt{1 + \frac{-x}{1+x} \cos^2 u} \cdot \sqrt{1+x} \cos u \, du.
+\]
+
+En mettant le facteur $\sqrt{1+x}$ en facteur, on obtient :
+\[
+f(x) = \sqrt{1+x} \cdot \frac{2}{\pi} \int_{0}^{\frac{\pi}{2}} \sqrt{1 + \frac{-x}{1+x} \cos^2 u} \, du.
+\]
+
+En posant $y = \frac{-x}{1+x}$, on reconnaît :
+\[
+f(x) = \sqrt{1+x} \cdot f\left(\frac{-x}{1+x}\right).
+\]
+
+Conclusion :
+\[
+f(x) = \sqrt{1+x} \cdot f\left(\frac{-x}{1+x}\right).
+\]
+
+3. Encadrement pour $-1 \leq x_0 \leq x$ : $0 \leq f(x) - f(x_0) \leq \frac{x - x_0}{4}$
+
+La différence est donnée par :
+\[
+f(x) - f(x_0) = \frac{2}{\pi} \int_{0}^{\frac{\pi}{2}} \left( \sqrt{1 + x \cos^2 t} - \sqrt{1 + x_0 \cos^2 t} \right) dt.
+\]
+
+En utilisant la formule :
+\[
+\sqrt{a} - \sqrt{b} = \frac{a - b}{\sqrt{a} + \sqrt{b}},
+\]
+on obtient :
+\[
+\sqrt{1 + x \cos^2 t} - \sqrt{1 + x_0 \cos^2 t} = \frac{(x - x_0) \cos^2 t}{\sqrt{1 + x \cos^2 t} + \sqrt{1 + x_0 \cos^2 t}}.
+\]
+
+Ainsi :
+\[
+f(x) - f(x_0) = \frac{2}{\pi} \int_{0}^{\frac{\pi}{2}} \frac{(x - x_0) \cos^2 t}{\sqrt{1 + x \cos^2 t} + \sqrt{1 + x_0 \cos^2 t}} \, dt.
+\]
+
+Encadrement des termes :
+- \( \cos^2 t \leq 1 \), donc le numérateur est majoré par $x - x_0$.
+- Le dénominateur est minoré par $2\sqrt{1+x_0}$, avec $1+x_0 \geq \frac{1}{2}$.
+
+En intégrant, on obtient :
+\[
+f(x) - f(x_0) \leq \frac{x - x_0}{4}.
+\]
+
+De plus, \( \sqrt{1 + x \cos^2 t} \geq \sqrt{1 + x_0 \cos^2 t} \), donc \( f(x) - f(x_0) \geq 0 \).
+
+Conclusion :
+\[
+0 \leq f(x) - f(x_0) \leq \frac{x - x_0}{4}.
+\]
+
+
+4. Encadrement pour $-1 < x < 0$ : $0 \leq f(x) - f(-1) \leq \frac{1}{2}\sqrt{1+x}$
+
+Différence :
+
+\[
+f(x) - f(-1) = \frac{2}{\pi} \int_{0}^{\frac{\pi}{2}} \left( \sqrt{1 + x \cos^2 t} - \sqrt{1 - \cos^2 t} \right) dt.
+\]
+
+Par des majorations similaires, on montre que :
+\[
+f(x) - f(-1) \leq \frac{1}{2} \sqrt{1+x}.
+\]
+
+5. Continuité de $f$
+
+La fonction sous l'intégrale, $\sqrt{1 + x \cos^2 t}$, est continue en $x$.  
+Par le théorème des intégrales dépendant d'un paramètre, $f(x)$ est continue sur $[-1, +\infty[$.
+
+\end{spacing}
+\end{document}

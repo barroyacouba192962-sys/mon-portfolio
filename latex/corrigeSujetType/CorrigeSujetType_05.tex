@@ -1,0 +1,230 @@
+\documentclass[12pt]{article}
+\input{../preambule}
+
+\begin{document}
+\entete{Mathématiques}{Corrigé détaillé du sujet type n°5}{Correction}
+\begin{spacing}{1.5}
+
+\textbf{Exercice 1}
+
+1.a) L'équation caractéristique est $-\lambda(5-\lambda) + 6 = 0$, soit $\lambda^2 - 5\lambda + 6 = 0$. Elle admet deux racines : $\lambda_1 = 2$ et 
+$\lambda_2 = 3$. 
+
+Vecteur propre associé à $\lambda_1 = 2$ : 
+
+$\begin{pmatrix}
+5 & -6 \\
+1 & 0
+\end{pmatrix}\begin{pmatrix}
+x \\
+y
+\end{pmatrix}=2\begin{pmatrix}
+x\\
+y
+\end{pmatrix}\Longrightarrow 3x-   6y = 0$
+
+On prend (par exemple) $x = 2$ et $y = 1$
+
+Vecteur propre associé à $\lambda_2 = 3$ : 
+
+$2x-6y = 0 $
+
+On prendra $x = 3$ et $y = 1$
+
+$D= \begin{pmatrix}
+2 & 0 \\
+0 & 3
+\end{pmatrix}$
+
+b) La matrice $P$ est formée par les vecteurs propres. 
+
+$P=\begin{pmatrix}
+2 & 3 \\
+1 & 1
+\end{pmatrix}$
+
+Un calcul simple montre que $P^{-1}=\begin{pmatrix}
+-1 & 3 \\
+1 & -2
+\end{pmatrix}$
+
+On vérifie aisément $A=PDP^{-1}$.
+
+c) Déduisons la matrice $A^n$
+, $n$ entier strictement positif. 
+
+Par construction, on a : 
+
+$A^n= PD^nP^{-1}$
+
+En effectuant les produits, on trouve : 
+$
+A^n=\begin{pmatrix}
+-2^{ n+1}+3^{n+1} & 3.2^{n+1}-2.3^{n+1} \\
+-2^{ n}+3^{n} & 3.2^{n}-2.3^{n}
+\end{pmatrix}
+$
+
+2. On considère la suite récurrente d'ordre 2 définie par : 
+$U_{n+2} = 5U_{n+1}-6U_n$ avec $U_0 = U_1 = 1$
+
+On note $V_{n+2}$ le vecteur colonne  $\begin{pmatrix}
+U_{n+2} \\
+U_{n+1}
+\end{pmatrix}$
+
+a)  Montrer que $V_{n+2} = AV_{n+1}$
+
+A travers la forme matricielle, le résultat est évident
+
+b) Déduisons l'expression du terme général $U_n$ en fonction de $n$.
+
+Partant de $V_{n+1} = AV_n$, et allant jusqu'à $V_2 = A V_1$, on en déduit : 
+
+$V_{n+1} = A^nV_1$ , avec $V_1 = (1, 1)'$ Or $V_{n+2} = (U_{n+1}, U_{n})’$
+
+Pour avoir l'expression de $U_n$, il suffit de prendre la somme des termes de la deuxième ligne de $A_n$
+. 
+Soit $U_n = -2^n+ 3^n+ 3.2^n-2.3^n
+ = 2^{n+1}-3^n$
+ 
+ c) Calculons $\lim_{n\longrightarrow +\infty}U_n$
+ 
+$U_n = 2^{n+1}-3^n= 3^n(2(2/3)^n-1)$ qui tend vers $-\infty$ quand $n \longrightarrow +\infty$.
+
+\medskip\textbf{Exercice 2}
+
+1. Le discriminant de $(E)$ est $\Delta'= 4cos^2\theta-cos^2\theta(5-cos^2\theta) =-cos^2\theta + cos^4\theta=cos^2\theta(cos^2\theta-1) =-cos^2\theta sin^2\theta=(isin\theta cos\theta)^2$
+
+Racine double si $\Delta' = 0$, c'est-à-dire $\theta =0$ puisque $\theta$ appartient à l'intervalle ouvert $J = ]-\frac{\pi}{2}, + \frac{\pi}{2}[$
+
+Pour $\theta = 0$, $(E)$ devient $z^2-4z + 4 = 0 = (z-2)^2$
+
+La racine double est $z^* = 2$. 
+
+Cas général : 
+
+Pour $\theta$ non nul, les solutions sont : 
+$z_1 = (2cos\theta-isin\theta cos\theta)/cos^2\theta$ 
+et $z_2 = (2cos\theta + isin\theta cos\theta)/cos^2\theta$
+
+Après transformation, on obtient : 
+$z_1 = 2/cos\theta-itan\theta$
+
+$z_2 = 2/cos\theta + itan\theta$
+
+2. Les coordonnées de $M_1$ et $M_2$ sont : 
+
+Pour $M_1 : x_1 = 2/cos\theta$ et $y_1 =-tan\theta$
+
+Pour $M_2 : x_2 = 2/cos\theta$ et $y_2 = \tan\theta$
+
+On sait que $1 + \tan^2\theta = 1/cos^2\theta$. 
+
+On en déduit que $1 + y^2= x^2/4$. 
+
+Les points $M_1$ et $M_2$ appartiennent à la courbe d'équation $x^2/4-y^2-1 = 0$, qui est une 
+hyperbole de sommets $A(2,0)$ et $A'(-2,0)$, et d'asymptotes $y = x/2$ et $y =-x/2$.
+
+\medskip\textbf{Exercice 3}
+
+1. La dérivée de $f(x)=(x^2+1)\sin x$ se fait en utilisant la règle du produit : 
+
+$f'(x)=2x\sin x+(x^2+1)\cos x$
+
+2. Démontrons de deux manière que $(x^2+1)\cos x+2x\sin x=0$ admet au moins une solution dans $[0,\pi]$
+
+\underline{\textbf{Première méthode}}(théorème des valeurs intermédiaires)
+
+Pour montrer qu'il existe une solution de cette équation dans l'intervalle $[0,\pi]$ on peut utiliser le théorème des valeurs intermédiaires. Ce théorème stipule que si une fonction continue $f(x)$ prend des valeurs de signes opposés aux extrémités d'un intervalle, alors il existe au moins un point $x$ dans cet intervalle où $f(x)=0$.
+
+Soit $f(x)=(x^2+1)\cos x+2x\sin x$. Cette fonction est continue sur $[0,\pi]$ car elle est composée de fonctions continues.
+
+Calcul des valeurs aux bornes :
+A $x=0$ : $f(0)=(0^2+1)\cos(0)+2\times 0\sin(0)=1$
+
+A $x=\pi$ : $f(\pi)=(\pi^2+1)\cos(\pi)+2\pi\sin(\pi)=-(\pi^2+1)$ car $\cos(\pi)=-1$ et $\sin(\pi)=0$
+
+Donc $f(0)=1$ et $f(\pi)=-(\pi^2+1)<0.$
+
+\medskip Puisque $f(x)$ est continue et change de signe entre 0 et $\pi$(de 1 à $-(\pi^2+1))$, alors  le théorème des valeurs intermédiaires garantit qu'il existe un point $c\in [0,\pi]$ tel que $f(c)=0$. Donc l'équation $(x^2+1)\cos x+2x\sin x=0$ admet au moins une solution dans $[0,\pi]$.
+
+\medskip\underline{\textbf{Deuxième méthode}}( le théorème de Rolle)
+
+\medskip \textbf{Théorème de Rolle} : Soit $f : [a,b]\rightarrow \mathbb{R}$ une fonction continue sur $[a,b]$ et dérivable sur $]a,b[$ telle que $f(a)=f(b)$. Alors il existe $c\in [a,b]$ telle que $f'(c)=0$.
+
+L'idée est de définir une fonction qui satisfait les hypothèses de ce théorème sur l'intervalle $[0,\pi]$ et de montrer qu'il existe un point où sa dérivée s'annule.
+
+\medskip Soit $f(x)=(x^2+1)\sin x$ définie sur $[0,\pi]$. Nous allons examiner si cette fonction satisfait les conditions du théorème de Rolle.
+
+\textbf{Continuité et dérivabilité :} 
+
+$f(x)$ est une fonction continue et dérivable sur $[0,\pi]$ car elle est formée par le produit de polynômes et de sinus, qui sont des fonctions continues et dérivables.
+
+\textbf{Égalité des valeurs aux bornes de l'intervalle :}
+
+$f(0)=(0^2+1)\sin(0)=0$
+
+$f(\pi)=(\pi^2+1)\sin(0)=0$
+
+Donc $f(0)=f(\pi)=0$, ce qui signifie que $f$ satisfait la condition $f(a)=f(b)$ avec $a=0$ et $b=\pi$. Ainsi d'après le théorème de Rolle, il existe au moins un point $c\in ]0,\pi[$ telle que $f'(c)=0$
+
+On a $f'(x)=(x^2+1)\cos x+2x\sin x$ d'après la question 1. Le point $c$ obtenue par le théorème de Rolle est tel que $f'(c)=0$, soit $(c^2+1)\cos c+2c\sin c=0$. Cela signifie que $c$ est une solution de l'équation  $(x^2+1)\cos x+2x\sin x=0$
+
+\medskip Ainsi nous avons prouvé qu'il existe au moins un point $c\in [0,\pi]$ qui est une solution de cette équation.
+
+\medskip\textbf{Exercice 4}
+
+1. Pour déterminer si les fonctions $f(x)$ et $g(x)$ peuvent être prolongées par continuité en $x=0$, il faut vérifier la limite de chaque fonction lorsque $x$ tend vers 0.
+
+\medskip $i)f(x)=\frac{1-\cos x}{x^2}$
+
+Lorsque $x\rightarrow 0$, on peut utiliser la formule de Taylor pour $\cos(x):\cos(x)\thickapprox 1-\frac{x^2}{2}$ quant $x$ est proche de 0.
+
+Substituons cette approximation dans  $f(x)$ :
+
+$f(x)\thickapprox \frac{1-(1-\frac{x^2}{2})}{x^2}=\frac{\frac{x^2}{2}}{x^2}=\frac{1}{2}$.
+
+Donc $\lim_{x\to 0}f(x)=\frac{1}{2}$. Cette limite existe et est finie, ce qui signifie que $f(x)$ peut être prolongée par continuité en 0 en définissant $f(0)=\frac{1}{2}$.
+
+$ii) g(x)=\frac{1}{x}$
+
+Lorsque $x\rightarrow 0$, la fonction $\frac{1}{x}$ diverge, c'est-à-dire qu'elle tend vers $+\infty$ lorsque $x\rightarrow 0^+$ et vers $-\infty$ lorsque $x\rightarrow 0^-$. Ainsi $\lim_{x\to 0}g(x)$ n'existe pas. D'où $g(x)$ n'est pas prolongeable par continuité en 0.
+
+2. Soit la fonction définie par : $f(x)=\begin{cases}
+\ln (x+1), \hspace{0,5 cm} si \hspace{0,5 cm} x\geq 0\\
+\sin x, \hspace{0,5 cm} si \hspace{0,5 cm} x<0
+\end{cases}$
+
+ (a) Étudions la continuité, la dérivabilité et la continuité éventuelle de la dérivée de la fonction $f$ sur son domaine de définition $D_f$.
+ 
+ $\cdot$\textbf{Continuité en 0}
+ 
+ Pour la continuité, il faut vérifier si les limites à gauche et à droite en $x=0$ sont égales et valent la même chose que $f(0)$.
+ 
+ On a :
+ 
+ $\lim_{x \to 0^+}f(x)=ln(1)=0$
+ 
+ $\lim_{x\to 0^-}=\sin(0)=0$
+ 
+ $f(0)=ln(0+1)=0$
+ 
+ On a $\lim_{x \to 0^+}f(x)=\lim_{x\to 0^-}=f(0)=0$, donc la fonction est continue en 0.
+ 
+ $\cdot$\textbf{Dérivabilité en 0}
+ 
+ Pour $x\geq 0$, la dérivée de $f(x)=ln(x+1)$ est $f'(x)=\frac{1}{x+1}$. Donc $\lim_{x\to 0^+}f'(x)=\frac{1}{1}=1$
+ 
+ Pour $x<0$, la la dérivée de $f(x)=\sin x$ est $f'(x)=\cos x$. Donc, $\lim_{0^-}f'(x)=\cos(0)=1$
+ 
+ \medskip Les dérivées à gauche et à droite de 0 sont égales et valent 1, donc la fonction est dérivable en $x=0$ et donc continue.
+ 
+ b) Classe $C^1$ sur $D_f$.
+ 
+ La fonction $f$ est continue et dérivable sur $D_f$ et sa dérivée est continue en 0 (puisque les dérivées à gauche et à droite sont égales). Par conséquent $f$ est de classe $C^1$ sur sont domaine de définitions.
+ 
+ 
+
+\end{spacing}
+\end{document}

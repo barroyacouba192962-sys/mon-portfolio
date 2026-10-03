@@ -1,0 +1,95 @@
+\documentclass[12pt]{article}
+\input{../preambule}
+
+\begin{document}
+\entete{Mathématiques}{Sujet type n°8}{Énoncé}
+\begin{spacing}{1.5}
+
+\medskip\textbf{Exercice 1}
+
+Soient $e_1, e_2, e_3$ trois vecteurs de $\mathbb{R}^3$. On suppose que $B = (e_1,e_2,e_3)$ est une base de $\mathbb{R}^3$.
+ 
+ On note $T$ l'application linéaire définie par $T(e_1) = T(e_3) = e_3$ et $T(e_2) = -e_1+e_2+e_3$.
+
+1. (a) Décrire le noyau de $T$.
+ 
+ (b) Donner la matrice de $T$ dans la base $B$. On la note $A$.
+ 
+ 2. On pose $f_1 = e_1-e_3, f_2 = e_1-e_2, f_3 = -e_1 +e_2 +e_3$.
+ 
+ (a) Calculer $e_1, e_2, e_3$ en fonction de $f_1, f_2, f_3$. Les vecteurs $f_1, f_2, f_3$ forment-ils
+ une base de $\mathbb{R}^3$ ?
+ 
+ (b) Écrire la matrice de $T$ dans la base $(f_1,f_2,f_3)$. On la note $B$.
+ 
+3. On note $P= \begin{pmatrix}
+1 & 1 & -1 \\ 
+0 & -1 & 1 \\ 
+-1 & 0 & 1
+\end{pmatrix}$
+
+Vérifier que $P$ est inversible et calculer $P^{-1}$. Quelle relation relie $A,B,P$ et $P^{-1}$?
+
+\medskip\textbf{Exercice 2}
+
+Le plan $(P)$ est rapporté à un repère orthonormé direct $(\overrightarrow{0} ; \overrightarrow{u}; \overrightarrow{v})$. 
+on désigne par $T$ l'application de $(P)$ dans $(P)$ qui à tout point $M$ d'affixe $z $associe le point $M'$ d'affixe $z' = (1 + i)z-i$. 
+
+1. Montrer que$ T$ est la composée d'une rotation et d'une homothétie de rapport positif dont on donnera les éléments caractéristiques. On note $\Omega$ le point invariant par $T$. 
+
+Donner une mesure de l'angle orienté $(\overrightarrow{\Omega M},\overrightarrow{MM'}) \text{ en supposant que }  M\neq \Omega$.
+
+
+2.a) Construire $M'$ image de $M$ par $T$ où $M$ est un point donné distinct de $\Omega$. 
+
+b) Déterminer l'image $(D')$ par $T$ de la droite $(D)$ d'équation $y = x$. Construire $(D')$. 
+
+3.a) Montrer qu'il existe un point $B$ de $(P)$ distinct de $\Omega$ et un seul 
+tel que les affixes $z_0$ de $B$ et $z'_0$ de $B'$ (où $B'$ est l'image de $B $par $T$) soient liés par la relation $z_0z'_0 = 1$. Placer les points $B$ et $B'$ dans le repère $(\overrightarrow{0} ; \overrightarrow{u}; \overrightarrow{v})$. 
+
+b) Soit $\Omega'$ le symétrique de $\Omega$, par rapport à O. Montrer que les points $\Omega',\Omega,B et B' $sont cocycliques. 
+Déterminer l'affixe du centre G du cercle $(\Gamma)$ passant par $\Omega', \Omega, B et B'$. 
+
+\medskip\textbf{Exercice 3 }
+
+1. Calculer
+
+$I=\int\int_D\frac{dxdy}{(1+x^2+y^2)^2}$ ou $D=\lbrace {(x,y) \in \mathbb{R}^2,\vert x\vert \leq x^2+y^2\leq 1\rbrace}$.
+
+2. Calculer l'intégrale double
+
+$J=\int\int_D(x+y)^2dxdy$ ou $D=\lbrace (x,y)\in \mathbb{R}^2, x^2+y^2-x \leq 0;x^2+y^2-y \geq 0$ et $y \geq 0 \rbrace$.
+
+3. Soit $D=\lbrace (x,y,z)\in \mathbb{R}^3;x\geq 0,y\geq 0,z\geq 0,x+y+z\leq 1 \rbrace$.
+
+Utilisez le changement de variable $u=x+y+z; v=\frac{z}{y+z}; w=\frac{y+z}{x+y+z}$ pour calculer
+
+$S=\int\int_D\frac{z^3}{(x+y+z)(y+z)}dxdydz$.
+
+4. Calculer l'aire du domaine elliptique :
+
+$E = \lbrace (x,y)\in \mathbb{R}^2;\frac{x^2}{a^2}+\frac{y^2}{b^2}\leq 1\rbrace$.
+
+
+\medskip\textbf{Exercice 4 }
+
+On pose $f(n)=\int_{0}^{1}x^ne^{-x}dx \hspace{0.05cm} \forall n\in \mathbb{N}$.
+
+1. Montrer que la suite $(f(n))$ est positive et décroissante. Au moyen d'une intégration par parties
+ donner une relation de récurrence entre $f(n)$ et $f(n-1)$.
+ 
+ 2. Montrer par récurrence que pour tout $n$,  $f(n)= \frac{n!}{e}(e-\sum_{k=0}^{n}\frac{1}{k!})$
+ 
+ 3. Montrer que l'on a $\frac{1}{e(n+1)}\leq f(n)\leq \frac{1}{n+1}$.
+ 
+ 4. En déduire la nature des série $\sum_{n=1}^{+\infty}f(n), \sum_{n=1}^{+\infty}\frac{f(n)}{n}$ et $\sum_{n=1}^{+\infty}(-1)^nf(n)$.
+ 
+ 5. Déterminer le rayon de convergence de la série entière $\sum_{n=1}^{+\infty}f(n)x^n$.
+ 
+ 
+ \quad
+ \quad
+ 
+
+\end{spacing}
+\end{document}

@@ -1,0 +1,103 @@
+\documentclass[12pt]{article}
+\input{../preambule}
+
+\begin{document}
+\entete{Mathématiques}{Sujet type n°2}{Énoncé}
+\begin{spacing}{1.5}
+
+\textbf{Exercice 1}
+
+ Soient les réels $a,b$ et $c$.On considère les matrices carrées $A$ et $B$ suivantes:
+
+$
+A=\begin{pmatrix}
+a+b & b+c & c+a \\ 
+a^2+b^2 & b^2+c^2 & c^2+a^2 \\ 
+a^3+b^3 & b^3+c^3 & c^3+a^3
+\end{pmatrix}$ et $B=\begin{pmatrix}
+1 & 1 & 1 \\ 
+c & a & b \\ 
+c^2 & a^2 & b^2
+\end{pmatrix} $
+
+(a) Calculer le déterminant de $B$ en fonction de $a,b$ et $c$.
+
+(b) Montrer que $\det(A)=2abc\times\det(B)$.
+
+(c) Calculer $det(A)$ en fonction de $a,b$ et $c$.
+
+(d) En déduire le rang de $A$ suivant les valeurs de $a,b$ et $c$.
+
+\textbf{Exercice 2 }
+
+ Soit $E$ un $\mathbb{R}$-espace vectoriel de dimension 3 et $B=\langle u,v,w\rangle$ une base de E.
+ On considère l'endomorphisme $f$ de $E$ défini par
+  $f(u)=u+2v-w, f(v)=3u-w, f(w)=-3u+2v+3w$.
+ 
+ 1. Donner la matrice $A$ de $f$  relativement à la base $B$.
+ 
+ 2. Déterminer le spectre de $A$.
+ 
+ 3. Déterminer les sous-espaces propres de $A$.
+ 
+ 4. Montrer que la matrice $A$ est diagonalisable?
+ 
+ 5. Calculer $A^n$ pour tout $n\in \mathbb{N}$.
+ 
+ 6. Quel est l'image du vecteur $u+v+w$,par l'endomorphisme $f\circ f\circ f$?
+ 
+ 7. On considère trois suites réelles $(a_n)_{n\in \mathbb{N}},(b_n)_{n\in \mathbb{N}},(c_n)_{n\in \mathbb{N}}$ définies par les relations de récurrence
+ 
+\[
+\begin{cases}
+a_{n+1} = a_n+3b_n-3c_n\\
+b_{n+1} = 2a_n+2c_n\\
+c_{n+1} = -a_n-b_n+3c_n
+\end{cases}
+\]
+et $a_0=b_0=c_0=1$.
+
+Déterminer $a_n,b_n,c_n$ en fonction de $n$.
+ 
+
+\medskip\textbf{Exercice 3}
+ 
+  1) Dresser un tableau donnant tous les résultats possibles de lancer de 2 dés équilibrés à 6 faces.
+ 
+ La variable aléatoire $X$ désigne le résultat du premier dé.
+ 
+ La variable aléatoire $Y$ désigne le résultat du deuxième dé.
+ 
+ On considère que les variables aléatoires $X$ et $Y$ sont indépendantes.
+ 
+ 2) Établir la loi de probabilité de la variable aléatoire somme $S=X+Y$, donnant la somme des résultats des 2 dés.
+ 
+ \medskip\textbf{Exercice 4}
+ 
+ 1. Soit le système 
+ 
+ $X'=AX$ avec $A=\begin{pmatrix}
+ 1 & -2 & 0 \\ 
+ 2 & 0 & -1 \\ 
+ 4 & -2 & -1
+ \end{pmatrix} $
+ 
+ Déterminer les valeurs propres de $A$ puis un système de solutions de $X'=AX$.
+ 
+ 2. Même exercice avec
+ $A=\begin{pmatrix}
+ 1 & -1 \\ 
+ 4 & -3
+ \end{pmatrix} $, puis $A=\begin{pmatrix}
+ 2 & 1 & 0 & 0 \\ 
+ 0 & 0 & -1 & 0 \\ 
+ 1 & 2 & 1 & 0 \\ 
+ -1 & 2 & 2 & 1
+ \end{pmatrix} $
+ 
+ 
+ \quad
+ 
+
+\end{spacing}
+\end{document}

@@ -1,0 +1,91 @@
+\documentclass[12pt]{article}
+\input{../preambule}
+
+\begin{document}
+\entete{Mathématiques}{Ancien sujet CAPES -- Session 2022}{Énoncé}
+\begin{spacing}{1.5}
+
+\textbf{Exercice 1 : (4pts)}
+
+Soit la suite numérique $(U_n)$ définie sur $\mathbb{N}$ par : $U_0 = 2$ et $U_{n+1} = \frac{2}{3}U_n + \frac{1}{3}n + 1, \forall {n\in \mathbb{N}}$.
+1.a. Démontrer que pour tout $n, U_n\leq n+3$.
+
+b. Démontrer que $\forall {n\in \mathbb{N}}, U_{n+1} - U_n = \frac{1}{3}(n+3-U_n)$.
+
+c. En déduire le sens de variation de la suite $(U_n)$.
+
+2. On désigne par $(V_n)$ la suite définie sur $\mathbb{N}$ par $V_n =U_n-n$.
+
+a. Démontrer que la suite $(V_n)$ est une suite géométrique de raison $\frac{2}{3}$.
+
+b. En déduire $\forall {n\in \mathbb{N}}$ que $U_n = 2(\frac{2}{3})^n + n$.
+
+c. La suite $(U_n)$ est-elle convergente?
+
+\textbf{Exercice 2 : (6pts)}
+
+Soit l'intégrale $I=\int_{0}^{1}\frac{\ln(1 + x)}{1 + x^2}dx$.
+
+1. Montrer que $\forall {x\in ]-1,+\infty[}$, on a : $\ln(1+x) = \int_{0}^{1}\frac{x}{1 + xy}dy$.
+
+En déduire que $I = \int\int_D\frac{x}{(1+x^2)(1+xy)}dxdy$ ou  $D$ est le pavé $[0,1]^2$.
+
+2. Considérons $f(x)= \frac{x}{(1+x^2)(1+xy)}$ pour $y$ fixé.
+
+Décomposer $f(x)$ en élément simple puis calculer $\int_{0}^{1}f(x)dx$.
+
+Montrer que $2I = \int_{0}^{1}\frac{1}{1+y^2}(\frac{1}{2}ln2 + y\frac{\pi}{4}ln2)dy$.
+
+En déduire que $I=\frac{\pi}{8}ln(2)$
+
+\medskip
+\textbf{Exercice 3 : (5pts)}
+
+On considère le système d'équations différentielle suivant :  $(S_1)\begin{cases}
+x^{\prime}(t)=-x(t) + 3 y(t)\\
+y^{\prime}(t)=x(t) + y(t)
+\end{cases}$
+
+1. Montrer que $(S_1)\Longleftrightarrow X^{\prime} = AX$ ou $A$ et $X$ sont à déterminer.
+
+2. Montrer que $A$ est diagonalisable et l'écrire sous la forme $A=PDP^{-1}$. On précisera $D; P$ et $P^{-1}$.
+
+3. Montrer que $(S_1)\Longleftrightarrow(S_2):Y^{\prime} = DY$. Préciser $Y$.
+
+4. Résoudre $(S_2)$ puis déduire la solution générale de $(S_1)$.
+
+\textbf{Exercice 4 : (5pts}
+
+On considère deux fonctions $f$ et $g$ définies sur $[\frac{3\pi}{2},2\pi]$ par :
+
+$f(x) = \cos x$ et $g(x)=\frac{\cos x}{1 - sin x}$.
+
+Soit $C_f$ et $C_g$ les courbes représentatives de $f$ et $g$ respectivement dans un repère orthonormé $(o;\overrightarrow{i};\overrightarrow{j})$.
+
+1. On suppose que pour tout $x\in [\frac{3\pi}{2},2\pi], g(x) - f(x) = \frac{h(x)}{1-\sin x}$.
+
+Donner une expression simplifiée de $h(x)$.
+
+2. Déterminer l'ensemble $S$ des solutions de l'équation $g(x)-f(x)=0$ dans $[\frac{3\pi}{2},2\pi]$.
+
+3. Étudier le signe de $g(x)-f(x)$ sur $[\frac{3\pi}{2},2\pi]$. Préciser les positions relatives des courbes $C_f$ et $C_g$.
+
+4.a. Déterminer $g^{\prime}(x)$ ou $g^{\prime}$ est la dérivée de $g$.
+
+b. Dresser le tableau de variations de $g$.
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+
+\end{spacing}
+\end{document}
