@@ -9,249 +9,197 @@
 
 \textbf{Partie 1}
 
-Soit $A$ un réel non nul. 
+\remarque{Pour que la condition (ii) $t_0<t_1<\dots<t_n$ soit compatible avec $t_0=0$ et $t_n=A$, il faut $A>0$ : on suppose donc $A$ strictement positif (l'énoncé original disait seulement « non nul »).}
 
-Montrer que, pour tout $n$ entier naturel non nul, on peut déterminer une suite unique de $n+1$ 
-nombres réels $(t_0, t_1, ….t_{n-1},t_n)$ vérifiant les trois conditions suivantes : 
+\underline{Unicité.} Soit $(t_0,\dots,t_n)$ une suite vérifiant (i), (ii), (iii). D'après (iii), $(t_k)$ est une suite arithmétique de raison $\frac An$ et de premier terme $t_0=0$ ; donc, par récurrence immédiate, $t_k=t_0+k\frac An=\dfrac{kA}{n}$ pour tout $k\in\{0,\dots,n\}$. La suite est donc nécessairement celle-ci.
 
-(i)    $t_0 = 0, t_n = A$ 
+\underline{Existence.} Réciproquement, posons $t_k=\dfrac{kA}{n}$ ($0\le k\le n$). Alors $t_0=0$, $t_n=A$ (i) ; $t_{k+1}-t_k=\frac An>0$ (iii), donc la suite est strictement croissante (ii).
 
-(ii)   $t_0 < t_1 < ….t_{n-1} < t_n$
+Il existe donc une unique suite convenable : $\boxed{t_k=\dfrac{kA}{n}}$, $k=0,\dots,n$.
 
-(iii)  $\forall k\in \lbrace 0, ...., n-1\rbrace, t_{k+1}-t_{k}= A/n$
+\textbf{Partie 2}
 
-En procédant par récurrence avec la dernière condition, on a :
+\textbf{1) Existence et unicité des $x_k$.}
 
-$t_{1}-t_{0}= A/n\Rightarrow t_1=A/n$ puisque $t_0=0$
+Posons $F(x)=\displaystyle\int_0^xf(t)\,dt$ pour $x\in[0,1]$ et $A=F(1)=\displaystyle\int_0^1f(t)\,dt$. Comme $f$ est continue, $F$ est dérivable de dérivée $F'=f>0$ : $F$ est continue et strictement croissante sur $[0,1]$, donc réalise une bijection de $[0,1]$ sur $[F(0),F(1)]=[0,A]$, et $A>0$.
 
-$t_2-t_1=A/n \Rightarrow t_2=2A/n$
+Pour $x_0,\dots,x_n\in[0,1]$, posons $t_k=F(x_k)$. Par la relation de Chasles, $\displaystyle\int_{x_k}^{x_{k+1}}f(t)dt=F(x_{k+1})-F(x_k)=t_{k+1}-t_k$. Les conditions de la partie 2 sur les $x_k$ équivalent donc aux conditions de la partie 1 sur les $t_k$ :
+\begin{itemize}
+\item (i) $x_0=0,\ x_n=1\iff t_0=0,\ t_n=A$ (car $F$ est bijective) ;
+\item (ii) $x_0<\dots<x_n\iff t_0<\dots<t_n$ (car $F$ est strictement croissante) ;
+\item (iii) $\displaystyle\int_{x_k}^{x_{k+1}}f=\frac1n\int_0^1f\iff t_{k+1}-t_k=\frac An$.
+\end{itemize}
+D'après la partie 1, il existe une unique suite $(t_k)$ convenable, $t_k=\frac{kA}{n}$, donc une unique suite $(x_k)$ :
+\[
+\boxed{x_k=F^{-1}\Big(\frac{kA}{n}\Big),\quad k=0,\dots,n}.
+\]
 
-$t_3-t_2=A/n \Rightarrow t_3=3A/n$
+\textbf{2) Limite de $U(n)=\dfrac1n\displaystyle\sum_{k=0}^nf(x_k)$.}
 
-$\vdots$					$\vdots$
+Posons $\varphi=f\circ F^{-1}$, continue sur $[0,A]$ (composée de fonctions continues ; $F^{-1}$ est continue comme réciproque d'une bijection continue strictement monotone). Alors
+\[
+U(n)=\frac1n\sum_{k=0}^n\varphi\Big(\frac{kA}{n}\Big)=\frac1A\cdot\underbrace{\frac An\sum_{k=0}^{n-1}\varphi\Big(\frac{kA}{n}\Big)}_{\text{somme de Riemann}}+\frac{\varphi(A)}{n}.
+\]
+La somme de Riemann de $\varphi$ sur $[0,A]$, de pas $\frac An$, tend vers $\displaystyle\int_0^A\varphi(t)\,dt$, et $\frac{\varphi(A)}n\to0$. Donc
+\[
+L=\lim_{n\to+\infty}U(n)=\frac1A\int_0^Af\big(F^{-1}(t)\big)\,dt .
+\]
+Changement de variable $t=F(u)$, $u\in[0,1]$, $dt=F'(u)\,du=f(u)\,du$ :
+\[
+\int_0^Af\big(F^{-1}(t)\big)dt=\int_0^1f(u)\,f(u)\,du=\int_0^1f^2(u)\,du,\qquad\boxed{L=\frac{\displaystyle\int_0^1f^2(u)\,du}{\displaystyle\int_0^1f(u)\,du}}.
+\]
 
-$t_k=kA/n$ pour $k$ allant de 0 à $n$.
+\textbf{3) Cas $f(x)=e^x$.} $F(x)=e^x-1$, $A=e-1$ ; $x_k=F^{-1}\big(\frac{k(e-1)}{n}\big)=\ln\Big(1+\dfrac{k(e-1)}{n}\Big)$.
+\[
+\int_0^1e^{2u}du=\frac{e^2-1}{2},\qquad L=\frac{(e^2-1)/2}{e-1}=\boxed{\frac{e+1}{2}\approx1{,}859}.
+\]
 
-\medskip\textbf{Partie 2}
+\medskip\textbf{Exercice 2}
 
-Posons $F(x)=\int_0^xf(t).dt$  qui existe d'après les hypothèses sur $f$ ; en outre la dérivée 
-$F'(x) =f(x) > 0$ donc $F$ est strictement croissante sur $[0,1]$, et $F$ est donc inversible. 
+\textbf{1) Étude de $g(x)=\dfrac1{\ln x}$ sur $]0,1[\cup]1,+\infty[$.}
 
-Posons $t_k = F(x_k)$, et $A = \int_0^1f(t).dt$
+\underline{Dérivées.} $g$ est de classe $C^\infty$ sur son domaine et
+\[
+g'(x)=-\frac{1/x}{\ln^2x}=-\frac{1}{x\ln^2x}<0,\qquad g''(x)=\frac{\ln^2x+2\ln x}{x^2\ln^4x}=\frac{\ln x+2}{x^2\ln^3x}.
+\]
+\underline{Sens de variation.} $g'<0$ : $g$ est strictement décroissante sur $]0,1[$ et sur $]1,+\infty[$ (mais pas sur la réunion !).
 
-On cherche une suite de $n+1$ nombres entre 0 et 1 vérifiant les 3 conditions de la partie 1 :  
+\underline{Concavité.} Signe de $g''$ = signe de $\frac{\ln x+2}{\ln^3x}$ :
+\begin{itemize}
+\item sur $]0,e^{-2}[$ : $\ln x+2<0$ et $\ln^3x<0$, donc $g''>0$ : $g$ est convexe ;
+\item sur $]e^{-2},1[$ : $\ln x+2>0$ et $\ln^3x<0$, donc $g''<0$ : $g$ est concave ;
+\item sur $]1,+\infty[$ : $g''>0$ : $g$ est convexe.
+\end{itemize}
+La courbe admet un point d'inflexion en $x=e^{-2}\approx0{,}135$, d'ordonnée $g(e^{-2})=-\frac12$.
 
-(i)    $t_0 = 0, t_n = A$ 
-(ii)   $t_0 < t_1 < ….t_{n-1} < t_n$
-(iii)  $\forall k\in \lbrace 0, ...., n-1\rbrace, t_{k+1}-t_{k}= A/n$
+\underline{Limites.}
+\begin{itemize}
+\item $x\to0^+$ : $\ln x\to-\infty$, donc $g(x)\to0^-$. De plus $g'(x)\to-\infty$ (car $x\ln^2x\to0^+$) : la courbe arrive en l'origine avec une tangente verticale.
+\item $x\to1^-$ : $\ln x\to0^-$, $g(x)\to-\infty$ ; \quad $x\to1^+$ : $\ln x\to0^+$, $g(x)\to+\infty$.
+\item $x\to+\infty$ : $g(x)\to0^+$.
+\end{itemize}
+\underline{Asymptotes.} La droite $x=1$ est asymptote verticale ; l'axe des abscisses $y=0$ est asymptote horizontale en $+\infty$. (En $0$, il n'y a pas d'asymptote : $g$ se prolonge par continuité par $0$.)
 
-Donc $t_k = kA/n$, pour $k$ allant de 0 à $n$. 
-
-D'où $x_k = F^{-1}(kA/n)$, pour $k$ allant de 0 à $n$. 
-
-En outre, puisque $F$ et donc $F-1$ sont strictement croissantes, les $x_k$ sont rangés en ordre croissant $x_0 < x_1 < ….. x_{n-1} < x_n$   
-
- 2) $U(n) =\frac{1}{n}\sum_{k=0}^nf(x_k)= \frac{1}{n}\sum_{k=0}^nf(F^{-1}(kA/n))$ qui converge vers :
- 
- \[
- A^{-1}\int_0^Af(F^{-1}(t))dt=\frac{B}{A}\] ou \[B=\int_0^Af(F^{-1}(t))dt\]
- 
- Faisons le changement de variable $u=F^{-1}(t)$, ou $t=F(u)$, $dt=f(u)du$
- 
- \[
- B=\int_0^1f(u)f(u)du=\int_0^1f^2(u)du\]
- 
- On en déduit que \[L=\frac{\int_0^1f^2(u)du}{\int_0^1f(u)du}\]
-
-3) Un calcul simple donne $A=e-1$
- 
- De même, $x_k=ln(k(e-1)/n)$
- 
- $B =(e^2-1)/2$ et donc $L=(e+1)/2$
- 
- \medskip\textbf{Exercice 2}
- 
- $g(x)=\frac{1}{lnx}$
- 
- 1) Il est évident que $g$ est définie sur $\mathbb{R}_+^{\ast}$ sauf pour $x = 1$. 
-
-\underline{Dérivée :} $g'(x) =-\frac{1}{xln^2x}< 0 \forall x \in \mathbb{R}_+^{\ast}\setminus\{1\}$. 
-
-Donc $g$ est décroissante. 
-
-De même,$ g''(x) = (2 + lnx)/x^2ln^3x$ qui s'annule en $x = e^{-2} $
-
-Donc $g$ admet un point d'inflexion en $x = e^{-2}$ et $g(e^{-2}) =-\frac{1}{2}$. 
-
-\underline{Limites :}
- 
-Quand $x\rightarrow 0^+$, $g$ tend vers 0. 
-
-Quand $x\rightarrow 1^-$, $g$ tend vers $-\infty$
- 
-Quand $x\rightarrow 1^+$, $g$ tend vers $+\infty$
- 
-Quand $x\rightarrow +\infty$, $g$ tend vers 0.
- 
-\underline{Asymptotes :} $x = 1, x = 0$ (vers $+\infty$)
-
-\underline{Tableau de variation} 
-
+\underline{Tableau de variation.}
 \begin{center}
-\begin{tikzpicture} 
-\tkzTabInit[lgt=3, espcl=3]{$x$ /1, $g'(x)$ /1, $g(x)$ /2}{$0$, $1$, $+\infty$} 
-\tkzTabLine{d, -, d, -,} 
-\tkzTabVar{D+/$0$, -D+/ $-\infty$/$+\infty$ , -/$0$}
-\end{tikzpicture} 
+\begin{tikzpicture}
+\tkzTabInit[lgt=2.5, espcl=3]{$x$ /1, $g'(x)$ /1, $g(x)$ /2}{$0$, $1$, $+\infty$}
+\tkzTabLine{ , -, d, -, }
+\tkzTabVar{+/$0$, -D+/$-\infty$/$+\infty$, -/$0$}
+\end{tikzpicture}
 \end{center}
 
-
-\underline{Graphe}
-
-\quad
-
-2) On considère l'ensemble $D = ]0,1/2[\cup]1,+\infty[$.
-
-On définit l'intégrale $J(x)$ par : 
-$J(x) =\int_{x}^{2x}g(t)dt$
-
-Montrons que $J(x)$ existe pour tout $x\in D$.
-
- L'intégrale n'existe que si 1 n'est pas dans l'intervalle $(x, 2x)$, soit $1 < x$ ou $1 > 2x$, 
-donc $x <1/2$ ou$ x > 1$, ce qui correspond à $D$. 
-
-Avec la notation introduite en Q1), $J(x) = G(2x)-G(x)$. 
-
-3) Soit l'ensemble $D^+ = [0,1/2[\cup ]1,+\infty[ = D \cup \lbrace 0\rbrace$
-
-On définit l'application $f : D^+\longrightarrow \mathbb{R}$ par : 
-
-$\forall x \in D,f(x) = J(x)$
-
-$f(0)=0$
-
-Montrer que $f$ est dérivable sur $D$, et calculer sa dérivée $f^{\prime}$.
-
-Étudier le signe de $f^{\prime}$ et en déduire le sens des variations de $f$ 
-
-Sur $D, J(x)= G(2x)-G(x)$, et donc, puisque $G'= g$, on a :$f'(x)$ existe et vaut : 
-\[
-f'(x) = 2g(2x)-g(x) = ln(x/2) /[(Lnx)(Ln2x)]\]
-
-$\longrightarrow$ Pour pour $x < 1/2$, $f'(x)$ est $<0$, donc $f$ est décroissante. 
-
-$\longrightarrow$ Pour $x > 1$, $f'(x)$ est $> 0$ si $x /2 > 1$, donc $x > 2$ ; de même, $f'(x) < 0$ si $x < 2$, et on a 
-$f'(x) = 0$ si $x = 2$. 
-
-On remarque aussi que la limite de $f'$ quand $x$ tend vers 0 est égale à 0. 
- 
-4) D'après les accroissements finis appliqués à $f$, $f = (2x-x)g(c), x \leqslant c \leqslant 2x$. 
-
-Comme la fonction $g$ est décroissante (question 1), $g(x)\geqslant g(c)\geqslant g(2x)$, donc : 
-
-\[x/\ln(2x)\leqslant f(x)\leqslant x/\ln x\]
-
-et 
-
-\[1/\ln(2x)\leqslant f(x)\leqslant 1/\ln x\]
- 
-On en déduit quand $x$ tend vers 0 : 
-
-a) $f(x)$ tend vers 0 
-
-b) $f(x) / x$ tend vers 0 
-
-Donc on peut prolonger $f$ par continuité en 0. 
-
-De même, la limite de $(f(x)-f (0))/(x-0) =f(x) /x$ est égale à 0, qui est aussi la limite 
-de $f'$ en 0 (remarque de la question 3), donc $f$ est dérivable en 0. 
-
-5) Toujours en utilisant la double inégalité de la question 4, on a : 
-Quand $x$ tend vers $+\infty$ : 
-
-a) $f(x)$ tend vers $+\infty$ 
-
-b) $f(x) / x$ tend vers 0 
-
-6) En étudiant brièvement $h(u)$ sur $]0, 1]$, on voit que $h$ est croissante de $-\infty$ à $1-ln2$ lorsque u passe de 0 à 1/2, admet un maximum égal à $1-ln2$ en 1/2 et décroit ensuite jusqu'à 0. 
-
-Donc il existe un nombre $\alpha$, compris entre 0 et 1/2, tel que $h(\alpha) = 0$. 
-
-Pour $u\geqslant\alpha$, $h(u)$ est positive ou nulle, donc $ln(u)\geqslant 2u-2$. 
-
-Donc $1/ln(u)\leqslant 1/(2u-2)$. 
-
-En reportant cette inégalité dans la définition de $f$, on voit que $f(x)$ est majorée par l'intégrale : 
-
-\[
-f(x)\leqslant \int_{x}^{2x}\frac{du}{2u-2}=\frac{1}{2}.\ln(\frac{2x-1}{x-1})\]
- 
- Quand $x\rightarrow 1/2,\frac{1}{2}.\ln\left(\frac{2x-1}{x-1}\right)$ tend vers  $-\infty$ et donc $f$ aussi. 
-
-7) Montrer que, $\forall u\geqslant 1, \ln(u)\leqslant u-1$. 
-Déduisons la limite de $f$ quand  $x\rightarrow 1$. 
-
-Comme en Question 6, en étudiant les variations de $v(u) = \ln(u)-(u-1)$, on trouve facilement que $\ln(u)\leqslant u-1$ quand $u\geqslant 1$. 
-
-On en déduit en minorant $g(x)$ par $1/(u-1)$ dans l'intégrale que
- $f(x)\geqslant \ln(\frac{2x-1}{x-1})$; or $\ln(\frac{2x-1}{x-1})$ tend vers $+\infty$ quand $x\rightarrow 1$, donc f aussi. 
-
-8) Construisons le tableau de variations de $f$ .   
-
-Donc, il résulte de tout ce qui précède, que : 
-
-Pour $x$ entre 0 et 1/2 : $f$ décroît de 0 à $-\infty$
- 
-Et pour $x\geqslant 1$ : 
-
-a) de 1 à 2, $f$ décroît de $+\infty$ au minimum $m = J(2) = G(4)-G(2)$,  
-
-b) puis $f$ croît de $m$ à $+\infty$ pour $x\geqslant 2$.
-
-\underline{ Tableau de Variations}
+\underline{Graphe.}
 \begin{center}
-\begin{tikzpicture} 
-\tkzTabInit[lgt=3, espcl=3]{$x$ /1, $f'(x)$ /1, $f(x)$ /3}{$0$, $\frac{1}{2}$, $1$, $2$,  $+\infty$} 
-\tkzTabLine{, -,d, h, d, -,z ,+,} 
-\tkzTabVar{+/$0$, -DH/ $-\infty$, +/$+\infty$ , -/$J(2)$, +/$+\infty$}
-\end{tikzpicture} 
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle, xlabel=$x$, ylabel=$y$, xmin=0, xmax=6, ymin=-5, ymax=5, width=10cm, height=7cm, samples=200]
+\addplot[blue!70!black, thick, domain=0.001:0.82]{1/ln(x)};
+\addplot[blue!70!black, thick, domain=1.22:6]{1/ln(x)};
+\addplot[dashed, gray] coordinates {(1,-5) (1,5)};
+\addplot[only marks, mark=*, mark size=1.2pt] coordinates {(0.1353,-0.5)};
+\node at (axis cs:0.55,-0.5) {\scriptsize $I$};
+\end{axis}
+\end{tikzpicture}
 \end{center}
 
+\textbf{2) Existence de $J(x)=\displaystyle\int_x^{2x}g(t)\,dt$ pour $x\in D$.}
 
+Pour $x>0$, $J(x)$ est l'intégrale d'une fonction continue sur un segment si et seulement si $[x,2x]\subset]0,1[$ ou $[x,2x]\subset]1,+\infty[$, c'est-à-dire $2x<1$ ou $x>1$ : $x\in D=]0,\frac12[\cup]1,+\infty[$. Dans ce cas $J(x)$ existe et, $G$ étant une primitive de $g$ sur l'intervalle contenant $[x,2x]$, $J(x)=G(2x)-G(x)$.
 
+(Si $x\in[\frac12,1]$, l'intervalle $[x,2x]$ contient $1$, où $g$ n'est pas définie ; on peut montrer que l'intégrale généralisée diverge, car $g(t)\sim\frac1{t-1}$ en $1$.)
 
+\textbf{3) Dérivabilité et variations de $f$ sur $D$.}
 
+Sur chacun des intervalles de $D$, $f(x)=G(2x)-G(x)$ est dérivable (composée et différence de fonctions dérivables) et
+\[
+f'(x)=2g(2x)-g(x)=\frac2{\ln(2x)}-\frac1{\ln x}=\frac{2\ln x-\ln(2x)}{\ln x\,\ln(2x)}=\frac{\ln x-\ln2}{\ln x\,\ln(2x)}=\boxed{\frac{\ln(x/2)}{\ln x\,\ln(2x)}}.
+\]
+\underline{Signe.}
+\begin{itemize}
+\item Pour $0<x<\frac12$ : $\ln x<0$, $\ln(2x)<0$ (car $2x<1$), donc le dénominateur est $>0$ ; et $\ln\frac x2<0$. Donc $f'(x)<0$ : \textbf{$f$ est strictement décroissante sur $]0,\frac12[$}.
+\item Pour $x>1$ : $\ln x>0$ et $\ln(2x)>0$ ; $f'(x)$ a le signe de $\ln\frac x2$ : $f'<0$ sur $]1,2[$, $f'(2)=0$, $f'>0$ sur $]2,+\infty[$. \textbf{$f$ décroît sur $]1,2]$ et croît sur $[2,+\infty[$}.
+\end{itemize}
+On note aussi que $f'(x)\to0$ quand $x\to0^+$ (le numérateur est équivalent à $\ln x$ et le dénominateur à $\ln^2x$).
 
+\textbf{4) Encadrement et comportement en $0$.}
+
+Soit $x\in D$. Sur $[x,2x]$, $g$ est décroissante (question 1), donc pour $t\in[x,2x]$ : $g(2x)\le g(t)\le g(x)$. En intégrant sur $[x,2x]$, de longueur $x$ :
+\[
+\boxed{\frac{x}{\ln(2x)}\le f(x)\le\frac{x}{\ln x}},\qquad\text{soit}\qquad\frac1{\ln(2x)}\le\frac{f(x)}x\le\frac1{\ln x}.
+\]
+Quand $x\to0^+$, $\frac1{\ln(2x)}\to0$ et $\frac1{\ln x}\to0$. Par encadrement :
+\[
+\lim_{x\to0^+}\frac{f(x)}{x}=0\qquad\text{et donc}\qquad\lim_{x\to0^+}f(x)=\lim_{x\to0^+}x\cdot\frac{f(x)}{x}=0 .
+\]
+\underline{Continuité en 0} : $\lim\limits_{0^+}f=0=f(0)$, $f$ est continue (à droite) en $0$.
+
+\underline{Dérivabilité en 0} : $\dfrac{f(x)-f(0)}{x-0}=\dfrac{f(x)}{x}\to0$ : $f$ est dérivable (à droite) en $0$ et $f'(0)=0$ ; la courbe admet en $0$ une tangente horizontale (en accord avec $\lim_{0^+}f'=0$).
+
+\textbf{5) Comportement en $+\infty$.} D'après l'encadrement : $f(x)\ge\dfrac{x}{\ln(2x)}\to+\infty$ (croissances comparées), donc $\boxed{\lim\limits_{+\infty}f=+\infty}$ ; et $0\le\dfrac{f(x)}x\le\dfrac1{\ln x}\to0$ (pour $x>1$), donc $\boxed{\lim\limits_{+\infty}\frac{f(x)}x=0}$ : branche parabolique de direction $(Ox)$.
+
+\textbf{6) Limite en $\frac12$.}
+
+\underline{Étude de $h(u)=\ln u-2u+2$ sur $]0,1]$.} $h'(u)=\frac1u-2=\frac{1-2u}{u}$ : $h$ est strictement croissante sur $]0,\frac12]$ et strictement décroissante sur $[\frac12,1]$. De plus $\lim_{0^+}h=-\infty$, $h(\frac12)=-\ln2+1>0$ et $h(1)=0$.
+\begin{itemize}
+\item Sur $]0,\frac12]$ : $h$ est continue et strictement croissante de $-\infty$ à $1-\ln2>0$ ; par le théorème de la bijection, il existe un unique $\alpha\in]0,\frac12[$ tel que $h(\alpha)=0$ (numériquement $\alpha\approx0{,}203$).
+\item Sur $[\frac12,1]$ : $h$ décroît de $1-\ln2$ à $0$, donc $h\ge0$ et ne s'annule qu'en $1$.
+\end{itemize}
+Ainsi $h(u)\ge0$ pour tout $u\in[\alpha,1]$, c'est-à-dire $\ln u\ge2u-2$.
+
+\underline{Majoration.} Soit $x\in[\alpha,\frac12[$ et $t\in[x,2x]\subset[\alpha,1[$. On a $2t-2\le\ln t<0$ ; deux nombres négatifs étant rangés dans l'ordre inverse de leurs inverses : $\dfrac1{\ln t}\le\dfrac1{2t-2}$. En intégrant :
+\[
+f(x)\le\int_x^{2x}\frac{dt}{2(t-1)}=\frac12\Big[\ln|t-1|\Big]_x^{2x}=\frac12\ln\frac{1-2x}{1-x}=\frac12\ln\Big(\frac{2x-1}{x-1}\Big).
+\]
+Quand $x\to\frac12^-$, $\frac{1-2x}{1-x}\to0^+$, donc le majorant tend vers $-\infty$, et
+\[
+\boxed{\lim_{x\to\frac12^-}f(x)=-\infty}.
+\]
+
+\textbf{7) Limite en $1^+$.}
+
+La fonction $v(u)=u-1-\ln u$ vérifie $v'(u)=1-\frac1u\ge0$ pour $u\ge1$ et $v(1)=0$ ; donc $v\ge0$, soit $\ln u\le u-1$ pour $u\ge1$.
+
+Soit $x>1$ et $t\in[x,2x]$ : $0<\ln t\le t-1$, donc $\dfrac1{\ln t}\ge\dfrac1{t-1}$. En intégrant :
+\[
+f(x)\ge\int_x^{2x}\frac{dt}{t-1}=\ln\frac{2x-1}{x-1}\xrightarrow[x\to1^+]{}+\infty,\qquad\boxed{\lim_{x\to1^+}f(x)=+\infty}.
+\]
+
+\textbf{8) Tableau de variations de $f$.}
+
+Le minimum de $f$ sur $]1,+\infty[$ est atteint en $2$ : $f(2)=\displaystyle\int_2^4\frac{dt}{\ln t}=G(4)-G(2)\approx1{,}92$.
+\begin{center}
+\begin{tikzpicture}
+\tkzTabInit[lgt=2.5, espcl=2.4]{$x$ /1, $f'(x)$ /1, $f(x)$ /2.5}{$0$, $\frac{1}{2}$, $1$, $2$, $+\infty$}
+\tkzTabLine{z, -, d, h, d, -, z, +, }
+\tkzTabVar{+/$0$, -DH/$-\infty$, D+/$+\infty$, -/$f(2)\approx1{,}92$, +/$+\infty$}
+\end{tikzpicture}
+\end{center}
+(La zone hachurée $[\frac12,1]$ correspond aux valeurs de $x$ pour lesquelles $f$ n'est pas définie.)
 
 \medskip\textbf{Exercice 3}
 
-1) Comparons les intégrales $A$ et $B$ :
-
-$A=\int_{0}^{\frac{\pi}{4}}Ln(\cos x)dx$
-
-$B= \int_{0}^{\frac{\pi}{4}}Ln(\cos(\frac{\pi}{4}- x))dx$.
-
- En faisant dans $B$ le changement de variable $u =\frac{\pi}{4}- x$, on obtient directement $A = B$.
-
-2. Calculons l'intégrale $I=\int_{0}^{\frac{\pi}{4}}Ln(1+\tan x)dx$.
-
- On sait que :
- 
-\[\cos(\frac{\pi}{4}-x)=\frac{\cos x+\sin x}{\sqrt{2}}\]
-
+\textbf{1) Comparaison de $A$ et $B$.} Sur $[0,\frac\pi4]$, $\cos x>0$ et $\cos(\frac\pi4-x)>0$ : les intégrales existent. Dans $B$, posons $u=\frac\pi4-x$ ($du=-dx$ ; $x=0\mapsto u=\frac\pi4$, $x=\frac\pi4\mapsto u=0$) :
 \[
-1+\tan x=\frac{\cos x+\sin x}{\cos x}\]
+B=\int_{\pi/4}^0\ln(\cos u)\,(-du)=\int_0^{\pi/4}\ln(\cos u)\,du=A .
+\]
+\[
+\boxed{A=B}.
+\]
 
-\begin{align*}
-\ln(1+\tan x)&=\ln(\cos x+\sin x)-\ln(\cos x)\\
-&=\ln(\sqrt{2})\cos(\frac{\pi}{4}-x)-\ln(\cos x)\\
-&=\ln(\sqrt{2})+\ln(\cos(\frac{\pi}{4})-x)-\ln(\cos x)
-\end{align*}
+\textbf{2) Calcul de $I=\displaystyle\int_0^{\pi/4}\ln(1+\tan x)\,dx$.}
 
-
-D'où, en passant à l'intégrale et comme $A = B$, on a 
-\[I=\frac{\pi}{4}\ln(\sqrt{2})\]
- 
+Pour $x\in[0,\frac\pi4]$ :
+\[
+1+\tan x=\frac{\cos x+\sin x}{\cos x}\qquad\text{et}\qquad\cos x+\sin x=\sqrt2\cos\Big(\frac\pi4-x\Big)
+\]
+(car $\cos(\frac\pi4-x)=\frac{\sqrt2}2\cos x+\frac{\sqrt2}2\sin x$). Donc
+\[
+\ln(1+\tan x)=\ln\sqrt2+\ln\cos\Big(\frac\pi4-x\Big)-\ln(\cos x).
+\]
+En intégrant sur $[0,\frac\pi4]$ :
+\[
+I=\frac\pi4\ln\sqrt2+B-A=\frac\pi4\cdot\frac{\ln2}{2}+0,\qquad\boxed{I=\frac{\pi\ln2}{8}\approx\frac{3{,}14\times0{,}69}{8}\approx0{,}27}.
+\]
 
 \end{spacing}
 \end{document}
