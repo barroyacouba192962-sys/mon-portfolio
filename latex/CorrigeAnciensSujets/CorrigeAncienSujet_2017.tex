@@ -47,7 +47,9 @@ P^{-1}=\frac16\begin{pmatrix}0&3&3\\2&2&-2\\2&-1&1\end{pmatrix}.
 
 Pour $n=0$, $M^0=I_3$. Pour $n\ge1$, $M^n=PD^nP^{-1}$ avec $D^n=\operatorname{diag}(0,1,16^n)$ (attention : $0^n=0$ seulement pour $n\ge1$). On obtient
 \[
-PD^n=\begin{pmatrix}0&1&2\cdot16^n\\0&1&-16^n\\0&-1&16^n\end{pmatrix},\qquad
+PD^n=\begin{pmatrix}0&1&2\cdot16^n\\0&1&-16^n\\0&-1&16^n\end{pmatrix},
+\]
+\[
 \boxed{M^n=\frac16\begin{pmatrix}2+4\cdot16^n&2-2\cdot16^n&-2+2\cdot16^n\\2-2\cdot16^n&2+16^n&-2-16^n\\-2+2\cdot16^n&-2-16^n&2+16^n\end{pmatrix}}\quad(n\ge1).
 \]
 Vérification pour $n=1$ : $\frac16(2+64)=11$, $\frac16(2-32)=-5$, $\frac16(2+16)=3$ : on retrouve $M$.

@@ -348,13 +348,13 @@ Vérifions ces deux conditions.
 \medskip
 \textbf{Déterminons $Imf$}
 
-D'après 2. si $v\in Imf$, alors $f(v)=2v$
+D'après 2., tout $v\in\operatorname{Im}f$ vérifie $f(v)=2v$, c'est-à-dire $\operatorname{Im}f\subset F=\ker(f-2\,\mathrm{Id})$. Déterminons $F$.
 
 Soit $v=\begin{pmatrix}
 x\\
 y\\
 z
-\end{pmatrix}\in Imf$, alors $f(v)=2v$
+\end{pmatrix}\in F$, c'est-à-dire $f(v)=2v$
 
 $f(v)=2v \Rightarrow \begin{cases}
 -x+y+z=2x\\
@@ -396,7 +396,7 @@ y\\
 -1
 \end{pmatrix}$
 
-D'où $Imf=\langle \begin{pmatrix}
+D'où $F=\langle \begin{pmatrix}
 1\\
 0\\
 3
@@ -404,7 +404,7 @@ D'où $Imf=\langle \begin{pmatrix}
 0 \\
 1 \\
 -1
-\end{pmatrix}\rangle$ et $dimImf=2$
+\end{pmatrix}\rangle$ et $\dim F=2$ (on montrera plus bas que $\operatorname{Im}f=F$)
 
 \medskip
 \textbf{Déterminons $Kerf$}
@@ -450,7 +450,11 @@ D'où $Kerf=\langle \begin{pmatrix}
 \end{pmatrix}\rangle$ et $dimKerf=1$.
 
 \medskip
-On a : $dimImf+dimKerf=2+1=3=dim\mathbb{R}^3$ et $Imf+Kerf=\mathbb{R}^3$, donc la deuxième condition est vérifiée.
+\underline{Justification de l'égalité $\operatorname{Im}f=F$.} Notons $F=\ker(f-2\,\mathrm{Id})=\{(x,y,z)\ /\ -3x+y+z=0\}$, de dimension 2. La question 2 montre que $\operatorname{Im}f\subset F$. D'après le théorème du rang, $\dim\operatorname{Im}f=3-\dim\ker f=3-1=2=\dim F$. Une inclusion entre sous-espaces de même dimension finie est une égalité : $\operatorname{Im}f=F$.
+
+On a donc $\dim\operatorname{Im}f+\dim\ker f=2+1=3=\dim\mathbb{R}^3$. Il reste à montrer que $\ker f\cap\operatorname{Im}f=\{0\}$ ; on aura alors $\ker f\oplus\operatorname{Im}f=\mathbb{R}^3$.
+
+(Autre argument direct : si $v\in\ker f\cap\operatorname{Im}f$, alors $f(v)=0$ et $f(v)=2v$, donc $v=0$.)
 
 \medskip
 Soit $N=\begin{pmatrix}
@@ -465,7 +469,7 @@ On a $\det(N)=\begin{vmatrix}
 3 & -1 & 1 
 \end{vmatrix}=(1-2)-(0-3)=-1+3=2\neq 0$ alors la famille formée par les trois vecteurs de $Imf$ et $Kerf$ est libre.
 
-D'où $Imf\cap Kerf=\{0_{\mathbb{R}^3}\}$. La deuxième condition est donc vérifiée.
+La famille formée d'une base de $\operatorname{Im}f$ et d'une base de $\ker f$ est donc une base de $\mathbb{R}^3$ : $\operatorname{Im}f\cap\ker f=\{0_{\mathbb{R}^3}\}$ et $\operatorname{Im}f+\ker f=\mathbb{R}^3$.
 
 \medskip
 Ces deux conditions étant vérifiées, on conclut donc que les sous-espaces vectoriels $Kerf$ et $Imf$ sont des sous-espaces supplémentaires de $\mathbb{R}^3$
@@ -525,7 +529,11 @@ D'après 2. si $v\in Imf$, alors $f(v)=2v$
 
 Soit $v\in Imf\Longrightarrow f(v)=2v\Longrightarrow Mv=2v\Longrightarrow Mv-2v=0\Longrightarrow (M-2I_3)v=0$
 
-Ainsi $Imf=\{v\in \mathbb{R}^3/(M-2I_3)v=0\}$
+Ainsi $\operatorname{Im}f=\ker(M-2I_3)$ (égalité justifiée à la question 3), et le système $(M-2I_3)v=0$ se réduit à la seule équation $-3x+y+z=0$. Une équation de $\operatorname{Im}f$ est donc
+\[
+\boxed{3x-y-z=0}.
+\]
+(On vérifie que les colonnes de $M$, qui engendrent $\operatorname{Im}f$, vérifient cette équation : $-3-(-6)-3=0$, $3-4-(-1)=0$, $3-2-1=0$.)
 
 \medskip
 \textbf{Exercice 3}
@@ -546,7 +554,7 @@ Comme $x\in\mathbb{R}$ et $y\in ]0,+\infty[$ alors $y>0$ et $x=0$.
 Donc l'ensemble recherché est $\{(0,y), \forall y\in ]0,+\infty[\}$
 
 
-1.b. Calculons $\frac{\partial{f}}{\partial{y}}(x,y)$éduire les points critiques de $f$.
+1.b. Calculons $\frac{\partial{f}}{\partial{y}}(x,y)$ et déduisons les points critiques de $f$.
 
 $\frac{\partial{f}}{\partial{y}}(x,y)=x^2 + ln^2{(y)}+2ln(y)$
 
@@ -613,7 +621,7 @@ $Hess_f(B)=\begin{pmatrix}
 
 $\forall (x,y)\in\Omega$ et $(x,y)\neq(0,1)$, on a :
 
-$y>0$, $x^2>0$ et $ln^2(y)>0$ $\Rightarrow y(x^2+ln^2(y))>0\Rightarrow f(x,y)>0$
+$y>0$ et $x^2+\ln^2(y)\ge0$, avec égalité si et seulement si $x=0$ et $\ln y=0$, c'est-à-dire $(x,y)=(0,1)$. Donc, pour $(x,y)\neq(0,1)$, $x^2+\ln^2y>0$ et $f(x,y)=y\,(x^2+\ln^2y)>0$.
 
 \medskip
 On a : $f(0,1)=1(0^2+ln^2(1))=0$
@@ -622,7 +630,7 @@ Comme $\begin{cases}
 \forall (x,y)\in\Omega\hspace{0.7cm} et\hspace{0.7cm} (x,y)\neq(0,1), f(x,y)>0\\
 et\\
 f(0,1)=0
-\end{cases}$ alors on en déduire que (0,1) est un minimum global.
+\end{cases}$ alors $f(x,y)\ge f(0,1)$ pour tout $(x,y)\in\Omega$ : $f$ admet en $(0,1)$ un \textbf{minimum global} (strict), égal à $0$. En revanche, le point selle $B=(0,e^{-2})$ n'est pas un extremum.
 
 \medskip\textbf{Exercice 4}
 
@@ -632,7 +640,7 @@ Cherchons la solution de l'équation homogène $(E_0) : y^{\prime\prime} -2y^{\p
 
 L'équation caractéristiques est :
 
-$r^2-2r^2+1-\alpha^2=0$
+$r^2-2r+1-\alpha^2=0$
 
 $\Delta = 4-4(1-\alpha^2)=4\alpha^2=(2\alpha)^2$
 
@@ -673,7 +681,7 @@ L'équation caractéristique a deux racines distinctes $r_1=1-\alpha$ et $r_2=1+
 
 Donc la solution de l'équation homogène est donnée par :
 
-$y_0(x)=C_1e^{(1-a)x}+C_2e^{(1+a)x}$
+$y_0(x)=C_1e^{(1-\alpha)x}+C_2e^{(1+\alpha)x}$
 
 \medskip
 Cherchons une solution particulière
@@ -700,7 +708,7 @@ Donc la solution particulière est $y_p(x)=-\frac{1}{\alpha^2}e^x$
 
 Ainsi la solution générale de l'équation différentielle pour $\alpha\neq 0$ est :
 
-$y(x)=C_1e^{(1-a)x}+C_2e^{(1+a)x}-\frac{1}{\alpha^2}e^x$.
+$y(x)=C_1e^{(1-\alpha)x}+C_2e^{(1+\alpha)x}-\frac{1}{\alpha^2}e^x$.
 
 b. Déduisons la solution de l'équation différentielle $(E_2):y^{\prime\prime} -2y^{\prime}+y=e^x$ satisfaisant au conditions initiales $y(0)=1$ et $y^\prime(0)=3$.
 

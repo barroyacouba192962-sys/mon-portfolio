@@ -5,485 +5,159 @@
 \entete{Mathématiques}{Corrigé détaillé -- Session 2019}{Correction}
 \begin{spacing}{1.5}
 
-\textbf{Exercice 1}
+\remarque{L'exercice 1 de la session 2019 est identique à l'exercice 1 de la session 2017.}
 
-On considère la matrice carrée d'ordre 3 définie par  : 
+\textbf{Exercice 1} \quad $M=\begin{pmatrix}11&-5&5\\-5&3&-3\\5&-3&3\end{pmatrix}$.
 
-$M=\begin{pmatrix}
-11 & -5 & 5 \\ 
--5 & 3 & -3 \\ 
-5 & -3 & 3
-\end{pmatrix}$
+\textbf{1. Polynôme caractéristique et spectre.}
 
-1. Déterminons le polynôme caractéristique de $M$, ainsi que son spectre.
-
-\begin{align*}
-P_M(x)=\det(M-xI_3)&=\begin{vmatrix}
-11-x & -5 & 5 \\ 
--5 & 3-x & -3 \\ 
-5 & -3 & 3-x
-\end{vmatrix}\leftarrow c_3+c_2\\
-&=\begin{vmatrix}
-11-x & -5 & 0 \\ 
--5 & 3-x & -x \\ 
-5 & -3 & -x
-\end{vmatrix}\leftarrow L_2-L_3\\
-&=x\begin{vmatrix}
-11-x & -5 & 0 \\ 
--10 & 6-x & 0 \\ 
-5 & -3 & -1
-\end{vmatrix}\\
-&=-x\begin{vmatrix}
-11-x & -5 \\
--10 & 6-x 
-\end{vmatrix}\\
-&=-x((11-x)(6-x)-50)\\
-&=-x(66-11x-6x+x^2-50)\\
-&=-x(x^2-17x+16)\\
-\end{align*}
-
-Factorisation de $x^2-17x+16$
-
-$\Delta=225=(15)^2$
-
-$x=\frac{17-15}{2}=1$ ou $x=\frac{17+15}{2}=16$
-
-Donc $P_M(x)=-x(x-1)(x-16)$.
-
-Ainsi spectre de $M$ est $Sp(M)=\{0;1;16\}$
-
-2. Les sous espaces propres associés aux différentes valeurs propres.
-
-Soit $E_\lambda$ le sous-espace propre lié à la valeur propre $\lambda$
-
+Avec $C_3\leftarrow C_3+C_2$ puis $L_2\leftarrow L_2-L_3$ :
 \[
-E_\lambda=\{u=(x,y,z)\in \mathbb{R}^3/Mu=\lambda u\}
+P_M(x)=\begin{vmatrix}11-x&-5&5\\-5&3-x&-3\\5&-3&3-x\end{vmatrix}
+=\begin{vmatrix}11-x&-5&0\\-5&3-x&-x\\5&-3&-x\end{vmatrix}
+=\begin{vmatrix}11-x&-5&0\\-10&6-x&0\\5&-3&-x\end{vmatrix}.
+\]
+En développant suivant la troisième colonne :
+\[
+P_M(x)=-x\big[(11-x)(6-x)-50\big]=-x(x^2-17x+16).
+\]
+Le trinôme $x^2-17x+16$ a pour discriminant $289-64=225=15^2$ et pour racines $\frac{17\pm15}{2}$, soit $1$ et $16$. Donc
+\[
+\boxed{P_M(x)=-x(x-1)(x-16)},\qquad\boxed{\operatorname{Sp}(M)=\{0\,;\,1\,;\,16\}}.
 \]
 
-\medskip
-$\bullet$ Pour $\lambda=0$, on a :
+\textbf{2. Sous-espaces propres.}
 
-$\forall u\in E_0,Mu=0\Rightarrow \begin{pmatrix}
-11 & -5 & 5 \\ 
--5 & 3 & -3 \\ 
-5 & -3 & 3
-\end{pmatrix}\begin{pmatrix}
-x\\
-y\\
-z
-\end{pmatrix}=\begin{pmatrix}
-0\\
-0\\
-0
-\end{pmatrix}\Rightarrow \begin{cases}
-11x-5y+5z=0\\
--5x+3y-3z=0\\
-5x-3y+3z=0
-\end{cases}\Rightarrow \begin{cases}
-11x-5y+5z=0(1)\\
-5x-3y+3z=0(2)
-\end{cases}$
+\underline{$\lambda=0$ :} $MX=0\iff\begin{cases}11x-5y+5z=0\\5x-3y+3z=0\end{cases}$ (la deuxième ligne de $M$ est l'opposée de la troisième). En posant $w=y-z$ : $11x=5w$ et $5x=3w$, d'où $x=0$ et $w=0$. Donc $E_0=\operatorname{Vect}(u_1)$, $u_1=(0,1,1)$.
 
-$(2)\Longrightarrow x=\frac{3}{5}(y-z)$
+\underline{$\lambda=1$ :} $(M-I)X=0\iff\begin{cases}10x-5y+5z=0\\-5x+2y-3z=0\\5x-3y+2z=0\end{cases}$. La somme des deux dernières donne $-y-z=0$, soit $z=-y$ ; la première donne alors $10x-10y=0$, $x=y$. Donc $E_1=\operatorname{Vect}(u_2)$, $u_2=(1,1,-1)$.
 
-$(1)\Longrightarrow \frac{33}{5}(y-z)-5y+5z=0\Longrightarrow  \frac{8}{5}y-\frac{8}{5}=0\Longrightarrow y-z=0\Longrightarrow y=z$ $\Rightarrow x=0$
+\underline{$\lambda=16$ :} $(M-16I)X=0\iff\begin{cases}-5x-5y+5z=0\\-5x-13y-3z=0\\5x-3y-13z=0\end{cases}$. La somme des deux dernières donne $-16y-16z=0$, soit $z=-y$ ; la première donne $-5x-10y=0$, $x=-2y$. Donc $E_{16}=\operatorname{Vect}(u_3)$, $u_3=(2,-1,1)$.
 
-$\Rightarrow u=\begin{pmatrix}
-0\\
-y\\
-y
-\end{pmatrix}=y\begin{pmatrix}
-0\\
-1  \\
-1
-\end{pmatrix}\Rightarrow E_0=\langle \begin{pmatrix}
-0\\
-1\\
-1
-\end{pmatrix}\rangle$
+(Vérifications : $Mu_1=0$, $Mu_2=u_2$, $Mu_3=(32,-16,16)=16u_3$.)
 
-$\bullet$ Pour $\lambda=1$, on a :
+\textbf{3. Diagonalisation.} $M$ est une matrice d'ordre 3 ayant 3 valeurs propres distinctes : elle est \textbf{diagonalisable}. (On remarque aussi que $M$ est symétrique réelle, et que $u_1,u_2,u_3$ sont deux à deux orthogonaux.) Dans la base $\mathcal{B}=(u_1,u_2,u_3)$ :
+\[
+D=\begin{pmatrix}0&0&0\\0&1&0\\0&0&16\end{pmatrix},\qquad P=\begin{pmatrix}0&1&2\\1&1&-1\\1&-1&1\end{pmatrix},\qquad M=PDP^{-1}.
+\]
+\underline{Calcul de $P^{-1}$.} $\det P=0-1\cdot(1+1)+2\cdot(-1-1)=-6$. Par la comatrice (ou en utilisant l'orthogonalité des colonnes : $P^{-1}$ a pour lignes $\frac{{}^tu_i}{\|u_i\|^2}$ avec $\|u_1\|^2=2$, $\|u_2\|^2=3$, $\|u_3\|^2=6$) :
+\[
+P^{-1}=\frac16\begin{pmatrix}0&3&3\\2&2&-2\\2&-1&1\end{pmatrix}.
+\]
 
-$\begin{pmatrix}
-11 & -5 & 5 \\ 
--5 & 3 & -3 \\ 
-5 & -3 & 3
-\end{pmatrix}\begin{pmatrix}
-x\\
-y\\
-z
-\end{pmatrix}=\begin{pmatrix}
-x\\
-y\\
-z
-\end{pmatrix}=\begin{cases}
-10x-5y+5z=0(1)\\
--5x+2y-3z=0(2)\\
-5x-3y+2z=0(3)
-\end{cases}$
+\textbf{4. Calcul de $M^n$.}
 
-$(2)+(3)\Rightarrow z=-y (4)$
+Pour $n=0$, $M^0=I_3$. Pour $n\ge1$, $M^n=PD^nP^{-1}$ avec $D^n=\operatorname{diag}(0,1,16^n)$ (attention : $0^n=0$ seulement pour $n\ge1$). On obtient
+\[
+PD^n=\begin{pmatrix}0&1&2\cdot16^n\\0&1&-16^n\\0&-1&16^n\end{pmatrix},
+\]
+\[
+\boxed{M^n=\frac16\begin{pmatrix}2+4\cdot16^n&2-2\cdot16^n&-2+2\cdot16^n\\2-2\cdot16^n&2+16^n&-2-16^n\\-2+2\cdot16^n&-2-16^n&2+16^n\end{pmatrix}}\quad(n\ge1).
+\]
+Vérification pour $n=1$ : $\frac16(2+64)=11$, $\frac16(2-32)=-5$, $\frac16(2+16)=3$ : on retrouve $M$.
 
-$(4)$ dans $(1)\Longrightarrow x=y$
+\medskip\textbf{Exercice 2} \quad $h$ est $2\pi$-périodique, impaire, et $h(x)=x(\pi-x)$ pour $x\in[0,\pi]$.
 
-$\Rightarrow u=\begin{pmatrix}
-y\\
-y\\
--y
-\end{pmatrix}=y\begin{pmatrix}
-1\\
-1\\
--1
-\end{pmatrix}\Rightarrow E_{1}=\langle \begin{pmatrix}
-1 \\
-1 \\
--1
-\end{pmatrix}\rangle$
+\textbf{1. Représentation graphique sur $[-2\pi,2\pi]$.}
 
-$\bullet$ Pour $\lambda=16$, on a :
+\underline{Sur $[0,\pi]$} : $h'(x)=\pi-2x$ ; $h$ croît sur $[0,\frac\pi2]$, décroît sur $[\frac\pi2,\pi]$, avec $h(0)=h(\pi)=0$ et un maximum $h(\frac\pi2)=\frac{\pi^2}{4}\approx2{,}47$ ; la courbe est un arc de parabole.
 
-$\begin{pmatrix}
-11 & -5 & 5 \\ 
--5 & 3 & -3 \\ 
-5 & -3 & 3
-\end{pmatrix}\begin{pmatrix}
-x\\
-y\\
-z
-\end{pmatrix}=16\begin{pmatrix}
-x\\
-y\\
-z
-\end{pmatrix}=\begin{cases}
--5x-5y+5z=0(1)\\
--5x-13y-3z=0(2)\\
-5x-3y-13z=0(3)
-\end{cases}$
+\underline{Sur $[-\pi,0]$} : $h$ étant impaire, $h(x)=-h(-x)=-(-x)(\pi+x)=x(\pi+x)$ : la courbe est symétrique de la précédente par rapport à l'\textbf{origine} $O$.
 
-$(2)+(3)\Rightarrow z=-y (4)$
-
-$(4)$ dans $(1)\Longrightarrow x=-2y$
-
-$\Rightarrow u=\begin{pmatrix}
--2y\\
-y\\
--y
-\end{pmatrix}=-y\begin{pmatrix}
-2\\
--1\\
-1
-\end{pmatrix}\Rightarrow E_{16}=\langle \begin{pmatrix}
-2 \\
--1 \\
-1
-\end{pmatrix}\rangle$
-
-
-3. $M$ est diagonalisable car le polynôme caractéristique de $M$ est scindé en racines simples. Ou autrement car les valeurs propres sont distinctes deux à deux.
-
-\medskip
-\textbf{Diagonalisons $M$}
-
-On a la base $B=\langle \begin{pmatrix}
-0\\
-1\\
-1
-\end{pmatrix},\begin{pmatrix}
-1 \\
-1 \\
--1
-\end{pmatrix},\begin{pmatrix}
-2 \\
--1 \\
-1
-\end{pmatrix}\rangle$.
-
-Dans la base $B$, $D=\begin{pmatrix}
-0 & 0 & 0 \\ 
-0 & 1 & 0 \\ 
-0 & 0 & 16
-\end{pmatrix}$ et $P= \begin{pmatrix}
-0 & 1  & 2 \\ 
-1 & 1  & -1\\ 
-1 & -1 & 1 
-\end{pmatrix}$
-
-$M=PDP^{-1}$
-
-\medskip
-Calculons $P^{-1}$
-
-$P^{-1}=\frac{1}{det(P)}t_{com(P)}$
-
-$det(P)=\begin{vmatrix}
-0 & 1  & 2 \\ 
-1 & 1  & -1\\ 
-1 & -1 & 1 
-\end{vmatrix}=-(1+2)+(-1-2)=-6$
-
-$com(P)=\begin{pmatrix}
-0 & -2  & -2 \\ 
--3 & -2  & 1\\ 
--3 & 2 & -1 
-\end{pmatrix}\Rightarrow t_{com(P)}=\begin{pmatrix}
-0 & -3  & -3 \\ 
--2 & -2  & 2\\ 
--2 & 1 & -1 
-\end{pmatrix}$
-
-Ainsi $P^{-1}=-\frac{1}{6}\begin{pmatrix}
-0 & -3  & -3 \\ 
--2 & -2  & 2\\ 
--2 & 1 & -1 
-\end{pmatrix}=\frac{1}{6}\begin{pmatrix}
-0 & 3  & 3 \\ 
-2 & 2  & -2\\ 
-2 & -1 & 1 
-\end{pmatrix}$
-
-
-4. Déduisons $M^{n}$ $\forall n\in \mathbb{N}$.
-
-$M=PDP^{-1}\Rightarrow M^n=PD^nP^{-1}$ avec $D^n=\begin{pmatrix}
-0 & 0 & 0 \\ 
-0 & 1 & 0 \\ 
-0 & 0 & 16^n
-\end{pmatrix}$
-
-$M^n=\frac{1}{6}\begin{pmatrix}
-0 & 1  & 2 \\ 
-1 & 1  & -1\\ 
-1 & -1 & 1 
-\end{pmatrix}\begin{pmatrix}
-0 & 0 & 0 \\ 
-0 & 1 & 0 \\ 
-0 & 0 & 16^n
-\end{pmatrix}\begin{pmatrix}
-0 & 3  & 3 \\ 
-2 & 2  & -2\\ 
-2 & -1 & 1 
-\end{pmatrix}$
-
-$M^n=\frac{1}{6}\begin{pmatrix}
-2+4.(16)^n & 2-2.(16)^n  & -2+2.(16)^n \\ 
-2-2.(16)^n & 2+(16)^n  & -2-(16)^n\\ 
--2+2.(16)^n & -2-(16)^n & 2+(16)^n 
-\end{pmatrix}$ $\forall n\in \mathbb{N}$
-
-\medskip
-\medskip
-\textbf{Exercice 2}
-
-On considère la fonction $2\pi$ périodique impaire définie par : 
-
-$h(x)=x(\pi-x); \forall {x}\in [0,\pi]$.
-
-1. Représentons graphiquement cette fonction sur $[-2\pi,2\pi]$.
-
-\underline{\textbf{ Étude de $h$}}
-
-$h$ est périodique de période $2\pi$, alors son domaine d'étude peut être réduit à $[-\pi,\pi]$. De plus, $h$ est impaire, c'est-à-dire $h(-x)=-h(x)$, donc $h$ est symétrique par rapport à l'axe des ordonnées. Ainsi le domaine d'étude peut être réduit à $[0,\pi]$. Nous pouvons tracer $h$ sur $[0,\pi]$ et utiliser la périodicité pour étendre le graphique. Sur l'intervalle $[0, \pi]$, la fonction est donnée par $h(x) = x(\pi - x)$.
-
-$h$ est un polynôme, donc continue et dérivable sur $[0,\pi]$
-
-et $h'(x)=\pi-2x$
-
-Soit $h'(x)=0\Rightarrow \pi-2x=0\Rightarrow x=\frac{\pi}{2}$
-
--Si $x\in [0,\frac{\pi}{2}]$, $h'(x)\geq 0$, alors $h$ est croissante.
-
--Si $x\in [\frac{\pi}{2},\pi]$, $h'(x)\leq 0$, alors $h$ est décroissante.
-
-\medskip
-\underline{Tableau de variation sur $[0,\pi]$}
-
-$h(0)=0$, $h(\frac{\pi}{2})=\frac{\pi^2}{4}$, $h(0)=0$
+\underline{Sur $\mathbb{R}$} : on complète par périodicité (translations de vecteur $2\pi\,\vec\imath$). $h$ est continue sur $\mathbb{R}$ (les raccords en $0$ et en $\pm\pi$ se font à la valeur $0$).
 
 \begin{center}
-\begin{tikzpicture} 
-\tkzTabInit[lgt=3, espcl=3]{$x$ /1, $h'(x)$ /1, $h(x)$ /2}{$0$, $\frac{\pi}{2}$, $\pi$} 
-\tkzTabLine{, +, z, -,} 
-\tkzTabVar{-/ $0$, +/ $\frac{\pi^2}{4}$ , -/ $0$}
-\end{tikzpicture} 
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle, xlabel=$x$, ylabel=$y$, xmin=-7, xmax=7, ymin=-3.2, ymax=3.2, width=13cm, height=6cm, samples=80,
+ xtick={-6.2832,-3.1416,3.1416,6.2832}, xticklabels={$-2\pi$,$-\pi$,$\pi$,$2\pi$}, ytick={-2.467,2.467}, yticklabels={$-\frac{\pi^2}{4}$,$\frac{\pi^2}{4}$}]
+\addplot[blue!70!black, thick, domain=-6.2832:-3.1416]{-(x+6.2832)*(x+3.1416)};
+\addplot[blue!70!black, thick, domain=-3.1416:0]{x*(3.1416+x)};
+\addplot[blue!70!black, thick, domain=0:3.1416]{x*(3.1416-x)};
+\addplot[blue!70!black, thick, domain=3.1416:6.2832]{(x-6.2832)*(x-3.1416)};
+\end{axis}
+\end{tikzpicture}
 \end{center}
 
-\medskip
-\underline{Graphe de $h$}
- 
- 
- 
+\textbf{2. Coefficients de Fourier.}
 
- 
-
-
-2) Calcul des coefficients de Fourier
-
-La fonction \( h(x) = x(\pi - x) \) est impaire et \( 2\pi \)-périodique. Comme elle est impaire, tous les coefficients \( a_n \) (cosinus) sont nuls. On calcule uniquement les coefficients \( b_n \) (sinus) :
-
+$h$ est impaire, donc $a_n=\frac1\pi\int_{-\pi}^{\pi}h(x)\cos(nx)\,dx=0$ pour tout $n\ge0$, et
 \[
-b_n = \frac{2}{\pi} \int_0^\pi h(x) \sin(nx) \, dx.
+b_n=\frac1\pi\int_{-\pi}^{\pi}h(x)\sin(nx)\,dx=\frac2\pi\int_0^\pi x(\pi-x)\sin(nx)\,dx\qquad(n\ge1).
+\]
+On intègre deux fois par parties ($u=x(\pi-x)$, $u'=\pi-2x$, $u''=-2$) :
+\[
+\begin{split}
+\int_0^\pi x(\pi-x)\sin(nx)\,dx&=\Big[-x(\pi-x)\frac{\cos nx}{n}\Big]_0^\pi+\frac1n\int_0^\pi(\pi-2x)\cos(nx)\,dx\\
+&=\frac1n\int_0^\pi(\pi-2x)\cos(nx)\,dx,
+\end{split}
+\]
+car le crochet est nul (le polynôme s'annule en $0$ et en $\pi$). Puis
+\[
+\begin{split}
+\int_0^\pi(\pi-2x)\cos(nx)\,dx&=\Big[(\pi-2x)\frac{\sin nx}{n}\Big]_0^\pi+\frac2n\int_0^\pi\sin(nx)\,dx\\
+&=0+\frac2n\Big[-\frac{\cos nx}{n}\Big]_0^\pi=\frac{2\big(1-(-1)^n\big)}{n^2}.
+\end{split}
+\]
+Donc
+\[
+\boxed{b_n=\frac{4\big(1-(-1)^n\big)}{\pi n^3}}=\begin{cases}\dfrac{8}{\pi n^3}&\text{si } n \text{ est impair,}\\[2mm]0&\text{si } n \text{ est pair.}\end{cases}
+\]
+(Contrôle : $b_1=\frac8\pi>0$, cohérent avec $h>0$ sur $]0,\pi[$.)
+
+\textbf{3. Série de Fourier.} $h$ est continue sur $\mathbb{R}$ et de classe $C^1$ par morceaux. D'après le théorème de Dirichlet, sa série de Fourier converge vers $h(x)$ en tout point $x$ :
+\[
+\boxed{h(x)=\frac8\pi\sum_{k=0}^{+\infty}\frac{\sin\big((2k+1)x\big)}{(2k+1)^3}},\qquad x\in\mathbb{R}.
 \]
 
-En remplaçant \( h(x) = x(\pi - x) \), on a :
+\textbf{4. Sommes $S_1$ et $S_2$.}
 
+\underline{$S_1$ : valeur en $x=\frac\pi2$.} $\sin\big((2k+1)\frac\pi2\big)=(-1)^k$ et $h(\frac\pi2)=\frac{\pi^2}{4}$, donc
 \[
-b_n = \frac{2}{\pi} \int_0^\pi x(\pi - x) \sin(nx) \, dx.
+\frac{\pi^2}{4}=\frac8\pi\sum_{k=0}^{+\infty}\frac{(-1)^k}{(2k+1)^3},\qquad\boxed{S_1=\sum_{n=0}^{+\infty}\frac{(-1)^n}{(2n+1)^3}=\frac{\pi^3}{32}\approx0{,}9689}.
 \]
 
-On décompose l'intégrale :
-
+\underline{$S_2$ : formule de Parseval.} Pour $h$ continue par morceaux et $2\pi$-périodique :
 \[
-b_n = \frac{2}{\pi} \left( \pi \int_0^\pi x \sin(nx) \, dx - \int_0^\pi x^2 \sin(nx) \, dx \right).
+\frac1\pi\int_{-\pi}^{\pi}h(x)^2\,dx=\frac{a_0^2}{2}+\sum_{n\ge1}\big(a_n^2+b_n^2\big).
 \]
-
-\textbf{Calcul des intégrales}
-
-Première intégrale
-
+Ici $h^2$ est paire, et
 \[
-\int_0^\pi x \sin(nx) \, dx = \left[ -\frac{x \cos(nx)}{n} \right]_0^\pi + \frac{1}{n} \int_0^\pi \cos(nx) \, dx = \frac{(-1)^{n+1} \pi}{n}.
+\int_0^\pi x^2(\pi-x)^2dx=\int_0^\pi\big(\pi^2x^2-2\pi x^3+x^4\big)dx=\frac{\pi^5}{3}-\frac{\pi^5}{2}+\frac{\pi^5}{5}=\frac{\pi^5}{30},
 \]
-
-Deuxième intégrale
-
+donc $\frac1\pi\int_{-\pi}^\pi h^2=\frac2\pi\cdot\frac{\pi^5}{30}=\frac{\pi^4}{15}$. D'autre part $\sum b_n^2=\frac{64}{\pi^2}\sum_{k\ge0}\frac1{(2k+1)^6}$. D'où
 \[
-\int_0^\pi x^2 \sin(nx) \, dx = \left[ -\frac{x^2 \cos(nx)}{n} \right]_0^\pi + \frac{2}{n} \int_0^\pi x \cos(nx) \, dx.
+\frac{\pi^4}{15}=\frac{64}{\pi^2}S_2,\qquad\boxed{S_2=\sum_{n=0}^{+\infty}\frac{1}{(2n+1)^6}=\frac{\pi^6}{960}\approx1{,}0014}.
 \]
-
-En utilisant le résultat de la première intégrale, on trouve :
-
-\[
-\int_0^\pi x^2 \sin(nx) \, dx = \frac{(-1)^{n+1} \pi^2}{n} + \frac{2}{n} \cdot \frac{(-1)^n - 1}{n^2}.
-\]
-
-\textbf{Combinaison des résultats}
-
-En combinant les résultats, on obtient :
-
-\[
-b_n = \frac{2}{\pi} \left( \pi \cdot \frac{(-1)^{n+1} \pi}{n} - \left( \frac{(-1)^{n+1} \pi^2}{n} + \frac{2((-1)^n - 1)}{n^3} \right) \right).
-\]
-
-Après simplification, on trouve :
-
-\[
-b_n = \frac{4((-1)^n - 1)}{\pi n^3}.
-\]
-
-
-3) Développement en série de Fourier
-
-Le développement en série de Fourier de \( h(x) \) est :
-
-\[
-h(x) = \sum_{n=1}^\infty b_n \sin(nx),
-\]
-
-avec \( b_n = \frac{4((-1)^n - 1)}{\pi n^3} \). On peut écrire :
-
-\[
-h(x) = \sum_{n=1}^\infty \frac{4((-1)^n - 1)}{\pi n^3} \sin(nx).
-\]
-
-4) Calcul des sommes \( S_1 \) et \( S_2 \)
-
-\textbf{Calcul de \( S_1 = \sum_{n=0}^\infty \frac{(-1)^n}{(2n+1)^3} \)}
-
-On utilise le développement en série de Fourier de \( h(x) \) en \( x = \frac{\pi}{2} \). On a :
-
-\[
-h\left(\frac{\pi}{2}\right) = \frac{\pi}{2} \left(\pi - \frac{\pi}{2}\right) = \frac{\pi^2}{4}.
-\]
-
-D'autre part, en évaluant la série de Fourier en \( x = \frac{\pi}{2} \), on obtient :
-
-\[
-h\left(\frac{\pi}{2}\right) = \sum_{n=1}^\infty b_n \sin\left(n \cdot \frac{\pi}{2}\right).
-\]
-
-Comme \( \sin\left(n \cdot \frac{\pi}{2}\right) \) vaut \( 0 \) pour \( n \) pair et \( (-1)^k \) pour \( n = 2k + 1 \), on a :
-
-\[
-\frac{\pi^2}{4} = \sum_{k=0}^\infty b_{2k+1} (-1)^k.
-\]
-
-En remplaçant \( b_{2k+1} \), on trouve :
-
-\[
-\frac{\pi^2}{4} = \sum_{k=0}^\infty \frac{4((-1)^{2k+1} - 1)}{\pi (2k+1)^3} (-1)^k.
-\]
-
-Simplification :
-
-\[
-\frac{\pi^2}{4} = \sum_{k=0}^\infty \frac{4(-2)}{\pi (2k+1)^3} (-1)^k = -\frac{8}{\pi} \sum_{k=0}^\infty \frac{(-1)^k}{(2k+1)^3}.
-\]
-
-On en déduit :
-
-\[
-S_1 = \sum_{k=0}^\infty \frac{(-1)^k}{(2k+1)^3} = -\frac{\pi^3}{32}.
-\]
-
-\textbf{Calcul de \( S_2 = \sum_{n=0}^\infty \frac{1}{(2n+1)^6} \)}
-
-On utilise l'identité de Parseval pour la série de Fourier de \( h(x) \). L'identité de Parseval donne :
-
-\[
-\frac{1}{\pi} \int_{-\pi}^\pi h(x)^2 \, dx = \sum_{n=1}^\infty b_n^2.
-\]
-
-Comme \( h(x) \) est impaire, on a :
-
-\[
-\int_{-\pi}^\pi h(x)^2 \, dx = 2 \int_0^\pi h(x)^2 \, dx.
-\]
-
-Calcul de \( \int_0^\pi h(x)^2 \, dx \) :
-
-\[
-\int_0^\pi x^2 (\pi - x)^2 \, dx = \int_0^\pi x^2 (\pi^2 - 2\pi x + x^2) \, dx = \pi^2 \int_0^\pi x^2 \, dx - 2\pi \int_0^\pi x^3 \, dx + \int_0^\pi x^4 \, dx.
-\]
-
-En calculant chaque intégrale, on trouve :
-
-\[
-\int_0^\pi h(x)^2 \, dx = \frac{\pi^5}{30}.
-\]
-
-Ainsi, l'identité de Parseval donne :
-
-\[
-\frac{1}{\pi} \cdot 2 \cdot \frac{\pi^5}{30} = \sum_{n=1}^\infty b_n^2.
-\]
-
-Simplification :
-
-\[
-\frac{\pi^4}{15} = \sum_{n=1}^\infty \left( \frac{4((-1)^n - 1)}{\pi n^3} \right)^2 = \frac{16}{\pi^2} \sum_{n=1}^\infty \frac{((-1)^n - 1)^2}{n^6}.
-\]
-
-Comme \( ((-1)^n - 1)^2 = 4 \) pour \( n \) impair et \( 0 \) pour \( n \) pair, on a :
-
-\[
-\frac{\pi^4}{15} = \frac{16}{\pi^2} \cdot 4 \sum_{k=0}^\infty \frac{1}{(2k+1)^6}.
-\]
-
-On en déduit :
-
-\[
-S_2 = \sum_{k=0}^\infty \frac{1}{(2k+1)^6} = \frac{\pi^6}{960}.
-\]
-
-
-
-
-
 
 \medskip\textbf{Exercice 3}
 
+Notons $P$ l'évènement « la machine est tombée en panne en cinq ans » et $H$ l'évènement « la machine est hors d'usage ». Les données sont :
+\[
+P(P)=0{,}3,\qquad P(\overline P)=0{,}7,\qquad P_P(H)=0{,}75,\qquad P_{\overline P}(H)=0{,}4 .
+\]
+(Arbre : première branche $P$ / $\overline P$, puis $H$ / $\overline H$.)
 
-\medskip
+\textbf{1. Probabilité d'être hors d'usage.} D'après la formule des probabilités totales (système complet $\{P,\overline P\}$) :
+\[
+P(H)=P(P)P_P(H)+P(\overline P)P_{\overline P}(H)=0{,}3\times0{,}75+0{,}7\times0{,}4=0{,}225+0{,}28=\boxed{0{,}505}.
+\]
+
+\textbf{2. Probabilité de n'avoir jamais eu de panne sachant que la machine est hors d'usage.} Par la formule de Bayes :
+\[
+P_H(\overline P)=\frac{P(\overline P\cap H)}{P(H)}=\frac{0{,}28}{0{,}505}=\boxed{\frac{56}{101}\approx0{,}554}.
+\]
+
+\textbf{3. Loi de $X$.} On choisit 10 machines ; chacune tombe en panne en cinq ans avec la probabilité $p=0{,}3$, indépendamment des autres (épreuves de Bernoulli indépendantes et identiques, le parc étant supposé grand). $X$ compte le nombre de pannes : \textbf{$X$ suit la loi binomiale $\mathcal{B}(10\,;\,0{,}3)$} :
+\[
+P(X=k)=C_{10}^k\,(0{,}3)^k\,(0{,}7)^{10-k},\qquad k\in\{0,1,\dots,10\}.
+\]
+Par exemple $P(X=0)=0{,}7^{10}\approx0{,}028$ et $P(X=3)=120\times0{,}027\times0{,}7^7\approx0{,}267$ (valeur la plus probable).
+\[
+E(X)=np=10\times0{,}3=\boxed{3},\qquad V(X)=np(1-p)=10\times0{,}3\times0{,}7=\boxed{2{,}1},
+\]
+\[
+\sigma(X)=\sqrt{2{,}1}\approx\boxed{1{,}45}.
+\]
 
 \end{spacing}
 \end{document}
