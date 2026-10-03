@@ -5,550 +5,180 @@
 \entete{Mathématiques}{Corrigé détaillé -- Session 2020}{Correction}
 \begin{spacing}{1.5}
 
-\medskip\textbf{Exercice 1}
+\textbf{Exercice 1} \quad $A=\begin{pmatrix}1&0&-1\\0&1&0\\-1&1&1\end{pmatrix}$.
 
-On donne la matrice $ A= \begin{pmatrix}
-1 & 0 & -1\\
-0 & 1 & 0\\
--1 & 1 & 1
-\end{pmatrix}$                                                                   
-
-1. Justifions que la matrice $A$ est inversible.
-
-$det(A)=\begin{vmatrix}
-1 & 0 & -1\\
-0 & 1 & 0\\
--1 & 1 & 1
-\end{vmatrix}=1-1=0$, alors $A$ n'est pas inversible.
-
-2. Déterminons le polynôme caractéristique de $A$.
-
-$P_A(x)=det(A-xI_3)=\begin{vmatrix}
-1-x & 0 & -1\\
-0 & 1-x & 0\\
--1 & 1 & 1-x
-\end{vmatrix}=(1-x)\begin{vmatrix}
-1-x & -1 \\ 
--1 & 1-x
-\end{vmatrix}$
-
-$=(1-x)((1-x)^2-1)=(1-x)(1-x-1)(1-x+1)=-x(1-x)(2-x)$ 
-
-3. Soit $\alpha, \beta$ et $\gamma$ les valeurs propres de la matrice $A$. Déterminons $\alpha, \beta$ et $\gamma$ sachant qu'elles sont classées dans l'ordre croissant.
-
-$\alpha=0$, $\beta=1$ et $\gamma=2$
-
-
-4. Déterminons les vecteurs propres $u$, $v$ et $w$ associés aux valeurs propres $\alpha$, $\beta$ et $\gamma$.
-
-Soit $E_\lambda$ le sous-espace propre lié à la valeur propre $\lambda$
-
+\textbf{1. Inversibilité.} En développant suivant la deuxième ligne $(0,1,0)$ :
 \[
-E_\lambda=\{u\in \mathbb{R}^3/Au=\lambda u\}
+\det A=1\times\begin{vmatrix}1&-1\\-1&1\end{vmatrix}=1-1=0 .
+\]
+Donc \textbf{$A$ n'est pas inversible}.
+\remarque{L'énoncé original demandait de « justifier que $A$ est inversible » ; c'est faux, comme le confirme la valeur propre $0$ trouvée à la question 3.}
+
+\textbf{2. Polynôme caractéristique.} En développant suivant la deuxième ligne $(0,1-x,0)$ :
+\[
+P_A(x)=\det(A-xI_3)=(1-x)\begin{vmatrix}1-x&-1\\-1&1-x\end{vmatrix}=(1-x)\big[(1-x)^2-1\big]=(1-x)(-x)(2-x),
+\]
+\[
+\boxed{P_A(x)=-x(1-x)(2-x)=-x(x-1)(x-2)}.
 \]
 
-\medskip
-$\bullet$ Pour $\lambda=\alpha=0$, on a :
+\textbf{3. Valeurs propres} (racines de $P_A$, dans l'ordre croissant) : $\boxed{\alpha=0,\ \beta=1,\ \gamma=2}$.
 
-$\forall u\in E_\alpha$, \[Au=0\Rightarrow \begin{pmatrix}
-1 & 0 & -1\\
-0 & 1 & 0\\
--1 & 1 & 1
-\end{pmatrix}\begin{pmatrix}
-x\\
-y\\
-z
-\end{pmatrix}=\begin{pmatrix}
-0\\
-0\\
-0
-\end{pmatrix}\Rightarrow \begin{cases}
-x-z=0(1)\\
-y=0(2)\\
--x+y+z=0(3)
-\end{cases}\]
+\textbf{4. Vecteurs propres.}
+\begin{itemize}
+\item $\alpha=0$ : $AX=0\iff\begin{cases}x-z=0\\y=0\\-x+y+z=0\end{cases}\iff y=0,\ z=x$. On prend $u=(1,0,1)$.
+\item $\beta=1$ : $(A-I)X=0\iff\begin{cases}-z=0\\-x+y=0\end{cases}$. On prend $v=(1,1,0)$.
+\item $\gamma=2$ : $(A-2I)X=0\iff\begin{cases}-x-z=0\\-y=0\\-x+y-z=0\end{cases}\iff y=0,\ z=-x$. On prend $w=(1,0,-1)$.
+\end{itemize}
+(Vérification : $Au=(0,0,0)$, $Av=(1,1,0)=v$, $Aw=(2,0,-2)=2w$.)
 
-$(1)\Rightarrow x=z \hspace{0.7cm} (4)$
-
-$(2)\Rightarrow y=0$
-
-D'où $u=\begin{pmatrix}
-x\\
-y\\
-z
-\end{pmatrix}=\begin{pmatrix}
-x\\
-0\\
-x
-\end{pmatrix}=x\begin{pmatrix}
-1\\
-0\\
-1
-\end{pmatrix}\Rightarrow E_2=\langle \begin{pmatrix}
-1\\
-0\\
-1
-\end{pmatrix}\rangle$ et $u=\begin{pmatrix}
-1\\
-0\\
-1
-\end{pmatrix}$
-
-\medskip
-$\bullet$ Pour $\lambda=\beta=1$, on a :
-
-$\forall v\in E_\beta$, \[Av=v\Rightarrow \begin{pmatrix}
-1 & 0 & -1\\
-0 & 1 & 0\\
--1 & 1 & 1
-\end{pmatrix}\begin{pmatrix}
-x\\
-y\\
-z
-\end{pmatrix}=\begin{pmatrix}
-x\\
-y\\
-z
-\end{pmatrix}\Rightarrow \begin{cases}
-x-z=x(1)\\
-y=y(2)\\
--x+y+z=z(3)
-\end{cases}\]
-
-$(1)\Rightarrow z=0 \hspace{0.7cm} (4)$
-
-$(3)\Rightarrow y=x$
-
-D'où $u=\begin{pmatrix}
-x\\
-y\\
-z
-\end{pmatrix}=\begin{pmatrix}
-x\\
-x\\
-0
-\end{pmatrix}=x\begin{pmatrix}
-1\\
-1\\
-0
-\end{pmatrix}\Rightarrow E_\beta=\langle \begin{pmatrix}
-1\\
-1\\
-0
-\end{pmatrix}\rangle$ et $v=\begin{pmatrix}
-1\\
-1\\
-0
-\end{pmatrix}$
-
-$\bullet$ Pour $\lambda=\gamma=2$, on a :
-
-$\forall w\in E_\beta$, \[Aw=2w\Rightarrow \begin{pmatrix}
-1 & 0 & -1\\
-0 & 1 & 0\\
--1 & 1 & 1
-\end{pmatrix}\begin{pmatrix}
-x\\
-y\\
-z
-\end{pmatrix}=2\begin{pmatrix}
-x\\
-y\\
-z
-\end{pmatrix}\Rightarrow \begin{cases}
-x-z=2x\\
-y=2y\\
--x+y+z=2z0
-\end{cases}\]
-
-$(1)\Rightarrow z=-x \hspace{0.7cm} (4)$
-
-$(2)\Rightarrow y=0$
-
-D'où $w=\begin{pmatrix}
-x\\
-y\\
-z
-\end{pmatrix}=\begin{pmatrix}
-x\\
-0\\
--x
-\end{pmatrix}=x\begin{pmatrix}
-1\\
-0\\
--1
-\end{pmatrix}\Rightarrow E_2=\langle \begin{pmatrix}
-1\\
-0\\
--1
-\end{pmatrix}\rangle$ et $w=\begin{pmatrix}
-1 \\
-0 \\
--1
-\end{pmatrix}$
-
-
-5. Soit $D=\begin{pmatrix}
-\alpha & 0 & 0 \\ 
-0 & \beta & 0 \\ 
-0 & 0 & \gamma
-\end{pmatrix} $.
-
-Donnons la matrice de passage $P$ de $A$ à $D$.
-
-$P=\begin{pmatrix}
-1 & 1 & 1  \\ 
-0 & 1 & 0  \\ 
-1 & 0 & -1
-\end{pmatrix}$
-
-\medskip
-\textbf{Exercice 2}
-
-1. On considère la fonction $f$ définie sur $\mathbb{R}$ par $f(x)=e^{-x}$.
-
-
-a. Montrer que $f$ est dérivable sur $\mathbb{R}$.
-
-$f$ est définie, continue et dérivable sur sont domaine de définition qui est $\mathbb{R}$
-
-
-b. Déterminons $f^\prime(x)$, $f^{\prime\prime}(x)$ et $f^{(3)}(x)$; $\forall {x}\in \mathbb{R}$.
-
-$\forall {x}\in \mathbb{R}$,
-
-$f^\prime(x)=-e^{-x}$
-
-$f^{\prime\prime}(x)=e^{-x}$
-
-$f^{(3)}(x)=-e^{-x}$
-
-
-
-c. Démontrons par récurrence que : $f^{(n)}(x)=(-1)^ne^{-x}$
-
--Pour $n=0$, $f^{(0)}(x)=(-1)^0e^{-x}=e^{-x}=f(x)$ (vraie)
-
--Pour $n=1$, $f^{(1)}(x)=(-1)^1e^{-x}=-e^{-x}=f'(x)$ (vraie)
-
--Pour $n=2$, $f^{(2)}(x)=(-1)^2e^{-x}=e^{-x}=f''(x)$ (vraie)
-
--Supposons que $f^{(n)}(x)=(-1)^ne^{-x}$ est vraie à l'ordre $n$ et vérifions à l'ordre $n+1$.
-
-$f^{(n)}(x)=(-1)^ne^{-x}\Rightarrow (f^{(n)}(x))^\prime=((-1)^ne^{-x})^\prime=-(-1)^ne^{-x}=(-1)^{n+1}e^{-x}$ avec $(f^{(n)}(x))^\prime=f^{(n+1)}(x)$, alors $f^{(n+1)}(x)=(-1)^{n+1}e^{-x}$, d'où la propriété est vraie à l'ordre $n+1$.
-
-On conclut donc que $f^{(n)}(x)=(-1)^ne^{-x}$, $\forall n\in \mathbb{N}$
-
-d. Donnons le développement limité d'ordre $n$ de $f$ au voisinage de $0$.
-
-De la formule de Taylor, le développement limité d'ordre $n$ d'une fonction $f$ au voisinage de $x_0$ est donné par :
-
+\textbf{5. Matrice de passage.} Les trois valeurs propres étant distinctes, $A$ est diagonalisable et $(u,v,w)$ est une base de vecteurs propres. La matrice de passage de la base canonique à la base $(u,v,w)$ a pour colonnes $u,v,w$ :
 \[
-f(x)=\sum_{k=0}^{n}\frac{(x-x_0)^k}{k!}f^{(k)}(x_0)+\tau(x^n)
+\boxed{P=\begin{pmatrix}1&1&1\\0&1&0\\1&0&-1\end{pmatrix}},\qquad A=PDP^{-1},\qquad D=\begin{pmatrix}0&0&0\\0&1&0\\0&0&2\end{pmatrix}.
+\]
+($\det P=-2\neq0$ ; on trouve $P^{-1}=\frac12\begin{pmatrix}1&-1&1\\0&2&0\\1&-1&-1\end{pmatrix}$.)
+
+\medskip\textbf{Exercice 2}
+
+\textbf{1.a)} $f(x)=e^{-x}$ est la composée de $x\mapsto-x$ (dérivable sur $\mathbb{R}$) et de $\exp$ (dérivable sur $\mathbb{R}$) : $f$ est dérivable sur $\mathbb{R}$ (et même de classe $C^\infty$).
+
+\textbf{1.b)} $f'(x)=-e^{-x}$, \quad $f''(x)=e^{-x}$, \quad $f^{(3)}(x)=-e^{-x}$.
+
+\textbf{1.c) Récurrence.} Soit $\mathcal{P}(n)$ : « $f^{(n)}(x)=(-1)^ne^{-x}$ pour tout $x$ ».
+\emph{Initialisation} : $f^{(0)}=f=(-1)^0e^{-x}$.
+\emph{Hérédité} : si $f^{(n)}(x)=(-1)^ne^{-x}$, alors $f^{(n+1)}(x)=\big((-1)^ne^{-x}\big)'=(-1)^n\cdot(-e^{-x})=(-1)^{n+1}e^{-x}$.
+Donc $\mathcal{P}(n)$ est vraie pour tout $n\in\mathbb{N}$.
+
+\textbf{1.d) Développement limité.} $f$ est de classe $C^n$ ; la formule de Taylor-Young en $0$ donne, avec $f^{(k)}(0)=(-1)^k$ :
+\[
+e^{-x}=\sum_{k=0}^n\frac{f^{(k)}(0)}{k!}x^k+o(x^n)=\boxed{1-x+\frac{x^2}{2!}-\frac{x^3}{3!}+\dots+(-1)^n\frac{x^n}{n!}+o(x^n)}.
 \]
 
-Dans notre cas, $x_0=0$
+\textbf{2.} $(\Gamma)$ : $x(t)=\cos3t$, $y(t)=\sin2t$. \emph{(C'est la même courbe que dans l'exercice 1 de la session 2016.)}
 
-$f^{(n)}(x)=(-1)^ne^{-x}\Rightarrow f^{(n)}(0)=(-1)^ne^{-0}=(-1)^n$
+\textbf{2.a) Réduction de l'intervalle d'étude.}
 
-Donc,
-\begin{align*}
-f(x)&=\sum_{k=0}^{n}\frac{(x-0)^k}{k!}f^{(k)}(0)+\circ(x^n)\\
-&=\sum_{k=0}^{n}\frac{x^k}{k!}(-1)^k+\circ(x^n)\\
-&=\sum_{k=0}^{n}(-1)^k\frac{x^k}{k!}+\circ(x^n)\\
-f(x)&=1-\frac{x}{1!}+\frac{x^2}{2!}+\cdots (-1)^n\frac{x^n}{n!}+\circ(x^n)
-\end{align*}
+\underline{Périodicité.} $x$ est $\frac{2\pi}{3}$-périodique et $y$ est $\pi$-périodique ; elles sont donc toutes deux $2\pi$-périodiques ($2\pi=3\times\frac{2\pi}3=2\times\pi$). Le point $M(t+2\pi)$ est égal à $M(t)$ : il suffit d'étudier $t\in[-\pi,\pi]$.
 
-2. On considère la courbe paramétrée : $(\Gamma) :\begin{cases}
-x(t)=\cos 3t\\
-y(t)=\sin 2t
-\end{cases} \forall t\in \mathbb{R}$
+\underline{Parité.} $x(-t)=\cos(-3t)=\cos3t=x(t)$ et $y(-t)=\sin(-2t)=-\sin2t=-y(t)$. Le point $M(-t)$ est le symétrique de $M(t)$ par rapport à l'axe des abscisses $(Ox)$.
 
-a. Montrons que l'étude de la courbe peut être réduite à l'intervalle $[0,\pi]$.
+Il suffit donc d'étudier la courbe pour $t\in[0,\pi]$, puis de compléter par la symétrie d'axe $(Ox)$ : on obtient ainsi la courbe entière.
 
-\textbf{Vérifions la périodicité}
+\textbf{2.b) Tableau de variation commun de $x$ et $y$ sur $[0,\pi]$.}
 
-On sait que $\cos(at)$ est périodique de période $\frac{2\pi}{\vert a\vert}$, et $\sin(bt)$ est périodique de période $\frac{2\pi}{\vert b\vert}$
+\underline{$x'(t)=-3\sin3t$.} Sur $[0,\pi]$, $3t\in[0,3\pi]$ : $\sin3t\ge0$ pour $t\in[0,\frac\pi3]\cup[\frac{2\pi}3,\pi]$ et $\sin3t\le0$ pour $t\in[\frac\pi3,\frac{2\pi}3]$. Donc $x'\le0$ sur $[0,\frac\pi3]$ et sur $[\frac{2\pi}3,\pi]$, $x'\ge0$ sur $[\frac\pi3,\frac{2\pi}3]$ ; $x'$ s'annule en $0,\frac\pi3,\frac{2\pi}3,\pi$.
 
-Donc, $\cos(3t)$ est périodique de période $\frac{2\pi}{3}$ et $\sin(2t)$ est périodique de période $\pi$
+\underline{$y'(t)=2\cos2t$.} Sur $[0,\pi]$, $2t\in[0,2\pi]$ : $y'\ge0$ sur $[0,\frac\pi4]$ et sur $[\frac{3\pi}4,\pi]$, $y'\le0$ sur $[\frac\pi4,\frac{3\pi}4]$ ; $y'$ s'annule en $\frac\pi4$ et $\frac{3\pi}4$.
 
-Le $PPCM(\frac{2\pi}{3},\pi)=2\pi$ , donc la courbe est périodique de période $2\pi$. Ainsi, le domaine d'étude de la courbe peut être réduit à un intervalle d'amplitude $2\pi$, soit $[-\pi,\pi]$
-
-\medskip
-\textbf{Vérifions la parité}
-
-$\begin{cases}
-x(-t)=\cos(-3t)=\cos 3t=x(t)\\
-y(-t)=\sin(-2t)=-\sin 2t=-y(t)
-\end{cases}$
-
-$x(t)$ est paire et $y(t)$ est impaire, alors la courbe est symétrique par rapport à l'axe des abscisses. Donc le domaine d'étude de la courbe peut être réduit à $[0,\pi]$.
-
-b. Dressons le tableau de variation commun de $x$ et $y$ sur $[0,\pi]$.
-
-Étudions la courbe.
-
-\textbf{Étude de $x(t)$}
-
-$x(t)=\cos 3t$ est définie, continue et dérivable sur $\mathbb{R}$, car fonction trigonométrique, et
-
-$x'(t)=-3\sin 3t$
-
-\medskip
-Signe de $x'(t)$
-
-soit $x'(t)=-3\sin 3t=0\Rightarrow \sin 3t=0=\sin 0\Rightarrow \begin{cases}
-3t=2k\pi\\
-3t=\pi+2k\pi
-\end{cases}\Rightarrow \begin{cases}
-t=\frac{2k\pi}{3}\\
-t=\frac{\pi}{3}+\frac{2k\pi}{3}
-\end{cases}\forall k\in \mathbb{Z}$
-
--Pour $k=0, t=0$ ou $t=\frac{\pi}{3}$
-
--Pour $k=1,t=\frac{2\pi}{3}$ ou $t=\pi$
-
-\begin{tikzpicture}
-  \tkzTabInit[lgt=3, espcl=3]{$t$ /1, $x'(t)$ /1}{$0$, $\frac{\pi}{3}$, $\frac{2\pi}{3}$, $\pi$}
-  \tkzTabLine{, -, z, +, z, -,}
-\end{tikzpicture}
-
-
-\underline{Variations de $x(t)$}
-
-\[
-\begin{cases}
-\forall t\in [0,\frac{\pi}{3}],x'(t)\leq 0\hspace*{0.5cm} alors\hspace*{0.5cm} x(t)\hspace*{0.5cm} est \hspace*{0.5cm}decroissante\\
-\forall t\in [\frac{\pi}{3}, \frac{2\pi}{3}], x'(t)\geq 0 \hspace*{0.5cm} alors\hspace*{0.5cm} x(t)\hspace*{0.5cm} est\hspace*{0.5cm} croissante\\
-\forall t\in [\frac{2\pi}{3},\pi], x'(t)\leq 0\hspace*{0.5cm} alors\hspace*{0.5cm} x(t)\hspace*{0.5cm} est\hspace*{0.5cm} decroissante
-\end{cases}
-\]
-
-\medskip\textbf{Étude de $y(t)$ sur $[0,\pi]$}
-
-$y(t)=\sin{2t}\Rightarrow y'(t)=2\cos 2t$
-
-$y'(t)=0\Rightarrow \cos 2t=0=\cos\frac{\pi}{2}$
-
-\[
-\begin{cases}
-2t=\frac{\pi}{2}+2k\pi\\
-2t=-\frac{\pi}{2}+2k\pi
-\end{cases}\Rightarrow
-\begin{cases}
-t=\frac{\pi}{4}+k\pi\\
-t=-\frac{\pi}{4}+k\pi
-\end{cases}
-\]
-
--Pour $k=0$, $t=\frac{\pi}{4}$
-
--Pour $k=1$, $t=\frac{3\pi}{4}$
-
-Tableau de signe de $y'(t)$
-
-\begin{tikzpicture}
-  \tkzTabInit[lgt=3, espcl=3]{$t$ /1, $y'(t)$ /1}{$0$, $\frac{\pi}{4}$, $\frac{3\pi}{4}$, $\pi$}
-  \tkzTabLine{, +, z, -, z, +,}
-\end{tikzpicture}
-
-\underline{Variations de $y(t)$}
-
-\[
-\begin{cases}
-\forall t\in [0,\frac{\pi}{4}],y'(t)\geq 0\hspace*{0.5cm} alors\hspace*{0.5cm} y(t)\hspace*{0.5cm} est \hspace*{0.5cm}croissante\\
-\forall t\in [\frac{\pi}{4}, \frac{3\pi}{4}], y'(t)\leq 0 \hspace*{0.5cm} alors\hspace*{0.5cm} y(t)\hspace*{0.5cm} est\hspace*{0.5cm} decroissante\\
-\forall t\in [\frac{3\pi}{4},\pi], y'(t)\leq 0\hspace*{0.5cm} alors\hspace*{0.5cm} y(t)\hspace*{0.5cm} est\hspace*{0.5cm} croissante
-\end{cases}
-\]
-
-\medskip\textbf{Tableau commun de variation des fonctions $x$ et $y$}
-
-$x(0)=1$, $x(\frac{\pi}{4})=-\frac{\sqrt{2}}{2}$, $x(\frac{\pi}{3})=-1$, $x(\frac{2\pi}{3})=1$, $x(\frac{3\pi}{4})=-1$, $x(\pi)=-1$
-
-$x'(0)=0$, $x'(\pi)=0$
-
-$y(0)=0$, $y(\frac{\pi}{4})=1$, $y(\frac{\pi}{3})=\frac{\sqrt{3}}{2}$, $y(\frac{2\pi}{3})=-\frac{\sqrt{3}}{2}$, $y(\frac{3\pi}{4})=-1$, $y(\pi)=0$
-
-$y'(0)=2$, $y'(\pi)=2$
+\underline{Valeurs utiles.}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+$t$ & $0$ & $\frac\pi4$ & $\frac\pi3$ & $\frac{2\pi}3$ & $\frac{3\pi}4$ & $\pi$\\
+\hline
+$x(t)=\cos3t$ & $1$ & $-\frac{\sqrt2}2$ & $-1$ & $1$ & $\frac{\sqrt2}2$ & $-1$\\
+\hline
+$y(t)=\sin2t$ & $0$ & $1$ & $\frac{\sqrt3}2$ & $-\frac{\sqrt3}2$ & $-1$ & $0$\\
+\hline
+\end{tabular}
+\end{center}
 
 \begin{center}
 \resizebox{\textwidth}{!}{\begin{tikzpicture}
-    % Initialisation du tableau
-    \tkzTabInit[lgt=2, espcl=3]
-    {$t$ /1, $x'(t)$ /1, $x(t)$ /3, $y'(t)$ /1, $y(t)$ /3} 
-    {$0$, $\frac{\pi}{4}$, $\frac{\pi}{3}$, $\frac{2\pi}{3}$, $\frac{3\pi}{4}$, $\pi$}
+\tkzTabInit[lgt=2, espcl=2.4]{$t$ /1, $x'(t)$ /1, $x(t)$ /2.4, $y(t)$ /2.4, $y'(t)$ /1}{$0$, $\frac{\pi}{4}$, $\frac{\pi}{3}$, $\frac{2\pi}{3}$, $\frac{3\pi}{4}$, $\pi$}
+\tkzTabLine{z, -, t, -, z, +, z, -, t, -, z}
+\tkzTabVar{+/$1$, R/, -/$-1$, +/$1$, R/, -/$-1$}
+\tkzTabIma{1}{3}{2}{$-\frac{\sqrt2}{2}$}
+\tkzTabIma{4}{6}{5}{$\frac{\sqrt2}{2}$}
+\tkzTabVar{-/$0$, +/$1$, R/, R/, -/$-1$, +/$0$}
+\tkzTabIma{2}{5}{3}{$\frac{\sqrt3}{2}$}
+\tkzTabIma{2}{5}{4}{$-\frac{\sqrt3}{2}$}
+\tkzTabLine{, +, z, -, t, -, t, -, z, +, }
+\end{tikzpicture}}
+\end{center}
 
-    % Ligne de signes de x'(t)
-    \tkzTabLine{, ,-, ,z, +,z, ,- ,}
-    
-    
-    % Ligne de variations de x(t)
-    \tkzTabVar{+/$1$, R/ , -/$-1$, +/$1$, R/, -/$-1$,}
-    
-    %Pour mettre des valeurs(les images) sur les flèches
-    \tkzTabIma{1}{3}{2}{$-\frac{\sqrt{2}}{2}$}
-    
-    \tkzTabIma{4}{6}{5}{$\frac{\sqrt{2}}{2}$}
-    % Ligne de signes de y'(t)
-    
-    % Ligne de signes de y'(t)
-    \tkzTabLine{,+,z, , ,- , , ,z,+}
-    
-    %Pour ajouter les valeurs de dérivées(vecteurs directeurs)
-    
-    
-    % Ligne de variations de y(t)
-    \tkzTabVar{-/$0$, +/$1$, R/ , R/ , -/$-1$, +/$0$,}
-    
-    %Pour mettre des valeurs (les images) sur les flèches.
-    \tkzTabIma{2}{5}{3}{$\frac{\sqrt{3}}{2}$}
-    
-    \tkzTabIma{2}{5}{4}{$-\frac{\sqrt{3}}{2}$}
+\underline{Tangentes remarquables} (le vecteur $(x'(t),y'(t))$ ne s'annule jamais car $x'$ et $y'$ n'ont pas de zéro commun sur $[0,\pi]$) :
+\begin{itemize}
+\item tangentes \emph{verticales} ($x'=0$) en $t=0$ : $(1,0)$ ; $t=\frac\pi3$ : $\big(-1,\frac{\sqrt3}2\big)$ ; $t=\frac{2\pi}3$ : $\big(1,-\frac{\sqrt3}2\big)$ ; $t=\pi$ : $(-1,0)$ ;
+\item tangentes \emph{horizontales} ($y'=0$) en $t=\frac\pi4$ : $\big(-\frac{\sqrt2}2,1\big)$ ; $t=\frac{3\pi}4$ : $\big(\frac{\sqrt2}2,-1\big)$.
+\end{itemize}
+
+\textbf{Tracé de $(\Gamma)$ (complément).} On trace l'arc correspondant à $t\in[0,\pi]$ (en trait plein) puis son symétrique par rapport à $(Ox)$ (en pointillés). La courbe (courbe de Lissajous) est inscrite dans le carré $[-1,1]^2$.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle, xlabel=$x$, ylabel=$y$, xmin=-1.3, xmax=1.3, ymin=-1.3, ymax=1.3, width=9cm, height=9cm, samples=300, domain=0:3.14159, xtick={-1,1}, ytick={-1,1}]
+\addplot[blue!70!black, thick, variable=\t, parametric] ({cos(deg(3*t))},{sin(deg(2*t))});
+\addplot[blue!70!black, thick, dashed, variable=\t, parametric] ({cos(deg(3*t))},{-sin(deg(2*t))});
+\addplot[only marks, mark=*, mark size=1.3pt] coordinates {(1,0) (-0.7071,1) (-1,0.866) (1,-0.866) (0.7071,-1) (-1,0)};
+\end{axis}
 \end{tikzpicture}
-}
-\end{center} 
+\end{center}
 
-\medskip
-\textbf{Exercice 3}
+\medskip\textbf{Exercice 3} \quad $\beta(P,Q)=\displaystyle\int_0^1xP(x)Q'(x)\,dx$ sur $\mathbb{R}_n[X]$.
 
-Soient $n\geq 1$, un entier naturel et $\mathbb{R}_n[X]$ l'espace vectoriel des polynômes réels de degré inférieur ou égal à $n$. $\forall {P,Q\in \mathbb{R}_n[x]}$, on pose :
-
-\[ \beta(P,Q)=\int_{0}^{1}xP(x)Q^{\prime}(x). dx\]
-
-1. Montrons que $\beta$ est une forme bilinéaire.
-
-\underline{Montrons que $\beta$ est linéaire par rapport à la première variable}
-
-Soient $P,Q$ et $G$ $\in \mathbb{R}_n[x]$ et $\alpha\in \mathbb{R}$
-
-On a :
-
-\begin{align*}
-\beta(P+\alpha G,Q) &=\int_{0}^{1}x(P(x)+\alpha G(x)) Q^{\prime}(x).dx\\
-&=\int_{0}^{1}(xP(x)Q^{\prime}(x)+\alpha xG(x)Q^{\prime}(x)).dx\\
-&=\int_{0}^{1}xP(x)Q^{\prime}(x).dx+\alpha\int_{0}^{1}xG(x)Q^{\prime}(x).dx\\
-\beta(P+\alpha G,Q) &=\beta(P,Q)+\alpha\beta(G,Q)
-\end{align*}, alors $\beta$ est linéaire par rapport à la première variable.
-
- \medskip
- \underline{Montrons que $\beta$ est linéaire par rapport à la deuxième variable}
- 
- Soient $P,Q$ et $G$ $\in \mathbb{R}_n[x]$ et $\alpha\in \mathbb{R}$
- 
- On a :
-
-\begin{align*}
-\beta(P,\alpha G+Q)&=\int_{0}^{1}xP(x)(\alpha G + Q)^{\prime}(x). dx\\
-&=\int_{0}^{1}xP(x)(\alpha G^{\prime}(x) + Q^{\prime}(x)). dx\\
-&=\alpha\int_{0}^{1}xP(x)G^{\prime}(x).dx+\int_{0}^{1}xP(x)Q^{\prime}(x). dx\\
-\beta(P,\alpha G+Q)&=\alpha\beta(P,G)+\beta(P,Q)
-\end{align*}, alors $\beta$ est linéaire par rapport à la deuxième variable.
-
-On conclut donc que $\beta$ est \textbf{bilinéaire}.
- 
-
-2. Exprimons $\beta(x,1)$ et $\beta(1,x)$.
-
-$\beta(x,1)=\int_{0}^{1}x\times x\times 1^{\prime}. dx=\int_{0}^{1}x^2\times 0.dx =0$
-
-$\beta(1,x)=\int_{0}^{1}x\times 1\times(x)^{\prime}. dx=\int_{0}^{1}x=[\frac{1}{2}x^2]_0^1=\frac{1}{2}$
-
-3. $\beta$ est-elle symétrique? Antisymétrique?
-
-$\beta$ est symétrique si $\beta(P,Q)=\beta(Q,P)$.
-
-On a : $\beta(x,1)\neq\beta(1,x)$ alors $\beta$ n'est pas symétrique, mais antisymétrique.
-
-
-\medskip
-\textbf{Exercice 4}
-
-1. Montrer à l'aide du théorème de Fubini que : 
-
-$I=\int_{0}^{+\infty}e^{-\frac{x^2}{2}}dx=\sqrt{\frac{\pi}{2}}$
-
-$I=\int_{0}^{+\infty}e^{-\frac{x^2}{2}}dx\Longrightarrow I^2=(\int_{0}^{+\infty}e^{-\frac{x^2}{2}}dx)^2=(\int_{0}^{+\infty}e^{-\frac{x^2}{2}}dx)\times (\int_{0}^{+\infty}e^{-\frac{y^2}{2}}dy)=\int_{0}^{+\infty}\int_{0}^{+\infty}e^{-\frac{x^2}{2}}\times e^{-\frac{y^2}{2}}dxdy=\int_{0}^{+\infty}\int_{0}^{+\infty}e^{-\frac{x^2+y^2}{2}}dxdy$
-
-\medskip
-Posons :
-
-$\begin{cases}
-x=r\cos\theta\\
-y=r\sin\theta
-\end{cases}$
-
-$x^2+y^2=r^2$
-
-\medskip
-Calculons le Jacobien
-
-$J(r,\theta)=\begin{vmatrix}
-\frac{\partial x}{\partial r}&\frac{\partial x}{\partial \theta}\\
-\frac{\partial y}{\partial r} & \frac{\partial y}{\partial \theta}
-\end{vmatrix}=\begin{vmatrix}
-\cos\theta & -r\sin\theta\\
-\sin\theta & r\cos\theta
-\end{vmatrix}=r$ $\Rightarrow dxdy=rdrd\theta$
-
-Si $x\longrightarrow 0$ et $y\longrightarrow 0$ alors $r\longrightarrow 0$
-
-Si $x\longrightarrow +\infty$ et $y\longrightarrow +\infty$ alors $r\longrightarrow +\infty$, mais de sorte que $cos\theta$ et $sin\theta$ soient positifs( donc $\theta\in [0,\frac{\pi}{2}]$).
-
-Ainsi $r\in [0, +\infty[$ et $\theta\in [0,\frac{\pi}{2}]$
-
-Donc, 
-
+\textbf{1. $\beta$ est bilinéaire.} Soient $P,G,Q\in\mathbb{R}_n[X]$ et $\lambda\in\mathbb{R}$.
+\begin{itemize}
+\item \emph{Linéarité à gauche} : par linéarité de l'intégrale,
 \[
-I^2=\int_0^{+\infty}\int_0^{\frac{\pi}{2}}e^{-\frac{r^2}{2}}rdrd\theta=\int_0^{+\infty}re^{-\frac{r^2}{2}}dr\times \int_0^{\frac{\pi}{2}}d\theta=[-e^{-\frac{r^2}{2}}]_0^{+\infty}\times [\theta]_0^{\frac{\pi}{2}}=1\times \frac{\pi}{2}=\frac{\pi}{2}\]
+\beta(P+\lambda G,Q)=\int_0^1x\big(P(x)+\lambda G(x)\big)Q'(x)dx=\beta(P,Q)+\lambda\beta(G,Q).
+\]
+\item \emph{Linéarité à droite} : la dérivation est linéaire, $(Q+\lambda G)'=Q'+\lambda G'$, donc
+\[
+\beta(P,Q+\lambda G)=\int_0^1xP(x)\big(Q'(x)+\lambda G'(x)\big)dx=\beta(P,Q)+\lambda\beta(P,G).
+\]
+\end{itemize}
+$\beta$ est une forme (à valeurs réelles) bilinéaire sur $\mathbb{R}_n[X]$.
 
-$I^2=\frac{\pi}{2}$ Comme $I\geq 0$ alors $I=\sqrt{\frac{\pi}{2}}$
+\textbf{2.} Avec $P=X$, $Q=1$ ($Q'=0$) puis $P=1$, $Q=X$ ($Q'=1$) :
+\[
+\beta(X,1)=\int_0^1x\cdot x\cdot0\,dx=\boxed{0},\qquad\beta(1,X)=\int_0^1x\cdot1\cdot1\,dx=\Big[\frac{x^2}{2}\Big]_0^1=\boxed{\frac12}.
+\]
 
+\textbf{3. Symétrie, antisymétrie.}
+\begin{itemize}
+\item $\beta(X,1)=0\neq\frac12=\beta(1,X)$ : $\beta$ \textbf{n'est pas symétrique}.
+\item $\beta$ antisymétrique signifierait $\beta(P,Q)=-\beta(Q,P)$ pour tous $P,Q$. Or $\beta(X,1)=0\neq-\frac12=-\beta(1,X)$ (ou encore $\beta(X,X)=\int_0^1x^2dx=\frac13\neq0$). Donc $\beta$ \textbf{n'est pas antisymétrique} non plus.
+\end{itemize}
 
-2. On pose $\forall {n\in \mathbb{N}}$, $\forall {x\in \mathbb{R}}$ $\\
-f_n(x)=(1+\frac{x^2}{n})-\frac{n+1}{2}$ et $a_n=\int_{-\infty}^{+\infty}f_n(x)dx.$
+\medskip\textbf{Exercice 4}
 
-a. Montrons que, $\forall {u\in \mathbb{R}}$ et $\forall {p\in \mathbb{N}}, (1+u)^p\geq 1+pu$.
+\textbf{1. Intégrale de Gauss.} $x\mapsto e^{-x^2/2}$ est continue, positive, et $e^{-x^2/2}\le e^{-x+1/2}$ pour $x\ge0$ (car $\frac{x^2}{2}-x+\frac12=\frac{(x-1)^2}{2}\ge0$), donc $I$ converge. Par le théorème de Fubini (fonctions positives) :
+\[
+I^2=\int_0^{+\infty}e^{-x^2/2}dx\int_0^{+\infty}e^{-y^2/2}dy=\iint_{[0,+\infty[^2}e^{-\frac{x^2+y^2}{2}}\,dx\,dy .
+\]
+En coordonnées polaires $x=r\cos\theta$, $y=r\sin\theta$ (jacobien $r$), le quart de plan $x\ge0,y\ge0$ correspond à $r\ge0$, $\theta\in[0,\frac\pi2]$ :
+\[
+I^2=\int_0^{\pi/2}d\theta\int_0^{+\infty}re^{-r^2/2}dr=\frac\pi2\Big[-e^{-r^2/2}\Big]_0^{+\infty}=\frac\pi2 .
+\]
+Comme $I>0$ : $\boxed{I=\sqrt{\dfrac\pi2}}$.
 
-Procédons par récurrence :
+\textbf{2.} $f_n(x)=\Big(1+\dfrac{x^2}{n}\Big)^{-\frac{n+1}{2}}$ ($n\ge1$) et $a_n=\displaystyle\int_{-\infty}^{+\infty}f_n(x)\,dx$.
 
--Pour $p=1$, on a $(1+u)^1\geqslant 1+u$ (vrai)
+\remarque{L'énoncé original écrivait $f_n(x)=(1+\frac{x^2}{n})-\frac{n+1}{2}$ : il s'agit évidemment d'un exposant $-\frac{n+1}{2}$ (sinon $a_n$ n'existe pas).}
 
--Pour $p=2$, on a $(1+u)^2=1+2u+u^2\geq 1+2u$ (vrai)
+\textbf{a) Inégalité de Bernoulli : $(1+u)^p\ge1+pu$ pour $u\ge-1$ et $p\in\mathbb{N}$.} Récurrence sur $p$. Pour $p=0$ : $1\ge1$. Si $(1+u)^p\ge1+pu$, comme $1+u\ge0$ on peut multiplier par $1+u$ :
+\[
+(1+u)^{p+1}\ge(1+pu)(1+u)=1+(p+1)u+pu^2\ge1+(p+1)u .
+\]
+(L'hypothèse $u\ge-1$ est nécessaire : pour $p=3$ et $u=-4$, $(1+u)^3=-27<1+3u=-11$.)
 
--Supposons que $(1+u)^p\geq 1+pu$ est vrai à l'ordre $p$, et vérifions à l'ordre $p+1$.
+\textbf{b) $f_n(x)\le\dfrac{2}{1+x^2}$.} Soit $u=\frac{x^2}{n}\ge0$ et $q=\big\lfloor\frac{n+1}{2}\big\rfloor$, entier vérifiant $q\ge\frac n2$ et $q\le\frac{n+1}{2}$. Comme $1+u\ge1$ :
+\[
+\Big(1+\frac{x^2}{n}\Big)^{\frac{n+1}{2}}\ge(1+u)^q\ge1+qu\ge1+\frac n2\cdot\frac{x^2}{n}=1+\frac{x^2}{2}.
+\]
+En passant à l'inverse : $f_n(x)\le\dfrac{1}{1+\frac{x^2}{2}}=\dfrac{2}{2+x^2}\le\dfrac{2}{1+x^2}$.
 
-On a :
-
-$(1+u)^p\geq 1+pu\Rightarrow (1+u)^p(1+u)\geq (1+pu)(1+u)\Rightarrow (1+u)^{p+1}\geq 1+pu + u+pu^2\Rightarrow (1+u)^{p+1}\geq 1+pu + u+pu^2$ avec $1+pu + u+pu^2=1+(1+p)u+pu^2\geq 1+(1+p)u$.
-
-$\Rightarrow (1+u)^{p+1}\geq 1+(1+p)u$, d'où la propriété est vraie à l'ordre $p+1$.
-
-On conclut donc que la propriété est vraie $\forall {u\in \mathbb{R}}$ et $\forall {p\in \mathbb{N}}$.
-
-
-b. Déduisons que $\forall {x\in \mathbb{R}}, f_n(x) \leq \frac{2}{1+x^2}$.
-
-On a  $f_n(x)=(1+\frac{x^2}{n})-\frac{n+1}{2}$ 
-
-$(1+u)^p\geq 1+pu\Longrightarrow (1+u)^{-p}\leq \frac{1}{1+pu}$
-
-De plus, $\frac{1}{1+pu}\leq \frac{2}{1+pu}\Longrightarrow (1+u)^{-p}\leq \frac{2}{1+pu}$
-
-Posons $p=\frac{n+1}{2}$ et $u=\frac{x^2}{n}$
-
-En reportant dans l'équation précédente, on obtient : 
-
-$f_n(u)=(1+u)^{-p}$ et $f_n(x)\leq\frac{2}{1+x^2}$
-
-c. Calculons $lim_{n\to +\infty}a_n$.
-
-$lim_{n\to +\infty}a_n=lim_{n\to +\infty}\int_{-\infty}^{+\infty}f_n(x)dx\leq \lim_{n\to +\infty}\int_{-\infty}^{+\infty}\frac{2}{1+x^2}=\lim_{n\to +\infty}[2\arctan(x)]_{-\infty}^{+\infty}=\lim_{n\to +\infty}2(\frac{\pi}{2}+\frac{\pi}{2})=2\pi$
-
-$\Longrightarrow lim_{n\to +\infty}a_n=2\pi$
-
-\medskip
+\textbf{c) Limite de $a_n$.}
+\begin{itemize}
+\item \emph{Convergence simple} : pour $x$ fixé, $\ln f_n(x)=-\frac{n+1}{2}\ln\big(1+\frac{x^2}{n}\big)$ et $\ln\big(1+\frac{x^2}{n}\big)\sim\frac{x^2}{n}$, donc $\ln f_n(x)\to-\frac{x^2}{2}$ et $f_n(x)\to e^{-x^2/2}$.
+\item \emph{Domination} : $0\le f_n(x)\le\frac{2}{1+x^2}$, fonction intégrable sur $\mathbb{R}$ (d'intégrale $2\pi$), indépendante de $n$. En particulier $a_n$ existe.
+\end{itemize}
+D'après le théorème de convergence dominée :
+\[
+\lim_{n\to+\infty}a_n=\int_{-\infty}^{+\infty}e^{-x^2/2}dx=2I=\boxed{\sqrt{2\pi}\approx2{,}507}
+\]
+(la fonction est paire, donc l'intégrale sur $\mathbb{R}$ vaut $2I$).
+\remarque{La majoration $a_n\le\int\frac{2}{1+x^2}dx=2\pi$ donne seulement une borne, pas la limite : la valeur $2\pi$ n'est pas la limite de $a_n$.}
 
 \end{spacing}
 \end{document}
