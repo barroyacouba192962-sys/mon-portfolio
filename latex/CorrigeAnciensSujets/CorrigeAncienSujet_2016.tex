@@ -5,580 +5,175 @@
 \entete{Mathématiques}{Corrigé détaillé -- Session 2016}{Correction}
 \begin{spacing}{1.5}
 
-\medskip\textbf{Exercice 1}
+\textbf{Exercice 1} \quad $(C)$ : $x(t)=\cos3t$, \ $y(t)=\sin2t$, \ $t\in\mathbb{R}$.
 
-On donne la courbe paramétrée suivante $(C)$ définie par : 
-\[
-\begin{cases}
-x(t)=\cos{3t}\\
-y(t)=\sin{2t}
-\end{cases}\forall {t\in \mathbb{R}}
-\]
-1. Montrons que la courbe peut être entièrement obtenue en l'étudiant sur $[0,\pi]$
+\textbf{1. Réduction de l'intervalle d'étude.}
 
-Vérifions la parité de $x(t)$ et $y(t)$
+\underline{Périodicité.} $x$ est $\frac{2\pi}{3}$-périodique et $y$ est $\pi$-périodique ; elles sont donc toutes deux $2\pi$-périodiques ($2\pi=3\times\frac{2\pi}3=2\times\pi$). Le point $M(t+2\pi)$ est égal à $M(t)$ : il suffit d'étudier $t\in[-\pi,\pi]$.
 
-On a :
+\underline{Parité.} $x(-t)=\cos(-3t)=\cos3t=x(t)$ et $y(-t)=\sin(-2t)=-\sin2t=-y(t)$. Le point $M(-t)$ est le symétrique de $M(t)$ par rapport à l'axe des abscisses $(Ox)$.
 
-\[             
-\begin{cases}  
-x(-t)=\cos{(-3t)}=\cos{3t}=x(t)\\
-y(-t)=\sin{(-2t)}=-\sin{(2t)}=-y(t)
-\end{cases}
-\]
+Il suffit donc d'étudier la courbe pour $t\in[0,\pi]$, puis de compléter par la symétrie d'axe $(Ox)$ : on obtient ainsi la courbe entière.
 
-$x(t)$ est paire et $y(t)$ impaire. Ainsi la courbe $(C)$ est symétrique par rapport à l'axe des abscisses. D'où le domaine d'étude de $(C)$ peut être réduit à $[0,\pi]$.
+\textbf{2. Tableau des variations sur $[0,\pi]$.}
 
-2. Dressons le tableau commun de variation des fonctions $x$ et $y$
+\underline{$x'(t)=-3\sin3t$.} Sur $[0,\pi]$, $3t\in[0,3\pi]$ : $\sin3t\ge0$ pour $t\in[0,\frac\pi3]\cup[\frac{2\pi}3,\pi]$ et $\sin3t\le0$ pour $t\in[\frac\pi3,\frac{2\pi}3]$. Donc $x'\le0$ sur $[0,\frac\pi3]$ et sur $[\frac{2\pi}3,\pi]$, $x'\ge0$ sur $[\frac\pi3,\frac{2\pi}3]$ ; $x'$ s'annule en $0,\frac\pi3,\frac{2\pi}3,\pi$.
 
-\medskip Étudions $x(t)$ et $y(t)$
+\underline{$y'(t)=2\cos2t$.} Sur $[0,\pi]$, $2t\in[0,2\pi]$ : $y'\ge0$ sur $[0,\frac\pi4]$ et sur $[\frac{3\pi}4,\pi]$, $y'\le0$ sur $[\frac\pi4,\frac{3\pi}4]$ ; $y'$ s'annule en $\frac\pi4$ et $\frac{3\pi}4$.
 
-\textbf{Étude de $x(t)$ sur $[0,\pi]$}
-
-$x(t)=\cos{3t}\Rightarrow x'(t)=-3\sin 3t$
-
-$x'(t)=0\Rightarrow -3\sin 3t=0\Rightarrow \sin 3t=0=\sin 0$
-
-\[
-\Rightarrow\begin{cases}
-3t=0+2k\pi\\
-3t=\pi-0+2k\pi
-\end{cases}\Rightarrow \begin{cases}
-t=\frac{2k\pi}{3}\\
-ou\\
-t=\frac{\pi}{3}+\frac{2k\pi}{3}
-\end{cases}
-\]
-
--Pour $k=0$, $t=0$ ou $t=\frac{\pi}{3} $
-
--Pour $k=1$, $t=\frac{2k\pi}{3}$ ou $t=\pi$
-
-\textbf{Tableau de signe de $x'(t)$}
-
-\begin{tikzpicture}
-  \tkzTabInit[lgt=3, espcl=3]{$t$ /1, $x'(t)$ /1}{$0$, $\frac{\pi}{3}$, $\frac{2\pi}{3}$, $\pi$}
-  \tkzTabLine{, -, z, +, z, -,}
-\end{tikzpicture}
-
-\underline{Variations de $x(t)$}
-
-\[
-\begin{cases}
-\forall t\in [0,\frac{\pi}{3}],x'(t)\leq 0\hspace*{0.5cm} alors\hspace*{0.5cm} x(t)\hspace*{0.5cm} est \hspace*{0.5cm}decroissante\\
-\forall t\in [\frac{\pi}{3}, \frac{2\pi}{3}], x'(t)\geq 0 \hspace*{0.5cm} alors\hspace*{0.5cm} x(t)\hspace*{0.5cm} est\hspace*{0.5cm} croissante\\
-\forall t\in [\frac{2\pi}{3},\pi], x'(t)\leq 0\hspace*{0.5cm} alors\hspace*{0.5cm} x(t)\hspace*{0.5cm} est\hspace*{0.5cm} decroissante
-\end{cases}
-\]
-
-\medskip\textbf{Étude de $y(t)$ sur $[0,\pi]$}
-
-$y(t)=\sin{2t}\Rightarrow y'(t)=2\cos 2t$
-
-$y'(t)=0\Rightarrow \cos 2t=0=\cos\frac{\pi}{2}$
-
-\[
-\begin{cases}
-2t=\frac{\pi}{2}+2k\pi\\
-2t=-\frac{\pi}{2}+2k\pi
-\end{cases}\Rightarrow
-\begin{cases}
-t=\frac{\pi}{4}+k\pi\\
-t=-\frac{\pi}{4}+k\pi
-\end{cases}
-\]
-
--Pour $k=0$, $t=\frac{\pi}{4}$
-
--Pour $k=1$, $t=\frac{3\pi}{4}$
-
-Tableau de signe de $y'(t)$
-
-\begin{tikzpicture}
-  \tkzTabInit[lgt=3, espcl=3]{$t$ /1, $y'(t)$ /1}{$0$, $\frac{\pi}{4}$, $\frac{3\pi}{4}$, $\pi$}
-  \tkzTabLine{, +, z, -, z, +,}
-\end{tikzpicture}
-
-\underline{Variations de $y(t)$}
-
-\[
-\begin{cases}
-\forall t\in [0,\frac{\pi}{4}],y'(t)\geq 0\hspace*{0.5cm} alors\hspace*{0.5cm} y(t)\hspace*{0.5cm} est \hspace*{0.5cm}croissante\\
-\forall t\in [\frac{\pi}{4}, \frac{3\pi}{4}], y'(t)\leq 0 \hspace*{0.5cm} alors\hspace*{0.5cm} y(t)\hspace*{0.5cm} est\hspace*{0.5cm} decroissante\\
-\forall t\in [\frac{3\pi}{4},\pi], y'(t)\leq 0\hspace*{0.5cm} alors\hspace*{0.5cm} y(t)\hspace*{0.5cm} est\hspace*{0.5cm} croissante
-\end{cases}
-\]
-
-\medskip\textbf{Tableau commun de variation des fonctions $x$ et $y$}
-
-$x(0)=1$, $x(\frac{\pi}{4})=-\frac{\sqrt{2}}{2}$, $x(\frac{\pi}{3})=-1$, $x(\frac{2\pi}{3})=1$, $x(\frac{3\pi}{4})=-1$, $x(\pi)=-1$
-
-$x'(0)=0$, $x'(\pi)=0$
-
-$y(0)=0$, $y(\frac{\pi}{4})=1$, $y(\frac{\pi}{3})=\frac{\sqrt{3}}{2}$, $y(\frac{2\pi}{3})=-\frac{\sqrt{3}}{2}$, $y(\frac{3\pi}{4})=-1$, $y(\pi)=0$
-
-$y'(0)=2$, $y'(\pi)=2$
+\underline{Valeurs utiles.}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+$t$ & $0$ & $\frac\pi4$ & $\frac\pi3$ & $\frac{2\pi}3$ & $\frac{3\pi}4$ & $\pi$\\
+\hline
+$x(t)=\cos3t$ & $1$ & $-\frac{\sqrt2}2$ & $-1$ & $1$ & $\frac{\sqrt2}2$ & $-1$\\
+\hline
+$y(t)=\sin2t$ & $0$ & $1$ & $\frac{\sqrt3}2$ & $-\frac{\sqrt3}2$ & $-1$ & $0$\\
+\hline
+\end{tabular}
+\end{center}
 
 \begin{center}
 \resizebox{\textwidth}{!}{\begin{tikzpicture}
-    % Initialisation du tableau
-    \tkzTabInit[lgt=2, espcl=3]
-    {$t$ /1, $x'(t)$ /1, $x(t)$ /3, $y'(t)$ /1, $y(t)$ /3} 
-    {$0$, $\frac{\pi}{4}$, $\frac{\pi}{3}$, $\frac{2\pi}{3}$, $\frac{3\pi}{4}$, $\pi$}
+\tkzTabInit[lgt=2, espcl=2.4]{$t$ /1, $x'(t)$ /1, $x(t)$ /2.4, $y(t)$ /2.4, $y'(t)$ /1}{$0$, $\frac{\pi}{4}$, $\frac{\pi}{3}$, $\frac{2\pi}{3}$, $\frac{3\pi}{4}$, $\pi$}
+\tkzTabLine{z, -, t, -, z, +, z, -, t, -, z}
+\tkzTabVar{+/$1$, R/, -/$-1$, +/$1$, R/, -/$-1$}
+\tkzTabIma{1}{3}{2}{$-\frac{\sqrt2}{2}$}
+\tkzTabIma{4}{6}{5}{$\frac{\sqrt2}{2}$}
+\tkzTabVar{-/$0$, +/$1$, R/, R/, -/$-1$, +/$0$}
+\tkzTabIma{2}{5}{3}{$\frac{\sqrt3}{2}$}
+\tkzTabIma{2}{5}{4}{$-\frac{\sqrt3}{2}$}
+\tkzTabLine{, +, z, -, t, -, t, -, z, +, }
+\end{tikzpicture}}
+\end{center}
 
-    % Ligne de signes de x'(t)
-    \tkzTabLine{, ,-, ,z, +,z, ,- ,}
-    
-    
-    % Ligne de variations de x(t)
-    \tkzTabVar{+/$1$, R/ , -/$-1$, +/$1$, R/, -/$-1$,}
-    
-    %Pour mettre des valeurs(les images) sur les flèches
-    \tkzTabIma{1}{3}{2}{$-\frac{\sqrt{2}}{2}$}
-    
-    \tkzTabIma{4}{6}{5}{$\frac{\sqrt{2}}{2}$}
-    % Ligne de signes de y'(t)
-    
-    % Ligne de signes de y'(t)
-    \tkzTabLine{,+,z, , ,- , , ,z,+}
-    
-    %Pour ajouter les valeurs de dérivées(vecteurs directeurs)
-    
-    
-    % Ligne de variations de y(t)
-    \tkzTabVar{-/$0$, +/$1$, R/ , R/ , -/$-1$, +/$0$,}
-    
-    %Pour mettre des valeurs (les images) sur les flèches.
-    \tkzTabIma{2}{5}{3}{$\frac{\sqrt{3}}{2}$}
-    
-    \tkzTabIma{2}{5}{4}{$-\frac{\sqrt{3}}{2}$}
+\underline{Tangentes remarquables} (le vecteur $(x'(t),y'(t))$ ne s'annule jamais car $x'$ et $y'$ n'ont pas de zéro commun sur $[0,\pi]$) :
+\begin{itemize}
+\item tangentes \emph{verticales} ($x'=0$) en $t=0$ : $(1,0)$ ; $t=\frac\pi3$ : $\big(-1,\frac{\sqrt3}2\big)$ ; $t=\frac{2\pi}3$ : $\big(1,-\frac{\sqrt3}2\big)$ ; $t=\pi$ : $(-1,0)$ ;
+\item tangentes \emph{horizontales} ($y'=0$) en $t=\frac\pi4$ : $\big(-\frac{\sqrt2}2,1\big)$ ; $t=\frac{3\pi}4$ : $\big(\frac{\sqrt2}2,-1\big)$.
+\end{itemize}
+
+\textbf{3. Tracé de $(C)$.} On trace l'arc correspondant à $t\in[0,\pi]$ (en trait plein) puis son symétrique par rapport à $(Ox)$ (en pointillés). La courbe (courbe de Lissajous) est inscrite dans le carré $[-1,1]^2$.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle, xlabel=$x$, ylabel=$y$, xmin=-1.3, xmax=1.3, ymin=-1.3, ymax=1.3, width=9cm, height=9cm, samples=300, domain=0:3.14159, xtick={-1,1}, ytick={-1,1}]
+\addplot[blue!70!black, thick, variable=\t, parametric] ({cos(deg(3*t))},{sin(deg(2*t))});
+\addplot[blue!70!black, thick, dashed, variable=\t, parametric] ({cos(deg(3*t))},{-sin(deg(2*t))});
+\addplot[only marks, mark=*, mark size=1.3pt] coordinates {(1,0) (-0.7071,1) (-1,0.866) (1,-0.866) (0.7071,-1) (-1,0)};
+\end{axis}
 \end{tikzpicture}
-}
-\end{center} 
+\end{center}
 
+\medskip\textbf{Exercice 2} \quad $x\,\nabla\,y\iff xe^y=ye^x$.
 
-             
-3. Traçons $(C)$
+\textbf{1. Réflexivité.} Pour tout réel $x$, $xe^x=xe^x$, donc $x\,\nabla\,x$.
 
+\textbf{2. Symétrie.} Si $x\,\nabla\,y$, alors $xe^y=ye^x$, c'est-à-dire $ye^x=xe^y$, donc $y\,\nabla\,x$.
 
-\medskip\textbf{Exercice 2}
-
-On définir sur $\mathbb{R}$ la relation $\bigtriangledown$ par $x\bigtriangledown y\Longleftrightarrow xe^y=ye^x$.
-
-1. Montrons que la relation $\bigtriangledown$ est réflexive.
-
-$\bigtriangledown$ est réflexive si $\forall x\in \mathbb{R},x\bigtriangledown x$
-
-On a :
-
+\textbf{3.} Si $x\,\nabla\,y$ et $y\,\nabla\,z$ : $xe^y=ye^x$ (1) et $ye^z=ze^y$ (2). En multipliant membre à membre :
 \[
-\forall x\in \mathbb{R}, xe^x=xe^x\Longrightarrow x\bigtriangledown x\] alors $\bigtriangledown$ est réflexive.
-
-
-2. Montrons que la relation $\bigtriangledown$ est symétrique.
-
-$\bigtriangledown$ est symétrique si $\forall x,y\in \mathbb{R}$, $x\bigtriangledown y\Rightarrow y\bigtriangledown x$
-
-On a :
-\[
-x\bigtriangledown y\Rightarrow xe^y=ye^x\Rightarrow ye^x=xe^y\Rightarrow y\bigtriangledown x
-\] alors $\bigtriangledown$ est symétrique.
-
-3. Montrer que si $x\bigtriangledown y$ et $y\bigtriangledown z$ alors $x	ye^z = yze^x$.
-
-On a:
-
-\[
-\begin{cases}
-x\bigtriangledown y\Longleftrightarrow xe^y=ye^x \hspace*{0.5cm} (1)\\
-y\bigtriangledown z\Longleftrightarrow ye^z=ze^y\hspace*{0.5cm} (2)
-\end{cases}
+xe^y\cdot ye^z=ye^x\cdot ze^y\quad\Longrightarrow\quad xy\,e^z=yz\,e^x\qquad(\text{après division par } e^y>0).
 \]
 
-$(1)\times (2)\Rightarrow xye^z=yze^x$. D'où le résultat.
+\textbf{4. Transitivité ; relation d'équivalence.} Supposons $x\,\nabla\,y$ et $y\,\nabla\,z$.
+\begin{itemize}
+\item Si $y\neq0$ : en divisant l'égalité de la question 3 par $y$, $xe^z=ze^x$, donc $x\,\nabla\,z$.
+\item Si $y=0$ : $x\,\nabla\,0$ s'écrit $xe^0=0\cdot e^x$, soit $x=0$ ; de même $0\,\nabla\,z$ donne $z=0$. Alors $x=z=0$ et $x\,\nabla\,z$ (réflexivité).
+\end{itemize}
+La relation $\nabla$ est réflexive, symétrique et transitive : c'est une \textbf{relation d'équivalence}.
 
-4. Déduisons que la relation $\bigtriangledown$ est une relation d'équivalence.
-
-$\bigtriangledown$ est une relation d'équivalence si elle est à la fois réflexive, symétrique et transitive.
-
-Nous avons montré précédemment que $\bigtriangledown$ est réflexive et symétrique.
-
-Vérifions la transitivité de $\bigtriangledown$
-
-$\bigtriangledown$ est transitive si :
-
-\[\forall x,y,z \in \mathbb{R}\begin{cases}
-x\bigtriangledown y\\
-y\bigtriangledown z
-\end{cases}\Rightarrow x\triangleleft z\]
-
-D'après la question 3)
-
-\[
-\begin{cases}
-x\bigtriangledown y\\
-y\bigtriangledown z
-\end{cases}\Rightarrow x	ye^z = yze^x\Rightarrow xe^z = ze^x\Rightarrow x\bigtriangledown z\] d'où $\bigtriangledown$ est transitive.
-
-On conclut alors que $\bigtriangledown$ est une relation d'équivalence.
+\remarque{On a $x\,\nabla\,y\iff\varphi(x)=\varphi(y)$ avec $\varphi(t)=te^{-t}$ ; une relation de la forme « avoir la même image par une fonction » est toujours une relation d'équivalence.}
 
 \medskip\textbf{Exercice 3}
 
-1. On donne la matrice $A=\begin{pmatrix}
-1 & 0 & a \\ 
-0 & a & 1 \\ 
-a & 1 & 0
-\end{pmatrix} \forall a\in \mathbb{R}$
-
-a. Les valeurs de $a$ pour lesquelles la matrice $A$ est inversible.
-
-$A$ est inversible si son déterminant est différent de 0.
-
-$\det(A)=\begin{vmatrix}
-1 & 0 & a \\ 
-0 & a & 1 \\ 
-a & 1 & 0
-\end{vmatrix}$. En développant suivant la première ligne, on a:
-
-$\det(A)=\begin{vmatrix}
-a & 1 \\ 
-1 & 0
-\end{vmatrix} + a\begin{vmatrix}
-0 & a \\ 
-a & 1
-\end{vmatrix}=0-1+a(0-a^2)=-1-a^3$
-
-$\det(A)\neq 0\Rightarrow -1-a^3\neq 0 \Rightarrow 1+a^3\neq 0 \Rightarrow (1+a)(1-a+a^2) \Rightarrow 1+a\neq 0$ et $1-a+a^2\neq 0 \Rightarrow a\neq -1$ et $1-a+a^2\neq 0$
-
-Pour $1-a+a^2$, $\Delta=1-4=-3<0$ alors $1-a+a^2$ n'a pas de racine réelle, $1-a+a^2\neq 0$ est donc vraie $\forall a\in \mathbb{R}$.
-
-Ainsi $A$ est inversible si $a\neq -1$, c'est-à-dire si $a\in \mathbb{R}\smallsetminus \{-1\}$
-
-
-b. Déterminons la matrice inverse de $A$.
-
-
-$\forall a\neq -1$, $A^{-1}=\frac{1}{\det(A)}t_{com(A)}$ avec $com(A)=comatrice de A$
-
-$com(A)=\begin{pmatrix}
--1 & a & -a^2 \\ 
-a & -a^2 & -1 \\ 
--a^2 & -1 & a
-\end{pmatrix} \Rightarrow  t_{com(A)}= \begin{pmatrix}
--1 & a & -a^2 \\ 
-a & -a^2 & -1 \\ 
--a^2 & -1 & a
-\end{pmatrix}$ et $\det(A)=-1-a^3$
-
-Donc \[A^{-1}=-\frac{1}{a^3+1}\begin{pmatrix}
--1 & a & -a^2 \\ 
-a & -a^2 & -1 \\ 
--a^2 & -1 & a
-\end{pmatrix}=\frac{1}{a^3+1}\begin{pmatrix}
-1 & -a & a^2 \\ 
--a & a^2 & 1 \\ 
-a^2 & 1 & -a
-\end{pmatrix}\] avec $a\neq -1$
-
-\medskip
-2. On donne la matrice $B=\begin{pmatrix}
-3 & 0 & -1 \\ 
-2 & 4 & 2 \\ 
--1 & 0 & 3
-\end{pmatrix}$  
-
-a. Déterminons la transposée de la matrice $B$
-
-\[t_B=\begin{pmatrix}
-3 & 2 & -1 \\ 
-0 & 4 & 0 \\ 
--1 & 2 & 3
-\end{pmatrix}
+\textbf{1.a) Inversibilité de $A=\begin{pmatrix}1&0&a\\0&a&1\\a&1&0\end{pmatrix}$.} En développant suivant la première ligne :
+\[
+\det A=1\cdot\begin{vmatrix}a&1\\1&0\end{vmatrix}-0+a\begin{vmatrix}0&a\\a&1\end{vmatrix}=(0-1)+a(0-a^2)=-(1+a^3).
+\]
+Or $1+a^3=(1+a)(1-a+a^2)$ et $1-a+a^2$ a un discriminant $1-4<0$, donc ne s'annule jamais. Ainsi $\det A=0\iff a=-1$ :
+\[
+\boxed{A\text{ est inversible}\iff a\neq-1}.
 \]
 
-b. Déterminons le polynôme caractéristique de $B$.
-
-
-
-\begin{align*}
-P_B(x)=\det(B-xI_3)&=\begin{vmatrix}
-3-x & 0 & -1 \\ 
-2 & 4-x & 2 \\ 
--1 & 0 & 3-x
-\end{vmatrix} \\
-&=(4-x)\begin{vmatrix}
-3-x & -1 \\ 
--1 & 3-x
-\end{vmatrix}\\
-&=(4-x)((3-x)^2-1)\\
-&=(4-x)(3-x+1)(3-x-1)\\
-&=(4-x)(4-x)(2-x)\\
-P_B(x)&=(4-x)^2(2-x)
-\end{align*}
-
-
-c. Démontrons que 2 et 4 sont des valeurs propres de $B$ et que la matrice $B$ est diagonalisable. Donnons la matrice diagonale $D$ et la matrice $P$ telle que $B=PDP^{-1}$.
-
-Soit $P_B(x)=(4-x)^2(2-x)=0\Rightarrow x=2$ ou $x=4$ $\Longrightarrow Sp(B)=\{2;4\}$
-
-Donc 2 et 4 sont des valeurs propres de $B$
-
-\underline{Déterminons les sous-espaces propres de $B$}
-
-Soit $E_\lambda$ le sous-espaces propres lié à la valeur propre $\lambda$
-
+\textbf{1.b) Inverse.} Les cofacteurs $C_{ij}=(-1)^{i+j}\Delta_{ij}$ sont :
 \[
-E_\lambda=\{u\in \mathbb{R}^3/Bu=\lambda u\}
+\operatorname{com}(A)=\begin{pmatrix}-1&a&-a^2\\a&-a^2&-1\\-a^2&-1&a\end{pmatrix}
+\]
+(par exemple $C_{11}=a\cdot0-1\cdot1=-1$, $C_{12}=-(0\cdot0-1\cdot a)=a$, $C_{13}=0\cdot1-a\cdot a=-a^2$). Cette matrice est symétrique (comme $A$), donc ${}^t\operatorname{com}(A)=\operatorname{com}(A)$ et, pour $a\neq-1$ :
+\[
+A^{-1}=\frac{1}{\det A}\,{}^t\operatorname{com}(A)=\boxed{\frac{1}{1+a^3}\begin{pmatrix}1&-a&a^2\\-a&a^2&1\\a^2&1&-a\end{pmatrix}}.
+\]
+(Vérification de la première colonne de $AA^{-1}$ : $\frac{1}{1+a^3}(1+a^3,\ -a^2+a^2,\ a-a)=(1,0,0)$.)
+
+\textbf{2.a) Transposée de $B=\begin{pmatrix}3&0&-1\\2&4&2\\-1&0&3\end{pmatrix}$.}
+\[
+{}^tB=\begin{pmatrix}3&2&-1\\0&4&0\\-1&2&3\end{pmatrix}.
 \]
 
-\medskip
-$\bullet$ Pour $\lambda=2$, on a :
-
-$\forall u\in E_2$, \[Bu=2u\Rightarrow \begin{pmatrix}
-3 & 0 & -1 \\ 
-2 & 4 & 2 \\ 
--1 & 0 & 3
-\end{pmatrix}\begin{pmatrix}
-x\\
-y\\
-z
-\end{pmatrix}=2\begin{pmatrix}
-x\\
-y\\
-z
-\end{pmatrix}\Rightarrow \begin{cases}
-3x-z=2x\\
-2x+4y+2z=2y\\
--x+3z=2z
-\end{cases}\Rightarrow \begin{cases}
-x-z=0 \hspace{0.7cm}(1)\\
-2x+2y+2z=0 \hspace{0.7cm}(2)\\
--x+z=0 \hspace{0.7cm} (3)
-\end{cases}\]
-
-$(1)\Rightarrow x=z \hspace{0.7cm} (4)$
-
-$(4)$ dans $(2)\Rightarrow y=-2x$
-
-D'où $u=\begin{pmatrix}
-x\\
-y\\
-z
-\end{pmatrix}=\begin{pmatrix}
-x\\
--2x\\
-x
-\end{pmatrix}=x\begin{pmatrix}
-1\\
--2\\
-1
-\end{pmatrix}\Rightarrow E_2=\langle \begin{pmatrix}
-1\\
--2\\
-1
-\end{pmatrix}\rangle$
-
-\medskip
-$\bullet$ Pour $\lambda=4$, on a :
-
-$\forall u\in E_4$, \[Bu=4u\Rightarrow \begin{pmatrix}
-3 & 0 & -1 \\ 
-2 & 4 & 2 \\ 
--1 & 0 & 3
-\end{pmatrix}\begin{pmatrix}
-x\\
-y\\
-z
-\end{pmatrix}=4\begin{pmatrix}
-x\\
-y\\
-z
-\end{pmatrix}\Rightarrow \begin{cases}
-3x-z=4x\\
-2x+4y+2z=4y\\
--x+3z=4z
-\end{cases}\Rightarrow \begin{cases}
--x-z=0 \hspace{0.7cm}(1)\\
-2x+2z=0 \hspace{0.7cm}(2)\\
--x-z=0 \hspace{0.7cm} (3)
-\end{cases}\Rightarrow x=-z\forall y\]
-
-D'où $u=\begin{pmatrix}
-x\\
-y\\
-z
-\end{pmatrix}=\begin{pmatrix}
--z\\
-y\\
-z
-\end{pmatrix}=\begin{pmatrix}
-0\\
-y\\
-0
-\end{pmatrix}+\begin{pmatrix}
--z\\
-0\\
-z
-\end{pmatrix}=y\begin{pmatrix}
-0\\
-y\\
-0
-\end{pmatrix}+z\begin{pmatrix}
--1\\
-0\\
-1
-\end{pmatrix} \Rightarrow E_4=\langle \begin{pmatrix}
-0\\
-1\\
-0
-\end{pmatrix},\begin{pmatrix}
--1\\
-0\\
-1
-\end{pmatrix}\rangle$
-
-Les dimensions, $dimE_4=2$ et $dimE_2=1$
-
-$dimE_4+dimE_2=3=dimB$, alors la matrice $B$ est diagonalisable puisque la somme des dimensions des sous-espaces propres de $B$ est égale à l'ordre de la matrice $B$. Ou autrement, $B$ est diagonalisable puisque, la dimension de chaque sous-espace propre est égale à la multiplicité de la valeur propre correspondant, c'est-à-dire $dimE_4=2$=multiplicité de 4 et $dimE_2=1$=multiplicité de 2.
-
-\medskip
-La matrice diagonale $D$ et la matrice de passage $P$ sont données par \[
-D=\begin{pmatrix}
-2 & 0 & 0 \\ 
-0 & 4 & 0 \\ 
-0 & 0 & 4
-\end{pmatrix} \] et \[P=\begin{pmatrix}
-1 & 0 & -1 \\ 
--2 & 1 & 0 \\ 
-1 & 0 & 1
-\end{pmatrix} 
+\textbf{2.b) Polynôme caractéristique.} En développant suivant la deuxième colonne (un seul coefficient non nul) :
+\[
+P_B(x)=\det(B-xI_3)=\begin{vmatrix}3-x&0&-1\\2&4-x&2\\-1&0&3-x\end{vmatrix}=(4-x)\begin{vmatrix}3-x&-1\\-1&3-x\end{vmatrix}=(4-x)\big[(3-x)^2-1\big],
+\]
+\[
+\boxed{P_B(x)=(4-x)(2-x)(4-x)=(2-x)(4-x)^2}.
 \]
 
-\medskip Calculons $P^{-1}$
+\textbf{2.c) Valeurs propres, diagonalisation.} Les racines de $P_B$ sont $2$ (simple) et $4$ (double) : ce sont les valeurs propres de $B$.
 
-$P^{-1}=\frac{1}{det(P)}t_{com(P)}$ avec $det(P)=\begin{vmatrix}
-1 & 0 & -1 \\ 
--2 & 1 & 0 \\ 
-1 & 0 & 1
-\end{vmatrix}$ En développant suivant la deuxième colonne, on obtient :
+\underline{$E_2=\ker(B-2I)$} : $\begin{cases}x-z=0\\2x+2y+2z=0\\-x+z=0\end{cases}\iff\begin{cases}z=x\\y=-2x\end{cases}$, donc $E_2=\operatorname{Vect}\big((1,-2,1)\big)$.
 
-$det(P)=\begin{vmatrix}
-1 & -1\\
-1 & 1
-\end{vmatrix}=1+1=2$ et  $com(P)=\begin{pmatrix}
-1 & 2 & -1 \\ 
-0 & 2 & 0 \\ 
-1 & 2 & 1
-\end{pmatrix} \Rightarrow t_{com(P)}=\begin{pmatrix}
-1 & 0 & 1 \\ 
-2 & 2 & 2 \\ 
--1 & 0 & 1
-\end{pmatrix}$
+\underline{$E_4=\ker(B-4I)$} : $\begin{cases}-x-z=0\\2x+2z=0\\-x-z=0\end{cases}\iff z=-x$, $y$ quelconque. Donc $(x,y,z)=y(0,1,0)+x(1,0,-1)$ et $E_4=\operatorname{Vect}\big((0,1,0),(-1,0,1)\big)$, de dimension $2$.
 
-Donc \[P^{-1}=\frac{1}{2}\begin{pmatrix}
-1 & 0 & 1 \\ 
-2 & 2 & 2 \\ 
--1 & 0 & 1
-\end{pmatrix}\]
-
-
-
-d. Exprimer $B^n$ en fonction de $n$.
-
-
- On a :
-
-$B=PDP^{-1}\Rightarrow B^n=PD^nP^{-1}$ avec $D^n=\begin{pmatrix}
-2^n & 0 & 0 \\ 
-0 & 4^n & 0 \\ 
-0 & 0 & 4^n
-\end{pmatrix}$
-
+$\dim E_2+\dim E_4=1+2=3$ : chaque sous-espace propre a pour dimension la multiplicité de la valeur propre, \textbf{$B$ est diagonalisable}.
 \[
-B^n=\frac{1}{2}\begin{pmatrix}
-1 & 0 & -1 \\ 
--2 & 1 & 0 \\ 
-1 & 0 & 1
-\end{pmatrix}\begin{pmatrix}
-2^n & 0 & 0 \\ 
-0 & 4^n & 0 \\ 
-0 & 0 & 4^n
-\end{pmatrix}\begin{pmatrix}
-1 & 0 & 1 \\ 
-2 & 2 & 2 \\ 
--1 & 0 & 1
-\end{pmatrix}\]
-
-\[B^n=\frac{1}{2}\begin{pmatrix}
-2^n+4^n & 0 & 2^n-4^n \\ 
--2.2^n+2.4^n & 2.4^n & -2.2^n+2.4^n \\ 
-2^n-4^n & 0 & 2^n+4^n
-\end{pmatrix}
+D=\begin{pmatrix}2&0&0\\0&4&0\\0&0&4\end{pmatrix},\qquad P=\begin{pmatrix}1&0&-1\\-2&1&0\\1&0&1\end{pmatrix},\qquad B=PDP^{-1}.
+\]
+\underline{Inverse de $P$.} En développant suivant la deuxième colonne, $\det P=1\cdot\begin{vmatrix}1&-1\\1&1\end{vmatrix}=2$, et par la comatrice :
+\[
+P^{-1}=\frac12\begin{pmatrix}1&0&1\\2&2&2\\-1&0&1\end{pmatrix}.
 \]
 
-\medskip\textbf{Exercice 4}
-
-Soit $f$ la fonction définie de $\mathbb{R}^2$ par $f(x,y) = \frac{xy^3}{x^4 + y^2}$ pour $(x,y)\neq(0,0)$ et $f(0,0) = 0$.
-
-1. Déterminons $D_f$.
-
-$D_f=\{(x,y)\in \mathbb{R}^2/x^4 + y^2 \neq 0\}$
-
-$x^4 + y^2 \neq 0 \Rightarrow x\neq 0$ ou $y\neq 0$ $\Leftrightarrow (x,y)\neq (0,0)$
-
-$\Rightarrow D_f=\mathbb{R}^2\setminus (0,0)$
-
-2. Montrons que pour tout réel $a$ et $b$, $a^2 + b^2\geq 2ab$.
-
-On a :
-
-$(a-b)^2=a^2-2ab+b^2$
-
-$(a-b)^2\geq 0\Rightarrow a^2-2ab+b^2\geq 0\Rightarrow a^2 + b^2\geq 2ab$ pour tout réel $a$ et $b$.
-
-Déduisons que $x^4+y^2\geq 2x^2y$. 
-
-On a :$a^2 + b^2\geq 2ab$
-
-Posons : $a=x^2$ et $b=y$, en remplaçant dans l'inégalité précédente, on obtient :
-
-$(x^2)^2 + y^2\geq 2x^2y \Rightarrow x^4+y^2\geq 2x^2y$
-
-3. Montrons que $f$ est continue au point $(0,0)$.
-
-Calculons la limite de $f$ en $(0,0)$
-
-D'après la deuxième question :
-
-$x^4+y^2\geq 2x^2y\Rightarrow \frac{1}{x^4+y^2}\leq \frac{1}{2x^2y}\Rightarrow \frac{xy^3}{x^4+y^2}\leq \frac{xy^3}{2x^2y}\Rightarrow f(x)\leq \frac{xy^3}{2x^2y}\Rightarrow f(x)\leq \frac{y^2}{2x}\Rightarrow \vert f(x)\vert\leq \vert\frac{y^2}{2x}\vert\leq y^2\Rightarrow \lim_{(x,y)\to (0,0)}\vert f(x)\vert\leq \lim_{(x,y)\to (0,0)}y^2=0\Rightarrow \lim_{(x,y)\to (0,0)}f(x)=0=f(0,0)$ alors f est continue en 0.
-
-4. Calculons les dérivées partielles d'ordre $1$ de $f$. 
-
+\textbf{2.d) Calcul de $B^n$.} Par récurrence, $B^n=PD^nP^{-1}$ avec $D^n=\operatorname{diag}(2^n,4^n,4^n)$ :
 \[
-\frac{\partial f}{\partial x}(x,y)=\frac{y^3(x^4+y^2)-4x^4y^3}{(x^4+y^2)^2}=\frac{-3x^4y^3+y^5}{(x^4+y^2)^2}\forall (x,y)\neq (0,0)\]
+PD^n=\begin{pmatrix}2^n&0&-4^n\\-2\cdot2^n&4^n&0\\2^n&0&4^n\end{pmatrix},\qquad
+\boxed{B^n=\frac12\begin{pmatrix}2^n+4^n&0&2^n-4^n\\2\cdot4^n-2\cdot2^n&2\cdot4^n&2\cdot4^n-2\cdot2^n\\2^n-4^n&0&2^n+4^n\end{pmatrix}}
+\]
+soit $B^n=\begin{pmatrix}\frac{2^n+4^n}{2}&0&\frac{2^n-4^n}{2}\\4^n-2^n&4^n&4^n-2^n\\\frac{2^n-4^n}{2}&0&\frac{2^n+4^n}{2}\end{pmatrix}$. (Pour $n=1$ on retrouve $B$.)
 
+\medskip\textbf{Exercice 4} \quad $f(x,y)=\dfrac{xy^3}{x^4+y^2}$ si $(x,y)\neq(0,0)$, $f(0,0)=0$.
 
+\textbf{1. Domaine de définition.} $x^4+y^2=0\iff x=y=0$. L'expression $\frac{xy^3}{x^4+y^2}$ est donc définie sur $\mathbb{R}^2\setminus\{(0,0)\}$, et $f$ étant aussi définie en $(0,0)$ par $f(0,0)=0$ : $\boxed{D_f=\mathbb{R}^2}$.
+
+\textbf{2. Inégalité.} Pour tous réels $a,b$ : $a^2+b^2-2ab=(a-b)^2\ge0$, donc $a^2+b^2\ge2ab$. Avec $a=x^2$ et $b=y$ : $x^4+y^2\ge2x^2y$ (et, avec $b=|y|$, $x^4+y^2\ge2x^2|y|$).
+
+\textbf{3. Continuité en $(0,0)$.} Pour $(x,y)\neq(0,0)$, comme $x^4+y^2\ge y^2$ :
 \[
-\frac{\partial f}{\partial y}(x,y)=\frac{3xy^2(x^4+y^2)-2xy^4}{(x^4+y^2)^2}=\frac{3x^5y^2+xy^4}{(x^4+y^2)^2}\forall (x,y)\neq (0,0)\]
+|f(x,y)|=|x|\,|y|\cdot\frac{y^2}{x^4+y^2}\le|x|\,|y|\xrightarrow[(x,y)\to(0,0)]{}0 .
+\]
+Donc $\lim\limits_{(0,0)}f=0=f(0,0)$ : $f$ est continue en $(0,0)$ (et sur $\mathbb{R}^2$, car c'est une fraction rationnelle ailleurs).
 
-\medskip
-Montrons  que ses dérivées partielles sont continues partout sur $\mathbb{R}^2$.
+\remarque{Avec l'inégalité de la question 2, on peut aussi écrire $|f(x,y)|=\frac{|x|y^2\,|y|}{x^4+y^2}\le\frac{|x|y^2|y|}{2x^2|y|}=\frac{y^2}{2|x|}$ pour $xy\neq0$, mais ce majorant ne tend pas vers $0$ (prendre $y^2=x$) : il faut donc utiliser la majoration ci-dessus.}
 
-Ces dérivées partielles sont définies sur leurs domaines de définition $\mathbb{R}^2\setminus (0,0)$
+\textbf{4. Dérivées partielles et continuité.}
 
-Vérifions leurs continuité en $(0,0)$
-
-
-
+\underline{Pour $(x,y)\neq(0,0)$} (dérivée d'un quotient) :
 \[
-\bullet \lim_{y\to 0}\frac{\partial f}{\partial x}(x,y)=\lim_{y\to 0}\frac{-3x^4y^3+y^5}{(x^4+y^2)^2}=0\]
-
+\frac{\partial f}{\partial x}=\frac{y^3(x^4+y^2)-xy^3\cdot4x^3}{(x^4+y^2)^2}=\frac{y^3(y^2-3x^4)}{(x^4+y^2)^2},\qquad
+\frac{\partial f}{\partial y}=\frac{3xy^2(x^4+y^2)-xy^3\cdot2y}{(x^4+y^2)^2}=\frac{xy^2(3x^4+y^2)}{(x^4+y^2)^2}.
+\]
+\underline{En $(0,0)$} (par définition) : $f(x,0)=0$ et $f(0,y)=0$ pour tous $x,y$, donc
 \[
-\bullet \lim_{y\to 0}\frac{\partial f}{\partial y}(x,y)=\lim_{y\to 0}\frac{3x^5y^2+xy^4}{(x^4+y^2)^2}=0\]
-
-Donc les dérivées partielles sont continue en $(0,0)$, et ainsi en $\mathbb{R}^2$
-
-\medskip
+\frac{\partial f}{\partial x}(0,0)=\lim_{h\to0}\frac{f(h,0)-0}{h}=0,\qquad\frac{\partial f}{\partial y}(0,0)=\lim_{k\to0}\frac{f(0,k)-0}{k}=0 .
+\]
+\underline{Continuité en $(0,0)$.} Il faut une majoration valable dans toutes les directions (et pas seulement quand $y\to0$). Comme $|y^2-3x^4|\le3(x^4+y^2)$ et $y^2\le x^4+y^2$ :
+\[
+\Big|\frac{\partial f}{\partial x}(x,y)\Big|\le\frac{|y|^3\cdot3(x^4+y^2)}{(x^4+y^2)^2}=\frac{3|y|\,y^2}{x^4+y^2}\le3|y|\to0,
+\]
+\[
+\Big|\frac{\partial f}{\partial y}(x,y)\Big|\le\frac{|x|y^2\cdot3(x^4+y^2)}{(x^4+y^2)^2}=\frac{3|x|\,y^2}{x^4+y^2}\le3|x|\to0 .
+\]
+Les dérivées partielles tendent vers $0$, leur valeur en $(0,0)$ : elles sont continues en $(0,0)$, et sur $\mathbb{R}^2\setminus\{(0,0)\}$ (fractions rationnelles). \textbf{$f$ est donc de classe $C^1$ sur $\mathbb{R}^2$.}
 
 \end{spacing}
 \end{document}
