@@ -7,465 +7,198 @@
 
 \textbf{Exercice 1}
 
-$\begin{cases}
-ax-by=c\\
-x-2y=3
-\end{cases}$
+$(S)\ :\ \begin{cases}ax-by=c\\x-2y=3\end{cases}$, \quad $a,b,c\in\{1,\dots,6\}$.
 
-1) Il y a $6^3=216$ possibilités pour le triplets $(a,b,c)$.
+\textbf{1) Nombre de triplets.} Chaque lancer donne 6 résultats possibles et les lancers sont successifs : il y a $6^3=\boxed{216}$ triplets $(a,b,c)$, tous équiprobables. Ainsi, pour tout évènement $E$, $P(E)=\dfrac{\operatorname{card}E}{216}=\dfrac{\operatorname{card}E/2}{108}$.
 
-2) Calculons la probabilité $P_1$ que $(S)$ ait une infinité de solutions.
+\underline{Rappel.} Le déterminant de $(S)$ est $\Delta=\begin{vmatrix}a&-b\\1&-2\end{vmatrix}=-2a+b$.
+\begin{itemize}
+\item Si $\Delta\neq0$ ($b\neq2a$) : $(S)$ est de Cramer, il a une solution unique.
+\item Si $\Delta=0$ ($b=2a$) : la première équation s'écrit $a(x-2y)=c$. Si $c=3a$, les deux équations sont équivalentes : infinité de solutions ; sinon, $(S)$ est incompatible : aucune solution.
+\end{itemize}
+Avec $a,b\in\{1,\dots,6\}$, $b=2a$ donne les couples $(a,b)\in\{(1,2),(2,4),(3,6)\}$.
 
-Pour que $(S)$ ait une infinité de solution, les deux équations doivent être proportionnelles, soit : 
+\textbf{2) Infinité de solutions.} Il faut $b=2a$ et $c=3a\le6$, soit $(a,b,c)=(1,2,3)$ ou $(2,4,6)$ : 2 triplets.
+\[
+P_1=\frac{2}{216}=\boxed{\frac{1}{108}}.
+\]
 
-$a = 1, b = 2$ et $c = 3$ ou 
+\textbf{3) Aucune solution.} Il faut $b=2a$ et $c\neq3a$ : pour $(1,2)$, $c\neq3$ (5 choix) ; pour $(2,4)$, $c\neq6$ (5 choix) ; pour $(3,6)$, $c$ quelconque (6 choix, car $3a=9$ est impossible). Total : $5+5+6=16$.
+\[
+P_2=\frac{16}{216}=\boxed{\frac{8}{108}}.
+\]
 
-$a = 2, b = 4$ et $c = 6$  
+\textbf{4) Solution unique.} Il faut $b\neq2a$. Il y a $36-3=33$ couples $(a,b)$ convenables et $c$ est quelconque : $33\times6=198$ triplets.
+\[
+P_3=\frac{198}{216}=\boxed{\frac{99}{108}}.
+\]
+Vérification : $P_1+P_2+P_3=\dfrac{1+8+99}{108}=1$.
 
-Aucune autre configuration de tirages ne conduit à la même équation $x-2y = 3$. 
-
-La probabilité $P_1$ pour que $(S)$ ait une infinité de solutions est donc $2/216 = 1/108$. 
-
-3) Calculons la probabilité $P_2$ que $(S)$ n'admette aucune solution. 
-
-Pour qu'il n'y ait pas de solution, il faut que $b-2a = 0$. 
-
-Cela conduit à : 
-
-$a = 1, b = 2$, et $c\neq 3$ (car si $c = 3$, on est dans le cas précédent) 
-
-$a = 2, b = 4$, et $c\neq 6$ 
-
-$a = 3, b = 6$, et $c$ prend n'importe quelle valeur. 
-
-Soit au total 5 + 5 + 6 = 16 cas possibles. 
-
-La probabilité $P_2$ pour que $(S)$ n'admette aucune solution est 16/216 = 8/108. 
-
-4) Calculons la probabilité $P_3$ que $(S)$ admette une solution unique. 
-
-Il existe une et une seule solution si $b-2a\neq 0$. 
-
-Soit : 
-$a = 1, b = 1, 3, 4, 5, 6 $, $\forall c$
- 
-a$ = 2, b = 1, 2, 3, 5, 6 $, $\forall c $
-
-$a = 2, b = 1, 2, 3, 4, 5 $, $\forall c $
-
-$a = 4$, $\forall b$, $\forall c$ 
-
-$a = 5$, $\forall b$, $\forall c$
- 
-$a = 6$, $\forall b$, $\forall c$
- 
-Cela représente 3 x 6 x 5 + 3 x 36 = 198 cas possibles. 
-
-La probabilité $P_3$ pour que $(S)$ admette une solution unique est 198/218 = 99/108. 
-
-On vérifie $P_1 + P_2 + P_3 = 1$.
-
-5) Calculons la probabilité $P_4$ que $(S)$ admette le couple $(x = 3, y = 0)$ comme unique 
-solution.
-
-Si (3,0) est solution : $3a-0 = c 
-\Rightarrow a = 1$ et $c = 3$, ou $a = 2$ et $c = 6$, et $b$ est quelconque. 
-
-$P_4 = 12/216 = 6/108$
+\textbf{5) $(3,0)$ solution unique.} Il faut d'une part que $(3,0)$ soit solution : la deuxième équation est vérifiée ($3-0=3$) et la première donne $3a=c$, d'où $(a,c)=(1,3)$ ou $(2,6)$. Il faut d'autre part que la solution soit unique : $b\neq2a$, soit $b\neq2$ si $a=1$ (5 choix) et $b\neq4$ si $a=2$ (5 choix). Total : $10$ triplets.
+\[
+P_4=\frac{10}{216}=\boxed{\frac{5}{108}}.
+\]
+\remarque{Sans la condition d'unicité on trouverait $12$ triplets ; les deux triplets $(1,2,3)$ et $(2,4,6)$ donnent une infinité de solutions (dont $(3,0)$) et doivent être exclus.}
 
 \medskip\textbf{Exercice 2}
 
+$\displaystyle\sum_{n\ge1}\frac{x^n}{n(n+2)}$.
 
-On considère la série entière:
+\textbf{1) Rayon de convergence.} Avec $a_n=\dfrac1{n(n+2)}>0$ :
+\[
+\frac{a_{n+1}}{a_n}=\frac{n(n+2)}{(n+1)(n+3)}\xrightarrow[n\to+\infty]{}1 .
+\]
+D'après la règle de d'Alembert, $\boxed{R=1}$.
 
-\[\sum_{n=1}^{+\infty}\frac{x^n}{n(n+2)}\]
+\textbf{2) Nature en $x=\pm1$.} Pour $|x|=1$ : $\Big|\dfrac{x^n}{n(n+2)}\Big|=\dfrac1{n(n+2)}\le\dfrac1{n^2}$ et $\sum\frac1{n^2}$ converge (Riemann, $2>1$). La série \textbf{converge absolument}, donc converge, en $x=1$ et en $x=-1$. (En $x=-1$, on peut aussi invoquer le critère des séries alternées : $a_n$ décroît vers $0$.)
 
-1) Déterminons son rayon de convergence $R$.
+\textbf{3) Décomposition en éléments simples.} $\dfrac1{X(X+2)}=\dfrac{\alpha}{X}+\dfrac{\beta}{X+2}$. En multipliant par $X$ puis en faisant $X=0$ : $\alpha=\frac12$. En multipliant par $X+2$ puis en faisant $X=-2$ : $\beta=-\frac12$.
+\[
+\frac1{X(X+2)}=\frac12\Big(\frac1X-\frac1{X+2}\Big).
+\]
 
-Soit $u_n=\frac{1}{n(n+2)}$ donc $u_{n+1}=\frac{1}{(n+1)(n+3)}$
+\textbf{4) Développement de $\ln(1-x)$.} Pour $|x|<1$, $\dfrac1{1-x}=\displaystyle\sum_{n=0}^{+\infty}x^n$. En intégrant terme à terme sur $[0,x]$ (licite à l'intérieur du disque de convergence) :
+\[
+-\ln(1-x)=\sum_{n=0}^{+\infty}\frac{x^{n+1}}{n+1}=\sum_{n=1}^{+\infty}\frac{x^n}{n},\qquad\text{soit}\qquad \boxed{\ln(1-x)=-\sum_{n=1}^{+\infty}\frac{x^n}{n},\quad x\in]-1,1[}.
+\]
 
-\[R=\frac{1}{l} \text{ avec } l=\lim_{n\to +\infty}\frac{u_{n+1}}{u_n}=\frac{n(n+2)}{(n+1)(n+3)}=\lim_{n\to +\infty}\frac{n^2}{n^2}=1\\
-\text{ ainsi } R=1\]
+\textbf{5) Somme $S(x)=\displaystyle\sum_{n=1}^{+\infty}\frac{x^n}{n+2}$.} Pour $x\neq0$, $|x|<1$ :
+\[
+S(x)=\frac1{x^2}\sum_{n=1}^{+\infty}\frac{x^{n+2}}{n+2}=\frac1{x^2}\sum_{p=3}^{+\infty}\frac{x^p}{p}\qquad(p=n+2).
+\]
+Or $\displaystyle\sum_{p=3}^{+\infty}\frac{x^p}{p}=\sum_{p=1}^{+\infty}\frac{x^p}{p}-x-\frac{x^2}{2}=-\ln(1-x)-x-\frac{x^2}2$. Donc
+\[
+\boxed{S(x)=\frac{-\ln(1-x)-x-\frac{x^2}{2}}{x^2}=\frac{-2\ln(1-x)-2x-x^2}{2x^2}}\quad(0<|x|<1),\qquad S(0)=0 .
+\]
 
-2) Étudions la nature de la série pour $x=1$ et $x=-1$.
-
-$-$ Si $x=1$, on a :
-
-\[\sum_{n=1}^{+\infty}\frac{1}{n(n+2)}\sim\sum_{n=1}^{+\infty}\frac{1}{n^2}\]
-
-$\sum_{n=1}^{+\infty}\frac{1}{n^2}$ est Riemann convergente, alors $\sum_{n=1}^{+\infty}\frac{1}{n(n+2)}$ converge.
-
-\quad
-$-$ Si $x=-1$, on a $\sum_{n=1}^{+\infty}\frac{(-1)^n}{n(n+2)}$
-
-Posons $u_n=\frac{1}{n(n+2)}$
-
-$\lim_{n\to +\infty}u_n=\lim_{n\to +\infty}\frac{1}{n(n+2)}=0$
-
-$\frac{u_{n+1}}{u_n}=\frac{n(n+2)}{(n+1)(n+3)}< 1$ (puisque $n<n+1$ et $n+2<n+3$). Alors $u_{n+1}<u_n$, d'où $u_n$ est décroissante.
-
-Comme $\lim_{n\to +\infty}u_n=0$ et $u_n$ est décroissante, alors on conclut que $u_n$ est convergente d'après le critère des série alternées
-
-
-
-3) Décomposons en éléments simples la fraction rationnelle $\frac{1}{X(X+2)}$.
-
-$\frac{1}{X(X+2)}=\frac{a}{X}+\frac{b}{X+2}$
-
-En multipliant chaque terme par $x$, et en prenant $X=0$, on obtient $a=\frac{1}{2}$
-
-En multipliant chaque terme par $x+2$, et en prenant $X=-2$, on obtient $b=-\frac{1}{2}$
-
-Alors $\frac{1}{X(X+2)}=\frac{1}{2}(\frac{1}{X}-\frac{1}{X+2})$
-
-4) Rappelons le développement en série entière de la fonction x$\longmapsto ln(1-x)$ en 0.
-
-On a :$\sum_{n=0}^{+\infty}x^n=-\frac{1}{1-x}$
-
-En appliquant l'intégrale , on obtient :$\sum_{n=0}^{+\infty}\frac{x^{n+1}}{n+1}=-\ln(1-x)$
-
-Posons : \[p=n+1\Rightarrow \sum_{p=1}^{+\infty}\frac{x^p}{p}=-ln(1-x)\Rightarrow \ln(1-x)= -\sum_{p=1}^{+\infty}\frac{x^p}{p}=-\sum_{n=1}^{+\infty}\frac{x^n}{n}\]
-
-5) $\forall x\in ]-R,R[$, Déduisons la somme:
-
-$S=\sum_{n=1}^{+\infty}\frac{x^n}{n+2}$.
-
-\[S=\sum_{n=1}^{+\infty}\frac{x^n}{n+2}=\sum_{n=1}^{+\infty}\frac{x^{n+2-2}}{n+2}=\sum_{n=1}^{+\infty}\frac{x^{n+2}}{n+2}\times\frac{1}{x^2}=\frac{1}{x^2}\sum_{n=1}^{+\infty}\frac{x^{n+2}}{n+2}\]
-
-Posons : $p=n+2$, donc $S=\frac{1}{x^2}\sum_{p=3}^{+\infty}\frac{x^{p}}{p}$
-
-$p$ est une variable muette, donc $S=\frac{1}{x^2}\sum_{p=3}^{+\infty}\frac{x^{p}}{p}=\frac{1}{x^2}\sum_{n=3}^{+\infty}\frac{x^{n}}{n}$
-
-
-On a : $\ln(1-x)=-\sum_{n=1}^{+\infty}\frac{x^n}{n}=-\left( x+\frac{x^2}{2}+\sum_{n=3}^{+\infty}\frac{x^n}{n}\right)$ d'où  $\sum_{n=3}^{+\infty}\frac{x^n}{n}=-\ln(1-x)-x-\frac{x^2}{2}$
-
-Donc $S=\frac{1}{x^2}\left(\ln(1-x)-x-\frac{x^2}{2}\right)=\frac{-2\ln(1-x)-2x-x^2}{2x^2}$
-
-
-6) Montrons que $\forall x\in ]-R,0[\cup ]0,R[$, $\sum_{n=1}^{+\infty}\frac{x^n}{n(n+2)}=\frac{2(1-x^2)ln(1-x)+2x+x^2}{4x^2}$.
-
-
+\textbf{6) Somme de la série.} Pour $0<|x|<1$, d'après la question 3 :
 \begin{align*}
-\sum_{n=1}^{+\infty}\frac{x^n}{n(n+2)} &=\sum_{n=1}^{+\infty}\frac{1}{2}\left(\frac{1}{n}-\frac{1}{n+2}\right)x^n =\frac{1}{2}\sum_{n=1}^{+\infty}\frac{x^n}{n} - \frac{1}{2}\sum_{n=1}^{+\infty}\frac{x^n}{n+2}\\
-&=\frac{1}{2}(-\ln(1-x))-\frac{1}{2}\frac{-2\ln(1-x)-2x-x^2}{2x^2}\\
-&=\frac{1}{2}\frac{-2x^2\ln(1-x)+2\ln(1-x)+2x+x^2}{2x^2}\\
- &=\frac{2(1-x^2)\ln(1-x)+2x+x^2}{4x^2}\text{  } \forall x\in ]-R,0[\cup ]0,R[
+\sum_{n=1}^{+\infty}\frac{x^n}{n(n+2)}&=\frac12\sum_{n=1}^{+\infty}\frac{x^n}{n}-\frac12\sum_{n=1}^{+\infty}\frac{x^n}{n+2}
+=-\frac12\ln(1-x)+\frac{2\ln(1-x)+2x+x^2}{4x^2}\\
+&=\frac{-2x^2\ln(1-x)+2\ln(1-x)+2x+x^2}{4x^2}=\frac{2(1-x^2)\ln(1-x)+2x+x^2}{4x^2}.
 \end{align*}
+(On a le droit de séparer la somme car les deux séries convergent.)
 
+\textbf{7) Prolongement en $0$.} Notons $\varphi(x)=\dfrac{2(1-x^2)\ln(1-x)+2x+x^2}{4x^2}$.
 
-7) Via un équivalent de $\ln(1-x)$, vérifions que l'on peut prolonger cette dernière expression en 0.
+\remarque{L'équivalent $\ln(1-x)\sim-x$ ne suffit pas : on ne peut pas remplacer un terme par un équivalent dans une somme (les termes principaux $-2x$ et $+2x$ se compensent). Il faut un développement limité à l'ordre 3.}
 
+Au voisinage de $0$ : $\ln(1-x)=-x-\dfrac{x^2}{2}-\dfrac{x^3}{3}+o(x^3)$. Alors
+\begin{align*}
+2(1-x^2)\ln(1-x)&=2\Big(-x-\frac{x^2}{2}-\frac{x^3}{3}\Big)+2x^3+o(x^3)=-2x-x^2+\frac43x^3+o(x^3),\\
+2(1-x^2)\ln(1-x)+2x+x^2&=\frac43x^3+o(x^3),
+\end{align*}
+donc $\varphi(x)=\dfrac x3+o(x)\xrightarrow[x\to0]{}0$. L'expression se prolonge par continuité en $0$ en posant $\varphi(0)=0$, ce qui est bien la valeur de la série en $x=0$. (On retrouve aussi le premier terme de la série : $\frac{x}{1\times3}=\frac x3$.)
 
-En $x=0$, $\ln(1-x)\sim x$, alors :
+\textbf{8) Calcul de $S_1$ et $S_2$.}
 
-\[\lim_{x\to 0}\frac{2(1-x^2)\ln(1-x)+2x+x^2}{4x^2}=\lim_{x\to 0}\frac{2(1-x^2)x+2x+x^2}{4x^2}=\lim_{x\to 0}\frac{2x+1}{4}=\frac{1}{4}\]
+D'après la question 2, la série converge normalement sur $[-1,1]$ (car $\big|\frac{x^n}{n(n+2)}\big|\le\frac1{n(n+2)}$, terme général d'une série convergente). Sa somme $f(x)$ est donc continue sur $[-1,1]$, et $f(\pm1)=\lim\limits_{x\to\pm1}\varphi(x)$.
 
-8) En utilisant la question précédentes calculons les sommes suivantes :
+\underline{$S_1=f(-1)$.} $\varphi$ est continue en $-1$ : $\varphi(-1)=\dfrac{2\cdot0\cdot\ln2-2+1}{4}=-\dfrac14$. Donc $\boxed{S_1=\displaystyle\sum_{n=1}^{+\infty}\frac{(-1)^n}{n(n+2)}=-\frac14}$.
 
-\[S_1=\sum_{n=2}^{+\infty}\frac{(-1)^n}{n(n+2)} \text{ et } S_2=\sum_{n=2}^{+\infty}\frac{1}{n(n+2)}\]
+\underline{$S_2=f(1)$.} Quand $x\to1^-$, $(1-x^2)\ln(1-x)=(1+x)\,(1-x)\ln(1-x)\to2\times0=0$ (croissances comparées : $u\ln u\to0$ quand $u\to0^+$). Donc $\varphi(x)\to\dfrac{0+2+1}{4}=\dfrac34$ et $\boxed{S_2=\displaystyle\sum_{n=1}^{+\infty}\frac{1}{n(n+2)}=\frac34}$.
 
-On a :
-
-\[* \sum_{n=1}^{+\infty}\frac{(-1)^n}{n(n+2)}=\frac{2(1-(-1)^2)\ln(1-(-1))+2\times(-1)+(-1)^2}{4(-1)^2}=-\frac{1}{4}\]
-\[\sum_{n=1}^{+\infty}\frac{(-1)^n}{n(n+2)}=-\frac{1}{3}+\sum_{n=2}^{+\infty}\frac{(-1)^n}{n(n+2)}=-\frac{1}{3}+S_1\Rightarrow S_1=\frac{1}{3}-\frac{1}{4}=\frac{1}{12}\]
-
-
-\[* \sum_{n=1}^{+\infty}\frac{1}{n(n+2)}=\frac{3}{4}=\frac{1}{3}+\sum_{n=2}^{+\infty}\frac{1}{n(n+2)}=\frac{1}{3}+S_2\Rightarrow S_2 =\frac{3}{4}-\frac{1}{3}=\frac{5}{12}\]
-
-
-
-
-
-
+Vérification de $S_2$ par télescopage : $\displaystyle\sum_{n=1}^{N}\frac1{n(n+2)}=\frac12\sum_{n=1}^N\Big(\frac1n-\frac1{n+2}\Big)=\frac12\Big(1+\frac12-\frac1{N+1}-\frac1{N+2}\Big)\to\frac34$.
 
 \medskip\textbf{Exercice 3}
 
-1. Démonstration des valeurs propres de $A$
+$A=\begin{pmatrix}1&0&1\\-1&2&1\\1&-1&1\end{pmatrix}$.
 
-Les valeurs propres de $A$ sont les solutions de l'équation caractéristique $\det(A - \lambda I) = 0$, où $I$ est la matrice identité. $
-A - \lambda I = 
-\begin{pmatrix}
-1-\lambda & 0 & 1 \\ 
--1 & 2-\lambda & 1 \\ 
-1 & -1 & 1-\lambda
-\end{pmatrix}.
-$
-
-Le déterminant est donné par :
-$
-\det(A - \lambda I) = \begin{vmatrix}
-1-\lambda & 0 & 1 \\ 
--1 & 2-\lambda & 1 \\ 
-1 & -1 & 1-\lambda
-\end{vmatrix}.
-$
-
-En développant suivant la première ligne :
+\textbf{1. Valeurs propres.} En développant suivant la première ligne :
 \[
-\det(A - \lambda I) = (1-\lambda) \begin{vmatrix}
-2-\lambda & 1 \\ 
--1 & 1-\lambda
-\end{vmatrix} 
-+ \begin{vmatrix}
--1 & 2-\lambda \\ 
-1 & -1
-\end{vmatrix}.
+\det(A-\lambda I)=(1-\lambda)\begin{vmatrix}2-\lambda&1\\-1&1-\lambda\end{vmatrix}+1\cdot\begin{vmatrix}-1&2-\lambda\\1&-1\end{vmatrix}
+=(1-\lambda)(\lambda^2-3\lambda+3)+(\lambda-1).
 \]
-
-Les mineurs sont :
-$
-\begin{vmatrix}
-2-\lambda & 1 \\ 
--1 & 1-\lambda
-\end{vmatrix} = \lambda^2 - 3\lambda + 3,$ et 
-$
-\begin{vmatrix}
--1 & 2-\lambda \\ 
-1 & -1
-\end{vmatrix} = -1+\lambda.
-$
-
-Ainsi :
+En factorisant $(1-\lambda)$ :
 \[
-\det(A - \lambda I) = (1-\lambda)(\lambda^2 - 3\lambda + 3) +\lambda -1=
+\det(A-\lambda I)=(1-\lambda)(\lambda^2-3\lambda+2)=(1-\lambda)(\lambda-1)(\lambda-2)=-(\lambda-1)^2(\lambda-2).
 \]
+Les valeurs propres de $A$ sont $\boxed{1}$ (double) et $\boxed{2}$ (simple).
 
-En factorisant, on obtient :
+\textbf{2. Sous-espaces propres ; diagonalisabilité.}
+
+\underline{$\lambda=1$ :} $A-I=\begin{pmatrix}0&0&1\\-1&1&1\\1&-1&0\end{pmatrix}$ ; $(A-I)X=0\iff\begin{cases}z=0\\-x+y+z=0\\x-y=0\end{cases}\iff\begin{cases}z=0\\y=x\end{cases}$.
 \[
-\det(A - \lambda I) =(\lambda-1)(-\lambda^2 + 3\lambda - 3+1)=(\lambda-1)(-\lambda^2 + 3\lambda -2)= (\lambda - 1)^2 (\lambda - 2).
+E_1=\operatorname{Vect}(u_1),\qquad u_1=\begin{pmatrix}1\\1\\0\end{pmatrix}.
 \]
-
-Les valeurs propres sont donc :
-$
-\lambda = 1 \quad (\text{multiplicité 2}) \quad \text{et} \quad \lambda = 2 \quad (\text{multiplicité 1}).
-$
-
-2. Sous-espaces propres et diagonalisabilité de $A$
-
-Valeur propre $\lambda = 1$
-
-La matrice $A - I$ est :
-$
-A - I = 
-\begin{pmatrix}
-0 & 0 & 1 \\ 
--1 & 1 & 1 \\ 
-1 & -1 & 0
-\end{pmatrix}.
-$
-
-Résolvons $(A - I)X = 0$. Le système est :
-$
-\begin{cases}
-x + z = 0, \\
--y + z = 0, \\
-x - y = 0.
-\end{cases}
-$
-
-On trouve une base de $E_1$ :
-$
-E_1 = \mathrm{Vect}\left(\begin{pmatrix} 1 \\ 1 \\ -1 \end{pmatrix}\right).
-$
-
-Valeur propre $\lambda = 2$
-
-La matrice $A - 2I$ est :
-$
-A - 2I = 
-\begin{pmatrix}
--1 & 0 & 1 \\ 
--1 & 0 & 1 \\ 
-1 & -1 & -1
-\end{pmatrix}.
-$
-
-Résolvons $(A - 2I)X = 0$. Le système est :
-$
-\begin{cases}
--x + z = 0, \\
--y + z = 0, \\
-x - y = 0.
-\end{cases}
-$
-
-On trouve une base de $E_2$ :
-$
-E_2 = \mathrm{Vect}\left(\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}\right).
-$
-
-Diagonalisabilité
-
-La matrice $A$ n'est \textbf{pas diagonalisable}, car la dimension de $E_1$ est strictement inférieure à la multiplicité algébrique de $\lambda = 1$.
-
-3. Sous-espaces caractéristiques
-
-Le sous-espace caractéristique de $\lambda = 1$ est donné par $F_1 = \ker((A - I)^2)$.
-
-Calculons :
+\underline{$\lambda=2$ :} $A-2I=\begin{pmatrix}-1&0&1\\-1&0&1\\1&-1&-1\end{pmatrix}$ ; $(A-2I)X=0\iff\begin{cases}z=x\\x-y-z=0\end{cases}\iff\begin{cases}z=x\\y=0\end{cases}$.
 \[
-(A - I)^2 = 
-\begin{pmatrix}
-0 & 0 & 1 \\ 
--1 & 1 & 1 \\ 
-1 & -1 & 0
-\end{pmatrix}^2 = 
-\begin{pmatrix}
-1 & -1 & 0 \\ 
--1 & 1 & 0 \\ 
-0 & 0 & 0
-\end{pmatrix}.
+E_2=\operatorname{Vect}(u_2),\qquad u_2=\begin{pmatrix}1\\0\\1\end{pmatrix}.
 \]
+(Vérification : $Au_1=(1,1,0)=u_1$ et $Au_2=(2,0,2)=2u_2$.)
 
-Résolvons $(A - I)^2X = 0$. On trouve :
-$
-F_1 = \mathrm{Vect}\left(\begin{pmatrix} 1 \\ 1 \\ -1 \end{pmatrix}, \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}\right).
-$
+$\dim E_1=1<2=$ multiplicité de la valeur propre $1$ : \textbf{$A$ n'est pas diagonalisable}.
 
-Le sous-espace caractéristique pour $\lambda = 2$ est $F_2 = E_2$.
+\textbf{3. Sous-espaces caractéristiques.}
 
-4. Base pour obtenir $B$ et décomposition de Dunford
-
-Une base permettant de transformer $A$ en une matrice $B$ est :
+Pour la valeur propre $1$ (multiplicité 2) : $N_1=\ker(A-I)^2$. On calcule
 \[
-\mathcal{B} = \left\{\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}, \begin{pmatrix} 1 \\ 1 \\ -1 \end{pmatrix}, \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}\right\}.
+(A-I)^2=\begin{pmatrix}0&0&1\\-1&1&1\\1&-1&0\end{pmatrix}^2=\begin{pmatrix}1&-1&0\\0&0&0\\1&-1&0\end{pmatrix},
 \]
-
-Dans cette base, $A$ devient :
-$
-B = \begin{pmatrix}
-2 & 0 & 0 \\ 
-0 & 1 & 1 \\ 
-0 & 0 & 1
-\end{pmatrix}.
-$
-
-La décomposition de Dunford est donnée par :$
-B = D + N,
-$
-avec :
-$
-D = \begin{pmatrix}
-2 & 0 & 0 \\ 
-0 & 1 & 0 \\ 
-0 & 0 & 1
-\end{pmatrix}, \quad
-N = \begin{pmatrix}
-0 & 0 & 0 \\ 
-0 & 0 & 1 \\ 
-0 & 0 & 0
-\end{pmatrix}.
-$
-
-5. Résolution du système différentiel
-
-Le système est :
-$
-\begin{cases}
-x' = x + z, \\
-y' = -x + 2y + z, \\
-z' = x - y + z.
-\end{cases}
-$
-
-En notation matricielle :
+donc $(A-I)^2X=0\iff x=y$ :
 \[
-X'(t) = AX(t),
+N_1=\ker(A-I)^2=\operatorname{Vect}\left(\begin{pmatrix}1\\1\\0\end{pmatrix},\begin{pmatrix}0\\0\\1\end{pmatrix}\right)\quad(\dim N_1=2).
 \]
-où $A = \begin{pmatrix}
-1 & 0 & 1 \\ 
--1 & 2 & 1 \\ 
-1 & -1 & 1
-\end{pmatrix}.
-$
+Pour la valeur propre $2$ (simple) : $N_2=\ker(A-2I)=E_2=\operatorname{Vect}(u_2)$. On a bien $\mathbb{R}^3=N_1\oplus N_2$.
 
-La solution est donnée par :$
-X(t) = e^{tA}X(0).
-$
+\textbf{4. Base de trigonalisation et décomposition de Dunford.}
 
-En utilisant $A = D + N$, on trouve :$
-e^{tA} = e^{tD}e^{tN}.
-$
+On cherche une base $(v_1,v_2,v_3)$ telle que $Av_1=2v_1$, $Av_2=v_2$ et $Av_3=v_2+v_3$, c'est-à-dire $(A-I)v_3=v_2$.
+\begin{itemize}
+\item $v_1=u_2=(1,0,1)$ ;
+\item on choisit $v_3\in N_1\setminus E_1$, par exemple $v_3=(0,0,1)$ ; alors $v_2=(A-I)v_3=(1,1,0)$ (troisième colonne de $A-I$), qui est bien dans $E_1$.
+\end{itemize}
+\[
+\mathcal{B}'=(v_1,v_2,v_3)=\left(\begin{pmatrix}1\\0\\1\end{pmatrix},\begin{pmatrix}1\\1\\0\end{pmatrix},\begin{pmatrix}0\\0\\1\end{pmatrix}\right),\qquad
+P=\begin{pmatrix}1&1&0\\0&1&0\\1&0&1\end{pmatrix},\quad\det P=1 .
+\]
+Dans cette base, la matrice de l'endomorphisme est $B=P^{-1}AP=\begin{pmatrix}2&0&0\\0&1&1\\0&0&1\end{pmatrix}$.
 
-Avec :
-$
-e^{tD} = \begin{pmatrix}
-e^{2t} & 0 & 0 \\ 
-0 & e^t & 0 \\ 
-0 & 0 & e^t
-\end{pmatrix}, \quad
-e^{tN} = \begin{pmatrix}
-1 & 0 & 0 \\ 
-0 & 1 & t \\ 
-0 & 0 & 1
-\end{pmatrix}.
-$ 
-Ainsi :
-$
-e^{tA} = \begin{pmatrix}
-e^{2t} & 0 & 0 \\ 
-0 & e^t & te^t \\ 
-0 & 0 & e^t
-\end{pmatrix}.
-$
+\underline{Décomposition de Dunford de $B$} : $B=D+N$ avec
+\[
+D=\begin{pmatrix}2&0&0\\0&1&0\\0&0&1\end{pmatrix}\ (\text{diagonale}),\qquad N=\begin{pmatrix}0&0&0\\0&0&1\\0&0&0\end{pmatrix}\ (\text{nilpotente, } N^2=0),
+\]
+et $DN=ND=N$ (car $N$ n'agit que sur le bloc associé à la valeur propre $1$, où $D=I_2$). Ces trois conditions caractérisent la décomposition de Dunford.
 
-La solution est :
-$
-X(t) = \begin{pmatrix}
-e^{2t}x_0 \\ 
-e^ty_0 + te^tz_0 \\ 
-e^tz_0
-\end{pmatrix}.
-$
+\textbf{5. Système différentiel $X'=AX$.}
 
+On pose $X=PY$ (soit $Y=P^{-1}X$). Alors $Y'=P^{-1}X'=P^{-1}APY=BY$, c'est-à-dire, avec $Y=(y_1,y_2,y_3)$ :
+\[
+\begin{cases}y_1'=2y_1\\y_2'=y_2+y_3\\y_3'=y_3\end{cases}
+\]
+On résout de bas en haut : $y_3=c_3e^t$ ; puis $y_2'-y_2=c_3e^t$, dont les solutions sont $y_2=(c_2+c_3t)e^t$ ; enfin $y_1=c_1e^{2t}$. Revenons à $X=y_1v_1+y_2v_2+y_3v_3$ :
+\[
+\boxed{\begin{cases}
+x(t)=c_1e^{2t}+(c_2+c_3t)e^t\\
+y(t)=(c_2+c_3t)e^t\\
+z(t)=c_1e^{2t}+c_3e^t
+\end{cases}\qquad c_1,c_2,c_3\in\mathbb{R}.}
+\]
+Vérification de la première équation : $x'=2c_1e^{2t}+(c_2+c_3+c_3t)e^t$ et $x+z=2c_1e^{2t}+(c_2+c_3t+c_3)e^t$.
+
+\remarque{On peut aussi écrire $X(t)=Pe^{tB}P^{-1}X(0)$ avec $e^{tB}=e^{tD}e^{tN}=\begin{pmatrix}e^{2t}&0&0\\0&e^t&te^t\\0&0&e^t\end{pmatrix}$ (car $D$ et $N$ commutent et $e^{tN}=I+tN$). Attention : c'est $e^{tB}$ et non $e^{tA}$ que l'on obtient ainsi.}
 
 \medskip\textbf{Exercice 4}
 
-Trouvons toutes les applications $f :\mathbb{R} \longrightarrow \mathbb{R}$ deux fois dérivables telles que: 
-$\forall x \in \mathbb{R}$ , $f"(x) + f(-x) = x$ $(E)$.
+On cherche les $f:\mathbb{R}\to\mathbb{R}$ deux fois dérivables telles que $f''(x)+f(-x)=x$ pour tout $x$ $(E)$.
 
-L'équation proposée $(E)$ n'est pas une équation différentielle.
-En remplaçant $x$ par $-x$ dans $(E)$, on obtient : $f"(-x) + f(x) = -x$
+\underline{Analyse.} Soit $f$ une solution. En remplaçant $x$ par $-x$ dans $(E)$ : $f''(-x)+f(x)=-x$ $(E')$. Posons $g(x)=f(x)+f(-x)$ et $h(x)=f(x)-f(-x)$ ; elles sont deux fois dérivables, avec $g''(x)=f''(x)+f''(-x)$ et $h''(x)=f''(x)-f''(-x)$ (attention : la dérivée de $x\mapsto f(-x)$ est $-f'(-x)$, et sa dérivée seconde est $f''(-x)$).
+\begin{itemize}
+\item $(E)+(E')$ : $f''(x)+f''(-x)+f(-x)+f(x)=0$, soit $g''+g=0$ ;
+\item $(E)-(E')$ : $f''(x)-f''(-x)+f(-x)-f(x)=2x$, soit $h''-h=2x$.
+\end{itemize}
+Donc $g(x)=C_1\cos x+C_2\sin x$. Pour $h$ : les solutions de l'homogène sont $D_1\operatorname{ch}x+D_2\operatorname{sh}x$, et $-2x$ est une solution particulière (car $(-2x)''-(-2x)=2x$), donc $h(x)=-2x+D_1\operatorname{ch}x+D_2\operatorname{sh}x$.
 
-D'où le système :
-
+Or $g$ est paire et $h$ est impaire par construction. $g$ paire impose $C_2=0$ ($\sin$ est impaire et non nulle), et $h$ impaire impose $D_1=0$. Comme $f=\frac12(g+h)$ :
 \[
-\begin{cases}
-f"(x) + f(-x) = x\\
-f"(-x) + f(x) = -x
-\end{cases}
+f(x)=-x+\frac{C_1}{2}\cos x+\frac{D_2}{2}\operatorname{sh}x .
 \]
+\underline{Synthèse.} Soit $f(x)=-x+\alpha\cos x+\beta\operatorname{sh}x$ avec $\alpha,\beta\in\mathbb{R}$. Alors $f''(x)=-\alpha\cos x+\beta\operatorname{sh}x$ et $f(-x)=x+\alpha\cos x-\beta\operatorname{sh}x$, d'où $f''(x)+f(-x)=x$. Donc $f$ est solution.
 
-En additionnant membre par membre ces deux équations, puis en les soustrayant, on obtient en tenant compte des notations des fonctions $f$ et $g$ : 
-
+\textbf{Conclusion :}
 \[
-\begin{cases}
-[f"(x)+f"(-x)]+[f(x)+f(-x)] =g"(x) + g(x) =0\\
-[f"(x)-f"(-x)]+[f(x)-f(-x)] =h"(x)-h(x)=2x
-\end{cases}
+\boxed{f(x)=-x+\alpha\cos x+\beta\operatorname{sh}x,\qquad\alpha,\beta\in\mathbb{R}}.
 \]
-
-La première équation admet pour solution
-
- $g(x) = C_1\cos x + C_2\sin x$ avec $(C_1,C_2 )\in \mathbb{R}^2$
-
-La seconde équation admet pour solution $h(x) =-2x + D_1chx + D_2shx$ avec $(D_1,D_2 )\in\mathbb{R}^2$ et donc puisque
-
-$f(x) =\frac{1}{2}[g(x) +h(x)]=-x +\frac{1}{2}[C_1 \cos x + C_2 \sin x + D_1chx + D_2shx]$
-
-Étudions la réciproque :
-
-Les solutions $f(x)$ vérifiant l'équation $(E)$ 
-$f"(x) + f(-x) = 0$ $\forall x\in \mathbb{R}$ doivent satisfaire
- 
-$C_2\sin x + D_1chx = 0$  $\forall x\in \mathbb{R}$ et donc $C_2 = D_1 = 0$
-
-Les solutions de $(E)$ sont donc : $f(x) =-x+\frac{1}{2}[C_1\cos x + D_2shx]$ avec $(C_1,D_2)\in\mathbb{R}^2$
-
-\medskip\underline{Remarque} :
-
-Par construction, $g$ est une fonction paire ce qui implique $C_2 = 0$ et $h$ une fonction impaire ce
-qui implique $D_1 =0$ 
 
 \end{spacing}
 \end{document}
