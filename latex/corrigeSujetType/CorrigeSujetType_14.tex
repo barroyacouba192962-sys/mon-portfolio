@@ -7,267 +7,157 @@
 
 \textbf{Exercice 1}
 
-1.a) Étudions, dans le même tableau de variations, les variations de $x(t)$ et $y(t)$ en fonction de $t$. 
+$x(t)=t+\dfrac{t^2}{2}$, \quad $y(t)=t-\dfrac{t^2}{2}$, \quad $t\in\mathbb{R}$.
 
-$x'(t) = t + 1$
- 
-$y’(t) = 1-t $
+\textbf{1.a) Variations de $x$ et $y$.}
 
-Pour $t\in \mathbb{R}$, $x(t)$ décroit de $+\infty$ à -1/2, lorsque $t$ va de $-\infty
-$ à -1, puis croît jusqu'à $+\infty$ pour $t$ allant de -1 à $+\infty$ ; $x(t)$ s'annule en $t = 0$. 
-
-En outre, $x(1) = 3/2$.
-
-\medskip 
-$y(t)$ croît de $-\infty$ à 1/2, lorsque $t$ va de $-\infty$ à +1, puis décroît jusqu'à $-\infty$ pour $t$ allant de 1 à $+\infty$ ; $y(t)$ s'annule en $t = 0$. 
-
-En outre, $y(-1) = -3/2$. 
-
-b) Étudions les points de la courbe $C$ en lesquels la tangente est parallèle à l'un des axes de 
-coordonnées. 
-
-Cela revient à résoudre $x’(t) = 0$ et $y’(t) = 0$.  
-
-$x’(t) = 0$ pour $t = -1$ (le point associé est (-1/2, -3/2)). 
-$y’(t) = 0$ pour $t = 1$ (le point associé est (3/2, 1/2)). 
-
-c) Précisons les points d'intersection de $C$ avec les axes $Ox$ et $Oy$. Donnons un vecteur 
-directeur des tangentes en ces points. 
-
-Avec l'axe des ordonnées : $x(t) = 0$ pour $t = 0$ et -2 
-
-Pour $t = 0$, le point est $O (0, 0) $
-
-Pour $t = -2$, le point correspondant est $A(0, -4)$  
-
-Avec l'axe des abscisses : $y(t) = 0$ pour $t = 0$ et 2 
-
-Pour $t = 0$, le point est $O (0, 0)$ 
-
-Pour $t = 2$, le point correspondant est $B(4, 0)$  
-
-La courbe $C$ coupe donc les axes en trois points : $O, A$ et $B$. 
-
-Vecteur directeur des tangentes en $O, A$ et $B$ :
- 
-En $O, x’ = 1$ et $y’ = 1$ ; en $A, x’ = -1$ et $y’ = 3$ ; en $B, x’ = 3$ et $y’ = -1$. 
-
-d) Donnons graphiquement l'allure de la courbe $C$, en positionnant les points remarquables déterminés. 
-
-\textbf{Tableau de variation}
-
+$x'(t)=1+t$ et $y'(t)=1-t$.
+\begin{itemize}
+\item $x'(t)<0$ pour $t<-1$, $x'(t)>0$ pour $t>-1$ : $x$ décroît sur $]-\infty,-1]$ puis croît ; minimum $x(-1)=-1+\frac12=-\frac12$. Limites : $x(t)\sim\frac{t^2}{2}\to+\infty$ en $\pm\infty$.
+\item $y'(t)>0$ pour $t<1$, $y'(t)<0$ pour $t>1$ : $y$ croît sur $]-\infty,1]$ puis décroît ; maximum $y(1)=1-\frac12=\frac12$. Limites : $y(t)\sim-\frac{t^2}{2}\to-\infty$ en $\pm\infty$.
+\end{itemize}
+Valeurs utiles : $x(1)=\frac32$, $y(-1)=-\frac32$, $x(0)=y(0)=0$.
 
 \begin{center}
-    \begin{tikzpicture}
-        \tkzTabInit[lgt=2, espcl=3]
-        {$t$ /1, $x'(t)$ /1, $x(t)$ /2, $y'(t)$ /1, $y(t)$ /2}
-        {$-\infty$, $-1$, $+\infty$}
-
-        % Ligne des variations de x'(t)
-        \tkzTabLine{, +, 0, -,}
-
-        % Ligne des variations de x(t)
-        \tkzTabVar{+/ $+\infty$, -/$-\frac{1}{2}$ ,  +/$+\infty$,}
-        
-        % Affichage du point (0,0) sur la flèche
-       % \tkzTabIma{3}{2}{3}{$0$}
-
-        
-        % Ligne des variations de y'(t)
-        \tkzTabLine{, +, 0, -,}
-
-        % Ligne des variations de y(t)
-        \tkzTabVar{-/ $-\infty$, +/$\frac{1}{2}$, -/$-\infty$}
-    \end{tikzpicture}
+\begin{tikzpicture}
+\tkzTabInit[lgt=2, espcl=3]{$t$ /1, $x'(t)$ /1, $x(t)$ /2, $y(t)$ /2, $y'(t)$ /1}{$-\infty$, $-1$, $1$, $+\infty$}
+\tkzTabLine{ , -, z, +, t, +, }
+\tkzTabVar{+/$+\infty$, -/$-\frac12$, R/, +/$+\infty$}
+\tkzTabIma{2}{4}{3}{$\frac32$}
+\tkzTabVar{-/$-\infty$, R/, +/$\frac12$, -/$-\infty$}
+\tkzTabIma{1}{3}{2}{$-\frac32$}
+\tkzTabLine{ , +, t, +, z, -, }
+\end{tikzpicture}
 \end{center}
 
+\textbf{1.b) Tangentes parallèles aux axes.}
 
+En un point de paramètre $t$, le vecteur $\vec V(t)=(x'(t),y'(t))=(1+t,1-t)$ ne s'annule jamais (on ne peut avoir à la fois $t=-1$ et $t=1$) : tous les points sont réguliers et $\vec V(t)$ dirige la tangente.
+\begin{itemize}
+\item Tangente parallèle à $(Oy)$ (verticale) : $x'(t)=0$, soit $t=-1$ : point $\big(-\frac12,-\frac32\big)$.
+\item Tangente parallèle à $(Ox)$ (horizontale) : $y'(t)=0$, soit $t=1$ : point $\big(\frac32,\frac12\big)$.
+\end{itemize}
 
+\textbf{1.c) Intersections avec les axes et tangentes.}
+\begin{itemize}
+\item Avec $(Oy)$ : $x(t)=t\big(1+\frac t2\big)=0\iff t=0$ ou $t=-2$. Points $O(0,0)$ ($t=0$) et $A(0,-4)$ ($t=-2$).
+\item Avec $(Ox)$ : $y(t)=t\big(1-\frac t2\big)=0\iff t=0$ ou $t=2$. Points $O(0,0)$ et $B(4,0)$ ($t=2$).
+\end{itemize}
+Vecteurs directeurs des tangentes : en $O$ ($t=0$) : $\vec V=(1,1)$ ; en $A$ ($t=-2$) : $\vec V=(-1,3)$ ; en $B$ ($t=2$) : $\vec V=(3,-1)$.
 
-
-
-
-\quad
-
-\textbf{Allure de la courbe $C$}
-
-
-
-
-
+\textbf{1.d) Allure de la courbe.}
+\begin{center}
 \begin{tikzpicture}
-    \begin{axis}[
-        axis lines = middle,
-        xlabel = \( x \),
-        ylabel = \( y \),
-        xmin = -5, xmax = 5,
-        ymin = -5, ymax = 5,
-        grid = both,
-        width = 10cm,
-        height = 10cm,
-        samples = 200,
-        domain = -4:4,
-        ]
-
-        % Tracer la courbe C en utilisant des équations paramétriques
-        \addplot [
-            blue,
-            thick,
-            variable = \t, % Définir la variable de paramétrisation
-            parametric, % Activer le mode paramétrique
-        ] ({t + (t^2)/2}, {t - (t^2)/2});
-
-        % Points remarquables
-        \addplot [only marks, mark=*, mark size=2pt] coordinates {
-            (0, 0) % Point O
-            (0, -4) % Point A
-            (4, 0) % Point B
-            (-0.5, -1.5) % Point où x'(t) = 0
-            (1.5, 0.5) % Point où y'(t) = 0
-        };
-
-        % Étiquettes des points
-        \node at (axis cs: 0, 0) [above right] {\( O \)};
-        \node at (axis cs: 0, -4) [below right] {\( A \)};
-        \node at (axis cs: 4, 0) [above right] {\( B \)};
-        \node at (axis cs: -0.5, -1.5) [below left] {\((-0.5, -1.5)\)};
-        \node at (axis cs: 1.5, 0.5) [above right] {\((1.5, 0.5)\)};
-
-    \end{axis}
+\begin{axis}[axis lines=middle, xlabel=$x$, ylabel=$y$, xmin=-2, xmax=6, ymin=-6, ymax=2, width=9cm, height=9cm, samples=200, domain=-3.6:3.6]
+\addplot[blue!70!black, thick, variable=\t, parametric] ({t+t^2/2},{t-t^2/2});
+\addplot[dashed, gray, domain=-2:6] {-x};
+\addplot[only marks, mark=*, mark size=1.5pt] coordinates {(0,0) (0,-4) (4,0) (-0.5,-1.5) (1.5,0.5) (0.5,-0.5)};
+\node at (axis cs:0.3,0.35) {\small $O$};
+\node at (axis cs:0.35,-4.2) {\small $A$};
+\node at (axis cs:4.2,0.35) {\small $B$};
+\node at (axis cs:-1.1,-1.5) {\small $t=-1$};
+\node at (axis cs:1.6,0.9) {\small $t=1$};
+\node at (axis cs:0.8,-0.75) {\small $F$};
+\node[gray] at (axis cs:5,-4.6) {\small $y=-x$};
+\end{axis}
 \end{tikzpicture}
+\end{center}
 
-
-
-
-
-e) Donnons l'équation cartésienne $v(x, y) = 0$ de la courbe $C$. 
-
-On remarque que $t = (x + y)/2$ 
-
-En reportant dans la définition de $x(t)$, on a : 
-
-$x = (x + y)^2/8 + (x + y)/2$ 
-
-En développant, on obtient : 
-
-$v(x, y) = x^2+ y^2 + 2xy-4x + 4y = 0$ 
-
-2 – On se propose de déterminer précisément ce qu'est la courbe $C$. 
-
-a) Le plan étant assimilé au plan complexe, on considère l'application $h$ qui, à tout 
-point $M$ d'affixe $z$ du plan, associe un point $M'$ d'affixe $Z$, définie par : 
-
+\textbf{1.e) Équation cartésienne.} On a $x+y=2t$ et $x-y=t^2$. En éliminant $t=\frac{x+y}{2}$ :
 \[
-Z= \frac{1}{\sqrt{2}}(1+i)z\]
+x-y=\frac{(x+y)^2}{4}\iff\boxed{v(x,y)=x^2+2xy+y^2-4x+4y=0}.
+\]
 
- Donnons de façon précise la nature de l'application $h$. 
+\textbf{2.a) Nature de $h$.} $\dfrac{1+i}{\sqrt2}=\dfrac{\sqrt2}{2}+i\dfrac{\sqrt2}{2}=e^{i\pi/4}$, donc $Z=e^{i\pi/4}z$ : \textbf{$h$ est la rotation de centre $O$ et d'angle $\frac\pi4$}.
 
-On remarque que $Z = h(z) = e^{i\pi/4}z$
- 
-$H$ est donc une rotation de centre $O$ et d'angle $\pi/4$. 
+\textbf{2.b) Coordonnées de $M'$ et équation de $C'$.}
+\[
+Z=\frac{1}{\sqrt2}(1+i)(x+iy)=\frac{1}{\sqrt2}\big[(x-y)+i(x+y)\big],
+\]
+donc
+\[
+X(t)=\frac{x(t)-y(t)}{\sqrt2}=\frac{t^2}{\sqrt2},\qquad Y(t)=\frac{x(t)+y(t)}{\sqrt2}=\frac{2t}{\sqrt2}=\sqrt2\,t .
+\]
+En éliminant $t$ : $Y^2=2t^2=2\sqrt2\cdot\frac{t^2}{\sqrt2}=2\sqrt2\,X$. Une équation de $C'$ est
+\[
+\boxed{\varphi(X,Y)=Y^2-2\sqrt2\,X=0}.
+\]
+Réciproquement, tout point vérifiant cette équation est atteint ($t=\frac{Y}{\sqrt2}$).
 
-b) Soit $M$ le point d'affixe $z(t) = x(t) + i y(t)$.
- 
-Déterminons les coordonnées $X(t)$ et $Y(t)$ de $M’$, image de $M$ par $h$. 
-Donnons une équation cartésienne $\varphi(X, Y) = 0$ de la courbe $C’$ des points $M$’. 
-  
-Soit $z(t) = \rho e^{i\theta} = \rho cos\theta + i\rho sin\theta$, avec $x(t) =\rho cos\theta$ et $y(t) =\rho sin\theta$. 
+$C'$ est une \textbf{parabole} de sommet $O$, d'axe $(OX)$, de la forme $Y^2=2pX$ avec $p=\sqrt2$ : son foyer est $F'\big(\frac{p}{2},0\big)=\big(\frac{\sqrt2}{2},0\big)$ et sa directrice la droite $X=-\frac{\sqrt2}{2}$.
 
-$Z = h(z) = e^{i\pi/4}z = \rho e^{i(\theta+\pi/4)} z$.
- 
-D'où $X(t) = (x(t - y(t))/2^{1/2}$  et $Y(t) = (x(t) + y(t))/2^{1/2}$ 
-
-On en déduit : $Y = 2^{1/2}t$ et $X = 2^{-1/2} t^2$.
-
-D'où la relation $\varphi(X, Y) = 0 = 4.2^{1/2} X-Y^2$
- 
-La courbe $C’$ est une parabole d'axe $Ox$.
- 
-Le courbe $C’$ est l'image de $C$ par la rotation de centre $O$ et d'angle $\pi/4$. La courbe $C$ est 
-donc l'image de $C’$ par la rotation de centre $O$ et d'angle $- \pi/4$. 
-
-C'est donc encore une parabole, dont l'axe est la deuxième bissectrice.
+\textbf{Nature de $C$.} $C'=h(C)$, donc $C=h^{-1}(C')$ où $h^{-1}$ est la rotation de centre $O$ et d'angle $-\frac\pi4$. Une rotation conserve les distances, donc transforme une parabole en parabole : \textbf{$C$ est une parabole} de sommet $O$, dont l'axe est l'image de $(OX)$ par la rotation d'angle $-\frac\pi4$, c'est-à-dire la \textbf{deuxième bissectrice} $y=-x$. Son foyer est $F=h^{-1}(F')$, d'affixe $\frac{\sqrt2}{2}e^{-i\pi/4}=\frac{1-i}{2}$, soit $F\big(\frac12,-\frac12\big)$, et sa directrice a pour équation $x-y+1=0$.
 
 \medskip\textbf{Exercice 2}
 
-Donnons la probabilité, l'espérance mathématique et la variance de la variables aléatoires $X$ lorsque $X$ suit chacune des lois discrètes usuelles.
+Lois discrètes usuelles ($q=1-p$, $0<p<1$).
 
-\textbf{$\rightarrow$ Loi discrète uniforme}
+\begin{center}
+\renewcommand{\arraystretch}{2.2}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\textbf{Loi} & \textbf{Valeurs} & $P(X=k)$ & $E(X)$ & $V(X)$\\
+\hline
+Uniforme sur $\{1,\dots,n\}$ & $1,\dots,n$ & $\dfrac1n$ & $\dfrac{n+1}{2}$ & $\dfrac{n^2-1}{12}$\\
+\hline
+Bernoulli $\mathcal{B}(p)$ & $0,1$ & $P(X=1)=p$, $P(X=0)=q$ & $p$ & $pq$\\
+\hline
+Binomiale $\mathcal{B}(n,p)$ & $0,\dots,n$ & $C_n^kp^kq^{n-k}$ & $np$ & $npq$\\
+\hline
+Poisson $\mathcal{P}(\lambda)$, $\lambda>0$ & $\mathbb{N}$ & $e^{-\lambda}\dfrac{\lambda^k}{k!}$ & $\lambda$ & $\lambda$\\
+\hline
+Géométrique $\mathcal{G}(p)$ & $\mathbb{N}^*$ & $pq^{k-1}$ & $\dfrac1p$ & $\dfrac{q}{p^2}$\\
+\hline
+Hypergéométrique $\mathcal{H}(N,n,p)$ & $\max(0,n-Nq)\le k\le\min(n,Np)$ & $\dfrac{C_{Np}^kC_{Nq}^{n-k}}{C_N^n}$ & $np$ & $npq\dfrac{N-n}{N-1}$\\
+\hline
+Pascal (rang du $r$-ième succès) & $r,r+1,\dots$ & $C_{k-1}^{r-1}p^rq^{k-r}$ & $\dfrac rp$ & $\dfrac{rq}{p^2}$\\
+\hline
+Binomiale négative (échecs avant le $r$-ième succès) & $\mathbb{N}$ & $C_{k+r-1}^{r-1}p^rq^{k}$ & $\dfrac{rq}{p}$ & $\dfrac{rq}{p^2}$\\
+\hline
+\end{tabular}}
+\end{center}
 
-\[P(X=k)=\frac{1}{n} \hspace{1cm} E(X)=\frac{n+1}{2} \text{ et } V(X)=\frac{n^2-1}{12}\]
-
-\medskip\textbf{$\rightarrow$ Loi de Bernoulli de paramètre $p$}
-
-\[P(X=1)=p \text{ et } P(X=0)=1-p \hspace{1cm}  E(X)=p \textbf{ et } V(X)=p(1-p)\]
-
-\medskip\textbf{$\rightarrow$ Loi binomiale de paramètres $n$ et $p$}
-
-\[P(X=k)=C_n^kp^k(1-p)^{n-k} \hspace{1cm} E(X)=np \text{ et } V(X)=np(1-p)\]
-
-\medskip\textbf{$\rightarrow$ Loi de Poisson de paramètre $\lambda$}
-
-\[P(X=k)=e^{-\lambda}\frac{\lambda^k}{k!} \text{ ou } k\in \mathbb{N} \hspace{1cm} E(X)=V(X)=\lambda\]
-
-\medskip\textbf{$\rightarrow$ Loi Hypergéométrique de paramètres $(N,n,p)$}
-
-\[p(X=k)=\frac{C_{N_p}^kC_{N-N_p}^{n-k}}{C_N^n} \hspace{1cm} E(X)=np \text{ et } V(X)=np(1-p)\frac{N-n}{N-1}\]
-
-\medskip\textbf{$\rightarrow$ Loi géométrique de paramètre p}
-
-\[P(X=k)=p(1-p)^{k-1} \hspace{1cm} E(X)=\frac{1}{p} \text{ et } V(X)=\frac{q}{p^2}\]
-
-\medskip\textbf{$\rightarrow$ Loi Pascal de paramètre $n$ et $p$}
-
-C'est la loi du nombres d'essais nécessaires pour observer $n$ fois un évènement $A$ de probabilité $p$. L'expérience devant se terminer par $A$.
-
-\[P(X=k)=pC_{k-1}^{n-1}p^{n-1}(1-p)^{(k-1)-(n-1)}=C_{k-1}^{n-1}p^n(1-p)^{k-n} \text{ pour } k=n,n+1,\cdots,\infty\]
-
-C'est la somme de $n$ loi géométriques indépendantes(apparition de $A$ pour la première fois, puis pour la deuxième fois, etc.).
-
-\[E(X)=\frac{n}{p} \text{ et } V(X)=\frac{np}{p^2}\]
-
-\medskip\textbf{$\rightarrow$ Loi binomiale négative}
-
-C'est la loi du nombre d'échec nécessaires pour obtenir $n$ succès.
-
-\[P(X=k)=C_{n+k-1}^{n-1}P^n(1-P)^k\]
-
-C'est la loi de $X'=X-n$ ou $X$ suit la loi binomiale.
-
-\[E(X)=nP \text{ et } V(X)=nP(1-P)\]
-
+\underline{Interprétations.}
+\begin{itemize}
+\item \emph{Bernoulli} : une épreuve à deux issues (succès de probabilité $p$).
+\item \emph{Binomiale} : nombre de succès lors de $n$ épreuves de Bernoulli indépendantes de même paramètre $p$ (somme de $n$ variables de Bernoulli indépendantes, d'où $E=np$ et $V=npq$).
+\item \emph{Poisson} : loi des évènements rares ; elle approche $\mathcal{B}(n,p)$ quand $n$ est grand, $p$ petit, avec $\lambda=np$.
+\item \emph{Géométrique} : rang du premier succès dans une suite d'épreuves de Bernoulli indépendantes.
+\item \emph{Hypergéométrique} : nombre d'éléments « marqués » dans un tirage simultané (sans remise) de $n$ éléments parmi $N$, dont une proportion $p$ est marquée.
+\item \emph{Pascal} : rang du $r$-ième succès ; c'est la somme de $r$ variables géométriques indépendantes, d'où $E=\frac rp$ et $V=\frac{rq}{p^2}$.
+\item \emph{Binomiale négative} : nombre d'échecs avant le $r$-ième succès ; si $X$ suit la loi de Pascal, $X-r$ suit la loi binomiale négative, d'où $E=\frac rp-r=\frac{rq}{p}$ et la même variance.
+\end{itemize}
 
 \medskip\textbf{Exercice 3}
 
-1. La somme exacte que M.Barro touchera le $3^e$ mois correspond à $U_3$.
+Chaque mois, le versement augmente de $3\,\%$ : $U_{n+1}=U_n+0{,}03\,U_n=1{,}03\,U_n$, avec $U_1=600\,000$.
 
-$U_3=U_2 +0.03U_2=(1+0.03)U_2=1.03*618 000 =\textbf{636 540}$
+\textbf{1. Troisième mois.} $U_2=1{,}03\times600\,000=618\,000$ et
+\[
+U_3=1{,}03\times618\,000=\boxed{636\,540\ \text{FCFA}}.
+\]
 
-2. La nature de $(U_n)$
+\textbf{2. Nature de $(U_n)$ et expression.} Comme $U_{n+1}=1{,}03\,U_n$ pour tout $n\ge1$, $(U_n)$ est une \textbf{suite géométrique de raison $q=1{,}03$ et de premier terme $U_1=600\,000$}. Donc, pour tout $n\ge1$ :
+\[
+\boxed{U_n=U_1\,q^{\,n-1}=600\,000\times1{,}03^{\,n-1}}.
+\]
+(Attention à l'exposant $n-1$ : le premier terme est $U_1$, pas $U_0$. On vérifie $U_1=600\,000$, $U_2=618\,000$.)
 
-On a $\forall n\in N^*,U_{n+1}=U_n+0.03U_n=1.03U_n$.  Ainsi, $(U_n)$ est une suite géométrique de raison 1,03 et de premier terme 600 000.
+\textbf{3. Dernier mois ($n=12$).}
+\[
+U_{12}=600\,000\times1{,}03^{11}\approx600\,000\times1{,}384\,234\approx\boxed{830\,540\ \text{FCFA}}.
+\]
 
-Donc l'expression de $U_n$ en fonction de $n$ est donnée par $U_n=600 000(1.03)^n$.
-
-3. La somme que M.Barro touchera le dernier mois$(12^e)$ est:
-
-$U_{12}=600 000*1.03^{12}= \textbf{855456.5321}$
-
-4. Déterminons la somme $S$
-
-$S=U_1+U_2+...+U_{12}$
-
-\hspace{0.358cm}$=U_1+1.03U_1+1.03^2U_1...+1.03^{12}U_1$.
-
-\hspace{0.358cm}$=(1+1.03+1.03^2+...+1.03^{12})U_1$
-
-\hspace{0.358cm}$=U_1\sum_{k=0}^{12}(1.03)^k$
-
-\hspace{0.358cm}$=U_1\frac{1-1.03^{13}}{1-1.03}$. Il s'agit de l'application de la formule générale de la somme des $n$ premiers termes d'une suite géométrique de raison q et de premier terme $U_p$ donnée par $S_n=U_p\frac{1-q^{n-p+1}}{1-q}$
-
-\hspace{0.358cm}$=600 000*15.6178$
-
-\hspace{0.058cm}$\underline{S=9370674.269}$
+\textbf{4. Somme totale.} $S$ est la somme des $12$ premiers termes d'une suite géométrique :
+\[
+S=U_1+U_2+\dots+U_{12}=U_1\big(1+q+\dots+q^{11}\big)=U_1\,\frac{q^{12}-1}{q-1}=600\,000\times\frac{1{,}03^{12}-1}{0{,}03}.
+\]
+Avec $1{,}03^{12}\approx1{,}425\,761$ : $\dfrac{1{,}03^{12}-1}{0{,}03}\approx14{,}192\,03$, d'où
+\[
+\boxed{S\approx8\,515\,218\ \text{FCFA}}.
+\]
+\remarque{Formule à retenir : la somme de $N$ termes consécutifs d'une suite géométrique de raison $q\neq1$ vaut $(\text{premier terme})\times\dfrac{1-q^{N}}{1-q}$, où $N$ est le \emph{nombre} de termes (ici $N=12$).}
 
 \end{spacing}
 \end{document}
