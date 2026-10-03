@@ -50,3 +50,9 @@
 
 % Encadré pour les remarques ajoutées dans les corrigés
 \newcommand{\remarque}[1]{\par\medskip\noindent\fcolorbox{revue}{revue!6}{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{\textbf{\color{revue}Remarque.} #1}}\par\medskip}
+
+% Mise en forme des corrigés de culture générale
+\newcommand{\rubrique}[1]{\par\bigskip\noindent{\large\bfseries\color{revue}#1}\par\smallskip}
+\newcommand{\partie}[1]{\par\medskip\noindent{\bfseries #1}\par}
+\newcommand{\souspartie}[1]{\par\smallskip\noindent{\bfseries\itshape #1}\par}
+\newcommand{\transition}[1]{\par\smallskip\noindent{\itshape Transition : #1}\par}
