@@ -85,7 +85,7 @@ Or $\displaystyle\sum_{p=3}^{+\infty}\frac{x^p}{p}=\sum_{p=1}^{+\infty}\frac{x^p
 
 Au voisinage de $0$ : $\ln(1-x)=-x-\dfrac{x^2}{2}-\dfrac{x^3}{3}+o(x^3)$. Alors
 \begin{align*}
-2(1-x^2)\ln(1-x)&=2\Big(-x-\frac{x^2}{2}-\frac{x^3}{3}\Big)+2x^3+o(x^3)=-2x-x^2+\frac43x^3+o(x^3),\\
+2(1-x^2)\ln(1-x)&=2\Big(-x-\frac{x^2}{2}-\frac{x^3}{3}\Big)+2x^3+o(x^3)\\&=-2x-x^2+\frac43x^3+o(x^3),\\
 2(1-x^2)\ln(1-x)+2x+x^2&=\frac43x^3+o(x^3),
 \end{align*}
 donc $\varphi(x)=\dfrac x3+o(x)\xrightarrow[x\to0]{}0$. L'expression se prolonge par continuité en $0$ en posant $\varphi(0)=0$, ce qui est bien la valeur de la série en $x=0$. (On retrouve aussi le premier terme de la série : $\frac{x}{1\times3}=\frac x3$.)
@@ -94,9 +94,15 @@ donc $\varphi(x)=\dfrac x3+o(x)\xrightarrow[x\to0]{}0$. L'expression se prolonge
 
 D'après la question 2, la série converge normalement sur $[-1,1]$ (car $\big|\frac{x^n}{n(n+2)}\big|\le\frac1{n(n+2)}$, terme général d'une série convergente). Sa somme $f(x)$ est donc continue sur $[-1,1]$, et $f(\pm1)=\lim\limits_{x\to\pm1}\varphi(x)$.
 
-\underline{$S_1=f(-1)$.} $\varphi$ est continue en $-1$ : $\varphi(-1)=\dfrac{2\cdot0\cdot\ln2-2+1}{4}=-\dfrac14$. Donc $\boxed{S_1=\displaystyle\sum_{n=1}^{+\infty}\frac{(-1)^n}{n(n+2)}=-\frac14}$.
+\underline{$S_1=f(-1)$.} $\varphi$ est continue en $-1$ : $\varphi(-1)=\dfrac{2\cdot0\cdot\ln2-2+1}{4}=-\dfrac14$. Donc
+\[
+\boxed{S_1=\sum_{n=1}^{+\infty}\frac{(-1)^n}{n(n+2)}=-\frac14}.
+\]
 
-\underline{$S_2=f(1)$.} Quand $x\to1^-$, $(1-x^2)\ln(1-x)=(1+x)\,(1-x)\ln(1-x)\to2\times0=0$ (croissances comparées : $u\ln u\to0$ quand $u\to0^+$). Donc $\varphi(x)\to\dfrac{0+2+1}{4}=\dfrac34$ et $\boxed{S_2=\displaystyle\sum_{n=1}^{+\infty}\frac{1}{n(n+2)}=\frac34}$.
+\underline{$S_2=f(1)$.} Quand $x\to1^-$, $(1-x^2)\ln(1-x)=(1+x)\,(1-x)\ln(1-x)\to2\times0=0$ (croissances comparées : $u\ln u\to0$ quand $u\to0^+$). Donc $\varphi(x)\to\dfrac{0+2+1}{4}=\dfrac34$ et
+\[
+\boxed{S_2=\sum_{n=1}^{+\infty}\frac{1}{n(n+2)}=\frac34}.
+\]
 
 Vérification de $S_2$ par télescopage : $\displaystyle\sum_{n=1}^{N}\frac1{n(n+2)}=\frac12\sum_{n=1}^N\Big(\frac1n-\frac1{n+2}\Big)=\frac12\Big(1+\frac12-\frac1{N+1}-\frac1{N+2}\Big)\to\frac34$.
 

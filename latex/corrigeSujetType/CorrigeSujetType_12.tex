@@ -7,408 +7,164 @@
 
 \textbf{Exercice 1}
 
+\textbf{1. Volume de $D=\{0\le x\le1,\ 0\le y\le(1-\sqrt x)^2,\ z^2\le2xy\}$.}
 
-1. Calcul du volume du domaine $D$
+\underline{Bornes.} $x$ varie dans $[0,1]$ ; pour $x$ fixé, $y\in[0,(1-\sqrt x)^2]$ ; pour $(x,y)$ fixé ($xy\ge0$), $z^2\le2xy\iff-\sqrt{2xy}\le z\le\sqrt{2xy}$.
 
-Le domaine $D$ est défini par :
+\underline{Calcul.} Par le théorème de Fubini :
 \[
-D = \{ (x, y, z) \in \mathbb{R}^3 : 0 \leq x \leq 1, 0 \leq y \leq (1 - \sqrt{x})^2, z^2 \leq 2xy \}.
+V=\int_0^1\int_0^{(1-\sqrt x)^2}\Big(\int_{-\sqrt{2xy}}^{\sqrt{2xy}}dz\Big)dy\,dx=\int_0^1\int_0^{(1-\sqrt x)^2}2\sqrt{2x}\,\sqrt y\,dy\,dx .
 \]
-
-Étape 1 : Description des bornes
-\begin{itemize}
-    \item $x$ varie de $0$ à $1$,
-    \item pour un $x$ fixé, $y$ varie entre $0$ et $(1 - \sqrt{x})^2$,
-    \item pour un $(x, y)$ fixé, $z$ varie entre $-\sqrt{2xy}$ et $\sqrt{2xy}$ (d'après $z^2 \leq 2xy$).
-\end{itemize}
-
-Étape 2 : Calcul du volume
-
-Le volume est donné par :
+Intégrale en $y$ (avec $\int\sqrt y\,dy=\frac23y^{3/2}$ et $\big((1-\sqrt x)^2\big)^{3/2}=(1-\sqrt x)^3$ car $1-\sqrt x\ge0$) :
 \[
-V = \int_{0}^{1} \int_{0}^{(1-\sqrt{x})^2} \int_{-\sqrt{2xy}}^{\sqrt{2xy}} 1 \, dz \, dy \, dx.
+\int_0^{(1-\sqrt x)^2}2\sqrt{2x}\sqrt y\,dy=2\sqrt{2x}\cdot\frac23(1-\sqrt x)^3=\frac{4\sqrt2}{3}\sqrt x\,(1-\sqrt x)^3 .
 \]
-
-Intégrale sur $z$ :
+Intégrale en $x$ : on pose $u=\sqrt x$ ($x=u^2$, $dx=2u\,du$, $u\in[0,1]$) :
 \[
-\int_{-\sqrt{2xy}}^{\sqrt{2xy}} 1 \, dz = \left[ z \right]_{-\sqrt{2xy}}^{\sqrt{2xy}} = 2\sqrt{2xy}.
+V=\frac{4\sqrt2}{3}\int_0^1u(1-u)^3\,2u\,du=\frac{8\sqrt2}{3}\int_0^1u^2(1-u)^3\,du .
 \]
-
-Intégrale sur $y$ :
+En développant $u^2(1-u)^3=u^2-3u^3+3u^4-u^5$ :
 \[
-\int_{0}^{(1-\sqrt{x})^2} 2\sqrt{2xy} \, dy = 2\sqrt{2x} \int_{0}^{(1-\sqrt{x})^2} \sqrt{y} \, dy.
-\]
-Avec $\int \sqrt{y} \, dy = \frac{2}{3} y^{3/2}$, on obtient :
-\[
-\int_{0}^{(1-\sqrt{x})^2} \sqrt{y} \, dy = \frac{2}{3} \left[ y^{3/2} \right]_{0}^{(1-\sqrt{x})^2} = \frac{2}{3} \left((1-\sqrt{x})^3 \right).
-\]
-Ainsi :
-\[
-\int_{0}^{(1-\sqrt{x})^2} 2\sqrt{2xy} \, dy = \frac{4\sqrt{2x}}{3} (1-\sqrt{x})^3.
-\]
-
-Intégrale sur $x$ :
-\[
-V = \int_{0}^{1} \frac{4\sqrt{2x}}{3} (1-\sqrt{x})^3 \, dx.
-\]
-En posant $u = \sqrt{x}$, $x = u^2$, et $dx = 2u \, du$, les bornes deviennent $u \in [0, 1]$. On obtient :
-\[
-V = \frac{4}{3} \int_{0}^{1} 2\sqrt{2} u^2 (1-u)^3 \, (2u \, du).
-\]
-Cela donne :
-\[
-V = \frac{8\sqrt{2}}{3} \int_{0}^{1} u^3 (1-u)^3 \, du.
-\]
-
-Développez $(1-u)^3$, puis intégrez terme par terme pour obtenir le résultat final.
-
-
-
-2. Calcul de $T$ avec changement de variables
-
-Le domaine $D$ est défini par :
-\[
-D = \{ (x, y) \in \mathbb{R}^2 : x + y \leq 1, x \geq 0, y \geq 0 \}.
-\]
-
-L'intégrale à calculer est :
-\[
-T = \int \int_D (x + y)^2 e^{x^2 - y^2} \, dx \, dy.
-\]
-
-Étape 1 : Changement de variables
-Posons :
-\[
-x = \frac{u+v}{2}, \quad y = \frac{u-v}{2}.
-\]
-Le jacobien est donné par :
-\[
-\frac{\partial (x, y)}{\partial (u, v)} = 
-\begin{vmatrix}
-\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\
-\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v}
-\end{vmatrix} =
-\begin{vmatrix}
-\frac{1}{2} & \frac{1}{2} \\
-\frac{1}{2} & -\frac{1}{2}
-\end{vmatrix} = -\frac{1}{2}.
-\]
-Donc, $|J| = \frac{1}{2}$.
-
-Les nouvelles bornes pour $u$ et $v$ sont :
-\[
-u = x + y \quad \text{et} \quad v = x - y, \quad \text{avec } u \in [0, 1] \text{ et } v \in [-u, u].
-\]
-
-Étape 2 : Réécriture de l'intégrale
-Avec ce changement, on a :
-\[
-x + y = u, \quad x^2 - y^2 = uv.
-\]
-Ainsi :
-\[
-T = \int_{0}^{1} \int_{-u}^{u} u^2 e^{uv} \cdot \frac{1}{2} \, dv \, du.
-\]
-
-Intégrons d'abord sur $v$ :
-\[
-\int_{-u}^{u} e^{uv} \, dv = \frac{1}{u} \left[ e^{uv} \right]_{-u}^{u} = \frac{1}{u} \left(e^{u^2} - e^{-u^2}\right).
-\]
-
-Ainsi :
-\[
-T = \int_{0}^{1} u^2 \cdot \frac{1}{2u} \left(e^{u^2} - e^{-u^2}\right) \, du.
+\int_0^1u^2(1-u)^3du=\frac13-\frac34+\frac35-\frac16=\frac{20-45+36-10}{60}=\frac1{60}.
 \]
 \[
-T = \frac{1}{2} \int_{0}^{1} u \left(e^{u^2} - e^{-u^2}\right) \, du.
+\boxed{V=\frac{8\sqrt2}{3}\times\frac1{60}=\frac{2\sqrt2}{45}\approx0{,}0629}.
 \]
 
-Posons $w = u^2$, $dw = 2u \, du$, et $u \in [0, 1]$ implique $w \in [0, 1]$. On obtient :
-\[
-T = \frac{1}{4} \int_{0}^{1} (e^w - e^{-w}) \, dw.=\frac{1}{4}\left[e^w + e^{-w}\right]_0^1=\frac{1}{4}(e+e^{-1}-2)\]
+\textbf{2. $T=\displaystyle\iint_D(x+y)^2e^{x^2-y^2}dx\,dy$, $D=\{x+y\le1,\ x\ge0,\ y\ge0\}$.}
 
-3. Calcul de $T$ sur le domaine $D$
-
-Le domaine $D$ est donné par :
+\underline{Changement de variables.} $x=\frac{u+v}{2}$, $y=\frac{u-v}{2}$, c'est-à-dire $u=x+y$, $v=x-y$. Le jacobien vaut
 \[
-D = \{ (x, y, z) \in \mathbb{R}^3 : 0 \leq x \leq 1, 0 \leq y \leq 1, 0 \leq z \leq xy \}.
+\frac{D(x,y)}{D(u,v)}=\begin{vmatrix}\frac12&\frac12\\[1mm]\frac12&-\frac12\end{vmatrix}=-\frac12,\qquad\text{donc}\qquad dx\,dy=\frac12\,du\,dv .
 \]
+\underline{Nouveau domaine.} $x+y\le1\iff u\le1$ ; $x\ge0\iff v\ge-u$ ; $y\ge0\iff v\le u$. Donc $\Delta=\{0\le u\le1,\ -u\le v\le u\}$.
 
-L'intégrale à calculer est :
+\underline{Intégrande.} $(x+y)^2=u^2$ et $x^2-y^2=(x+y)(x-y)=uv$. D'où
 \[
-T = \int_{0}^{1} \int_{0}^{1} \int_{0}^{xy} x^\alpha y^\beta z \, dz \, dy \, dx.
+T=\frac12\int_0^1u^2\Big(\int_{-u}^ue^{uv}dv\Big)du .
 \]
-
-Étape 1 : Intégrale sur $z$
+Pour $u>0$ : $\displaystyle\int_{-u}^ue^{uv}dv=\Big[\frac{e^{uv}}{u}\Big]_{-u}^u=\frac{e^{u^2}-e^{-u^2}}{u}$. Donc
 \[
-\int_{0}^{xy} z \, dz = \left[ \frac{z^2}{2} \right]_{0}^{xy} = \frac{(xy)^2}{2}.
-\]
-
-Étape 2 : Intégrale sur $y$
-\[
-T = \int_{0}^{1} \int_{0}^{1} x^\alpha y^\beta \cdot \frac{(xy)^2}{2} \, dy \, dx = \frac{1}{2} \int_{0}^{1} \int_{0}^{1} x^\alpha y^{\beta+2} x^2 \, dy \, dx.
+T=\frac12\int_0^1u\big(e^{u^2}-e^{-u^2}\big)du\underset{w=u^2}{=}\frac14\int_0^1\big(e^w-e^{-w}\big)dw=\frac14\Big[e^w+e^{-w}\Big]_0^1,
 \]
 \[
-T = \frac{1}{2} \int_{0}^{1} x^{\alpha+2} \int_{0}^{1} y^{\beta+2} \, dy \, dx.
+\boxed{T=\frac14\Big(e+\frac1e-2\Big)=\frac{(e-1)^2}{4e}\approx0{,}271}.
 \]
 
-Intégrale sur $y$ :
+\textbf{3. $T=\displaystyle\iiint_Dx^\alpha y^\beta z\,dx\,dy\,dz$, $D=\{0\le x\le1,\ 0\le y\le1,\ 0\le z\le xy\}$.}
+
+La fonction est continue et positive, on applique Fubini :
 \[
-\int_{0}^{1} y^{\beta+2} \, dy = \frac{1}{\beta+3}.
+\int_0^{xy}z\,dz=\frac{(xy)^2}{2},\qquad T=\frac12\int_0^1\int_0^1x^{\alpha+2}y^{\beta+2}\,dy\,dx=\frac12\Big(\int_0^1x^{\alpha+2}dx\Big)\Big(\int_0^1y^{\beta+2}dy\Big),
 \]
-
-Ainsi :
 \[
-T = \frac{1}{2(\beta+3)} \int_{0}^{1} x^{\alpha+2} \, dx.
+\boxed{T=\frac{1}{2(\alpha+3)(\beta+3)}}.
 \]
-
-Intégrale sur $x$ :
-\[
-\int_{0}^{1} x^{\alpha+2} \, dx = \frac{1}{\alpha+3}.
-\]
-
-Ainsi, on obtient finalement :
-\[
-T = \frac{1}{2(\beta+3)(\alpha+3)}.
-\]
-
-
 
 \medskip\textbf{Exercice 2}
 
-Soit $f$ un endomorphisme nilpotent de $E$ d'indice de nilpotence $p\in  \mathbb{N}$. Soit $x$ un vecteur de $E$ vérifiant $f^{p-1}(x)= 0$.
- 
- Montrons tout d'abord la propriété suivante : pour tout $i\in \mathbb{N}$, $f^i(x)$ est différent de 0 si et seulement si $i\leqslant p-1$. En effet, $p$ étant l'indice de nilpotence de $f$, on a $f^p = 0$ et aussi $f^{p+k} =f^k\circ f^p = f^k\circ 0_{L(E)} = 0_{L(E)}$ pour tout $k\in \mathbb{N}^\ast$ (ici $L(E)$ désigne l'ensemble des applications linéaires de $E$ dans $E$, dans la suite on notera tout simplement 0 à la
- place de $0_L(E,E)$). D'autre part, si, par l'absurde, on avait $f^i(x) = 0$ avec $i < p-1$ (le cas
- $i = p-1$ étant impossible par hypothèse sur $x$) il existerait $k\in \mathbb{N}^\ast$ tel que $i + k = p-1$ et $f^{p-1}(x) = (f^k\circ f^i)(x) = f^k(f^i(x)) = f^k(0) = 0$ ce qui est une contradiction avec
- $f^{p-1}(x)\neq 0$.
- 
- Montrons maintenant que la famille $(x,f(x),...,f^{p-1}(x))$ est libre. Soit $(\lambda_0,...,\lambda_{p-1})\in \mathbb{R}^p$ tel que
- \[\sum_{i=0}^{p-1}\lambda_if^i(x)=0 \text{  } (\ast)\]
- 
- Avec la convention $f^0=Id_{L(E)}$. On compose alors la somme précédente avec $f^{p-1}$
- 
- \[f^{p-1}(\sum_{i=0}^{p-1}\lambda_if^i(x))=\sum_{i=0}^{p-1}\lambda_if^{p-1+i}(x)=\lambda_0f^{p-1}(x)\].
- 
-  Ainsi $\lambda_0f^{p-1}(x) = 0$ et puisque $f^{p-1}(x)= 0$ on en déduit que $\lambda_0 = 0$. On continue alors en procédant par récurrence. Nous venons de faire l'initialisation. Soit $k < p-1$ un
- indice quelconque mais fixé. Supposons que $\lambda_i = 0$ pour tout $i\in \{0,...,k\}$. Montrons que $\lambda_{k+1} = 0$. On compose $(\ast)$ avec $f^{p-2-k}$ :
- 
- \[f^{p-2-k}(\sum_{i=k+1}^{p-1}\lambda_if^i(x))=\lambda_{k+1}f^{p-1}(x)=0\]
- 
-  Ainsi $\lambda_{k+1} = 0$ ce qui conclut l'hérédité et finalement on obtient que $(\lambda_0,...,\lambda_{p-1}) = 0_{\mathbb{R}^p}$
- et la famille $(x,f(x),...,f^{p-1}(x))$ est libre.
- 
- b) $E$ étant un espace vectoriel de dimension $n$ on ne peut pas avoir de famille libre possédant $p$ éléments avec $p > n$. Ainsi $p\leqslant n$. Il existe donc $k\in \mathbb{N}$ tel que $p+k = n$ et,
- comme montré précédemment, $f^n = f^{k+p} = f^k\circ f^p = f^k\circ 0 = 0$.
- 
- c) Si l'indice de nilpotence de $f$ est $n$ alors, il existe $x\in E$ tel que $f^{n-1}(x)= 0$.
- 
- D'après le point a) la famille $(x,f(x),...,f^{n-1}(x))$ est libre. Puisque cette famille possède $n$ éléments il s'agit d'une famille libre maximale dans $E$ (qui est de dimension $n$) et c'est donc une base.
- 
- 2) Soit $(e_1,...,e_n)$ une base de $E$. Soit $(p_1,...,p_n)\in \mathbb{N}^n$ tel que $f^{p_i}(e_i) = 0$ pour tout $i\in \{1,...,n\}$ (les $p_i$ existent par hypothèse). On note $p_m = max_{1\leqslant i\leqslant n}p_i$ (et on remarque que $f^{p_m}(e_i)=0$ pour tout $i\in \{1,...,n\})$. Soit $x=\sum_{i=1}^nx_ie_i$ un vecteur de $E$,on a:
- 
- \[
- f^{p_m}(x)=\sum_{i=1}^nx_if^{p_m}(e_i)=0
- \]
- 
- Ainsi $f^{p_m}=0$ et $f$ est un endomorphisme nilpotent. En utilisant 1)b)on en déduit que
- $f^n=0$.
- 
- \medskip\textbf{Exercice 3}
- 
- 
- (1) Explicitons les évènements $(X = 2), (X = 3), (X = 4)$, et déterminons la valeur de $p_2,
- p_3, p_4$.
- 
-$X=2$ :
+$E$ est de dimension $n$, $f\in\mathcal{L}(E)$, et on note $f^0=\mathrm{Id}_E$, $f^k=f\circ\dots\circ f$.
 
-Pour que $X=2$, il faut obtenir deux piles consécutifs dès les deux premiers lancers (pile au premier lancer et pile au deuxième lancer).
- 
- $P_2=P(X=2)=\frac{2}{3}.\frac{2}{3}=\frac{4}{9}$
- 
- \medskip
- 
- $X=3$
- 
- Pour que $X=3$,  il faut obtenir face au premier lancer, puis pile au deuxième et au troisième lancers:
- 
- $P_3=P(X=3)=\frac{1}{3}.\frac{2}{3}.\frac{2}{3}=\frac{4}{27}$.
- 
- \medskip
- $X=4$
- 
- Pour que $X=4$, il faut obtenir soit (pile, face, pile, pile), soit (face,face, pile, pile) au cours des quatre premiers lancers:
- 
- $P_4=P(X=4)=\frac{2}{3}.\frac{1}{3}.\frac{2}{3}.\frac{2}{3}+\frac{1}{3}.\frac{1}{3}.\frac{2}{3}.\frac{2}{3}=\frac{8}{81}+\frac{4}{81}=\frac{12}{81}=\frac{4}{27}$
- 
+\textbf{1.(a) Si $f^{p-1}(x)\neq0$, la famille $(x,f(x),\dots,f^{p-1}(x))$ est libre.}
 
+\emph{(L'énoncé original écrivait $f^{p-1}(x)=0$ ; il faut lire $f^{p-1}(x)\neq0$, sinon le résultat est faux.)}
 
-(2) Montrons que l'on a $p_n = \frac{2}{9}p_{n-2}+\frac{1}{3}p_{n-1}, n\geq 4.$
+Remarquons d'abord que $f^m=0$ pour tout $m\ge p$, car $f^m=f^{m-p}\circ f^p=0$.
 
-Raisonnons par récurrence :
-
--Pour $n=4$, on a $P_4=\frac{12}{81}$
-
-$\frac{2}{9}p_{2}+\frac{1}{3}p_{3}=\frac{2}{9}.\frac{4}{9}+\frac{1}{3}.\frac{4}{27}=\frac{8}{81}+\frac{4}{81}=\frac{12}{81}=p_4$ alors l'expression est vrai au rang 4. 
-
-Vérifions le cas $n$
-
- Si le premier lancer est \( F \), alors \( X - 1 \) suit la même loi que \( X \), donc :
-   \[
-   P(\text{commence par } F) = \frac{1}{3} p_{n-1}.
-   \]
- Si le premier lancer est \( P \), suivi de \( F \), alors \( X - 2 \) suit la même loi que \( X \), donc :
-   \[
-   P(\text{commence par } PF) = \frac{2}{3} \cdot \frac{1}{3} \cdot p_{n-2} = \frac{2}{9} p_{n-2}.
-   \]
-
-En sommant ces deux cas, on obtient la récurrence :
+Soient $\lambda_0,\dots,\lambda_{p-1}$ des réels tels que
 \[
-p_n = \frac{2}{9} p_{n-2} + \frac{1}{3} p_{n-1}, \quad \text{pour } n \geq 4.
+\lambda_0x+\lambda_1f(x)+\dots+\lambda_{p-1}f^{p-1}(x)=0\qquad(\ast)
 \]
-
- 
- (3) Déduisons l'expression de $p_n$ pour tout $n$.
- 
- La suite $p_n$ est une suite récurrente linéaire du second ordre. 
- 
- \[p_n = \frac{2}{9}p_{n-2}+\frac{1}{3}p_{n-1}\Leftrightarrow  p_n -\frac{1}{3}p_{n-1}-\frac{2}{9}p_{n-2}=0\]
- 
- L'équation caractéristiques associée est :
- 
- $r^2-\frac{1}{3}r-\frac{2}{9}=0$ 
- 
- \[\Delta=1\Rightarrow r_1=-\frac{1}{3} \text{ et } r_2=\frac{2}{3}\]
-
-Ainsi la solution générale est :
-
-\[p_n=A\left(\frac{2}{3}\right)^n+B\left(\frac{-1}{3}\right)^n\]
-
-Utilisons les conditions initiales pour déterminer $A$ et $B$.
-
-Pour $n=2$, $p_2=\frac{4}{9}=A\left(\frac{2}{3}\right)^2+B\left(\frac{-1}{3}\right)^2=\frac{4A}{9}+\frac{B}{9}=\frac{4}{9}\Rightarrow 4A+B=4$ $(*)$
-
-Pour $n=3$, $p_3=\frac{4}{27}=A\left(\frac{2}{3}\right)^3+B\left(\frac{-1}{3}\right)^3=\frac{8A}{27}-\frac{B}{27}=\frac{4}{27}\Rightarrow 8A-B=4$ $(**)$
- 
- $(*)+(**)\Longrightarrow 12A=8\Longrightarrow A=\frac{2}{3}$
- 
-$(*)\Longrightarrow B=4-4A=4-4.\frac{2}{3}=\frac{4}{3}$
-
-Ainsi $p_n=\frac{2}{3}\left(\frac{2}{3}\right)^n+\frac{4}{3}\left(\frac{-1}{3}\right)^n$
-
-
- 
- (4) Rappelons, pour $q \in ]-1,1[$, l'expression de       
-$\sum_{n=0}^{+\infty}nq^n$
-
-\[\sum_{n=0}^{+\infty}nq^n=\frac{q}{(1-q)^2} \text{ pour } \vert q\vert<1\]
-
-
-\quad Calculons alors $E(X)$.
- 
- \begin{align*}
- E(X)&=\sum_{n=1}^{+\infty}np_n\\
- &=\sum_{n=1}^{+\infty}n\left(\frac{2}{3}\left(\frac{2}{3}\right)^n+\frac{4}{3}\left(\frac{-1}{3}\right)^n\right)\\
- &=\frac{2}{3}\sum_{n=1}^{+\infty}n\left(\frac{2}{3}\right)^n + \frac{4}{3}\sum_{n=1}^{+\infty}n\left(\frac{-1}{3}\right)^n\\
- &=\frac{2}{3}\times \frac{\frac{2}{3}}{(1-\frac{2}{3})^2}+\frac{4}{3} \frac{\frac{-1}{3}}{(1-\frac{-1}{3})^2}\\
- &=4-\frac{3}{4}\\
- E(X)=\frac{13}{4}
- \end{align*}
- 
- 
- 
- 
- 
- \medskip\textbf{Exercice 4}
- 
- Calculer l'intégrale $I = \int_{0}^{a}\frac{1}{1+f(x)}dx$
- 
- \textbf{ Transformation de l'intégrale avec le changement de variable $t = a-x$}
-
-En effectuant le changement de variable $t = a-x$, nous obtenons :
-
+Supposons, par l'absurde, que les $\lambda_i$ ne soient pas tous nuls, et notons $k$ le plus petit indice tel que $\lambda_k\neq0$. Alors $(\ast)$ s'écrit $\sum_{i=k}^{p-1}\lambda_if^i(x)=0$. Appliquons $f^{p-1-k}$ (linéaire) :
 \[
-I = \int_0^a \frac{1}{1+f(a-x)}dx.
+\sum_{i=k}^{p-1}\lambda_if^{\,p-1-k+i}(x)=0 .
 \]
+Pour $i\ge k+1$, l'exposant $p-1-k+i\ge p$, donc $f^{p-1-k+i}(x)=0$. Il reste $\lambda_kf^{p-1}(x)=0$, et comme $f^{p-1}(x)\neq0$, $\lambda_k=0$ : contradiction. Donc tous les $\lambda_i$ sont nuls et la famille est libre.
 
-D'après la relation donnée dans l'énoncé :
+(On peut aussi présenter ce raisonnement comme une récurrence : en composant $(\ast)$ par $f^{p-1}$ on obtient $\lambda_0=0$, puis par $f^{p-2}$ on obtient $\lambda_1=0$, etc.)
 
+\textbf{(b) $p\le n$ et $f^n=0$.}
+
+Comme $p$ est l'indice de nilpotence, $f^{p-1}\neq0$ : il existe $x\in E$ tel que $f^{p-1}(x)\neq0$. D'après (a), la famille $(x,\dots,f^{p-1}(x))$ est libre et possède $p$ vecteurs. Dans un espace de dimension $n$, une famille libre a au plus $n$ éléments : $p\le n$. Alors $f^n=f^{n-p}\circ f^p=0$.
+
+\textbf{(c) Cas $p=n$.} Comme $f^{n-1}\neq0$, il existe $x_0\in E$ tel que $f^{n-1}(x_0)\neq0$. D'après (a), la famille $(x_0,f(x_0),\dots,f^{n-1}(x_0))$ est libre ; elle a $n=\dim E$ éléments, c'est donc une base de $E$. (Dans cette base, la matrice de $f$ a des $1$ juste sous la diagonale et des $0$ ailleurs.)
+
+\textbf{2. Si pour tout $x$ il existe $p_x$ avec $f^{p_x}(x)=0$, alors $f^n=0$.}
+
+Soit $(e_1,\dots,e_n)$ une base de $E$. Par hypothèse, pour chaque $i$ il existe $p_i$ tel que $f^{p_i}(e_i)=0$. Posons $m=\max(p_1,\dots,p_n)$ ; alors $f^m(e_i)=f^{m-p_i}\big(f^{p_i}(e_i)\big)=0$ pour tout $i$. Pour $x=\sum x_ie_i\in E$, par linéarité, $f^m(x)=\sum x_if^m(e_i)=0$. Donc $f^m=0$ : $f$ est nilpotent, et d'après 1.(b), $f^n=0$.
+
+\remarque{Il est indispensable de passer par une base : l'hypothèse ne donne qu'un exposant $p_x$ \emph{dépendant de $x$}, et il faut un exposant commun à tous les vecteurs.}
+
+\medskip\textbf{Exercice 3}
+
+On note $P_k$ (resp. $F_k$) l'évènement « pile (resp. face) au $k$-ième lancer » ; $P(P_k)=\frac23$, $P(F_k)=\frac13$, lancers indépendants.
+
+\textbf{(1) Les évènements $(X=2)$, $(X=3)$, $(X=4)$.}
+\begin{itemize}
+\item $(X=2)=P_1\cap P_2$, donc $p_2=\frac23\times\frac23=\boxed{\frac49}$.
+\item $(X=3)=F_1\cap P_2\cap P_3$ : les lancers 2 et 3 donnent pile, et le lancer 1 doit donner face (sinon on aurait déjà $X=2$). Donc $p_3=\frac13\cdot\frac49=\boxed{\frac4{27}}$.
+\item $(X=4)=(P_1\cap F_2\cap P_3\cap P_4)\cup(F_1\cap F_2\cap P_3\cap P_4)$ : les lancers 3 et 4 donnent pile, le lancer 2 donne face, le lancer 1 est quelconque. Donc $p_4=1\times\frac13\times\frac49=\boxed{\frac4{27}}$.
+\end{itemize}
+(De plus $p_1=0$, car il faut au moins deux lancers.)
+
+\textbf{(2) Relation de récurrence pour $n\ge4$.}
+
+On utilise la formule des probabilités totales avec le système complet $\{F_1,\ P_1\cap F_2,\ P_1\cap P_2\}$ :
+\begin{itemize}
+\item si $P_1\cap P_2$ est réalisé, $X=2\neq n$ : contribution nulle ;
+\item si $F_1$ est réalisé, tout recommence à partir du lancer 2 : il faut obtenir les deux piles consécutifs pour la première fois en $n-1$ lancers supplémentaires, avec la probabilité $p_{n-1}$ (indépendance des lancers) ;
+\item si $P_1\cap F_2$ est réalisé, tout recommence à partir du lancer 3 : probabilité $p_{n-2}$.
+\end{itemize}
+D'où, pour $n\ge4$ :
 \[
-f(x) f(a-x) = 1,
+p_n=\frac13\,p_{n-1}+\frac23\cdot\frac13\,p_{n-2}=\frac29\,p_{n-2}+\frac13\,p_{n-1}.
 \]
+Vérification pour $n=4$ : $\frac29\cdot\frac49+\frac13\cdot\frac4{27}=\frac{8}{81}+\frac{4}{81}=\frac{12}{81}=\frac4{27}=p_4$.
 
-nous avons :
+\textbf{(3) Expression de $p_n$.}
 
+C'est une récurrence linéaire d'ordre 2 : $p_n-\frac13p_{n-1}-\frac29p_{n-2}=0$, d'équation caractéristique
 \[
-f(a-x) = \frac{1}{f(x)}.
+r^2-\frac13r-\frac29=0,\qquad\Delta=\frac19+\frac89=1,\qquad r_1=\frac23,\ r_2=-\frac13 .
 \]
-
-Ainsi, en substituant dans l'intégrale :
-
+Donc il existe $A,B$ tels que $p_n=A\big(\frac23\big)^n+B\big(-\frac13\big)^n$ pour $n\ge2$. Avec $p_2=\frac49$ et $p_3=\frac4{27}$ :
 \[
-I = \int_0^a \frac{1}{1+\frac{1}{f(x)}}dx.
+\begin{cases}\frac{4A}{9}+\frac{B}{9}=\frac49\\[1mm]\frac{8A}{27}-\frac{B}{27}=\frac4{27}\end{cases}\iff\begin{cases}4A+B=4\\8A-B=4\end{cases}\iff A=\frac23,\ B=\frac43 .
 \]
-
-\textbf{ Simplification de l'intégrande}
-
-Nous simplifions l'expression dans le dénominateur :
-
 \[
-1 + \frac{1}{f(x)} = \frac{f(x)+1}{f(x)}.
+\boxed{p_n=\Big(\frac23\Big)^{n+1}+\frac43\Big(-\frac13\Big)^n}\qquad(n\ge1),
 \]
+la formule étant aussi valable pour $n=1$ ($\frac49-\frac49=0=p_1$). Vérification : $\sum_{n\ge1}p_n=\frac23\cdot\frac{2/3}{1-2/3}+\frac43\cdot\frac{-1/3}{1+1/3}=\frac43-\frac13=1$.
 
-Donc :
-
+\textbf{(4) Espérance.} Pour $|q|<1$, en dérivant $\sum_{n\ge0}q^n=\frac{1}{1-q}$ puis en multipliant par $q$ :
 \[
-\frac{1}{1+\frac{1}{f(x)}} = \frac{f(x)}{f(x)+1}.
+\sum_{n=0}^{+\infty}nq^n=\frac{q}{(1-q)^2}.
 \]
-
-Ainsi, l'intégrale devient :
-
+La série $\sum np_n$ converge (combinaison de séries de ce type avec $q=\frac23$ et $q=-\frac13$), et
+\begin{align*}
+E(X)&=\sum_{n=1}^{+\infty}np_n=\frac23\sum_{n=1}^{+\infty}n\Big(\frac23\Big)^n+\frac43\sum_{n=1}^{+\infty}n\Big(-\frac13\Big)^n\\
+&=\frac23\cdot\frac{2/3}{(1/3)^2}+\frac43\cdot\frac{-1/3}{(4/3)^2}=\frac23\times6+\frac43\times\Big(-\frac{3}{16}\Big)=4-\frac14 .
+\end{align*}
 \[
-I = \int_0^a \frac{f(x)}{f(x)+1}dx.
+\boxed{E(X)=\frac{15}{4}=3{,}75}.
 \]
+\remarque{On retrouve la formule générale : pour une probabilité $p$ de pile, le nombre moyen de lancers pour obtenir deux piles consécutifs est $\dfrac{1+p}{p^2}$, soit ici $\dfrac{5/3}{4/9}=\dfrac{15}{4}$.}
 
-En remarquant que :
+\medskip\textbf{Exercice 4}
 
+$f$ est continue sur $[0,a]$, $f(x)\neq-1$ et $f(x)f(a-x)=1$ pour tout $x\in[0,a]$.
+
+\underline{Existence de $I$.} $x\mapsto\frac1{1+f(x)}$ est continue sur le segment $[0,a]$ (car $1+f(x)\neq0$) : $I$ existe. De plus $f(x)\neq0$ (car $f(x)f(a-x)=1$), et $f(a-x)=\dfrac1{f(x)}$.
+
+\underline{Changement de variable $t=a-x$} ($dt=-dx$, $x=0\mapsto t=a$, $x=a\mapsto t=0$) :
 \[
-\frac{f(x)}{f(x)+1} = 1 - \frac{1}{f(x)+1},
+I=\int_0^a\frac{dx}{1+f(x)}=\int_a^0\frac{-dt}{1+f(a-t)}=\int_0^a\frac{dt}{1+f(a-t)}=\int_0^a\frac{dt}{1+\frac1{f(t)}}=\int_0^a\frac{f(t)}{1+f(t)}dt .
 \]
-
-nous pouvons décomposer l'intégrale :
-
+\underline{Somme.} En additionnant les deux expressions de $I$ :
 \[
-I = \int_0^a \left( 1 - \frac{1}{f(x)+1} \right) dx.
+2I=\int_0^a\frac{1+f(x)}{1+f(x)}dx=\int_0^adx=a,\qquad\boxed{I=\frac a2}.
 \]
-
-Ce qui donne :
-
-\[
-I = \int_0^a dx - \int_0^a \frac{1}{f(x)+1}dx.
-\]
-
-\textbf{ Utilisation de la symétrie}
-
-Par définition de $I$, on reconnaît dans le deuxième terme à droite la même intégrale que $I$ :
-
-\[
-I = a - I.
-\]
-
-Ce qui donne l'équation :
-
-\[
-2I = a.
-\]
-
-Ainsi :
-
-\[
-I = \frac{a}{2}.
-\]
-
-
- 
+(Exemple : $f(x)=e^{x-a/2}$ vérifie les hypothèses, et on vérifie numériquement $I=\frac a2$.)
 
 \end{spacing}
 \end{document}

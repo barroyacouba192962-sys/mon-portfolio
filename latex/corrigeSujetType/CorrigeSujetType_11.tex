@@ -7,318 +7,186 @@
 
 \textbf{Exercice 1}
 
-1. Calculons les intégrales généralisées suivantes :
+\emph{Rappel.} Si $f$ est continue sur $[a,+\infty[$, l'intégrale $\int_a^{+\infty}f(t)\,dt$ converge si et seulement si $x\mapsto\int_a^xf(t)\,dt$ admet une limite finie en $+\infty$ ; cette limite est alors la valeur de l'intégrale.
 
-a. $\int_{0}^{+\infty}\frac{1}{(1+e^t)(1+e^{-t})}dt$
+\textbf{1. Calcul d'intégrales généralisées.}
 
-On a :$\frac{1}{(1+e^t)(1+e^{-t})}dt=\frac{e^t}{(1+e^t)^2}$
+\textbf{a.} $\displaystyle\int_0^{+\infty}\frac{dt}{(1+e^t)(1+e^{-t})}$. En multipliant numérateur et dénominateur par $e^t$ : $(1+e^{-t})e^t=e^t+1$, donc
+\[
+\frac{1}{(1+e^t)(1+e^{-t})}=\frac{e^t}{(1+e^t)^2},
+\]
+qui est de la forme $\dfrac{u'}{u^2}$ avec $u=1+e^t$ ; une primitive est $-\dfrac{1}{1+e^t}$. Ainsi
+\[
+\int_0^x\frac{e^t}{(1+e^t)^2}dt=\Big[-\frac1{1+e^t}\Big]_0^x=\frac12-\frac1{1+e^x}\xrightarrow[x\to+\infty]{}\frac12,\qquad\boxed{\int_0^{+\infty}\frac{dt}{(1+e^t)(1+e^{-t})}=\frac12}.
+\]
 
-Cette expression est de la forme : $\frac{u'}{(1+u)^2}$ et admet comme primitive $-\frac{1}{1+u}$, donc :
+\textbf{b.} $\displaystyle\int_1^{+\infty}\frac{e^{-\sqrt t}}{\sqrt t}dt$. Avec $u=-\sqrt t$, $u'=-\dfrac1{2\sqrt t}$, donc $\dfrac{e^{-\sqrt t}}{\sqrt t}=-2u'e^u$, de primitive $-2e^{-\sqrt t}$ :
+\[
+\int_1^x\frac{e^{-\sqrt t}}{\sqrt t}dt=\Big[-2e^{-\sqrt t}\Big]_1^x=\frac2e-2e^{-\sqrt x}\xrightarrow[x\to+\infty]{}\frac2e,\qquad\boxed{\int_1^{+\infty}\frac{e^{-\sqrt t}}{\sqrt t}dt=\frac2e}.
+\]
 
-\[\int_{0}^{+\infty}\frac{1}{(1+e^t)(1+e^{-t})}dt=\lim_{x\to +\infty}\int_{0}^{x}\frac{1}{(1+e^t)(1+e^{-t})}dt=\lim_{x\to +\infty}[\frac{-1}{1+e^t}]_0^x=\frac{1}{2}-\lim_{x\to +\infty}\frac{-1}{1+e^x}=\frac{1}{2}\].
+\textbf{c.} $\displaystyle\int_0^{+\infty}\frac{\arctan t}{1+t^2}dt$. C'est de la forme $u'u$ avec $u=\arctan t$, de primitive $\frac12(\arctan t)^2$ :
+\[
+\int_0^x\frac{\arctan t}{1+t^2}dt=\frac{(\arctan x)^2}{2}\xrightarrow[x\to+\infty]{}\frac12\Big(\frac\pi2\Big)^2,\qquad\boxed{\int_0^{+\infty}\frac{\arctan t}{1+t^2}dt=\frac{\pi^2}{8}}.
+\]
 
-b. $\int_{1}^{+\infty}\frac{e^{-\sqrt{t}}}{\sqrt{t}}dt$
+\textbf{d.} $\displaystyle\int_1^{+\infty}\frac{\ln t}{t^2}dt$. Par parties avec $u=\ln t$, $v'=\frac1{t^2}$ ($u'=\frac1t$, $v=-\frac1t$) :
+\[
+\int_1^x\frac{\ln t}{t^2}dt=\Big[-\frac{\ln t}{t}\Big]_1^x+\int_1^x\frac{dt}{t^2}=-\frac{\ln x}{x}+1-\frac1x\xrightarrow[x\to+\infty]{}1
+\]
+(croissances comparées : $\frac{\ln x}{x}\to0$). Donc $\boxed{\displaystyle\int_1^{+\infty}\frac{\ln t}{t^2}dt=1}$.
 
-Comme la primitive de la fonction $u'e^u$ est $e^u$, alors
+\textbf{e.} $\displaystyle\int_a^{+\infty}\frac{dt}{t(t+b)}$, $a>0$, $b>0$. On décompose : $\dfrac1{t(t+b)}=\dfrac1b\Big(\dfrac1t-\dfrac1{t+b}\Big)$. Pour $x>a$ :
+\[
+\int_a^x\frac{dt}{t(t+b)}=\frac1b\Big[\ln\frac{t}{t+b}\Big]_a^x=\frac1b\Big(\ln\frac{x}{x+b}-\ln\frac{a}{a+b}\Big)\xrightarrow[x\to+\infty]{}\frac1b\Big(0-\ln\frac{a}{a+b}\Big),
+\]
+car $\frac{x}{x+b}\to1$. Donc
+\[
+\boxed{\int_a^{+\infty}\frac{dt}{t(t+b)}=\frac1b\ln\frac{a+b}{a}=\frac1b\ln\Big(1+\frac ba\Big)}.
+\]
 
-\[\int_{1}^{+\infty}\frac{e^{-\sqrt{t}}}{\sqrt{t}}dt=\lim_{x\to +\infty}\int_{1}^{x}\frac{e^{-\sqrt{t}}}{\sqrt{t}}dt=\lim_{x\to +\infty}[-2e^{-\sqrt{t}}]_1^x=2e^{-1}-\lim_{x\to +\infty}2e^{-\sqrt{t}}=2e^{-1}\]
+\textbf{2. Nature des intégrales.}
 
-c. $\int_{0}^{+\infty}\frac{\arctan t}{1+t^2}dt$
+\textbf{a)} $\displaystyle\int_0^{+\infty}\frac{\ln t}{t^2+1}dt$. La fonction est continue sur $]0,+\infty[$ : deux bornes à étudier.
+\begin{itemize}
+\item \emph{En $0$} : $\dfrac{\ln t}{t^2+1}\sim\ln t$, de signe constant (négatif) sur $]0,1]$. Or $\int_x^1\ln t\,dt=\big[t\ln t-t\big]_x^1=-1-x\ln x+x\to-1$ quand $x\to0^+$ : $\int_0^1\ln t\,dt$ converge. Par équivalence (fonctions de signe constant), $\int_0^1\frac{\ln t}{t^2+1}dt$ converge.
+\item \emph{En $+\infty$} : $t^{3/2}\cdot\dfrac{\ln t}{t^2+1}\sim\dfrac{\ln t}{\sqrt t}\to0$, donc pour $t$ assez grand, $0\le\dfrac{\ln t}{t^2+1}\le\dfrac{1}{t^{3/2}}$. Comme $\int_1^{+\infty}\frac{dt}{t^{3/2}}$ converge (Riemann, $\frac32>1$), $\int_1^{+\infty}\frac{\ln t}{t^2+1}dt$ converge.
+\end{itemize}
+\textbf{L'intégrale converge.} (On peut montrer, par le changement de variable $t=\frac1u$, qu'elle vaut $0$.)
 
-Comme $\arctan t$ à pour dérivée $\frac{1}{1+t^2}$, et la primitive de la fonction $u'u$ est $\frac{1}{2}u^2$, alors 
+\textbf{b)} $\displaystyle\int_0^{+\infty}\frac{1-\cos t}{t^2}dt$. La fonction est continue et positive sur $]0,+\infty[$.
+\begin{itemize}
+\item \emph{En $0$} : $1-\cos t\sim\frac{t^2}{2}$, donc $\dfrac{1-\cos t}{t^2}\to\dfrac12$ : la fonction se prolonge par continuité en $0$, l'intégrale sur $]0,1]$ est « faussement impropre », donc convergente.
+\item \emph{En $+\infty$} : $0\le\dfrac{1-\cos t}{t^2}\le\dfrac{2}{t^2}$ et $\int_1^{+\infty}\frac{2}{t^2}dt$ converge.
+\end{itemize}
+\textbf{L'intégrale converge} (elle vaut $\frac\pi2$).
 
-\[\int_{0}^{+\infty}\frac{\arctan t}{1+t^2}dt=\lim_{x\to +\infty}\int_{0}^{x}\frac{\arctan t}{1+t^2}dt=\lim_{x\to +\infty}\left[\frac{(\arctan t)^2}{2}\right]_0^x=\lim_{x\to +\infty}\frac{(\arctan x)^2}{2}=\frac{\pi^2}{8}\]
+\textbf{c)} $\displaystyle\int_0^{+\infty}\frac{\sin t+\cos t}{\sqrt{t^3+2}}dt$. La fonction est continue sur $[0,+\infty[$ ($t^3+2\ge2>0$) : seule la borne $+\infty$ pose problème. Pour $t\ge1$ :
+\[
+\Big|\frac{\sin t+\cos t}{\sqrt{t^3+2}}\Big|\le\frac{2}{\sqrt{t^3+2}}\le\frac{2}{t^{3/2}},
+\]
+et $\int_1^{+\infty}\frac{2}{t^{3/2}}dt$ converge. L'intégrale est \textbf{absolument convergente, donc convergente}. (La majoration ne doit être utilisée que sur $[1,+\infty[$ : $\int_0^1\frac{dt}{t^{3/2}}$ diverge.)
 
-d. $\int_{1}^{+\infty}\frac{lnt}{t^2}dt$
+\textbf{d)} $\displaystyle\int_{-\infty}^{+\infty}\sin t\,dt$. Elle converge si et seulement si $\int_{-\infty}^0$ et $\int_0^{+\infty}$ convergent. Or $\int_0^x\sin t\,dt=1-\cos x$ n'a pas de limite quand $x\to+\infty$ (elle prend les valeurs $0$ et $2$ pour $x=2k\pi$ et $x=(2k+1)\pi$). Donc $\int_0^{+\infty}\sin t\,dt$ diverge et \textbf{$\int_{-\infty}^{+\infty}\sin t\,dt$ diverge}.
 
-En intégrant par partie on trouve :
+\remarque{On a pourtant $\int_{-x}^x\sin t\,dt=0$ pour tout $x$ (fonction impaire) : la « valeur principale » existe, mais cela ne suffit pas pour la convergence ; les deux bornes doivent être traitées indépendamment.}
 
-\[\int\frac{lnt}{t^2}dt=-\frac{lnt}{t}+\int\frac{dt}{t^2}=-\frac{lnt}{t}-\frac{1}{t}\]
+\textbf{3. Discussion suivant $\alpha$.}
 
-Alors,
+\textbf{a.} $\displaystyle\int_0^{+\infty}\frac{dt}{t^\alpha}$. Rappel (Riemann) : $\int_0^1\frac{dt}{t^\alpha}$ converge si et seulement si $\alpha<1$, et $\int_1^{+\infty}\frac{dt}{t^\alpha}$ converge si et seulement si $\alpha>1$. Ces deux conditions sont incompatibles : \textbf{$\int_0^{+\infty}\frac{dt}{t^\alpha}$ diverge pour tout $\alpha\in\mathbb{R}$}.
 
-\[\int_{1}^{+\infty}\frac{lnt}{t^2}dt=\lim_{x\to +\infty}\int_{1}^{x}\frac{lnt}{t^2}dt=-\lim_{x\to +\infty}\left[\frac{lnt}{t}+\frac{1}{t}\right]_1^x=1-\lim_{x\to +\infty}(\frac{lnx}{x}+\frac{1}{x})=1\]
-
-e. $\int_{a}^{+\infty}\frac{dt}{t(t+b)},a>0,b>0$
-
-En décomposant la fraction on obtient : 
-
-\[\frac{1}{t(t+b)}=\frac{1}{b}(\frac{1}{t}-\frac{1}{t+b})\]
-
-Alors, 
-
-\begin{align*}
-\int_{a}^{+\infty}\frac{dt}{t(t+b)}&=\lim_{x\to +\infty}\int_{a}^{x}\frac{dt}{t(t+b)}\\
-&=\lim_{x\to +\infty}\int_{a}^{x}\frac{1}{b}(\frac{1}{t}-\frac{1}{t+b})dt\\
-&=\lim_{x\to +\infty}[\frac{1}{b}(ln(t)-ln(t+b))]_a^x\\
-&=\lim_{x\to +\infty}[\frac{1}{b}(ln(\frac{t}{t+b})]_a^x\\
-&=\frac{1}{b}(\frac{a}{a+b}-\lim_{x\to +\infty}\frac{x}{x+b})\\
-&=\frac{a}{b(a+b)}
-\end{align*}
-
-\medskip 2. Étudions la nature des intégrales suivantes
-
-a) $\int_0^{+\infty}\frac{lnt}{t^2+1}dt$
-
-La fonction $t\mapsto\frac{lnt}{t^2+1}$ est continue sur $]0,+\infty[$. On a :
-
-\[\int_0^{+\infty}\frac{lnt}{t^2+1}dt=\int_0^{1}\frac{lnt}{t^2+1}dt+\int_1^{+\infty}\frac{lnt}{t^2+1}dt\]
-
-\textbf{En 0}, $\frac{\ln t}{t^2+1}\sim \ln t$
-
-$\int_0^{1}\ln tdt$ est convergente. En effet, 
-
-la fonction $t\mapsto \ln t$ est localement intégrable sur $]0,1]$, le problème de convergence est en 0. Posons \[f(x)=\int_x^{1}lntdt\]
-
-alors \[f(x)=\int_x^{1}lntdt=[tlnt-t]_x^1=-xlnx+x-1\]
-
-ainsi $\lim_{x\to 0}f(x)=-1$
-
-$f$ admet une limite finie, alors $\int_0^{1}lntdt$ converge et sa valeur est -1.
-
- En plus, d'après le critère d'équivalence pour des fonctions à signe constant, l'intégrale $\int_0^{1}\frac{lnt}{t^2+1}dt$ est convergente.
-
-\medskip\textbf{En $+\infty$}, on a
-
-\[\lim_{t\to +\infty}t^{3/2}\frac{lnt}{t^2+1}=\lim_{t\to +\infty}\frac{lnt}{\sqrt{t}}=0\]
-
-Ainsi par comparaison à une intégrale de Riemann convergent, $\int_1^{+\infty}\frac{lnt}{t^2+1}dt$ est convergente. En résumé $\int_0^{+\infty}\frac{lnt}{t^2+1}dt$ converge.
-
-\medskip 
-b) $\int_0^{+\infty}\frac{1-\cos t}{t^2}dt$
-
- la fonction $t\mapsto \frac{1-\cos t}{t^2}$ est continue sur $]0, +\infty[$. On a 
- \[\int_0^{+\infty}\frac{1-\cos t}{t^2}dt=\int_0^{1}\frac{1-\cos t}{t^2}dt+\int_1^{+\infty}\frac{1-\cos t}{t^2}dt\]
- 
- \textbf{En 0,}
- 
- \[\frac{1-\cos t}{t^2}\sim \frac{1}{2} \text{ puisque } \cos t\sim 1-\frac{t^2}{2}\Rightarrow 1-\cos t\sim \frac{t^2}{2} \text{ et } \frac{1-\cos t}{t^2}\sim \frac{1}{2} \]
- 
- $\int_0^{1}\frac{1}{2}$ est convergente, et d'après le critère d'équivalence pour des fonctions positives, l'intégrale $\int_0^{1}\frac{1-\cos t}{t^2}dt$ est convergente.
- 
- \textbf{En $+\infty$}, on a:
- 
- \[\mid \frac{1-\cos t}{t^2}\mid \leqslant \frac{2}{t^2} \text{ puisque } -1\leqslant \cos t\leqslant 1 .\]
- 
- Ainsi, par comparaison à une intégrale de Riemann convergente $\int_1^{+\infty}\frac{1-\cos t}{t^2}dt$ est convergente. En résumé$\int_0^{+\infty}\frac{1-\cos t}{t^2}dt$ converge.
- 
- \medskip c) $\int_0^{+\infty}\frac{\sin t+\cos t}{\sqrt{t^3+2}}dt$ 
- 
- Pour tout $t\in [1, +\infty[$, on a
- 
- $\mid\frac{\sin t+\cos t}{\sqrt{t^3+2}}\mid\leqslant\frac{2}{\sqrt{t^3+2}}\leqslant\frac{2}{t^{\frac{3}{2}}}$
- 
- $\int_0^{+\infty}\frac{2}{t^{\frac{3}{2}}}dt$ est une intégrale de Riemann convergente, et d'après le critère de comparaison pour des fonctions positives, l'intégrale  $\int_0^{+\infty}\frac{\sin t+\cos t}{\sqrt{t^3+2}}dt$ est convergente.
- 
-\medskip d) $\int_{-\infty}^{+\infty}\sin t dt$.
-
-On a :
-
-\[\int_{-\infty}^{+\infty}\sin t dt=\int_{-\infty}^{0}\sin t dt+\int_{0}^{+\infty}\sin t dt\]
-
-et \[f(x)=\int_{0}^{x}\sin t dt=1-\cos x\]
-
-La limite de $f$ lorsque $x$ tend vers $+\infty$ n'existe pas, alors l'intégrale $\int_{0}^{+\infty}\sin t dt$ diverge, d'où la divergence de l'intégrale $\int_{-\infty}^{+\infty}\sin t dt$.
-
-3. Étudions, suivant les valeurs de $\alpha\in\mathbb{R}$, la convergence des intégrales généralisées suivantes :
-
-a. $\int_0^{+\infty}\frac{dt}{t^{\alpha}}dt$
-
-
-\[\int_0^{+\infty}\frac{dt}{t^{\alpha}}dt=\int_0^{1}\frac{dt}{t^{\alpha}}dt+\int_1^{+\infty}\frac{dt}{t^{\alpha}}dt\]
-
-$\int_0^{1}\frac{dt}{t^{\alpha}}dt$ converge si et seulement si $\alpha<1$ et $\int_1^{+\infty}\frac{dt}{t^{\alpha}}dt$ converge si et seulement si $\alpha>1$. On en déduit que $\int_0^{+\infty}\frac{dt}{t^{\alpha}}dt$ n'est pas convergente.
-
-b. $\int_0^{+\infty}\frac{t-\sin t}{t^{\alpha}}dt$
-
-La fonction $t\mapsto \frac{t-\sin t}{t^{\alpha}}$ est continue sur $]0,+\infty[$. On a :
-
-\[\int_0^{+\infty}\frac{t-\sin t}{t^{\alpha}}dt=\int_0^{1}\frac{t-\sin t}{t^{\alpha}}dt+\int_1^{+\infty}\frac{t-\sin t}{t^{\alpha}}dt\]
-
-\medskip
-En $+\infty$, \[\frac{t-\sin t}{t^{\alpha}}\sim \frac{1}{t^{\alpha-1}}\]
-
-$\int_1^{+\infty}\frac{1}{t^{\alpha-1}}dt$ converge ssi $\alpha>2$, donc $\int_1^{+\infty}\frac{t-\sin t}{t^{\alpha}}dt$ converge ssi $\alpha>2$
-
-\medskip
-Au voisinage de 0, en utilisant le développement limité de la fonction $t\mapsto \sin t$, on obtient :
-
-\[t-\sin t=t-t+\frac{t^3}{6} + \circ(t^3)\]
-
-Alors
-
-\[\frac{t-\sin t}{t^{\alpha}}\sim \frac{1}{6t^{\alpha-3}}\]
-
-$\int_0^{1}\frac{1}{6t^{\alpha-3}}$ converge ssi $\alpha-3<1$, donc ssi $\alpha<4$, alors $\int_0^{1}\frac{1}{6t^{\alpha-3}}$ converge ssi $\alpha<4$
-
-En résumé, $\int_0^{+\infty}\frac{t-\sin t}{t^{\alpha}}dt$ est convergente ssi $\alpha\in ]2,4[$.
-
-
+\textbf{b.} $\displaystyle\int_0^{+\infty}\frac{t-\sin t}{t^\alpha}dt$. Pour $t>0$, $t-\sin t>0$ : la fonction est continue et positive sur $]0,+\infty[$, et on peut utiliser les équivalents.
+\begin{itemize}
+\item \emph{En $+\infty$} : $t-\sin t\sim t$ (car $\frac{\sin t}{t}\to0$), donc $\dfrac{t-\sin t}{t^\alpha}\sim\dfrac1{t^{\alpha-1}}$ : converge si et seulement si $\alpha-1>1$, soit $\alpha>2$.
+\item \emph{En $0$} : $\sin t=t-\frac{t^3}{6}+o(t^3)$, donc $t-\sin t\sim\frac{t^3}{6}$ et $\dfrac{t-\sin t}{t^\alpha}\sim\dfrac{1}{6\,t^{\alpha-3}}$ : converge si et seulement si $\alpha-3<1$, soit $\alpha<4$.
+\end{itemize}
+\[
+\boxed{\int_0^{+\infty}\frac{t-\sin t}{t^\alpha}dt\ \text{converge}\iff2<\alpha<4}.
+\]
 
 \medskip\textbf{Exercice 2}
 
- 1) Soit $X$ la variable aléatoire « nombre de pannes survenant au cours d'une période de 40 jours sur un photocopieur donné », on recherche $P(X>0)$.
- On sait que $P(X>0)=1-P(X=0)$ car $X$ prend les valeurs comprises entre 0 et 40 incluses. $P(X=0)$ correspond à aucune panne recensée au cours de la
- période des 40 jours. La probabilité qu'un photocopieur ne tombe pas en panne un jour donné est connue et est égale à $1-p$. De plus, les
- évènements « pas de panne le premier jour », « pas de panne le second
- jour »,…, « pas de panne le ${40}^{eme}$ jour », sont indépendants ; ce qui permet d'utiliser le théorème des probabilités composées dans le cas de l'indépendance.
- 
- $P(X=0)=(1-p)^{40}$
- 
- Donc P(X>0) est égale à $1-0,99840 = 0,077$
- 
- 2) La variable X suit une loi binomiale de paramètres $n=40$ et $p=0,002$. En effet,
- 
- -au cours de chaque épreuve (journée), l'événement « panne » ou « non panne » se produit ;
- 
- -ces épreuves sont indépendantes car on suppose que les réparations sont effectuées de telle façon que la probabilité qu'une machine retombe en
- panne après réparation le lendemain d'un jour avec panne est identique à celle de tomber en panne le lendemain d'un jour sans panne ;
- 
- -les conditions d'utilisation ne varient pas d'un jour à l'autre.
- 
- 3) $P(X>1)=1-P(X=0)-P(X=1)$
- 
- $P(X=0)$ est connue (voir question 1), c'est $(1-p)^{40}=0,92304$
- 
- Pour calculer $P(X=1)$, on va utiliser les propriétés de la loi binomiale, à savoir
- 
- $P(X = k) =C_{40}^k (0,002)^k(1-0,002)^{40-k}$
- 
- Pour $k=1$, on trouve 0,07399. Donc la probabilité cherchée vaut 0,00297
- 
- 4) Sans préciser ici les règles d'application, on peut dire que la variable $Y$ suit également une loi binomiale de paramètres $n=52$ et de $p'=0,077$.
- 
- L'espérance mathématique $E(Y)$ vaut $np'$ soit 4 photocopieurs.
- 
- La variance $V(Y)$ vaut $np'(1-p')$ soit 3,7. Son écart-type est égal à 1,9 photocopieurs.
+\textbf{1) Probabilité d'au moins une panne en 40 jours.}
 
+Chaque jour, une machine donnée tombe en panne avec la probabilité $p=0{,}002$, indépendamment des autres jours (la machine est remise en service le jour ouvrable suivant, dans les mêmes conditions). L'évènement contraire de « au moins une panne » est « aucune panne pendant les 40 jours », c'est-à-dire « pas de panne le 1\textsuperscript{er} jour » et ... et « pas de panne le 40\textsuperscript{e} jour ». Par indépendance :
+\[
+P(\text{aucune panne})=(1-p)^{40}=0{,}998^{40}\approx0{,}92304,
+\]
+\[
+P(\text{au moins une panne})=1-0{,}998^{40}\approx\boxed{0{,}077}.
+\]
 
+\textbf{2) Loi de $X$.} On répète $n=40$ fois, de façon indépendante et dans des conditions identiques, une épreuve de Bernoulli (une journée) dont le « succès » est « la machine tombe en panne », de probabilité $p=0{,}002$. $X$ compte le nombre de succès : \textbf{$X$ suit la loi binomiale $\mathcal{B}(40\,;\,0{,}002)$} :
+\[
+P(X=k)=C_{40}^k\,(0{,}002)^k\,(0{,}998)^{40-k},\qquad k\in\{0,\dots,40\}.
+\]
+
+\textbf{3) Même probabilité à l'aide de la loi de $X$.}
+\[
+P(X\ge1)=1-P(X=0)=1-C_{40}^0(0{,}002)^0(0{,}998)^{40}\approx1-0{,}92304=\boxed{0{,}077}.
+\]
+On retrouve le résultat de la question 1.
+
+\remarque{Comme $n$ est grand et $p$ petit ($np=0{,}08$), on peut approcher $X$ par une loi de Poisson de paramètre $\lambda=np=0{,}08$ : $P(X\ge1)\approx1-e^{-0{,}08}\approx0{,}0769$. Par ailleurs, $P(X=1)=40\times0{,}002\times0{,}998^{39}\approx0{,}07399$, d'où $P(X\ge2)\approx0{,}00297$ : les pannes multiples sont très rares.}
+
+\textbf{4) Loi, espérance, variance et écart-type de $Y$.}
+
+Les 52 machines fonctionnent de façon indépendante et dans des conditions identiques ; chacune tombe au moins une fois en panne en 40 jours avec la probabilité $p'=0{,}077$. $Y$ compte le nombre de machines concernées : $Y$ suit la loi binomiale $\mathcal{B}(52\,;\,0{,}077)$. Donc
+\[
+E(Y)=np'=52\times0{,}077=4{,}004\approx4,\qquad V(Y)=np'(1-p')=4{,}004\times0{,}923\approx3{,}696,
+\]
+\[
+\sigma(Y)=\sqrt{V(Y)}\approx1{,}92 .
+\]
+En moyenne, environ 4 photocopieurs du parc tombent en panne au moins une fois par période de 40 jours.
 
 \medskip\textbf{Exercice 3}
 
-Soit $f$ la fonction définie sur $\mathbb{R}^2$ par :
- 
- $
- f(x,y) = \frac{2x^3+3xy^2}{x^2+y^2}$ si $(x,y)\neq (0,0)$ et $f(0,0) = 0$
- 
- 1. Montrons que $f$ est continue sur $\mathbb{R}^2$.
- 
- $f$ est continue sur $\mathbb{R}^2$ sauf peut-être en $(0,0)$
- 
- \medskip\textbf{Vérifions la continuité en (0,0)}
- 
- Pour calculer la limite de $f$ en (0,0), nous allons passer en coordonnées polaires : 
- 
- Soit $x=r\cos\theta$ et $y=r\sin\theta$
- 
- $(x,y)\to (0,0)\Leftrightarrow r\to 0$ pour tout $\theta$
- 
- On a:
- 
- $x^2+y^2=r^2$
- 
- $2x^3+3xy^2=r^3(2\cos^3\theta+3\cos\theta\sin^2\theta)$
- 
- Donc
- 
+$f(x,y)=\dfrac{2x^3+3xy^2}{x^2+y^2}$ si $(x,y)\neq(0,0)$, $f(0,0)=0$.
+
+\textbf{1. Continuité.} Sur $\mathbb{R}^2\setminus\{(0,0)\}$, $f$ est une fraction rationnelle dont le dénominateur ne s'annule pas : elle y est continue.
+
+En $(0,0)$ : en coordonnées polaires $x=r\cos\theta$, $y=r\sin\theta$ ($r>0$),
 \[
-\lim_{(x,y)\to (0,0)}f(x,y)=\lim_{r\to 0}\frac{r^3(2\cos^3\theta+3\cos\theta\sin^2\theta)}{r^2}=\lim_{r\to 0}r(2\cos^3\theta+3\cos\theta\sin^2\theta)=0\] indépendamment de $\theta$
+f(x,y)=\frac{r^3(2\cos^3\theta+3\cos\theta\sin^2\theta)}{r^2}=r\cos\theta\,(2\cos^2\theta+3\sin^2\theta).
+\]
+Donc $|f(x,y)|\le r(2+3)=5r=5\sqrt{x^2+y^2}$, majoration \emph{indépendante de $\theta$}, qui tend vers $0$ quand $(x,y)\to(0,0)$. Ainsi $\lim_{(0,0)}f=0=f(0,0)$ : $f$ est continue en $(0,0)$, donc sur $\mathbb{R}^2$.
 
-On a $\lim_{(x,y)\to (0,0)}f(x,y)=0=f(0,0)$ alors $f$ est continue en $(0,0)$. Et par conséquent $f$ est continue en $\mathbb{R}^2$.
- 
+\textbf{2. Dérivées directionnelles en $(0,0)$ et gradient.}
 
- 2. Calculons les dérivées directionnelles en $(0,0)$ dans toutes les directions, puis calculons $\overrightarrow{gradf}(0,0)$.
- 
- La dérivée directionnels en $(0,0)$ dans la direction du vecteur unité $u=(u_1,u_2)$ est donnée par :
- 
- \[
- D_uf(0,0)=\lim_{t\to 0}\frac{f(tu_1,tu_2)-f(0,0)}{t}\]
- 
- Pour $(x,y)=(tu_1,tu_2)$, on a :
- 
- \[
- f(tu_1,tu_2) = \frac{2(tu_1)^3+3tu_1(tu_2)^2}{(tu_1)^2+(tu_2)^2}\]
- 
- Simplifions :
- 
- \[
- f(tu_1,tu_2) = \frac{t^3(2u_1^3+3u_1u_2^2)}{t^2(u_1^2+u_2^2)}=t\cdot\frac{2u_1^3+3u_1u_2^2}{u_1^2+u_2^2}\]
- 
- Quand $t\to 0$, ce terme tend vers 0 : 
- \[D_uf(0,0)=0\]
- 
- Cela montre que toutes les dérivées directionnelles de $f$ en $(0,0)$ sont nulles. Donc \[\overrightarrow{grad}f(0,0)=(0,0)\]
- 
- 
- 3. $f$ est-elle différentiable en $(0,0)$?
- 
- Une fonction est différentiable en (0,0) si elle est approchable par une application linéaire, c'est-à-dire :
- 
- \[f(x,y)-f(0,0)=\circ(\parallel (x,y)\parallel)\].
- 
- Utilisons encore les coordonnées polaires :
- 
- \[f(x,y)=r(2\cos^3\theta+3\cos\theta\sin^2\theta)\].
- 
- Le terme dominant est $r(2\cos^3\theta+3\cos\theta\sin^2\theta)$, qui n'est pas linéaire en $r$(puisque $2\cos^3\theta+3\cos\theta\sin^2\theta$ dépend de $\theta$).
- 
- Ainsi $f$ n'est pas différentiable en (0,0).
- 
+Soit $u=(u_1,u_2)$ un vecteur unitaire ($u_1^2+u_2^2=1$). Pour $t\neq0$ :
+\[
+\frac{f(tu_1,tu_2)-f(0,0)}{t}=\frac1t\cdot\frac{t^3(2u_1^3+3u_1u_2^2)}{t^2(u_1^2+u_2^2)}=2u_1^3+3u_1u_2^2 .
+\]
+Ce quotient est constant, donc a une limite quand $t\to0$ : $f$ admet en $(0,0)$ une dérivée dans toutes les directions, et
+\[
+\boxed{D_uf(0,0)=2u_1^3+3u_1u_2^2=u_1(2+u_2^2)}.
+\]
+En particulier (directions $(1,0)$ et $(0,1)$) : $\dfrac{\partial f}{\partial x}(0,0)=2$ et $\dfrac{\partial f}{\partial y}(0,0)=0$, d'où
+\[
+\boxed{\overrightarrow{\operatorname{grad}}f(0,0)=(2,0)}.
+\]
+
+\textbf{3. Différentiabilité en $(0,0)$.}
+
+Si $f$ était différentiable en $(0,0)$, sa différentielle serait $(h,k)\mapsto2h$ (donnée par le gradient), et l'on aurait $D_uf(0,0)=\overrightarrow{\operatorname{grad}}f(0,0)\cdot u=2u_1$ pour tout $u$. Or, pour $u=\big(\frac{1}{\sqrt2},\frac1{\sqrt2}\big)$ : $D_uf(0,0)=\frac1{\sqrt2}\big(2+\frac12\big)=\frac{5}{2\sqrt2}\neq\frac{2}{\sqrt2}$.
+
+Autrement dit, $f(x,y)-f(0,0)-2x=\dfrac{2x^3+3xy^2-2x^3-2xy^2}{x^2+y^2}=\dfrac{xy^2}{x^2+y^2}=r\cos\theta\sin^2\theta$, qui n'est pas un $o(r)$ (pour $\theta=\frac\pi4$, il vaut $\frac{r}{2\sqrt2}$).
+
+\textbf{$f$ n'est pas différentiable en $(0,0)$}, bien qu'elle y soit continue et y admette des dérivées dans toutes les directions.
 
 \medskip\textbf{Exercice 4}
 
-On pose $f(x)=\int_{0}^{1}\frac{t^{x-1}}{1+t}dt$
+$f(x)=\displaystyle\int_0^1\frac{t^{x-1}}{1+t}dt$.
 
-1. Déterminons le domaine de définition de $f$.
-
-La fonction $t\mapsto \frac{t^{x-1}}{1+t}$ est continue sur $]0,1]$.
-
-Au voisinage de 0, \[\frac{t^{x-1}}{1+t}\sim t^{x-1}=\frac{1}{t^{1-x}}\]
-
-$\int_{0}^{1}\frac{1}{t^{1-x}}dt$ est une intégrale de Riemann convergente ssi $1-x<1$, donc ssi $x>0$, et d'après le critère d'équivalence pour des fonctions positives $\int_{0}^{1}\frac{t^{x-1}}{1+t}dt$ converge ssi $x>0$. Le domaine de définition de $f$ est donc $]0,+\infty[$.
-
-
-2. Montrons que $f$ est continue sur son domaine de définition.
-
-On va appliquer le théorème de continuité sur le segment $[a,b]\subset]0,+\infty[$.
-
-L'application $(x,t)\mapsto \frac{t^{x-1}}{1+t}$ est continue sur $[a,b]\times]0,1[$. De plus $\forall x\in [a,b]$ et $t\in ]0,1[$, on a $a-1\leqslant x-1$ donc $e^{(x-1)lnt}\leqslant e^{(a-1)lnt}$, ainsi 
-
-\[0\leqslant \frac{t^{x-1}}{1+t}\leqslant \frac{t^{a-1}}{1+t}=g(t)\].
-
-$\int_0^1g(t)dt$ converge et d'après le théorème de continuité des intégrales à paramètres $f$ est continue sur $[a,b]$ avec $a,b$ quelconque de $]0,+\infty[$, alors elle est continue sur $]0,+\infty[$
-
-3. Calculons $f(x)+f(x+1)$ pour tout $x>0$
-
-Pour tout $x>0$, on a : 
-
+\textbf{1. Domaine de définition.} Pour $x$ fixé, $t\mapsto\frac{t^{x-1}}{1+t}$ est continue et positive sur $]0,1]$ ; le seul problème est en $0$, où $\dfrac{t^{x-1}}{1+t}\sim t^{x-1}=\dfrac{1}{t^{1-x}}$. D'après le critère de Riemann et le critère d'équivalence (fonctions positives), l'intégrale converge si et seulement si $1-x<1$, c'est-à-dire $x>0$.
 \[
-f(x)+f(x+1)=\int_{0}^{1}\frac{t^{x-1}}{1+t}dt+\int_{0}^{1}\frac{t^{x}}{1+t}dt=\int_{0}^{1}\frac{t^{x-1}+t^x}{1+t}dt=\int_{0}^{1}t^{x-1}\frac{1+t}{1+t}dt=[\frac{t^x}{x}]_0^1=\frac{1}{x}.
+\boxed{\mathcal{D}_f=]0,+\infty[}.
 \]
 
+\textbf{2. Continuité.} On applique le théorème de continuité des intégrales à paramètre sur tout segment $[a,b]\subset]0,+\infty[$ :
+\begin{itemize}
+\item pour tout $t\in]0,1]$, $x\mapsto\frac{t^{x-1}}{1+t}=\frac{e^{(x-1)\ln t}}{1+t}$ est continue ;
+\item pour tout $x$, $t\mapsto\frac{t^{x-1}}{1+t}$ est continue par morceaux sur $]0,1]$ ;
+\item \emph{domination} : pour $x\in[a,b]$ et $t\in]0,1]$, comme $\ln t\le0$ et $x-1\ge a-1$, on a $(x-1)\ln t\le(a-1)\ln t$, donc $0\le\dfrac{t^{x-1}}{1+t}\le t^{a-1}=\varphi(t)$, et $\int_0^1\varphi$ converge car $a>0$.
+\end{itemize}
+Donc $f$ est continue sur $[a,b]$ pour tous $0<a<b$, et donc sur $]0,+\infty[$.
 
-4. Déduisons un équivalent de $f$ en 0.
-
-Comme $f$ est continue sur $]0,+\infty[$, alors 
-
+\textbf{3. $f(x)+f(x+1)$ pour $x>0$.}
 \[
-\lim_{x\to 0}\frac{f(x)}{\frac{1}{x}}=\lim_{x\to 0}\frac{\frac{1}{x}-f(x+1)}{\frac{1}{x}}=1-\lim_{x\to 0}xf(x+1)=1
+f(x)+f(x+1)=\int_0^1\frac{t^{x-1}+t^x}{1+t}dt=\int_0^1\frac{t^{x-1}(1+t)}{1+t}dt=\int_0^1t^{x-1}dt=\Big[\frac{t^x}{x}\Big]_0^1=\boxed{\frac1x}.
 \]
 
-alors $f(x)\sim \frac{1}{x}$ en 0.
-
-
-5. Déterminons la limite de $f$ en $+\infty$
-
-On a :
-
+\textbf{4. Équivalent en $0$.} Pour $x>0$, $f(x)=\frac1x-f(x+1)$, donc $xf(x)=1-xf(x+1)$. Comme $f$ est continue en $1$, $f(x+1)\to f(1)=\int_0^1\frac{dt}{1+t}=\ln2$ quand $x\to0^+$, et donc $xf(x+1)\to0$. Ainsi $xf(x)\to1$ :
 \[
-0\leqslant f(x)\leqslant \int_0^1t^{x-1}dt=\frac{1}{x} \text{ et } \lim_{x\to +\infty} \frac{1}{x}=0
-\] 
+\boxed{f(x)\underset{x\to0^+}{\sim}\frac1x}.
+\]
 
-\[\text{ Alors } \lim_{x\to +\infty}f(x)=0\].
-
-\quad
+\textbf{5. Limite en $+\infty$.} Pour $t\in]0,1]$, $\frac{1}{1+t}\le1$, donc
+\[
+0\le f(x)\le\int_0^1t^{x-1}dt=\frac1x\xrightarrow[x\to+\infty]{}0 .
+\]
+Par encadrement, $\boxed{\lim\limits_{x\to+\infty}f(x)=0}$. (On peut aussi en déduire $f(x)\sim\frac{1}{2x}$ en $+\infty$, car $f$ est décroissante et $f(x)+f(x+1)=\frac1x$.)
 
 \end{spacing}
 \end{document}
