@@ -6,7 +6,7 @@ import emailjs from '@emailjs/browser';
 import {
   Mail, ExternalLink, Code2, Briefcase, Globe, Palette, Code, Database, BarChart, X, ChevronLeft, ChevronRight,
   Eye, Phone, Send, CheckCircle, Download, MapPin, GraduationCap, FlaskConical, Award, Languages, FileText,
-  Trophy, Play, Smartphone, Bot, BookOpen, PenTool,
+  Trophy, Play, Smartphone, BookOpen, PenTool,
 } from 'lucide-react';
 
 // ---------------------------------------------------------------------------
@@ -28,7 +28,7 @@ const education: TimelineItem[] = [
     period: "2023 – aujourd’hui",
     title: "Cycle d’Ingénieur Statisticien Économiste (ISE)",
     place: "Institut Supérieur des Sciences de la Population (ISSP), Université Joseph Ki-Zerbo, Ouagadougou",
-    detail: "Économétrie, comptabilité nationale (SCN 2008), macroéconomie, apprentissage automatique appliqué. Mémoire de fin d’études en cours.",
+    detail: "Économétrie, comptabilité nationale (SCN 2008), macroéconomie, apprentissage automatique appliqué. Stage de fin de cycle en cours chez Coris Assurance Vie.",
   },
   {
     period: "2023",
@@ -43,6 +43,11 @@ const education: TimelineItem[] = [
 ];
 
 const experience: TimelineItem[] = [
+  {
+    period: "En cours",
+    title: "Stagiaire de fin de cycle",
+    place: "Coris Assurance Vie, Burkina Faso",
+  },
   {
     period: "En cours",
     title: "Fondateur et développeur, Faso Carrières",
@@ -136,14 +141,6 @@ const projects: Project[] = [
     category: "dev",
     icon: Smartphone,
     images: ["/1.webp", "/2.webp", "/3.webp"],
-  },
-  {
-    title: "AIStudio et la série IA Wars",
-    description: "Plateforme Python à 13 agents qui produit la série vidéo parodique IA Wars : écriture du script, voix, montage, synchronisation labiale et réalisation, chaque étape étant confiée à un agent spécialisé.",
-    tags: ["Python", "Multi-agents", "IA générative"],
-    category: "dev",
-    icon: Bot,
-    images: [],
   },
   {
     title: "La RévueCapes",
