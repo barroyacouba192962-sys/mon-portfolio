@@ -1,0 +1,100 @@
+% Style commun aux CV de Yacouba BARRO (versions française et anglaise)
+% Compilation : xelatex cv-fr.tex   puis   xelatex cv-en.tex
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{cv-style}[2026/10/23 Style CV academique]
+
+\RequirePackage[a4paper,top=1.3cm,bottom=1.3cm,left=1.8cm,right=1.8cm]{geometry}
+\RequirePackage{fontspec}
+\RequirePackage{xcolor}
+\RequirePackage{graphicx}
+\RequirePackage{titlesec}
+\RequirePackage{enumitem}
+\RequirePackage{microtype}
+\RequirePackage[hidelinks]{hyperref}
+
+% ---------- Polices ----------
+\setmainfont{TeX Gyre Pagella}
+\newfontfamily\headfont{Inter}[
+  UprightFont = * SemiBold,
+  BoldFont    = * Bold
+]
+\newfontfamily\lightfont{Inter}[UprightFont = * Light]
+
+% ---------- Couleurs ----------
+\definecolor{navy}{HTML}{1B2A4A}
+\definecolor{gold}{HTML}{C8962E}
+\definecolor{muted}{HTML}{5B6475}
+\definecolor{linkblue}{HTML}{1F4E8C}
+
+\hypersetup{colorlinks=true,urlcolor=linkblue,linkcolor=navy}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\linespread{1.04}
+\color{black!88}
+
+% ---------- Titres de section ----------
+\titleformat{\section}
+  {\headfont\color{navy}\fontsize{10.5}{12}\selectfont\addfontfeatures{LetterSpace=8}}
+  {}{0pt}{\MakeUppercase}
+  [\vspace{-6pt}{\color{gold}\rule{\linewidth}{0.8pt}}]
+\titlespacing*{\section}{0pt}{9pt}{4pt}
+
+% ---------- Entrées datées ----------
+\newlength{\datewidth}
+\setlength{\datewidth}{2.35cm}
+
+% \cventry{dates}{intitulé}{établissement / lieu}{description (facultative)}
+\newcommand{\cventry}[4]{%
+  \par\noindent
+  \begin{minipage}[t]{\datewidth}\raggedright\leavevmode
+    {\headfont\fontsize{8.6}{11}\selectfont\color{muted}#1}%
+  \end{minipage}%
+  \begin{minipage}[t]{\dimexpr\linewidth-\datewidth\relax}\leavevmode
+    {\bfseries\color{navy}#2}%
+    \if\relax\detokenize{#3}\relax\else\\{\itshape #3}\fi
+    \if\relax\detokenize{#4}\relax\else\par\vspace{1pt}{\small #4\par}\fi
+  \end{minipage}%
+  \par\vspace{4.5pt}%
+}
+
+% \cvitem{libellé}{contenu}  — lignes de compétences, langues, etc.
+\newcommand{\cvitem}[2]{%
+  \par\noindent
+  \begin{minipage}[t]{\datewidth}\raggedright\leavevmode
+    {\headfont\fontsize{8.6}{11}\selectfont\color{muted}#1}%
+  \end{minipage}%
+  \begin{minipage}[t]{\dimexpr\linewidth-\datewidth\relax}\leavevmode
+    \small #2%
+  \end{minipage}%
+  \par\vspace{2.5pt}%
+}
+
+% Liste compacte dans les descriptions
+\newlist{cvlist}{itemize}{1}
+\setlist[cvlist]{label={\color{gold}\textbullet},leftmargin=1.1em,itemsep=1pt,topsep=0pt,partopsep=0pt,parsep=0pt}
+
+% Séparateur discret
+\newcommand{\sep}{\hspace{0.45em}{\color{gold}\textbullet}\hspace{0.45em}}
+
+% ---------- En-tête ----------
+% \cvheader{Prénom}{NOM}{titre}{ligne contact 1}{ligne contact 2}{photo ou vide}
+\newcommand{\cvheader}[6]{%
+  \noindent
+  \if\relax\detokenize{#6}\relax
+    \begin{minipage}[b]{\linewidth}
+  \else
+    \begin{minipage}[b]{\dimexpr\linewidth-3.2cm\relax}
+  \fi
+    {\headfont\color{navy}\fontsize{26}{28}\selectfont #1 \textbf{#2}}\\[5pt]
+    {\headfont\color{gold}\fontsize{10.5}{13}\selectfont #3}\\[7pt]
+    {\small\color{muted}#4}\\[1pt]
+    {\small\color{muted}#5}
+  \end{minipage}%
+  \if\relax\detokenize{#6}\relax\else
+    \hfill\begin{minipage}[b]{2.8cm}\raggedleft
+      \includegraphics[width=2.75cm]{#6}
+    \end{minipage}%
+  \fi
+  \par\vspace{4pt}
+}

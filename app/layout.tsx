@@ -14,10 +14,23 @@ const geistMono = Geist_Mono({
   preload: false,
 });
 
+const description =
+  "Portfolio de Yacouba Barro, élève ingénieur statisticien-économiste à l’ISSP (Université Joseph Ki-Zerbo) : économétrie appliquée, macroéconomie quantitative, science des données, développement web et design, à Ouagadougou.";
+
 export const metadata: Metadata = {
-  title: "Barrow Yacouba | Ingénieur Statisticien Économiste & Développeur",
-  description:
-    "Portfolio de Barrow Yacouba - Ingénieur Statisticien Économiste, Développeur Web, Infographiste & Vidéaste basé à Ouagadougou.",
+  metadataBase: new URL("https://bdigistat.com"),
+  title: "Yacouba Barro | Statisticien-économiste, data et développement",
+  description,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "profile",
+    url: "/",
+    siteName: "Yacouba Barro",
+    title: "Yacouba Barro | Statisticien-économiste, data et développement",
+    description,
+    locale: "fr_FR",
+    images: [{ url: "/yacouba-barro.webp", width: 420, height: 420, alt: "Portrait de Yacouba Barro" }],
+  },
   verification: {
     google: "M56qV9j2VneXOwMiI1MLoJ2upGPe35gs5eAsm7lXLMQ",
   },
