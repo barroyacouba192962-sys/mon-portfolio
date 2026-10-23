@@ -1,0 +1,96 @@
+% CV de Yacouba BARRO — version française
+% Compiler avec : xelatex cv-fr.tex
+\documentclass[10pt]{article}
+\usepackage{cv-style}
+% Pas de césure : les motifs de césure français ne sont pas installés ici
+\hyphenpenalty=10000 \exhyphenpenalty=10000 \emergencystretch=3em
+
+\begin{document}
+
+\cvheader{Yacouba}{BARRO}
+  {Élève ingénieur statisticien-économiste (ISE)}
+  {Ouagadougou, Burkina Faso\sep (+226) 66~54~84~30 / 68~54~36~46\\[1pt]\href{mailto:barroyacouba192962@gmail.com}{barroyacouba192962@gmail.com}}
+  {\href{https://bdigistat.com}{bdigistat.com}\sep \href{https://github.com/barroyacouba192962-sys}{github.com/barroyacouba192962-sys}\sep \href{https://www.linkedin.com/in/barro-undefined-b30b47340/}{LinkedIn}}
+  {photo.png}
+
+\section{Profil}
+Élève ingénieur statisticien-économiste à l'ISSP (Université Joseph Ki-Zerbo) et titulaire d'une licence en économie,
+je me spécialise en économétrie appliquée, en macroéconomie quantitative et en science des données. Je m'intéresse à la modélisation macroéconomique, à l'économétrie appliquée aux économies ouest-africaines et à
+l'apport de l'apprentissage automatique à la prévision. En parallèle, je conçois des outils numériques et des formations
+qui rendent les méthodes quantitatives accessibles au Burkina Faso. Je recherche un stage, une bourse ou un projet
+doctoral dans ces domaines.
+
+\section{Centres d’intérêt de recherche}
+Macroéconomie appliquée et modèles DSGE\sep Économétrie des séries temporelles\sep Commerce, investissements
+directs étrangers et croissance en Afrique de l'Ouest\sep Prévision et apprentissage automatique\sep Économie du
+développement et approche par les capabilités
+
+\section{Formation}
+\cventry{2023 – auj.}{Cycle d'Ingénieur Statisticien Économiste (ISE)}
+  {Institut Supérieur des Sciences de la Population (ISSP), Université Joseph Ki-Zerbo, Ouagadougou}
+  {Enseignements~: économétrie, comptabilité nationale (SCN~2008), macroéconomie, apprentissage automatique appliqué.
+   Stage de fin de cycle en cours chez Coris Assurance Vie.}
+\cventry{2023}{Licence en économie, option Macroéconomie et gestion du développement}
+  {Université Nazi Boni, Bobo-Dioulasso}{}
+\cventry{2018}{Baccalauréat}{Complexe Scolaire Alpha la Solidarité}{}
+
+\section{Travaux de recherche et projets académiques}
+\cventry{ISSP}{Modèle DSGE de type RBC appliqué au Burkina Faso (données 2005--2021)}{}
+  {Construction et simulation d'un modèle d'équilibre général dynamique stochastique sur données burkinabè avec
+   Dynare et Octave~; restitution sous forme de présentation Beamer (\LaTeX).}
+\cventry{ISSP}{Ouverture commerciale, IDE et croissance économique au Burkina Faso}{}
+  {Estimation d'un modèle ARDL (relations de court et de long terme) sous Python~; rédaction du rapport économétrique.}
+\cventry{ISSP}{Prévision de la demande horaire d'électricité (série AEP, 2004--2018)}{}
+  {Comparaison de LightGBM, XGBoost, forêts aléatoires, LSTM (PyTorch) et régression linéaire.
+   Meilleur modèle~: LightGBM (MAPE~=~0,70\,\%, R²~=~0,997).}
+
+\section{Expérience}
+\cventry{En cours}{Stagiaire de fin de cycle}{Coris Assurance Vie, Burkina Faso}{}
+\cventry{En cours}{Fondateur et développeur, Faso Carrières}
+  {\href{https://fasocarrieres.com}{fasocarrieres.com} — plateforme d'études, de formation et d'emploi au Burkina Faso}
+  {\begin{cvlist}
+     \item Conception et développement de la plateforme (Next.js, React, Node.js, Appwrite, Vercel).
+     \item Rédaction de formations en ligne~: collecte de données mobile (KoboToolbox, ODK), enquêtes et échantillonnage,
+           économétrie appliquée (Stata, R), analyse de données (SPSS, Stata), cartographie (QGIS), \LaTeX{},
+           Excel appliqué à la finance, IA générative.
+     \item Projet en compétition au Concours National d'Innovation Digitale 2026 (Le Faso Digital).
+   \end{cvlist}}
+\cventry{1 mois}{Stagiaire}{Institut National de la Statistique et de la Démographie (INSD), Ouagadougou}{}
+\cventry{UJKZ}{Assistant numérique}{Université Joseph Ki-Zerbo, Ouagadougou}
+  {Mise à jour des données de la plateforme \href{https://campusfaso.com}{campusfaso.com}.}
+\cventry{Indépendant}{Graphiste et vidéaste}{}
+  {Étiquettes et packaging pour des marques de cosmétiques, affiches, supports de communication et montage vidéo.}
+
+\section{Réalisations numériques et pédagogiques}
+\cventry{Mobile}{FasoPrepas, application de préparation aux concours}{}
+  {QCM chronométrés, corrections détaillées et suivi de progression pour les concours ISE, ASECNA, IFORD, etc.
+   (Flutter, Node.js, Appwrite).}
+\cventry{Édition}{La RévueCapes}{}
+  {Mise en forme et édition d'un document de préparation au CAPES option mathématiques (\LaTeX).}
+
+\section{Certifications}
+\cventry{Coursera}{Finance \& Quantitative Modeling for Analysts (spécialisation)}{University of Pennsylvania}
+  {\href{https://coursera.org/verify/specialization/R352N0T1ED2I}{coursera.org/verify/specialization/R352N0T1ED2I}}
+\cventry{Coursera}{Microsoft Power BI Data Analyst}{Microsoft}
+  {\href{https://coursera.org/verify/23P9VXRLDMQJ}{coursera.org/verify/23P9VXRLDMQJ}}
+\cventry{Autre}{Formation en infographie}{}{}
+
+\section{Compétences}
+\cvitem{Économétrie}{Stata, R, SPSS, Python (scikit-learn, LightGBM, XGBoost, PyTorch), Dynare, Octave}
+\cvitem{Données}{KoboToolbox, ODK, QGIS, Power BI (Power Query), Excel (VBA), SQL, PostgreSQL, Access}
+\cvitem{Rédaction}{\LaTeX{} et Beamer, Word}
+\cvitem{Web \& mobile}{Next.js, React, Node.js, Flutter (Dart), Appwrite, Git et GitHub}
+\cvitem{Design}{Photoshop, Illustrator, InDesign, Canva, CapCut}
+
+\section{Langues}
+\cvitem{Maternelles}{Dioula, Bolon}
+\cvitem{Français}{Courant (langue de travail)}
+\cvitem{Anglais}{Niveau de base, lecture de documentation technique}
+
+\section{Engagement et centres d’intérêt}
+\cvitem{Associatif}{N'Dorola Massakô~: conception d'affiches de collecte de fonds et de supports de communication}
+\cvitem{Intérêts}{Économie politique et philosophie du développement (Amartya Sen), éducation, innovation numérique,
+  création de contenus éducatifs}
+\cvitem{Références}{Disponibles sur demande}
+
+\end{document}
